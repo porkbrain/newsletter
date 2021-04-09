@@ -1,0 +1,30 @@
+{
+  "name": "eml-parser",
+  "version": "5.0.0",
+  "description": "Service which parses eml MIME to html body and headers.",
+  "main": "dist/index.js",
+  "author": "Michael Bausano",
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "ts-mocha -p tsconfig.json test/**/*.spec.ts",
+    "fmt": "prettier --write src --write test"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.809.0",
+    "dotenv": "^8.2.0",
+    "mailparser": "^3.0.1",
+    "postgres": "git+https://github.com/porsager/postgres.git"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/mailparser": "^3.0.0",
+    "@types/mocha": "^8.2.0",
+    "@types/node": "^14.14.13",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "prettier": "2.0.5",
+    "ts-mocha": "^8.0.0",
+    "typescript": "^3.2.2"
+  }
+}

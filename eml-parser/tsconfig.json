@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "module": "commonjs",
+        "outDir": "dist",
+        "removeComments": false,
+        "strict": true,
+        "target": "ES2019"
+    },
+    "include": [
+        "src/**/*",
+        "test/**/*"
+    ]
+}
