@@ -17,7 +17,6 @@
 mod browser;
 mod conf;
 mod error;
-mod event;
 mod prelude;
 mod state;
 
@@ -31,7 +30,7 @@ use {
 use {prelude::*, state::State};
 
 #[tokio::main]
-async fn main() -> Result<()> {
+async fn main() -> Result<(), Error> {
     dotenv().ok();
     env_logger::init();
 
@@ -39,7 +38,9 @@ async fn main() -> Result<()> {
     let sqs = Box::new(SqsClient::new(conf.region.clone()));
     let s3 = Box::new(S3Client::new(conf.region.clone()));
     let browser = Box::new(browser::connect(&conf.gecko_url).await?);
-    let state = State {
+    let queue_url = conf.queue_url.clone();
+
+    let mut state = State {
         browser,
         conf,
         sqs,
@@ -50,18 +51,11 @@ async fn main() -> Result<()> {
     // 1. connection to the sqs
     // 2. connection to the headless browser
     // that's why this service needs supervision
-    poll(state).await
-}
-
-/// The brick and bones of the prtsc microservice. Keeps on receiving messages
-/// from an sqs in a loop. On an unrecoverable error, stops everything and
-/// returns it.
-async fn poll(mut state: State) -> Result<()> {
-    let queue_url = state.conf.queue_url.clone();
-
     loop {
         log::trace!("Waiting for a new message");
-        if let Some(message) = state.sqs.receive(queue_url.clone()).await? {
+        if let Some(message) =
+            state.sqs.as_ref().receive_one(queue_url.clone()).await?
+        {
             match handle(&mut state, message).await {
                 Ok(_) => (),
                 Err(e) if e.is_recoverable() => {
@@ -76,15 +70,15 @@ async fn poll(mut state: State) -> Result<()> {
     }
 }
 
-/// 1. Extracts the name of the object from the message and constructs the url at
-/// which this object is reachable.
+/// 1. Extracts the name of the object from the message and constructs the url
+///    at which this object is reachable.
 ///
 /// 2. Takes a screenshot of the object (expecting a html page).
 ///
 /// 3. Stores the png screenshot to an S3.
 ///
 /// 4. Deletes the message from SQS.
-async fn handle(state: &mut State, message: Message) -> Result<()> {
+async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
     let Message {
         body,
         receipt_handle,
@@ -102,7 +96,7 @@ async fn handle(state: &mut State, message: Message) -> Result<()> {
 
     // 1.
     log::trace!("Received a new message with body: \n\n{}", body);
-    let record = event::NewS3Object::from_str(&body)?;
+    let record = shared::s3::NewS3Object::from_str(&body)?;
     let url = format!(
         "https://s3-{}.amazonaws.com/{}/{}",
         record.region, record.bucket, record.key
@@ -139,20 +133,18 @@ async fn handle(state: &mut State, message: Message) -> Result<()> {
     state
         .sqs
         .delete(state.conf.queue_url.clone(), receipt_handle)
-        .await
+        .await?;
+
+    Ok(())
 }
 
 #[cfg(test)]
 mod tests {
-    use {async_trait::async_trait, rusoto_core::Region};
-
-    use {
-        super::*,
-        crate::{
-            browser::Headless,
-            state::{S3Ext, SqsExt},
-        },
-    };
+    use super::*;
+    use crate::browser::Headless;
+    use async_trait::async_trait;
+    use rusoto_core::Region;
+    use shared::tests::*;
 
     #[tokio::test]
     async fn it_captures_screenshot_and_uploads_to_s3_and_deletes_message() {
@@ -227,52 +219,6 @@ mod tests {
         handle(&mut state, message).await.unwrap();
     }
 
-    #[derive(Default)]
-    struct S3Stub {
-        bucket: String,
-        key: String,
-        body: Vec<u8>,
-    }
-
-    #[async_trait]
-    impl S3Ext for S3Stub {
-        async fn put(
-            &self,
-            bucket: String,
-            key: String,
-            body: Vec<u8>,
-        ) -> Result<()> {
-            assert_eq!(bucket, self.bucket);
-            assert_eq!(key, self.key);
-            assert_eq!(body, self.body);
-            Ok(())
-        }
-    }
-
-    #[derive(Default)]
-    struct SqsStub {
-        queue_url: String,
-        receipt_handle: String,
-    }
-
-    #[async_trait]
-    impl SqsExt for SqsStub {
-        async fn receive(&self, _: String) -> Result<Option<Message>> {
-            unimplemented!("not being tested")
-        }
-
-        async fn delete(
-            &self,
-            queue_url: String,
-            receipt_handle: String,
-        ) -> Result<()> {
-            assert_eq!(queue_url, self.queue_url);
-            assert_eq!(receipt_handle, self.receipt_handle);
-            Ok(())
-        }
-    }
-
-    #[derive(Default)]
     struct BrowserStub {
         url: String,
         png: Vec<u8>,
@@ -283,7 +229,7 @@ mod tests {
         async fn capture_png_screenshot(
             &mut self,
             url: &str,
-        ) -> Result<Vec<u8>> {
+        ) -> Result<Vec<u8>, Error> {
             assert_eq!(url, &self.url);
             Ok(self.png.clone())
         }

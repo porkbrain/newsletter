@@ -4,7 +4,7 @@ use async_trait::async_trait;
 
 use crate::prelude::*;
 
-pub async fn connect(gecko_url: &str) -> Result<fantoccini::Client> {
+pub async fn connect(gecko_url: &str) -> Result<fantoccini::Client, Error> {
     fantoccini::ClientBuilder::rustls()
         .connect(gecko_url)
         .await
@@ -16,12 +16,18 @@ pub async fn connect(gecko_url: &str) -> Result<fantoccini::Client> {
 
 #[async_trait]
 pub trait Headless {
-    async fn capture_png_screenshot(&mut self, url: &str) -> Result<Vec<u8>>;
+    async fn capture_png_screenshot(
+        &mut self,
+        url: &str,
+    ) -> Result<Vec<u8>, Error>;
 }
 
 #[async_trait]
 impl Headless for fantoccini::Client {
-    async fn capture_png_screenshot(&mut self, url: &str) -> Result<Vec<u8>> {
+    async fn capture_png_screenshot(
+        &mut self,
+        url: &str,
+    ) -> Result<Vec<u8>, Error> {
         self.goto(url).await?;
         let png = self.screenshot().await?;
         Ok(png)
