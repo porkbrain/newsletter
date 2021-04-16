@@ -109,7 +109,7 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
     );
 
     // 2.
-    if let Some(annotation) = state.vision.annotate(url)? {
+    if let Some(annotation) = state.vision.annotate(url).await? {
         let json = serde_json::to_string(&annotation)?;
         // 3.
         log::trace!("Saving OCr annotation for {} into s3", record.key);
@@ -142,6 +142,7 @@ mod tests {
         state::State,
         vision::{Annotation, Ocr},
     };
+    use async_trait::async_trait;
     use rusoto_core::Region;
     use shared::tests::*;
 
@@ -224,8 +225,9 @@ mod tests {
         annotation: Annotation,
     }
 
+    #[async_trait]
     impl Ocr for VisionStub {
-        fn annotate(
+        async fn annotate(
             &self,
             image_url: String,
         ) -> Result<Option<Annotation>, Error> {

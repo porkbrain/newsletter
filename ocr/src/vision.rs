@@ -2,7 +2,7 @@
 //! https://cloud.google.com/vision/docs/supported-files
 
 use crate::prelude::*;
-use futures::executor;
+use async_trait::async_trait;
 use google_vision1::api::{
     AnnotateImageRequest, BatchAnnotateImagesRequest, Feature, Image,
     ImageSource, TextAnnotation as GAnnotation, Word as GWord,
@@ -13,10 +13,14 @@ use serde::Serialize;
 
 pub use google_vision1::Vision;
 
+#[async_trait]
 pub trait Ocr {
     /// Given a URL for an image, it sends it to GCP Vision APIs and performs
     /// OCR annotation.
-    fn annotate(&self, image_url: String) -> Result<Option<Annotation>, Error>;
+    async fn annotate(
+        &self,
+        image_url: String,
+    ) -> Result<Option<Annotation>, Error>;
 }
 
 /// Creates a new Google client, ready to be used for querying the Vision APIs.
@@ -37,8 +41,12 @@ pub async fn new(conf: &Conf) -> Result<Vision, Error> {
     Ok(hub)
 }
 
+#[async_trait]
 impl Ocr for Vision {
-    fn annotate(&self, image_url: String) -> Result<Option<Annotation>, Error> {
+    async fn annotate(
+        &self,
+        image_url: String,
+    ) -> Result<Option<Annotation>, Error> {
         log::trace!("Getting annotation for image at {}", image_url);
         let annotate_req = BatchAnnotateImagesRequest {
             requests: Some(vec![AnnotateImageRequest {
@@ -58,10 +66,7 @@ impl Ocr for Vision {
             ..Default::default()
         };
 
-        // I'd love to use async_trait, but the [`Authenticator`] type used with
-        // the [`Vision`] is not `Send` nor `Sync`
-        let (_, data) =
-            executor::block_on(self.images().annotate(annotate_req).doit())?;
+        let (_, data) = self.images().annotate(annotate_req).doit().await?;
         let annotation = data
             .responses
             .and_then(|mut r| r.pop()) // we only request one image
