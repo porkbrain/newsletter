@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x-apple-disable-message-reformatting">
+
+    <title>Nasty Girl</title>
+
+    <!-- // Ooutlook DPI Scaling Fix -->
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+
+
+    <style media="all" type="text/css">
+        /*--- Fonts ---*/
+        @font-face{
+            font-family:'Open Sans';
+            font-style:normal;
+            font-weight:400;
+            src:local('Open Sans'), local('OpenSans'), url('http://fonts.gstatic.com/s/opensans/v10/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff') format('woff');
+        }
+        @font-face {
+            font-family: 'NG-Grotesque';
+            src: url('https://static.cdn.responsys.net/i5/responsysimages/content/boohoo/NGGrotesque1.eot');
+            src: url('https://static.cdn.responsys.net/i5/responsysimages/content/boohoo/NGGrotesque1.eot?iefix') format('embedded-opentype'),
+                url('https://www.boohoo.com/on/demandware.static/-/Library-Sites-boohoo-content-global/default/dw79a56c45/landing-pages/global-elements/fonts/NGGrotesque/ng-grotesque-1.otf') format('opentype'),
+                url('https://static.cdn.responsys.net/i5/responsysimages/content/boohoo/NGGrotesque1.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+            mso-font-alt: 'Arial';
+        }
+        @font-face {
+            font-family: 'NG-Grotesque';
+            src: url('https://www.boohoo.com/on/demandware.static/-/Library-Sites-boohoo-content-global/default/dw79a56c45/landing-pages/global-elements/fonts/NGGrotesque/ng-grotesque-2.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            mso-font-alt: 'Arial';
+        }
+        @font-face {
+            font-family: 'NG-Grotesque';
+            src: url('https://static.cdn.responsys.net/i5/responsysimages/content/boohoo/NGGrotesque3.eot');
+            src: url('https://static.cdn.responsys.net/i5/responsysimages/content/boohoo/NGGrotesque3.eot?iefix') format('embedded-opentype'),
+                url('https://www.boohoo.com/on/demandware.static/-/Library-Sites-boohoo-content-global/default/dw79a56c45/landing-pages/global-elements/fonts/NGGrotesque/ng-grotesque-3.otf') format('opentype'),
+                url('https://static.cdn.responsys.net/i5/responsysimages/content/boohoo/NGGrotesque3.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            mso-font-alt: 'Arial';
+        }
+    </style>
+
+    <style type="text/css">
+    html, body {
+			margin: 0 auto !important;
+			padding: 0 !important;
+			height: 100% !important;
+			width: 100% !important;
+            font-family: Arial, sans-serif;
+            background-color: #EEEEEE;
+        }
+        
+        .bg_color { background-color: #EEEEEE; }
+        .bg_white { background-color: #FFFFFF; }
+
+        .wrapper { table-layout: fixed !important; }
+        .tb_images { table-layout: auto !important; }
+
+        .mobile-hide { display: none !important; }
+
+        .padding { padding: 10px 5% 10px 5%; }
+        .icon-padding { padding: 10px 8px 10px 8px; text-align: center; }
+        .no-padding { padding: 0 !important; }
+        .section-padding { padding: 50px 15px 50px 15px !important; }
+
+        .copy_top_text { font-family: 'NG-Grotesque', Helvetica, Arial, sans-serif; font-size: 11px; line-height: 100%; font-weight: 300; color: #999999; }
+        .copy_top_text a { color:#999999; text-decoration:none; }
+        .copy_top_text a:hover { color:#999999; text-decoration:underline; }
+
+        .logo { display: inline-block; font-size: 0; line-height: 0px; margin: 0; padding: 0; }
+        .logo img { margin: 0 auto !important; max-width: 200px; margin: 0; padding: 0; }
+
+        .header_button { font-family: 'NG-Grotesque', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 300; color: #000000; margin: 0; padding: 0; }
+        .header_button a { color: #000000; text-decoration:none; }
+        .header_button a:hover { color: #000000; text-decoration:underline; }
+
+        .copy_heading { font-family: 'NG-Grotesque', Helvetica, Arial, sans-serif; font-size: 32px; font-weight: 300; color: #000000; margin: 0; padding: 0; }
+        .copy_heading a { color:#000000; text-decoration:none; }
+        .copy_heading a:hover { color:#000000; text-decoration:underline; }
+
+        .copy_body{ font-family: 'NG-Grotesque', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 300; color: #000000; margin: 0; padding: 0; }
+        .copy_body a { color:#000000; text-decoration:none; }
+        .copy_body a:hover { color:#000000; text-decoration:underline; }
+
+        .cta_button { font-family: 'NG-Grotesque', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 300; color: #000000; margin: 0; padding: 0; }
+        .cta_button a { color:#000000; text-decoration:none; }
+        .cta_button a:hover { color:#000000; text-decoration:none; }
+
+        .copy_legal { font-family: 'NG-Grotesque', Helvetica, Arial, sans-serif; font-size:13px; line-height:18px; font-weight: 300; color:#666666; margin: 0; padding: 0; }
+        .copy_legal a { color:#666666; text-decoration:none; }
+        .copy_legal a:hover { color:#666666; text-decoration:underline; }
+
+
+        /* MOBILE STYLES */
+        @media screen and (max-width: 700px) {
+            .img-max { max-width: 100% !important; width: 100% !important; height: auto !important; }
+            .img-padded { max-width: 96% !important; width: 96% !important; height: auto !important; }
+        }
+
+        @media screen and (max-width: 480px) {
+            .wrapper { width: 100% !important; max-width: 100% !important; }
+            .responsive-table { width: 100% !important; }
+
+            .copy_top_text { font-size: 10px; }
+            .logo img { margin: 0 auto !important; max-width: 68%; }
+            .header_buttons { width: 90% !important; max-width: 90% !important; }
+            .header_button { font-size: 12px; }
+
+            .copy_heading { font-size: 24px; }
+            .copy_body { font-size: 14px; }
+            .cta_button { font-size: 13px; }
+
+            .icon-padding { padding: 10px 5% 10px 5%; text-align: center; }
+            .social_icons { width: 70% !important; max-width: 70% !important; }
+            .app_icons { width: 60% !important; max-width: 60% !important; }
+            .copy_legal { font-size: 11px; line-height: 15px; }
+        }
+    </style>
+
+    <style type="text/css">
+        /* CSS Resets */
+        #MessageViewBody, #MessageWebViewDiv{ width: 100% !important; }
+        * { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+        *[x-apple-data-detectors], .unstyle-auto-detected-links *, .aBn { 
+            border-bottom: 0 !important; 
+            cursor: default !important; 
+            color: inherit !important; 
+            text-decoration: none !important; 
+            font-size: inherit !important; 
+            font-family: inherit !important; 
+            font-weight: inherit !important; 
+            line-height: inherit !important; 
+        }
+
+        div[style*="margin: 16px 0"] { margin: 0 auto !important; font-size:100% !important; }
+        body, table, td, a {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+        table, td { mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; }
+        table { border-spacing: 0 !important; border-collapse: collapse !important; margin: 0 auto !important; }
+        img { -ms-interpolation-mode:bicubic; }
+        a { text-decoration: none; }
+        .a6S { display: none !important; opacity: 0.01 !important; }
+        .im { color: inherit !important; }
+        img.g-img + div { display: none !important; }
+        
+        /* RESET STYLES */
+        img {border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none;}
+        table {border-collapse: collapse !important;}
+        body {height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }
+
+        /* iPhone Fixes */
+        @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {u ~ div .em_container { min-width: 320px !important; }}
+        @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {u ~ div .em_container { min-width: 375px !important; }}
+        @media only screen and (min-device-width: 414px) {u ~ div .em_container { min-width: 414px !important; }}
+        @media screen and (max-width: 480px) {u + .body-wrap .full-wrap { width:100% !important; width:100vw !important; }}
+    </style>
+
+    <!--[if (gte mso 9)|(IE)]>
+	<style type="text/css">
+		table {border-collapse: collapse !important;}
+		h1, h2, h3, h4, h5, h6, p, a {font-family: Arial, sans-serif !important;}
+	</style>
+	<![endif]-->
+</head>
+
+<body class="bg_color" style="background-color:#EEEEEE; margin:0 !important; padding:0 !important;">
+    <!-- // HIDDEN TEXT -->
+    <div style="display:none; font-size:1px; line-height:1px; font-family:Arial, sans-serif; max-height:0px; max-width:0px; opacity:0; overflow:hidden;">
+        Handpicked just for you. 
+        &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+    </div>
+
+    <!-- ! WRAPPER -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" class="wrapper">
+
+        <!-- @ HEADER TEXT -->
+        <tr>
+            <td align="center">
+                <!--[if (gte mso 9)|(IE)]>
+                <table align="center" border="0" cellspacing="0" cellpadding="0" width="700">
+                    <tr>
+                        <td align="center" valign="top" width="700">
+                <![endif]-->
+
+                <table class="wrapper" border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100%; max-width:700px;">
+                    <tr>
+                        <td class="copy_top_text" align="center" style="padding:10px 0 8px 0; text-align:center;">
+                            <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABWRY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=m0oj3n5jg9cvb3rkosk0qekegvb7ej69ur7c2tualdrnareu4kng" style="font-family:'NG-Grotesque', Helvetica, Arial, sans-serif; font-weight:300; color:#999999; text-decoration:none;">Handpicked just for you. </a>
+                        </td>
+                    </tr>
+                </table>
+
+                <!--[if (gte mso 9)|(IE)]>
+                        </td>
+                    </tr>
+                </table>
+                <![endif]-->
+            </td>
+        </tr>
+        <!-- * HEADER TEXT -->
+
+        <!-- @ HEADER -->
+        <tr>
+            <td align="center" style="padding:0" class="no-padding">
+                <!--[if (gte mso 9)|(IE)]>
+                <table align="center" border="0" cellspacing="0" cellpadding="0" width="700">
+                    <tr>
+                        <td align="center" valign="top" width="700">
+                <![endif]-->
+
+                <table class="responsive-table  bg_white" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100%; max-width:700px; background-color: #FFFFFF;">
+                    <!-- # LOGO -->
+                    <tr>
+                        <td align="center">
+                            <!--[if (gte mso 9)|(IE)]>
+                            <table align="center" border="0" cellspacing="0" cellpadding="0" width="200">
+                                <tr>
+                                    <td align="center" valign="top" width="200">
+                            <![endif]-->
+
+                            <table class="wrapper" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" style="width:100%; max-width:700px;">
+                                <tr>
+                                    <td align="center" style="padding:3% 0 1% 0;">
+                                        <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABWRY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=m0oj3n5jg9cvb3rkosk0qekegvb7ej69ur7c2tualdrnareu4kng" target="_blank" class="logo" style="display:inline-block; font-size:0px; line-height:0px;">
+                                            <img src="https://i1.adis.ws/i/boohooamplience/ng_em_logo.png" alt="Nasty Gal" border="0" width="200" style="width:100%; max-width:200px; display:inline-block; border:0; font-size:0px; line-height:0px;">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                </tr>
+                            </table>
+                            <![endif]-->
+                        </td>
+                    </tr>
+                    <!-- ? END: LOGO -->
+
+                    <!-- # HEADER BUTTONS -->
+                    <tr>
+                        <td align="center">
+                            <!--[if (gte mso 9)|(IE)]>
+                            <table align="center" border="0" cellspacing="0" cellpadding="0" width="400">
+                                <tr>
+                                    <td align="center" valign="top" width="400">
+                            <![endif]-->
+
+                            <div style="display:block;">
+                                <table class="wrapper" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100%; max-width:700px;">
+                                    <tr>
+                                        <td align="center" valign="top" style="padding:2% 0 3% 0; font-size:0;">
+                                            <div class="header_buttons" style="display:inline-block; margin: 0; width:100%; max-width:400px; vertical-align:top;">
+                                                <table class="tb_images" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100%; table-layout:auto;">
+                                                    <tr>
+                                                        <td align="center">
+                                                            <div style="border-right:solid 1px #444444; font-size:16px; font-weight:300;">
+                                                                <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABWTY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=vgvj54lpd73i1f5m9ak08ouopkkrti8c04uh1aidtva7uq2qknt0" target="_blank" class="header_button" style="display:inline-block; margin:0; padding:0; color:#000000; box-sizing:border-box; cursor:pointer; text-align:center; text-decoration:none;">Shop New</a>
+                                                            </div>
+                                                        </td>
+                                                        <td align="center">
+                                                            <div style="border-right:solid 1px #444444; font-size:16px; font-weight:300;">
+                                                                <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABWWY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=simruh5rdkjb6msanr54cqdb0vp181bgea5nhmo2lvi8lrrd5jtg" target="_blank" class="header_button" style="display:inline-block; margin:0; padding:0; color:#000000; box-sizing:border-box; cursor:pointer; text-align:center; text-decoration:none;">Shop Dresses</a>
+                                                            </div>
+                                                        </td>
+                                                        <td align="center">
+                                                            <div style="font-size:16px; font-weight:300;">
+                                                                <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABWAY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=3k42p9u5891tup5tm6i7bqegaiks1okr2v136jp00feotfedbv10" target="_blank" class="header_button" style="display:inline-block; margin:0; padding:0; color:#000000; box-sizing:border-box; cursor:pointer; text-align:center; text-decoration:none;">Shop Shoes</a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                </tr>
+                            </table>
+                            <![endif]-->
+                        </td>
+                    </tr>
+                    <!-- ? END: FOOTER BUTTONS --> 
+
+                </table>
+
+                <!--[if (gte mso 9)|(IE)]>
+                        </td>
+                    </tr>
+                </table>
+                <![endif]-->
+            </td>
+        </tr>
+        <!-- * END: HEADER -->
+
+        <!-- @ EMAIL CONTENT -->
+        <tr>
+            <td align="center" style="padding:0" class="no-padding">
+                <!--[if (gte mso 9)|(IE)]>
+                <table align="center" border="0" cellspacing="0" cellpadding="0" width="700">
+                    <tr>
+                        <td align="center" valign="top" width="700">
+                <![endif]-->
+
+                <table class="responsive-table  bg_white" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100%; max-width:700px; background-color: #FFFFFF;">
+                    <!-- # CONTENT IMAGES -->
+                    <tr>
+                        <td align="center" style="padding:0" class="no-padding">
+
+
+
+
+
+							<!-- # HERO IMAGE -->
+                            <table class="wrapper" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td class="no-padding" align="center">
+                                        <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABWCY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=cqi7s7mk1n73plv2pcknjm3gh3fquh2p0euphe2hh7vma8v8dhu0" target="_blank">
+                                            <img src="https://static.cdn.responsys.net/i5/responsysimages/nastygal/contentlibrary/2020/12december/gbp/201213_gbp_wintershop_vs/uk/UK_Email_Banner.jpg" alt="Nasty Gal" border="0" width="700" style="width:100%; max-width:700px; display:block; font-size:0;" class="img-max">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- ? END: HERO IMAGE -->
+							
+							<!-- # HERO IMAGE -->
+                            <table class="wrapper" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td class="no-padding" align="center"><a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABYRY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=bracm8s9seoo0bvhgpoa7unbsjjar6i14an5esrmphpvq2qi76d0" target="_blank"><img alt="Nasty Gal" border="0" class="img-max" src="https://static.cdn.responsys.net/i5/responsysimages/content/nastygal/WINTERSHOPHERO.gif?imbypass=true" style="width:100%; max-width:700px; display:block; font-size:0;" width="700" /> </a></td>
+                                </tr>
+                            </table>
+                            <!-- ? END: HERO IMAGE -->
+							
+							  <!-- # 2 IMAGES -->
+                            <table class="wrapper" width="100%" border="0" cellspacing="0" cellpadding="0" style="width:100%; max-width:700px;">
+                                <tr>
+                                    <td align="center" style="padding:0;">
+
+                                        <table class="tb_images" width="100%" border="0" cellspacing="0" cellpadding="0" style="width:100%; max-width:700px;">
+                                            <tr valign="top">
+                                                <td class="no-padding" align="center">
+                                                    <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABYTY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=ooam4b0t3ipvmi10jnevk95mdghbqndt3pfgiei76khl6rdtsr8g" target="_blank">
+                                                        <img src="https://static.cdn.responsys.net/i5/responsysimages/nastygal/contentlibrary/2020/12december/gbp/201213_gbp_wintershop_vs/uk/Winter_Shop2_02.jpg" alt="Nasty Gal" border="0" width="350" style="width:100%; max-width:350px; display:block; font-size:0;" class="no-padding">
+                                                    </a>
+                                                </td>
+                                                <td class="no-padding" align="center">
+                                                    <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABYWY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=b3ngb0htt8hm3t1m2js8vfkaljaoq1qle8hqephkacjign9ll4p0" target="_blank">
+                                                        <img src="https://static.cdn.responsys.net/i5/responsysimages/nastygal/contentlibrary/2020/12december/gbp/201213_gbp_wintershop_vs/uk/Winter_Shop2_03.jpg" alt="Nasty Gal" border="0" width="350" style="width:100%; max-width:350px; display:block; font-size:0;" class="no-padding">
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- ? END: 2 IMAGES -->
+							
+							  <!-- # 2 IMAGES -->
+                            <table class="wrapper" width="100%" border="0" cellspacing="0" cellpadding="0" style="width:100%; max-width:700px;">
+                                <tr>
+                                    <td align="center" style="padding:0;">
+
+                                        <table class="tb_images" width="100%" border="0" cellspacing="0" cellpadding="0" style="width:100%; max-width:700px;">
+                                            <tr valign="top">
+                                                <td class="no-padding" align="center">
+                                                    <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABYAY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=3tgl7vgau5s27qhg53m79epiusdh6r62eaolbgptau01cn96nntg" target="_blank">
+                                                        <img src="https://static.cdn.responsys.net/i5/responsysimages/nastygal/contentlibrary/2020/12december/gbp/201213_gbp_wintershop_vs/uk/Winter_Shop2_04.jpg" alt="Nasty Gal" border="0" width="350" style="width:100%; max-width:350px; display:block; font-size:0;" class="no-padding">
+                                                    </a>
+                                                </td>
+                                                <td class="no-padding" align="center">
+                                                    <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABYCY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=5og5cd26u4pm2m89fnekc98327jqqo3arq6od8g8vfro93d59mng" target="_blank">
+                                                        <img src="https://static.cdn.responsys.net/i5/responsysimages/nastygal/contentlibrary/2020/12december/gbp/201213_gbp_wintershop_vs/uk/Winter_Shop2_05.jpg" alt="Nasty Gal" border="0" width="350" style="width:100%; max-width:350px; display:block; font-size:0;" class="no-padding">
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- ? END: 2 IMAGES -->
+
+
+							<!-- # HERO IMAGE -->
+                            <table class="wrapper" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td class="no-padding" align="center"><a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABARY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=6nn5bnaa8a2b4ld3tftuv9mqehv1ehkhbbl711c2mhusmb1n3t9g" target="_blank"><img alt="Nasty Gal" border="0" class="img-max" src="https://static.cdn.responsys.net/i5/responsysimages/content/nastygal/WINTERSHOP2.gif?imbypass=true" style="width:100%; max-width:700px; display:block; font-size:0;" width="700" /> </a></td>
+                                </tr>
+                            </table>
+                            <!-- ? END: HERO IMAGE -->
+
+
+							  <!-- # 2 IMAGES -->
+                            <table class="wrapper" width="100%" border="0" cellspacing="0" cellpadding="0" style="width:100%; max-width:700px;">
+                                <tr>
+                                    <td align="center" style="padding:0;">
+
+                                        <table class="tb_images" width="100%" border="0" cellspacing="0" cellpadding="0" style="width:100%; max-width:700px;">
+                                            <tr valign="top">
+                                                <td class="no-padding" align="center">
+                                                    <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABATY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=3ct5booibqin3htuquqpj3jh3t7ata7apod1mtb8s5p1g155svqg" target="_blank">
+                                                        <img src="https://static.cdn.responsys.net/i5/responsysimages/nastygal/contentlibrary/2020/12december/gbp/201213_gbp_wintershop_vs/uk/New_Winter_Shop2_07.jpg" alt="Nasty Gal" border="0" width="350" style="width:100%; max-width:350px; display:block; font-size:0;" class="no-padding">
+                                                    </a>
+                                                </td>
+                                                <td class="no-padding" align="center">
+                                                    <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABAWY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=pnm8f70h2du6o0oriknj4mubad459a16fa86kb3qqhe7ch737c20" target="_blank">
+                                                        <img src="https://static.cdn.responsys.net/i5/responsysimages/nastygal/contentlibrary/2020/12december/gbp/201213_gbp_wintershop_vs/uk/New_Winter_Shop2_08.jpg" alt="Nasty Gal" border="0" width="350" style="width:100%; max-width:350px; display:block; font-size:0;" class="no-padding">
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- ? END: 2 IMAGES -->
+							
+							<!-- # HERO IMAGE -->
+                            <table class="wrapper" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td class="no-padding" align="center">
+                                        <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABAAY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=haqcb03ujkp30onoj5q5kujvnvmsf894khj93vdvnnp95vhm7adg" target="_blank">
+                                            <img src="https://static.cdn.responsys.net/i5/responsysimages/nastygal/contentlibrary/2020/12december/gbp/201213_gbp_wintershop_vs/uk/Winter_Shop2_08.jpg" alt="Nasty Gal" border="0" width="700" style="width:100%; max-width:700px; display:block; font-size:0;" class="img-max">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- ? END: HERO IMAGE -->
+							
+							<!-- # HERO IMAGE -->
+                            <table class="wrapper" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td class="no-padding" align="center"><a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABACY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=cslqk6dejuj4bhfjvvgm3mu276qlbg9na78kfitvon88tekd21g0" target="_blank"><img alt="Nasty Gal" border="0" class="img-max" src="https://static.cdn.responsys.net/i5/responsysimages/nastygal/contentlibrary/2020/12december/gbp/201213_gbp_wintershop_vs/uk/New_UK_Promo_Postcard_02.gif" style="width:100%; max-width:700px; display:block; font-size:0;" width="700" /> </a></td>
+                                </tr>
+                            </table>
+                            <!-- ? END: HERO IMAGE -->
+							
+
+                        </td>
+                    </tr>
+                    <!-- ? END: CONTENT IMAGES -->
+                </table>
+
+                <!--[if (gte mso 9)|(IE)]>
+                        </td>
+                    </tr>
+                </table>
+                <![endif]-->
+            </td>
+        </tr>
+        <!-- * END: EMAIL CONTENT -->
+
+
+        <!-- @ FOOTER -->
+        <tr>
+            <td align="center" style="padding:0" class="no-padding">
+                <!--[if (gte mso 9)|(IE)]>
+                <table align="center" border="0" cellspacing="0" cellpadding="0" width="700">
+                    <tr>
+                        <td align="center" valign="top" width="700">
+                <![endif]-->
+
+                <!-- # HR BAR -->
+                <table class="responsive-table  bg_white" border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100%; max-width:700px; background-color: #FFFFFF;">
+                    <tr>
+                        <td align="center" style="margin:0; padding: 50px 5% 0 5%; text-align:center;">
+                            <table align="center" cellspacing="0" cellpadding="0" border="0" width="96%" style="margin:0; padding:0; border-spacing:0; width:96%; max-width:700px; text-align:center;">
+                                <tr>
+                                    <td width="96%" height="2" style="background-color: #CCCCCC; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; mso-line-height-rule:exactly; line-height:2px; width:96%; max-width:700px;">
+                                        <!--[if gte mso 15]>&nbsp;<![endif]-->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- ? END: HR -->
+
+                <table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100%; max-width:700px;" class="responsive-table">
+                    <tr>
+                        <td align="center" height="100%" valign="top" width="100%">
+
+                            <!-- # APP ICONS -->
+                            <div style="display:block;">
+                                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100%; max-width:700px;">
+                                    <tr>
+                                        <td align="center" valign="center" style="padding: 30px 1% 0 1%; font-size:0;">
+                                            <!--[if (gte mso 9)|(IE)]>
+                                            <table align="center" border="0" cellspacing="0" cellpadding="0" width="300">
+                                                <tr>
+                                                    <td align="center" valign="center" width="300">
+                                            <![endif]-->
+
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="width: 100%; max-width:300px;">
+                                                <tr>
+                                                    <td class="icon-padding" align="center">
+                                                        <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABBRY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=pjvopco2qqjl652gjqi3fgdcem4gurgdrrcr1a5jas3dj8j3ratg" target="_blank" style="display:block; margin:0; padding:0; line-height:0;">
+                                                            <img src="https://i1.adis.ws/i/boohooamplience/ng_em_icon_facebook.png" alt="Facebook" width="42" style="border-width:0; width:100%; max-width:42px; height:auto;">
+                                                        </a>
+                                                    </td>
+                                                    <td class="icon-padding" align="center">
+                                                        <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABBTY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=gqqki9h8ec2ugpic6tgkm6qjl8lsq6psvg5qi1o31mfe3uelko70" target="_blank" style="display:block; margin:0; padding:0; line-height:0;">
+                                                            <img src="https://i1.adis.ws/i/boohooamplience/ng_em_icon_twitter.png" alt="Twitter" width="42" style="border-width:0; width:100%; max-width:42px; height:auto;">
+                                                        </a>
+                                                    </td>
+                                                    <td class="icon-padding" align="center">
+                                                        <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABBWY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=7n4b00h2pm1maa7knqgr7k1n801ugau1j3719dfn3ls226fpk8f0" target="_blank" style="display:block; margin:0; padding:0; line-height:0;">
+                                                            <img src="https://i1.adis.ws/i/boohooamplience/ng_em_icon_instagram.png" alt="Instagram" width="42" style="border-width:0; width:100%; max-width:42px; height:auto;">
+                                                        </a>
+                                                    </td>
+                                                    <td class="icon-padding" align="center">
+                                                        <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABBAY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=bls60ivcdfptqnaijarrtqtoueaa90rih9jcafn8f2gphj7n7qig" target="_blank" style="display:block; margin:0; padding:0; line-height:0;">
+                                                            <img src="https://i1.adis.ws/i/boohooamplience/ng_em_icon_snapchat.png" alt="Snapchat" width="42" style="border-width:0; width:100%; max-width:42px; height:auto;">
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <!--[if (gte mso 9)|(IE)]>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <![endif]-->
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td align="center" valign="center" style="padding: 10px 4% 0 4%; font-size:0;">
+                                            <!--[if (gte mso 9)|(IE)]>
+                                            <table align="center" border="0" cellspacing="0" cellpadding="0" width="280">
+                                                <tr>
+                                                    <td align="center" valign="center" width="280">
+                                            <![endif]-->
+
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="width: 100%; max-width:280px;">
+                                                <tr>
+                                                    <td align="center" width="50%" style="padding:0;">
+                                                        <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABBCY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=5on5d1nrsminfnbcqejmcvjbbp4bdav6bpghmv3h3guc2n4vq8fg" target="_blank" border="0" style="display:block; outline:none; margin:0; padding:0 5%; line-height:0;">
+                                                            <img src="https://i1.adis.ws/i/boohooamplience/ng_em_icon_app_store.png" alt="App Store" width="100" style="display:block; border-width:0; width:100%; max-width:120px; height:auto;">
+                                                        </a>
+                                                    </td>
+                                                    <td align="center" width="50%" style="padding:0;">
+                                                        <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABCRY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=ir3j6edi996e8gar8faaq4gbg67d50p670n4jki495l1a2ii4m5g" target="_blank" border="0" style="display:block; outline:none; margin:0; padding:0 5%; line-height:0;">
+                                                            <img src="https://i1.adis.ws/i/boohooamplience/ng_em_icon_google_play.png" alt="Google Play" width="100" style="display:block; border-width:0; width:100%; max-width:120px; height:auto;">
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            
+                                            <!--[if (gte mso 9)|(IE)]>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <![endif]-->
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- ? END: APP ICONS -->
+
+                            <!-- # UNSUBSCRIBE COPY -->
+                            <div style="display:block;">
+                                <table class="footer" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:700px;">
+                                    <tr>
+                                        <td align="center" style="padding:3% 0 0 0; text-align:center;">
+                                            <table class="footer" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:700px;">
+                                                <tr>
+                                                    <td align="center" style="padding:15px 0 0 0; text-align:center;">
+                                                        <p class="copy_legal" style="font-family: 'NG-Grotesque', Helvetica, Arial, sans-serif; color: #999999;">Score up to 80% off everything + an extra 5% off. Use code TAKE5. Valid 13.12.20 for UK only.
+                                                        <br>
+                                                        <br>
+                                                            *To qualify for a free gift you must spend £45, choose 1 product from the free gift category and enter code XMASTREAT at checkout. Valid 13.12.20 for UK only.
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" style="padding:15px 0 0 0; text-align:center;">
+                                                        <p class="copy_legal" style="font-family:'NG-Grotesque', Helvetica, Arial, sans-serif; font-weight:300; color:#999999;">
+                                                            <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABCTY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=mojde2d19rvv4ii0v5rlf978vu2h9lo0mlch4ee15hd9h0a4vek0" style="color:#999999; text-decoration:none;">Contact Us</a>
+                                                            <span style="color: #999999;">&nbsp;&bull;&nbsp;</span>
+                                                            <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABCWY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=p8g0op2prl6o3tt4s0dkjh052kit0c1h5lq347rik56ebn7eqrj0" style="color:#999999; text-decoration:none;">Privacy Notice</a>
+                                                            <span style="color: #999999;">&nbsp;&bull;&nbsp;</span>
+                                                            <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABCCY&amp;_ei_=EiwPQ42l-mBFJGD0ZPxQdvmMwp2_P3883g3SgIn45kl11N0wWt6_E46BLadSi_dmqTgkgCDvFrP6oFwUTMtZD-IHKqr1E8-mdpnOblAZKvJVGkWMs1yh6iemhPRqbzzMTgaV-o8wDBF7ZoMXwgi79Iukt4ppnBRaUNE.&amp;_di_=a4mis16va320du0667rrkl5rc8456kop00053ja2lurr7ggecjkg" style="color:#999999; text-decoration:none;">Unsubscribe</a>
+                                                            <span style="color: #999999;">&nbsp;&bull;&nbsp;</span>
+                                                            <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABCAY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=eg1opg7loncukf8494r3vgeimqer58t35mc5n26dkptf10nhrlt0" style="color:#999999; text-decoration:none;">View in browser</a>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" style="padding:15px 0 0 0; text-align:center;">
+                                                        <p class="copy_legal" style="font-family:'NG-Grotesque', Helvetica, Arial, sans-serif; color:#999999;">This email was sent by: Nasty Gal A Company registered in California<br/> {NO. 10487954 } Registered office: 2135 Bay St, Los Angeles, CA 90021</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" style="padding:20px 0 20px 0; text-align:center;">
+                                                        <a href="https://emailnastygal.com/pub/cc?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXtpKX%3DTSWWABWRY&amp;_ei_=Eq2tf9zs59idfPO1Sc_9BbktrKmOc1A80BaW6MY63Ka206J-yGF-U7usJq_prM.&amp;_di_=m0oj3n5jg9cvb3rkosk0qekegvb7ej69ur7c2tualdrnareu4kng" target="_blank">
+                                                            <img src="https://i1.adis.ws/i/boohooamplience/ng_em_icon.png" alt="Nasty Gal" width="30" border="0" style="border:0;" />
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- ? END: UNSUBSCRIBE COPY -->
+
+                        </td>
+                    </tr>
+                </table>
+                <!--[if (gte mso 9)|(IE)]>
+                        </td>
+                    </tr>
+                </table>
+                <![endif]-->
+            </td>
+        </tr>
+        <!-- * END: FOOTER -->
+
+    </table><table cellpadding="0" cellspacing="0" style="border: 0px; padding: 0px; margin: 0px; position: absolute; display: none; float: left">
+<tr>
+<td height="1" style="font-size: 1px; line-height: 1px; padding: 0px;">
+<br><img src="https://emailnastygal.com/pub/as?_ri_=X0Gzc2X%3DAQpglLjHJlYQGtzdlFzf4PAvMbODslSzb8zcm2gpIb8zbsCutTePzcUjJD2zg1zc4m28s2ynHzaGVXHkMX%3Dw&_ei_=EolaGGF4SNMvxFF7KucKuWNjwOLyncDiCbA_Akyj-vMWiVKaEzA."></img>
+</td>
+</tr>
+</table>
+
+</body>
+
+</html>
+

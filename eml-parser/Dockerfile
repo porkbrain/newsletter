@@ -1,10 +1,14 @@
 FROM node:12
 
-ENV BIN_DIRECTORY /usr/bin/mailmevouchers
-WORKDIR "${BIN_DIRECTORY}"
+WORKDIR /usr/src/app
 
-# dependencies and built files should be everything we need
-COPY node_modules node_modules
+# install prod deps
+COPY package*.json ./
+RUN npm ci --only=production
+
+# it's important that you build the app first
 COPY dist dist
+RUN test -f dist/main.js
 
-CMD node dist/index.js
+CMD [ "node", "." ]
+
