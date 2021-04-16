@@ -7,13 +7,11 @@ use google_vision1::api::{
     AnnotateImageRequest, BatchAnnotateImagesRequest, Feature, Image,
     ImageSource, TextAnnotation as GAnnotation, Word as GWord,
 };
-use hyper::client::HttpConnector;
 use hyper_rustls::HttpsConnector;
 use oauth2::InstalledFlowAuthenticator;
 use serde::Serialize;
 
-pub type Vision =
-    google_vision1::Vision<hyper::Client<HttpsConnector<HttpConnector>>>;
+pub use google_vision1::Vision;
 
 pub trait Ocr {
     /// Given a URL for an image, it sends it to GCP Vision APIs and performs
