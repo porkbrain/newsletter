@@ -1,6 +1,8 @@
 [workspace]
 
 members = [
-    "prtsc"
+    "prtsc",
+    "ocr",
+    "shared",
 ]
 
