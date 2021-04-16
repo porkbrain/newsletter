@@ -6,14 +6,14 @@ describe("parse.ts", () => {
     const id = "test-id";
     const {
       html,
-      recipientEmail,
+      recipientAddress,
       senderAddress,
       senderName,
       subject,
       receivedAt,
     } = await parseEmailFromEmlHtml(id, sampleEml);
 
-    expect(recipientEmail).to.eq("test@prizeprofile.com");
+    expect(recipientAddress).to.eq("test@prizeprofile.com");
     expect(senderAddress).to.eq("email@emailnastygal.com");
     expect(senderName).to.eq("Nasty Gal");
     expect(html).to.eq(sampleHtml);
