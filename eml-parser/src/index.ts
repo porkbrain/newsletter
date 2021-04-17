@@ -14,10 +14,7 @@ async function main() {
   while (true) {
     try {
       const message = await inputSqs.receive();
-      const { id: s3Key, body } = await fetchFromS3(
-        conf.emailsBucketName,
-        message.body()
-      );
+      const { id: s3Key, body } = await fetchFromS3(message.body());
 
       const {
         senderAddress,
@@ -38,7 +35,6 @@ async function main() {
         subject,
       });
       await uploadHtmlToS3(conf.htmlBucketName, s3Key, html);
-      // TODO: insert new job
       await message.delete();
       failedInRow = 0;
     } catch (err) {

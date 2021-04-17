@@ -16,7 +16,6 @@ aws.config.update({ region: defaultRegion });
 
 export interface Conf {
   inputNewMailQueue: SqsConf;
-  emailsBucketName: string;
   htmlBucketName: string;
   dbName: string;
   maxFailedInRow: number;
@@ -33,10 +32,10 @@ export function readEnv(): Conf {
   }
 
   const maxFailedInRow = parseInt(process.env.MAX_FAILED_IN_ROW || "10") || 10;
-
-  const emailsBucketName = process.env.EMAILS_BUCKET_NAME || "mailmevouchers";
-  const htmlBucketName =
-    process.env.HTML_BUCKET_NAME || "assets.mailmevouchers.com";
+  const htmlBucketName = process.env.HTML_BUCKET_NAME;
+  if (!htmlBucketName) {
+    throw new Error("HTML_BUCKET_NAME env var must be provided");
+  }
 
   const dbName = process.env.DATABASE;
   if (!dbName) {
@@ -44,7 +43,6 @@ export function readEnv(): Conf {
   }
 
   return {
-    emailsBucketName,
     htmlBucketName,
     inputNewMailQueue: { url: inputQueueUrl },
     dbName,

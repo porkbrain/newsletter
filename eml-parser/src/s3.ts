@@ -25,22 +25,14 @@ export interface S3Object {
  * @param bucketName Bucket where emails are stored by SES
  * @param sqsMessageBody Stringified https://docs.aws.amazon.com/AmazonS3/latest/dev/notification-content-structure.html
  */
-export async function fetchFromS3(
-  bucketName: string,
-  event: S3CreateEvent
-): Promise<S3Object> {
+export async function fetchFromS3(event: S3CreateEvent): Promise<S3Object> {
   const { eventVersion, s3 } = event.Records.pop()!;
 
   console.log(
     `Received an S3 event version ${eventVersion} of size ${s3.object.size}.`
   );
 
-  if (s3.bucket.name !== bucketName) {
-    throw new Error(
-      `Received an event from bucket ${s3.bucket.name}, but expected ${bucketName}.`
-    );
-  }
-
+  const bucketName = s3.bucket.name;
   const objectName = decodeURI(s3.object.key); // a.k.a. email id
 
   const params: aws.S3.Types.GetObjectRequest = {
@@ -51,7 +43,7 @@ export async function fetchFromS3(
 
   return {
     id: objectName,
-    body: Body!.toString(),
+    body: (Body || "").toString(),
   };
 }
 
