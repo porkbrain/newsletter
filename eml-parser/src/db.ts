@@ -1,28 +1,12 @@
-/**
- * Postgres database follows schema in the source of truth directory of
- * `deployment/migrations`.
- *
- * We can write sql with interpolated variables with `${ ... }` because the lib
- * [escapes][postgres-escape] the variables.
- *
- * [postgres-escape]: https://github.com/porsager/postgres#tagged-template-function-sql
- */
+import sqlite3 from "sqlite3";
+import { open, Database } from "sqlite";
 
-import postgres from "postgres";
-import { DEBUG } from "./conf";
+export type Conn = Database<sqlite3.Database, sqlite3.Statement>;
 
-export type Conn = postgres.Sql<{}>;
-export type ConnOptions = postgres.Options<{}>;
-
-export function newConn(opt: ConnOptions): Conn {
-  return postgres({
-    user: "newsletter",
-    host: "localhost",
-    port: 5432,
-    db: "newsletter",
-    debug: DEBUG,
-    max: 1,
-    ...opt,
+export function newConn(dbFile: string): Promise<Conn> {
+  return open({
+    filename: dbFile,
+    driver: sqlite3.Database,
   });
 }
 
@@ -36,27 +20,24 @@ export interface InboundEmail {
   receivedAt: Date;
 }
 
-/**
- * @param conn
- * @param email
- * @returns Id of the newly created email
- */
 export async function insertInboundEmail(conn: Conn, email: InboundEmail) {
-  const rows = await conn`
-    insert into inbound_emails(
+  await conn.run(
+    `
+  insert into inbound_emails (
       s3_key,
       sender_address,
       sender_name,
       recipient_address,
       subject,
       received_at
-    ) values (
-      ${email.s3Key},
-      ${email.senderAddress},
-      ${email.senderName},
-      ${email.recipientAddress},
-      ${email.subject},
-      ${email.receivedAt}
-    )
-  `;
+  ) values (?, ?, ?, ?, ?, ?)
+  `,
+    email.s3Key,
+    email.senderAddress,
+    email.senderName,
+    email.recipientAddress,
+    email.subject,
+    // we store time as unix time in seconds
+    Math.floor(email.receivedAt.getTime() / 1000)
+  );
 }

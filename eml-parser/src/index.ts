@@ -7,7 +7,8 @@ import { newConn, insertInboundEmail } from "./db";
 async function main() {
   const conf = readEnv();
   const inputSqs = Sqs.new(conf.inputNewMailQueue);
-  const conn = newConn(conf.db);
+  const conn = await newConn(conf.dbName);
+  await conn.migrate();
 
   let failedInRow = 0;
   while (true) {

@@ -24,7 +24,7 @@ export async function parseEmailFromEmlHtml(
     html: htmlContent,
     from,
     subject,
-    to: recipient,
+    to: recipients,
     date,
   } = await simpleParser(body, emailParserOptions);
 
@@ -41,6 +41,7 @@ export async function parseEmailFromEmlHtml(
     throw new Error(`Missing from address in ${s3Key}.`);
   }
 
+  const recipient = Array.isArray(recipients) ? recipients.shift() : recipients;
   if (
     !recipient ||
     !Array.isArray(recipient.value) ||

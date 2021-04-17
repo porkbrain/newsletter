@@ -1,14 +1,9 @@
 import aws from "aws-sdk";
 import { config as dotenv } from "dotenv";
 import { SqsConf } from "./sqs";
-import { ConnOptions } from "./db";
 
 // see deployment script for the service
 dotenv();
-
-export const DEBUG: boolean = ["1", "true", "yes", "y"].some(
-  (truthy) => truthy === process.env.DEBUG
-);
 
 // Use specific API versions.
 aws.config.apiVersions = {
@@ -23,7 +18,7 @@ export interface Conf {
   inputNewMailQueue: SqsConf;
   emailsBucketName: string;
   htmlBucketName: string;
-  db: ConnOptions;
+  dbName: string;
   maxFailedInRow: number;
 }
 
@@ -43,32 +38,16 @@ export function readEnv(): Conf {
   const htmlBucketName =
     process.env.HTML_BUCKET_NAME || "assets.mailmevouchers.com";
 
-  const dbPort =
-    (process.env.POSTGRES_PORT && parseInt(process.env.POSTGRES_PORT)) ||
-    undefined;
-  if (dbPort) {
-    console.log(`Database port is ${dbPort}.`);
-  }
-
-  const dbHost = process.env.POSTGRES_HOST;
-  if (dbHost) {
-    console.log(`Database host is ${dbHost}.`);
-  }
-
-  const dbPassword = process.env.POSTGRES_PASSWORD;
-  if (!dbPassword) {
-    throw new Error("POSTGRES_PASSWORD env var must be provided.");
+  const dbName = process.env.DATABASE;
+  if (!dbName) {
+    throw new Error("DATABASE env var must be provided");
   }
 
   return {
     emailsBucketName,
     htmlBucketName,
     inputNewMailQueue: { url: inputQueueUrl },
-    db: {
-      port: dbPort,
-      password: dbPassword,
-      host: dbHost,
-    },
+    dbName,
     maxFailedInRow,
   };
 }
