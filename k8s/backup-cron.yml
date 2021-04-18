@@ -1,0 +1,55 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: db-backup
+  namespace: newsletter
+  labels:
+    app: db-backup
+spec:
+  # every hour
+  schedule: "0 * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      backoffLimit: 3
+      activeDeadlineSeconds: 100
+      template:
+        metadata:
+          labels:
+            app: db-backup
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: db-backup
+            image: porkbrain/s3-sqlite-backup:latest
+            env:
+            - name: DATABASE_PATH
+              value: "/data/database.db"
+            - name: BUCKET_NAME
+              value: "newsletter-backups-fk39"
+            - name: AWS_DEFAULT_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: aws
+                  key: region
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws
+                  key: key
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws
+                  key: secret
+            volumeMounts:
+            - mountPath: /data
+              name: newsletter-data
+          volumes:
+          - name: newsletter-data
+            persistentVolumeClaim:
+              claimName: newsletter-pvc
+          nodeSelector:
+            beta.kubernetes.io/arch: amd64
+
