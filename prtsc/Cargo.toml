@@ -1,6 +1,6 @@
 [package]
 name = "prtsc"
-version = "0.1.0"
+version = "0.2.1"
 authors = ["Michael <michael@porkbrain.com>"]
 edition = "2018"
 
@@ -15,9 +15,10 @@ log = "0.4"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tokio = { version = "1.5", features = [ "macros" ] }
+image = { version = "0.23", default-features = false, features = ["png", "jpeg"] }
 
 # services
-fantoccini = { version = "0.17", features = ["rustls-tls"] }
+fantoccini = { git = "https://github.com/bausano/fantoccini", features = ["rustls-tls"] }
 rusoto_core = { version = "0.46", features = [ "rustls" ], default-features = false }
 rusoto_s3 = { version = "0.46", features = [ "rustls" ], default-features = false }
 rusoto_sqs = { version = "0.46", features = [ "rustls" ], default-features = false }

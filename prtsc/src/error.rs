@@ -7,6 +7,8 @@
 //!    as it exists. We rely on supervision, such as k8s controller, that
 //!    restarts failed jobs.
 
+use image::ImageError;
+
 use {
     fantoccini::error::CmdError,
     rusoto_core::RusotoError,
@@ -74,6 +76,12 @@ impl<E: Debug> From<RusotoError<E>> for Error {
 
 impl From<envy::Error> for Error {
     fn from(e: envy::Error) -> Self {
+        Self::fatal(e)
+    }
+}
+
+impl From<ImageError> for Error {
+    fn from(e: ImageError) -> Self {
         Self::fatal(e)
     }
 }

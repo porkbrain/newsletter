@@ -10,14 +10,42 @@ pub struct Conf {
     /// This is set by the Dockerfile.
     pub gecko_url: String,
     /// All services _must_ run in the same region.
+    ///
+    /// # Default
+    /// The [`Default` trait][default] results in rusoto reading the environment
+    /// variable `AWS_DEFAULT_REGION`.
+    ///
+    /// [default]: https://docs.rs/rusoto_core/0.46.0/rusoto_core/enum.Region.html#default
+    #[serde(default = "Default::default")]
     pub region: Region,
     /// After taking a screenshot, where should we persist it?
-    pub png_bucket_name: String,
+    pub screenshot_bucket_name: String,
     /// Png which has more bytes that this many is ignored.
-    #[serde(default = "default_max_png_size")]
-    pub max_png_size: usize,
+    #[serde(default = "default_max_screenshot_size")]
+    pub max_screenshot_size: usize,
 }
 
-fn default_max_png_size() -> usize {
-    2_500_000 // 2.5MB
+fn default_max_screenshot_size() -> usize {
+    5_000_000 // 5MB
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::env;
+
+    #[test]
+    fn it_creates_conf_from_env() {
+        env::set_var("INPUT_QUEUE_URL", "queuetest");
+        env::set_var("SCREENSHOT_BUCKET_NAME", "buckettest");
+        env::set_var("GECKO_URL", "geckotest");
+        env::set_var("AWS_DEFAULT_REGION", "eu-west-1");
+
+        let conf = envy::from_env::<Conf>().unwrap();
+
+        assert_eq!(conf.input_queue_url, "queuetest");
+        assert_eq!(conf.screenshot_bucket_name, "buckettest");
+        assert_eq!(conf.gecko_url, "geckotest");
+        assert_eq!(conf.region, Region::EuWest1);
+    }
 }

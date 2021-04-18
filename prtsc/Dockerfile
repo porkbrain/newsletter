@@ -40,5 +40,7 @@ RUN chmod u+x "/usr/local/bin/entrypoint.sh"
 COPY prtsc.bin /usr/local/bin/prtsc
 RUN chmod u+x "/usr/local/bin/prtsc"
 
+RUN firefox-esr --version
+
 ENTRYPOINT ["entrypoint.sh"]
 

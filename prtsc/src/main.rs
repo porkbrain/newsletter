@@ -2,8 +2,8 @@
 //! into an S3 bucket _IN_. _IN_ persists html files which are the contents of
 //! received newsletter. It's setup in such a way that insertion pushes to SQS.
 //!
-//! `prtsc` [`handle`]s each message by capturing a png screenshot and uploading
-//! it to another S3 bucket _OUT_. _OUT_ persists the screenshot. The action of
+//! `prtsc` [`handle`]s each message by capturing a screenshot and uploading it
+//! to another S3 bucket _OUT_. _OUT_ persists the screenshot. The action of
 //! insertion of a screenshot in the _OUT_ S3 publishes a new SQS message, which
 //! is handled the next service in this pipeline.
 //!
@@ -90,7 +90,7 @@ async fn main() -> Result<(), Error> {
 ///
 /// 2. Takes a screenshot of the object (expecting a html page).
 ///
-/// 3. Stores the png screenshot to an S3.
+/// 3. Stores the screenshot to an S3.
 ///
 /// 4. Deletes the message from SQS.
 async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
@@ -118,32 +118,32 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
     );
 
     // 2.
-    log::trace!("Capturing a png of html file at {}", url);
-    let png = state.browser.capture_png_screenshot(&url).await?;
-    if png.len() > state.conf.max_png_size {
+    log::trace!("Capturing a screenshot of html file at {}", url);
+    let screenshot = state.browser.capture_jpeg_screenshot(&url).await?;
+    if screenshot.len() > state.conf.max_screenshot_size {
         log::warn!(
             "Screenshot of {} is {} bytes, that's {} bytes too many",
             url,
-            png.len(),
-            png.len() - state.conf.max_png_size
+            screenshot.len(),
+            screenshot.len() - state.conf.max_screenshot_size
         );
     }
 
     // 3.
     log::trace!(
         "Captured screenshot of {} bytes, uploading to S3",
-        png.len()
+        screenshot.len()
     );
     state
         .s3
         .put(
-            state.conf.png_bucket_name.clone(),
+            state.conf.screenshot_bucket_name.clone(),
             record.key,
-            png,
+            screenshot,
             shared::s3::PutConf {
                 acl: Some("public-read".to_string()),
                 cache_control: Some("public, immutable".to_string()),
-                content_type: Some("image/png".to_string()),
+                content_type: Some("image/jpeg".to_string()),
             },
         )
         .await?;
@@ -174,7 +174,7 @@ mod tests {
     async fn it_captures_screenshot_and_uploads_to_s3_and_deletes_message() {
         let receipt_handle = "test";
         let input_queue_url = "queue_url";
-        let png_bucket_name = "png_bucket";
+        let screenshot_bucket_name = "png_bucket";
         let html_bucket = "html_bucket";
         let object_key = "test_key";
         let body = vec![0, 1, 2, 3, 4, 5, 6, 7];
@@ -205,13 +205,13 @@ mod tests {
         };
 
         let s3_stub = S3Stub {
-            bucket: png_bucket_name.to_string(),
+            bucket: screenshot_bucket_name.to_string(),
             key: object_key.to_string(),
             body: body.clone(),
             conf: shared::s3::PutConf {
                 acl: Some("public-read".to_string()),
                 cache_control: Some("public, immutable".to_string()),
-                content_type: Some("image/png".to_string()),
+                content_type: Some("image/jpeg".to_string()),
             },
         };
 
@@ -227,12 +227,12 @@ mod tests {
                 html_bucket,
                 object_key
             ),
-            png: body.clone(),
+            screenshot: body.clone(),
         };
 
         let conf = Conf {
-            max_png_size: 20,
-            png_bucket_name: png_bucket_name.to_string(),
+            max_screenshot_size: 20,
+            screenshot_bucket_name: screenshot_bucket_name.to_string(),
             input_queue_url: input_queue_url.to_string(),
             region,
             ..Default::default()
@@ -250,17 +250,17 @@ mod tests {
 
     struct BrowserStub {
         url: String,
-        png: Vec<u8>,
+        screenshot: Vec<u8>,
     }
 
     #[async_trait]
     impl Headless for BrowserStub {
-        async fn capture_png_screenshot(
+        async fn capture_jpeg_screenshot(
             &mut self,
             url: &str,
         ) -> Result<Vec<u8>, Error> {
             assert_eq!(url, &self.url);
-            Ok(self.png.clone())
+            Ok(self.screenshot.clone())
         }
     }
 }

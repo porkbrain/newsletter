@@ -29,5 +29,10 @@ cp ../target/release/prtsc prtsc.bin
 docker build -t "${tag}" .
 rm prtsc.bin
 
-docker push "${tag}"
+read -p "Do you wish to push ${tag}? Y/n" -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    docker push "${tag}"
+fi
 

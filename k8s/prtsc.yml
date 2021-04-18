@@ -20,9 +20,11 @@ spec:
         beta.kubernetes.io/arch: amd64
       containers:
         - name: prtsc
-          image: 'porkbrain/newsletter:prtsc-0.1.0'
+          image: 'porkbrain/newsletter:prtsc-0.2.1'
           imagePullPolicy: Always
           env:
+            - name: RUST_LOG
+              value: 'error,prtsc=info'
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
@@ -38,11 +40,11 @@ spec:
                 secretKeyRef:
                   name: aws
                   key: region
-            - name: PNG_BUCKET_NAME
+            - name: SCREENSHOT_BUCKET_NAME
               valueFrom:
                 secretKeyRef:
                   name: prtsc
-                  key: png_bucket_name
+                  key: screenshot_bucket_name
             - name: INPUT_QUEUE_URL
               valueFrom:
                 secretKeyRef:
