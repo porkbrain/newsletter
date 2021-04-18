@@ -5,14 +5,14 @@ use {rusoto_core::Region, serde::Deserialize};
 #[derive(Default, Deserialize, Debug)]
 pub struct Conf {
     /// Where do we receive notifications about new html files added?
-    pub queue_url: String,
+    pub input_queue_url: String,
     /// On what address does the proxy to the headless browser sit?
-    /// TODO: more docs
+    /// This is set by the Dockerfile.
     pub gecko_url: String,
     /// All services _must_ run in the same region.
     pub region: Region,
     /// After taking a screenshot, where should we persist it?
-    pub png_bucket: String,
+    pub png_bucket_name: String,
     /// Png which has more bytes that this many is ignored.
     #[serde(default = "default_max_png_size")]
     pub max_png_size: usize,

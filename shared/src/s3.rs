@@ -16,7 +16,15 @@ pub trait S3Ext {
         bucket: String,
         key: String,
         body: Vec<u8>,
+        conf: PutConf,
     ) -> Result<(), RusotoError<PutObjectError>>;
+}
+
+#[derive(Default, PartialEq, Debug)]
+pub struct PutConf {
+    pub acl: Option<String>,
+    pub cache_control: Option<String>,
+    pub content_type: Option<String>,
 }
 
 #[async_trait]
@@ -26,13 +34,14 @@ impl S3Ext for S3Client {
         bucket: String,
         key: String,
         body: Vec<u8>,
+        conf: PutConf,
     ) -> Result<(), RusotoError<PutObjectError>> {
         let req = PutObjectRequest {
-            acl: Some("public-read".to_string()),
+            acl: conf.acl,
+            cache_control: conf.cache_control,
+            content_type: conf.content_type,
             body: Some(body.into()),
             bucket,
-            cache_control: Some("public, immutable".to_string()),
-            content_type: Some("image/png".to_string()),
             key,
             storage_class: Some("REDUCED_REDUNDANCY".to_string()),
             ..Default::default()

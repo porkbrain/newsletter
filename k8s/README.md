@@ -21,11 +21,11 @@ k create secret docker-registry regcred \
     -n newsletter
 ```
 
-The settings specific to [`eml-parser`](../eml-parser/.env.example) should be
-put into a .env file and applied with
+The settings specific to each service should be put into a .env file and applied
+with
 
 ```bash
-k create secret generic eml-parser \
-    --from-env-file=.env.eml-parser \
+k create secret generic service-name \
+    --from-env-file=.env.service-name \
     -n newsletter
 ```

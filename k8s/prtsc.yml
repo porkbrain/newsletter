@@ -1,0 +1,51 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: prtsc
+  namespace: newsletter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prtsc
+  template:
+    metadata:
+      labels:
+        app: prtsc
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      nodeSelector:
+        beta.kubernetes.io/arch: amd64
+      containers:
+        - name: prtsc
+          image: 'porkbrain/newsletter:prtsc-0.1.0'
+          imagePullPolicy: Always
+          env:
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws
+                  key: key
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws
+                  key: secret
+            - name: AWS_DEFAULT_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: aws
+                  key: region
+            - name: PNG_BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: prtsc
+                  key: png_bucket_name
+            - name: INPUT_QUEUE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: prtsc
+                  key: input_queue_url
+

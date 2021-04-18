@@ -3,16 +3,33 @@
 //! received newsletter. It's setup in such a way that insertion pushes to SQS.
 //!
 //! `prtsc` [`handle`]s each message by capturing a png screenshot and uploading
-//! it to another S3 bucket _OUT_. _OUT_ persists the screenshot.
+//! it to another S3 bucket _OUT_. _OUT_ persists the screenshot. The action of
+//! insertion of a screenshot in the _OUT_ S3 publishes a new SQS message, which
+//! is handled the next service in this pipeline.
 //!
 //! # Concurrency
 //! `prtsc` handles at most one message. We poll the SQS with parameter which
 //! amounts to `LIMIT 1`. Each message also contains a record about exactly one
 //! newly inserted html file.
 //!
-//! This simplifies the logic tremendously. Instead of having several concurent
+//! This simplifies the logic tremendously. Instead of having several concurrent
 //! threads in the microservice, we keep it single threaded and instead spawn
 //! multiple replicas as necessary.
+//!
+//! # Gecko
+//! To take screenshots, we rely on [geckodriver][gecko]. When this binary is
+//! put into a container, the driver runs as a background process (along with
+//! Xvfb for monitor simulation). While usually the container ethos is to have
+//! one service per container, we are running 3 services in one container!
+//!
+//! The reason for this is error handling. I observed that sometimes the session
+//! that runs in the driver breaks (starts returning errors), or that Xvfb
+//! crashes. When something crashes, this binary will know about the error.
+//! However, the containers running the driver etc don't restart when this
+//! happens. Therefore, when everything is in one container and an error occurs,
+//! we restart everything together.
+//!
+//! [gecko]: https://github.com/mozilla/geckodriver/releases
 
 mod browser;
 mod conf;
@@ -20,14 +37,12 @@ mod error;
 mod prelude;
 mod state;
 
-use {
-    dotenv::dotenv,
-    rusoto_s3::S3Client,
-    rusoto_sqs::{Message, SqsClient},
-    std::str::FromStr,
-};
-
-use {prelude::*, state::State};
+use dotenv::dotenv;
+use prelude::*;
+use rusoto_s3::S3Client;
+use rusoto_sqs::{Message, SqsClient};
+use state::State;
+use std::str::FromStr;
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
@@ -38,7 +53,7 @@ async fn main() -> Result<(), Error> {
     let sqs = Box::new(SqsClient::new(conf.region.clone()));
     let s3 = Box::new(S3Client::new(conf.region.clone()));
     let browser = Box::new(browser::connect(&conf.gecko_url).await?);
-    let queue_url = conf.queue_url.clone();
+    let queue_url = conf.input_queue_url.clone();
 
     let mut state = State {
         browser,
@@ -121,7 +136,16 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
     );
     state
         .s3
-        .put(state.conf.png_bucket.clone(), record.key, png)
+        .put(
+            state.conf.png_bucket_name.clone(),
+            record.key,
+            png,
+            shared::s3::PutConf {
+                acl: Some("public-read".to_string()),
+                cache_control: Some("public, immutable".to_string()),
+                content_type: Some("image/png".to_string()),
+            },
+        )
         .await?;
 
     // 4.
@@ -132,7 +156,7 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
     );
     state
         .sqs
-        .delete(state.conf.queue_url.clone(), receipt_handle)
+        .delete(state.conf.input_queue_url.clone(), receipt_handle)
         .await?;
 
     Ok(())
@@ -149,8 +173,8 @@ mod tests {
     #[tokio::test]
     async fn it_captures_screenshot_and_uploads_to_s3_and_deletes_message() {
         let receipt_handle = "test";
-        let queue_url = "queue_url";
-        let png_bucket = "png_bucket";
+        let input_queue_url = "queue_url";
+        let png_bucket_name = "png_bucket";
         let html_bucket = "html_bucket";
         let object_key = "test_key";
         let body = vec![0, 1, 2, 3, 4, 5, 6, 7];
@@ -181,13 +205,18 @@ mod tests {
         };
 
         let s3_stub = S3Stub {
-            bucket: png_bucket.to_string(),
+            bucket: png_bucket_name.to_string(),
             key: object_key.to_string(),
             body: body.clone(),
+            conf: shared::s3::PutConf {
+                acl: Some("public-read".to_string()),
+                cache_control: Some("public, immutable".to_string()),
+                content_type: Some("image/png".to_string()),
+            },
         };
 
         let sqs_stub = SqsStub {
-            queue_url: queue_url.to_string(),
+            queue_url: input_queue_url.to_string(),
             receipt_handle: receipt_handle.to_string(),
         };
 
@@ -203,8 +232,8 @@ mod tests {
 
         let conf = Conf {
             max_png_size: 20,
-            png_bucket: png_bucket.to_string(),
-            queue_url: queue_url.to_string(),
+            png_bucket_name: png_bucket_name.to_string(),
+            input_queue_url: input_queue_url.to_string(),
             region,
             ..Default::default()
         };

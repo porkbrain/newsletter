@@ -12,6 +12,7 @@ pub struct S3Stub {
     pub bucket: String,
     pub key: String,
     pub body: Vec<u8>,
+    pub conf: crate::s3::PutConf,
 }
 
 #[derive(Default)]
@@ -27,10 +28,12 @@ impl S3Ext for S3Stub {
         bucket: String,
         key: String,
         body: Vec<u8>,
+        conf: crate::s3::PutConf,
     ) -> Result<(), RusotoError<PutObjectError>> {
         assert_eq!(bucket, self.bucket);
         assert_eq!(key, self.key);
         assert_eq!(body, self.body);
+        assert_eq!(conf, self.conf);
         Ok(())
     }
 }

@@ -115,7 +115,12 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
         log::trace!("Saving OCr annotation for {} into s3", record.key);
         state
             .s3
-            .put(state.conf.ocr_bucket.clone(), record.key, json.into())
+            .put(
+                state.conf.ocr_bucket.clone(),
+                record.key,
+                json.into(),
+                Default::default(),
+            )
             .await?;
     } else {
         log::warn!("No text found in image {}", record.key);
@@ -186,6 +191,7 @@ mod tests {
             bucket: ocr_bucket.to_string(),
             key: object_key.to_string(),
             body: body.clone(),
+            conf: Default::default(),
         };
 
         let sqs_stub = SqsStub {
