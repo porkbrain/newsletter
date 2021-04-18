@@ -1,7 +1,7 @@
 use crate::prelude::*;
 use async_trait::async_trait;
 use image::{io::Reader as ImageReader, ImageFormat, ImageOutputFormat};
-use std::{io::Cursor};
+use std::io::Cursor;
 
 pub async fn connect(gecko_url: &str) -> Result<fantoccini::Client, Error> {
     fantoccini::ClientBuilder::rustls()
@@ -32,15 +32,15 @@ impl Headless for fantoccini::Client {
         let img = ImageReader::with_format(Cursor::new(png), ImageFormat::Png)
             .decode()?;
         let mut jpeg: Vec<u8> = Vec::new();
-        img.write_to(&mut jpeg, ImageOutputFormat::Jpeg(80))?;
+        img.write_to(&mut jpeg, ImageOutputFormat::Jpeg(90))?;
         Ok(jpeg)
     }
 }
 
 #[cfg(test)]
 mod tests {
-    use std::env;
     use super::*;
+    use std::env;
 
     // To test screenshot capture, I like to use
     // https://github.com/cv-library/docker-geckodriver and expose the 4444 port
