@@ -37,9 +37,9 @@ export function readEnv(): Conf {
     throw new Error("HTML_BUCKET_NAME env var must be provided");
   }
 
-  const dbName = process.env.DATABASE;
+  const dbName = process.env.DATABASE_PATH;
   if (!dbName) {
-    throw new Error("DATABASE env var must be provided");
+    throw new Error("DATABASE_PATH env var must be provided");
   }
 
   return {

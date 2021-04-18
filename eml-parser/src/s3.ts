@@ -21,10 +21,6 @@ export interface S3Object {
   body: string;
 }
 
-/**
- * @param bucketName Bucket where emails are stored by SES
- * @param sqsMessageBody Stringified https://docs.aws.amazon.com/AmazonS3/latest/dev/notification-content-structure.html
- */
 export async function fetchFromS3(event: S3CreateEvent): Promise<S3Object> {
   const { eventVersion, s3 } = event.Records.pop()!;
 
@@ -47,11 +43,6 @@ export async function fetchFromS3(event: S3CreateEvent): Promise<S3Object> {
   };
 }
 
-/**
- * @param bucketName
- * @param s3Key
- * @param html
- */
 export async function uploadHtmlToS3(
   bucketName: string,
   s3Key: string,
@@ -64,7 +55,7 @@ export async function uploadHtmlToS3(
     CacheControl: "public, immutable",
     ContentType: "text/html",
     StorageClass: "REDUCED_REDUNDANCY",
-    Key: `html/${s3Key}.html`,
+    Key: s3Key,
   };
 
   await new aws.S3().putObject(params).promise();

@@ -15,6 +15,7 @@ async function main() {
       const message = await inputSqs.receive();
       const { id: s3Key, body } = await fetchFromS3(message.body());
 
+      console.log(`[${new Date()}] Parsing email ${s3Key}...`);
       const {
         senderAddress,
         senderName,
@@ -24,7 +25,7 @@ async function main() {
         html,
       } = await parseEmailFromEmlHtml(s3Key, body);
 
-      console.log(`[${new Date()}] Inserting email in ${s3Key}...`);
+      console.log(`[${new Date()}] Inserting email ${s3Key}...`);
       await insertInboundEmail(conn, {
         recipientAddress,
         s3Key,
@@ -40,9 +41,7 @@ async function main() {
       failedInRow++;
       console.log(`[${new Date()}] Error: `, err);
       if (failedInRow > conf.maxFailedInRow) {
-        throw new Error(
-          `Failed to process ${conf.maxFailedInRow} subsequent messages`
-        );
+        throw new Error(`Failed to process ${failedInRow} subsequent messages`);
       }
     }
   }

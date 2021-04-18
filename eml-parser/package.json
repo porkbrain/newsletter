@@ -1,6 +1,6 @@
 {
   "name": "eml-parser",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Service which parses eml MIME to html body and headers.",
   "main": "dist/index.js",
   "author": "Michael Bausano",

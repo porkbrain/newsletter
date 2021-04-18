@@ -1,10 +1,8 @@
 /**
  * Everything related to message passing via SQS is included in this module.
  *
- * # TODO
- * * [#10][issue-10] Allow multiple concurrent messages.
+ * - TODO: Allow multiple concurrent messages.
  *
- * [issue-10]: https://github.com/bausano/mailmevouchers.com/issues/10
  */
 
 import { SQS as AwsSqs } from "aws-sdk";
@@ -24,7 +22,6 @@ export class SqsMessage {
   }
 
   public body(): S3CreateEvent {
-    // TBD: should we validate the JSON?
     return JSON.parse(this.stringifiedBody);
   }
 
@@ -75,11 +72,9 @@ export class Sqs implements SqsProvider {
     };
 
     // https://github.com/bbc/sqs-consumer/issues/247
-    console.log(`[${new Date()}] Waiting for message in sqs client...`);
     const { Messages } = await this.inner.receiveMessage(params).promise();
 
     if (!Messages || !Array.isArray(Messages) || Messages.length === 0) {
-      console.log(`[${new Date()}] No messages arrived from sqs...`);
       // this shouldn't lead to stack overflow due to the wait time enforced
       // by SQS, but just to be sure we wait 1s here
       await new Promise((resolve) => setTimeout(resolve, 1000));
