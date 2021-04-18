@@ -1,0 +1,60 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: eml-parser
+  namespace: newsletter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eml-parser
+  template:
+    metadata:
+      labels:
+        app: eml-parser
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      volumes:
+        - name: newsletter-data
+          persistentVolumeClaim:
+            claimName: newsletter-pvc
+      nodeSelector:
+        beta.kubernetes.io/arch: amd64
+      containers:
+        - name: eml-parser
+          image: 'porkbrain/newsletter:eml-parser-5.0.1'
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /data
+              name: newsletter-data
+          env:
+            - name: DATABASE_PATH
+              value: '/data/database.db'
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws
+                  key: key
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws
+                  key: secret
+            - name: AWS_DEFAULT_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: aws
+                  key: region
+            - name: HTML_BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: eml-parser
+                  key: html_bucket_name
+            - name: INPUT_QUEUE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: eml-parser
+                  key: input_queue_url
+
