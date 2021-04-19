@@ -18,10 +18,25 @@ spec:
         - name: regcred
       nodeSelector:
         beta.kubernetes.io/arch: amd64
+      # When FF doesn't have enough memory, it crashes on taking screenshots for
+      # large websites. We emulate `--shm-size` with k8s following this SO
+      # answer:
+      # - https://stackoverflow.com/a/46434614/5093093
+      volumes:
+        - name: dshm
+          emptyDir:
+            # SizeMemoryBackedVolumes is in alpha, so now this consumes half of
+            # the node's memory. My tests revealed that ~512m is enough for
+            # most screenshots, anything bigger would probably result in a
+            # screenshot too big to go through the `MAX_SCREENSHOT_SIZE` env.
+            medium: Memory
       containers:
         - name: prtsc
-          image: 'porkbrain/newsletter:prtsc-0.2.1'
+          image: 'porkbrain/newsletter:prtsc-0.3.0'
           imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /dev/shm
+              name: dshm
           env:
             - name: RUST_LOG
               value: 'error,prtsc=info'

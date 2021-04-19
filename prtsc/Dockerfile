@@ -5,7 +5,7 @@ FROM debian:buster-slim
 ENV GECKO_URL "http://localhost:4444"
 
 # see https://github.com/mozilla/geckodriver/releases
-ENV GECKO_VERSION "0.29.0"
+ENV GECKO_VERSION "0.28.0"
 
 # Install dependencies.
 RUN apt-get -y update && \
@@ -30,7 +30,6 @@ RUN wget "https://github.com/mozilla/geckodriver/releases/download\
     mv geckodriver /usr/local/bin/
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod u+x "/usr/local/bin/entrypoint.sh"
 
 # Since when we build the bin, it resides in parent dir's "target" dir, we first
 # need to move it from there to the docker context.
@@ -38,9 +37,6 @@ RUN chmod u+x "/usr/local/bin/entrypoint.sh"
 # This cannot be done from within the Dockerfile, that's why we use a helper
 # script to build this image.
 COPY prtsc.bin /usr/local/bin/prtsc
-RUN chmod u+x "/usr/local/bin/prtsc"
-
-RUN firefox-esr --version
 
 ENTRYPOINT ["entrypoint.sh"]
 

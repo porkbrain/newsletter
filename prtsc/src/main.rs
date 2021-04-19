@@ -48,6 +48,7 @@ use std::str::FromStr;
 async fn main() -> Result<(), Error> {
     dotenv().ok();
     env_logger::init();
+    log::info!("Starting prtsc v{}", env!("CARGO_PKG_VERSION"));
 
     let conf = envy::from_env::<Conf>()?;
     let sqs = Box::new(SqsClient::new(conf.region.clone()));

@@ -28,6 +28,7 @@ impl Headless for fantoccini::Client {
         url: &str,
     ) -> Result<Vec<u8>, Error> {
         self.goto(url).await?;
+        log::trace!("Navigated to {}, taking screenshot now", url);
         let png = self.screenshot().await?;
         let img = ImageReader::with_format(Cursor::new(png), ImageFormat::Png)
             .decode()?;
@@ -49,10 +50,11 @@ mod tests {
     #[tokio::test]
     async fn it_should_capture_fullscreen() {
         let html_url = "https://seznam.cz";
+
         let driver_url = env::var("TEST_GECKO_URL")
             .unwrap_or_else(|_| "http://127.0.0.1:4444".to_string());
         let mut client = connect(&driver_url).await.unwrap();
 
-        client.capture_jpeg_screenshot(html_url).await.unwrap();
+        let _jpeg = client.capture_jpeg_screenshot(html_url).await.unwrap();
     }
 }
