@@ -2,33 +2,26 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: eml-parser
+  name: ocr
   namespace: newsletter
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: eml-parser
+      app: ocr
   template:
     metadata:
       labels:
-        app: eml-parser
+        app: ocr
     spec:
       imagePullSecrets:
         - name: regcred
-      volumes:
-        - name: newsletter-data
-          persistentVolumeClaim:
-            claimName: newsletter-pvc
       nodeSelector:
         beta.kubernetes.io/arch: amd64
       containers:
-        - name: eml-parser
-          image: 'porkbrain/newsletter:eml-parser-5.0.1'
+        - name: ocr
+          image: 'porkbrain/newsletter:ocr-0.1.0'
           imagePullPolicy: Always
-          volumeMounts:
-            - mountPath: /data
-              name: newsletter-data
           resources:
             requests: # min
               memory: 64Mi
@@ -37,8 +30,8 @@ spec:
               memory: 128Mi
               cpu: 300m
           env:
-            - name: DATABASE_PATH
-              value: '/data/database.db'
+            - name: RUST_LOG
+              value: 'error,ocr=info'
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
@@ -54,14 +47,19 @@ spec:
                 secretKeyRef:
                   name: aws
                   key: region
-            - name: HTML_BUCKET_NAME
+            - name: GCP_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: eml-parser
-                  key: html_bucket_name
+                  name: gcp-ocr
+                  key: json
+            - name: OCR_BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: ocr
+                  key: ocr_bucket_name
             - name: INPUT_QUEUE_URL
               valueFrom:
                 secretKeyRef:
-                  name: eml-parser
+                  name: ocr
                   key: input_queue_url
 

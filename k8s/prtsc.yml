@@ -37,6 +37,13 @@ spec:
           volumeMounts:
             - mountPath: /dev/shm
               name: dshm
+          resources:
+            requests: # min
+              memory: 512Mi
+              cpu: 1
+            limits: # max
+              memory: 1Gi
+              cpu: 2
           env:
             - name: RUST_LOG
               value: 'error,prtsc=info'

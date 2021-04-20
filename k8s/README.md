@@ -29,3 +29,12 @@ k create secret generic service-name \
     --from-env-file=.env.service-name \
     -n newsletter
 ```
+
+Some secrets are created from files with
+
+```bash
+k create secret generic gcp-ocr \
+  --from-file=json=./.env.google.json \
+  -n newsletter
+```
+
