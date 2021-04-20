@@ -9,7 +9,7 @@ ENV GECKO_VERSION "0.28.0"
 
 # Install dependencies.
 RUN apt-get -y update && \
-    apt-get -y install libpq-dev curl wget && \
+    apt-get -y install curl wget && \
     apt-get clean && \
     apt-get autoremove
 
