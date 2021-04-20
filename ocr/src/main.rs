@@ -1,18 +1,18 @@
-//! TODO: links
 //! `ocr` is a microservice which listens to SQS messages created by insertions
 //! into an S3 bucket _IN_. _IN_ persists png screenshot of each newsletter.
 //!
-//! Screenshots are then sent to Google's Vision API for text detection. The
-//! output from the text detection is trimmed of unnecessary information and
-//! stored as a JSON file in _OUT_ S3 bucket. The advantage of not storing the
-//! parsed OCR in a database is that S3 allows us to create SQS notifications
-//! on insertion, and therefore follow the same design pattern in many services.
-//! Also running OCR is quite expensive and storage in S3 is cheaper and more
-//! reliable.
+//! Screenshots are then sent to [Google's Vision API][vision-api] for text
+//! detection. The output from the text detection is trimmed of unnecessary
+//! information and stored as a JSON file in _OUT_ S3 bucket. The advantage of
+//! not storing the parsed OCR in a database is that S3 allows us to create SQS
+//! notifications on insertion, and therefore follow the same design pattern in
+//! many services.  Also running OCR is quite expensive and storage in S3 is
+//! cheaper and more reliable.
 //!
 //! # Batching
 //! Following proposal is not yet implemented because the expenses on OCR are
-//! not worth the effort.
+//! not worth the effort. [Google Vision APIs][vision-api-pricing] costs $0.0015
+//! per image scanned.
 //!
 //! Because GCP Vision API pricing is per image, we cut costs by stitching as
 //! many screenshots as possible into one image.
@@ -26,6 +26,9 @@
 //!
 //! We can calculate the approximate memory usage by considering how much data
 //! is necessary to reach a).
+//!
+//! [vision-api-pricing]: https://cloud.google.com/vision/pricing
+//! [vision-api]: https://cloud.google.com/vision/docs/ocr
 
 mod conf;
 mod error;
@@ -44,6 +47,7 @@ use std::str::FromStr;
 async fn main() -> Result<(), Error> {
     dotenv().ok();
     env_logger::init();
+    log::info!("Starting ocr v{}", env!("CARGO_PKG_VERSION"));
 
     let conf = envy::from_env::<Conf>()?;
     let sqs = Box::new(SqsClient::new(conf.region.clone()));
@@ -121,7 +125,10 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
                 state.conf.ocr_bucket_name.clone(),
                 record.key,
                 json.into(),
-                Default::default(),
+                shared::s3::PutConf {
+                    content_type: Some("application/json".to_string()),
+                    ..Default::default()
+                },
             )
             .await?;
     } else {
@@ -193,7 +200,10 @@ mod tests {
             bucket: ocr_bucket_name.to_string(),
             key: object_key.to_string(),
             body: body.clone(),
-            conf: Default::default(),
+            conf: shared::s3::PutConf {
+                content_type: Some("application/json".to_string()),
+                ..Default::default()
+            },
         };
 
         let sqs_stub = SqsStub {
