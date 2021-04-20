@@ -11,7 +11,9 @@
 //! reliable.
 //!
 //! # Batching
-//! TODO: Not yet implemented.
+//! Following proposal is not yet implemented because the expenses on OCR are
+//! not worth the effort.
+//!
 //! Because GCP Vision API pricing is per image, we cut costs by stitching as
 //! many screenshots as possible into one image.
 //!
@@ -46,8 +48,8 @@ async fn main() -> Result<(), Error> {
     let conf = envy::from_env::<Conf>()?;
     let sqs = Box::new(SqsClient::new(conf.region.clone()));
     let s3 = Box::new(S3Client::new(conf.region.clone()));
-    let vision = Box::new(vision::new(&conf).await?);
-    let queue_url = conf.queue_url.clone();
+    let vision = Box::new(vision::new(&conf.gcp_secret).await?);
+    let queue_url = conf.input_queue_url.clone();
 
     let mut state = State {
         conf,
@@ -116,7 +118,7 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
         state
             .s3
             .put(
-                state.conf.ocr_bucket.clone(),
+                state.conf.ocr_bucket_name.clone(),
                 record.key,
                 json.into(),
                 Default::default(),
@@ -134,7 +136,7 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
     );
     state
         .sqs
-        .delete(state.conf.queue_url.clone(), receipt_handle)
+        .delete(state.conf.input_queue_url.clone(), receipt_handle)
         .await?;
 
     Ok(())
@@ -154,9 +156,9 @@ mod tests {
     #[tokio::test]
     async fn it_ocrs_and_uploads_to_s3_and_deletes_message() {
         let receipt_handle = "test";
-        let queue_url = "queue_url";
+        let input_queue_url = "queue_url";
         let png_bucket = "png_bucket";
-        let ocr_bucket = "ocr_bucket";
+        let ocr_bucket_name = "ocr_bucket";
         let object_key = "test_key";
         let body: Vec<u8> = serde_json::to_string(&Annotation::default())
             .unwrap()
@@ -167,20 +169,20 @@ mod tests {
             // https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-content-structure.html
             body: Some(
                 serde_json::to_string(&serde_json::json!({
-                "Records": [
-                   {
-                      "awsRegion": "eu-west-2",
-                      "s3": {
-                         "bucket": {
-                            "name": png_bucket,
-                         },
-                         "object": {
-                            "key": object_key,
-                         }
-                      }
-                   }
-                ]
-                         }))
+                    "Records": [
+                       {
+                          "awsRegion": "eu-west-2",
+                          "s3": {
+                             "bucket": {
+                                "name": png_bucket,
+                             },
+                             "object": {
+                                "key": object_key,
+                             }
+                          }
+                       }
+                    ]
+                }))
                 .unwrap(),
             ),
             receipt_handle: Some(receipt_handle.to_string()),
@@ -188,14 +190,14 @@ mod tests {
         };
 
         let s3_stub = S3Stub {
-            bucket: ocr_bucket.to_string(),
+            bucket: ocr_bucket_name.to_string(),
             key: object_key.to_string(),
             body: body.clone(),
             conf: Default::default(),
         };
 
         let sqs_stub = SqsStub {
-            queue_url: queue_url.to_string(),
+            queue_url: input_queue_url.to_string(),
             receipt_handle: receipt_handle.to_string(),
         };
 
@@ -210,8 +212,8 @@ mod tests {
         };
 
         let conf = Conf {
-            ocr_bucket: ocr_bucket.to_string(),
-            queue_url: queue_url.to_string(),
+            ocr_bucket_name: ocr_bucket_name.to_string(),
+            input_queue_url: input_queue_url.to_string(),
             region,
             ..Default::default()
         };

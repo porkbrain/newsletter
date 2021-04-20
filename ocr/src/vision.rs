@@ -8,7 +8,7 @@ use google_vision1::api::{
     ImageSource, TextAnnotation as GAnnotation, Word as GWord,
 };
 use hyper_rustls::HttpsConnector;
-use oauth2::InstalledFlowAuthenticator;
+use oauth2::{ServiceAccountAuthenticator, ServiceAccountKey};
 use serde::Serialize;
 
 pub use google_vision1::Vision;
@@ -24,14 +24,9 @@ pub trait Ocr {
 }
 
 /// Creates a new Google client, ready to be used for querying the Vision APIs.
-pub async fn new(conf: &Conf) -> Result<Vision, Error> {
-    let secret = oauth2::parse_application_secret(&conf.gcp_secret)?;
-    let auth = InstalledFlowAuthenticator::builder(
-        secret,
-        oauth2::InstalledFlowReturnMethod::HTTPRedirect,
-    )
-    .build()
-    .await?;
+pub async fn new(gcp_secret: &str) -> Result<Vision, Error> {
+    let secret: ServiceAccountKey = serde_json::from_str(gcp_secret)?;
+    let auth = ServiceAccountAuthenticator::builder(secret).build().await?;
 
     let hub = Vision::new(
         hyper::Client::builder().build(HttpsConnector::with_native_roots()),
@@ -86,12 +81,24 @@ pub struct Annotation {
     pub words: Vec<Word>,
 }
 
+/// Since there are many words in each text, during serialization we rename each
+/// attribute so that when we inpect the generated JSON, it's less cluttered.
 #[derive(Serialize)]
 #[cfg_attr(test, derive(Debug, PartialEq, Default, Clone))]
 pub struct Word {
+    #[serde(rename = "w")]
     pub word: String,
-    pub top_left: (i32, i32),
-    pub bottom_right: (i32, i32),
+    #[serde(rename = "tl")]
+    pub top_left: Point,
+    #[serde(rename = "br")]
+    pub bottom_right: Point,
+}
+
+#[derive(Serialize)]
+#[cfg_attr(test, derive(Debug, PartialEq, Default, Clone))]
+pub struct Point {
+    x: i32,
+    y: i32,
 }
 
 impl Annotation {
@@ -128,14 +135,19 @@ impl Word {
 
         (!text.is_empty()).then(|| Self {
             word: text,
-            top_left: (left, top),
-            bottom_right: (right, bottom),
+            top_left: Point { y: top, x: left },
+            bottom_right: Point {
+                y: bottom,
+                x: right,
+            },
         })
     }
 }
 
 #[cfg(test)]
 mod tests {
+    use std::env;
+
     use serde_json::json;
 
     use super::*;
@@ -178,8 +190,8 @@ mod tests {
         assert_eq!(
             Some(Word {
                 word: "hw".to_string(),
-                top_left: (1, 0),
-                bottom_right: (5, 5),
+                top_left: Point { x: 1, y: 0 },
+                bottom_right: Point { x: 5, y: 5 },
             }),
             Word::from(word)
         );
@@ -227,8 +239,8 @@ mod tests {
 
         let gen_word = |t: &str| Word {
             word: t.to_string(),
-            top_left: (0, 0),
-            bottom_right: (0, 0),
+            top_left: Point { x: 0, y: 0 },
+            bottom_right: Point { x: 0, y: 0 },
         };
         assert_eq!(
             Some(Annotation {
@@ -246,5 +258,22 @@ mod tests {
             }),
             Annotation::from(annotation)
         );
+    }
+
+    /// I define env with:
+    ///
+    /// ```bash
+    /// export TEST_GCP_SECRET="$(cat .env.google.json)"
+    /// ```
+    #[ignore]
+    #[tokio::test]
+    async fn it_uses_gpc_ocr() {
+        let gcp_secret = env::var("TEST_GCP_SECRET").unwrap();
+        let vision = new(&gcp_secret).await.unwrap();
+        let image_url =
+        "https://upload.wikimedia.org/wikipedia/commons/d/d9/Plain_text.png".to_string();
+
+        let annotation = vision.annotate(image_url).await.unwrap();
+        let _json = serde_json::to_string(&annotation).unwrap();
     }
 }
