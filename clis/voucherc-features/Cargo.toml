@@ -1,9 +1,0 @@
-[package]
-name = "voucherc-features"
-version = "0.1.0"
-authors = ["Michael <michael@porkbrain.com>"]
-edition = "2018"
-
-[dependencies]
-clap = "2.33"
-static_init = "1.0"

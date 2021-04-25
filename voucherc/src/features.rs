@@ -1,85 +1,31 @@
-//! Reads each line in the given file, and creates related output line which
-//! marks what features does the input have. To be used with a text file of
-//! voucher codes, and then repeated with a text file of non voucher codes.
-//! The produced outputs can be used to classify words based on their features.
-//!
-//! # Options
-//! * -i, --input File with one word per line
-//! * -o, --output File csv output will be stored
-
-use clap::{App, Arg};
+use crate::types::Feature;
 use static_init::dynamic;
-use std::{collections::HashSet, fs, path::PathBuf};
+use std::collections::HashSet;
 
 #[dynamic]
-static DICT: HashSet<String> = include_str!("dict.txt")
+static DICT: HashSet<String> = include_str!("../data/dictionary.en.txt")
     .lines()
     .map(ToOwned::to_owned)
     .collect();
 
-fn main() {
-    let mut app = App::new("voucherc-features")
-        .version(env!("CARGO_PKG_VERSION"))
-        .arg(
-            Arg::with_name("input")
-                .short("i")
-                .long("input")
-                .help("File with one word per line")
-                .takes_value(true),
-        )
-        .arg(
-            Arg::with_name("output")
-                .short("o")
-                .long("output")
-                .help("File csv output will be stored")
-                .takes_value(true),
-        );
+#[allow(dead_code)]
+pub fn from_word(w: &str) -> Feature {
+    let b2f = |b| if b { 1.0 } else { 0.0 };
 
-    app.print_help().expect("Cannot print help");
-    println!();
-
-    let matches = app.get_matches();
-
-    let input_path = matches
-        .value_of("input")
-        .map(PathBuf::from)
-        .expect("Provide path to the input file with -i");
-    println!("Processing file {:?}", input_path);
-
-    let output_path = matches
-        .value_of("output")
-        .map(PathBuf::from)
-        .expect("Provide path where the csv output should be stored with -o");
-    println!("Writing output to {:?}", output_path);
-
-    let input = fs::read_to_string(input_path).expect("Cannot read input file");
-    let lines = input.lines();
-
-    let (lower_bound, upper_bound) = lines.size_hint();
-    let mut features = Vec::with_capacity(upper_bound.unwrap_or(lower_bound));
-
-    for word in lines {
-        let b2b = |b| if b { "1.0" } else { "0.0" };
-        features.push(format!(
-            "{}.0,{},{},{},{},{},{},{},{},{},{},{}",
-            word.len(),
-            b2b(is_lowercase(&word)),
-            b2b(is_uppercase(&word)),
-            b2b(has_letters(&word)),
-            b2b(has_letters_only(&word)),
-            b2b(has_digits(&word)),
-            b2b(has_digits_only(&word)),
-            b2b(are_more_than_half_digits(&word)),
-            b2b(is_alphanumeric_or_dash_or_underscore(&word)),
-            b2b(has_letters_which_end_with_two_digits(&word)),
-            b2b(ends_with_digits(&word)),
-            b2b(is_in_english_dictionary(&word))
-        ));
-    }
-
-    fs::write(output_path, features.join("\n")).expect("Cannot write output");
-
-    println!("Done");
+    vec![
+        w.len() as f64,
+        b2f(is_lowercase(&w)),
+        b2f(is_uppercase(&w)),
+        b2f(has_letters(&w)),
+        b2f(has_letters_only(&w)),
+        b2f(has_digits(&w)),
+        b2f(has_digits_only(&w)),
+        b2f(are_more_than_half_digits(&w)),
+        b2f(is_alphanumeric_or_dash_or_underscore(&w)),
+        b2f(has_letters_which_end_with_two_digits(&w)),
+        b2f(ends_with_digits(&w)),
+        b2f(is_in_english_dictionary(&w)),
+    ]
 }
 
 fn is_lowercase(w: &str) -> bool {

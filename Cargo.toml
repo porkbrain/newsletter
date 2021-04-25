@@ -4,5 +4,6 @@ members = [
     "prtsc",
     "ocr",
     "shared",
+    "voucherc",
 ]
 

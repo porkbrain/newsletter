@@ -1,0 +1,36 @@
+[package]
+name = "voucherc"
+version = "0.1.0"
+authors = ["Michael <michael@porkbrain.com>"]
+edition = "2018"
+
+[dependencies]
+async-trait = "0.1"
+clap = "2.33"
+csv = "1.1"
+dotenv = "0.15"
+env_logger = "0.8"
+envy = "0.4"
+futures = "0.3"
+log = "0.4"
+rand = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+smartcore = "0.2"
+static_init = "1.0"
+bincode = "1.3"
+tide = "0.16"
+async-std = { version = "1.8", features = ["attributes"] }
+
+[[bin]]
+name = "voucherc_http"
+path = "src/http.rs"
+
+[[bin]]
+name = "voucherc_features_cli"
+path = "src/features_cli.rs"
+
+[[bin]]
+name = "voucherc_train_cli"
+path = "src/train_cli.rs"
+
