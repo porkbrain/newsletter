@@ -8,23 +8,25 @@ static DICT: HashSet<String> = include_str!("../data/dictionary.en.txt")
     .map(ToOwned::to_owned)
     .collect();
 
-#[allow(dead_code)]
 pub fn from_word(w: &str) -> Feature {
     let b2f = |b| if b { 1.0 } else { 0.0 };
 
     vec![
         w.len() as f64,
+        // related to letters of the word
         b2f(is_lowercase(&w)),
         b2f(is_uppercase(&w)),
         b2f(has_letters(&w)),
         b2f(has_letters_only(&w)),
+        b2f(is_alphanumeric_or_dash_or_underscore(&w)),
+        b2f(is_in_english_dictionary(&w)),
+        // related to digits of the word
         b2f(has_digits(&w)),
         b2f(has_digits_only(&w)),
         b2f(are_more_than_half_digits(&w)),
-        b2f(is_alphanumeric_or_dash_or_underscore(&w)),
-        b2f(has_letters_which_end_with_two_digits(&w)),
         b2f(ends_with_digits(&w)),
-        b2f(is_in_english_dictionary(&w)),
+        b2f(has_letters_which_end_with_two_digits(&w)),
+        b2f(has_letters_which_end_with_two_digit_number_divisible_by_five(&w)),
     ]
 }
 
@@ -78,6 +80,16 @@ fn has_letters_which_end_with_two_digits(w: &str) -> bool {
 
 fn is_in_english_dictionary(w: &str) -> bool {
     DICT.contains(&w.to_lowercase())
+}
+
+fn has_letters_which_end_with_two_digit_number_divisible_by_five(
+    w: &str,
+) -> bool {
+    let mut chars = w.chars().rev().peekable();
+    chars.next().filter(|c| *c == '5' || *c == '0').is_some()
+        && chars.next().filter(|c| char::is_numeric(*c)).is_some()
+        && chars.peek().is_some()
+        && chars.all(char::is_alphabetic)
 }
 
 #[cfg(test)]
@@ -175,6 +187,43 @@ mod tests {
         assert!(!has_letters_which_end_with_two_digits("23"));
         assert!(!has_letters_which_end_with_two_digits("123"));
         assert!(!has_letters_which_end_with_two_digits("123hehe1"));
+    }
+
+    #[test]
+    fn test_has_letters_which_end_with_two_digit_number_divisible_by_five() {
+        assert!(
+            has_letters_which_end_with_two_digit_number_divisible_by_five(
+                "OFF20"
+            )
+        );
+        assert!(
+            has_letters_which_end_with_two_digit_number_divisible_by_five(
+                "OFF25"
+            )
+        );
+        assert!(
+            !has_letters_which_end_with_two_digit_number_divisible_by_five(
+                "OFF26"
+            )
+        );
+        assert!(
+            !has_letters_which_end_with_two_digit_number_divisible_by_five(
+                "OFF81"
+            )
+        );
+        assert!(
+            !has_letters_which_end_with_two_digit_number_divisible_by_five(
+                "123OFF20"
+            )
+        );
+        assert!(
+            !has_letters_which_end_with_two_digit_number_divisible_by_five(
+                "OFF20hehe"
+            )
+        );
+        assert!(
+            !has_letters_which_end_with_two_digit_number_divisible_by_five("")
+        );
     }
 
     #[test]

@@ -28,6 +28,8 @@ async fn main() -> tide::Result<()> {
 
 async fn classify_words(mut req: Request<State>) -> tide::Result {
     let words: Vec<String> = req.body_json().await?;
+    log::debug!("Classifying {} words", words.len());
+
     let features: Vec<_> =
         words.iter().map(|w| features::from_word(&w)).collect();
 
@@ -72,4 +74,3 @@ impl State {
         Self { svm: Arc::new(svm) }
     }
 }
-

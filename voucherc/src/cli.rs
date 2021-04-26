@@ -1,3 +1,4 @@
+mod features;
 mod types;
 
 use clap::{App, Arg};
@@ -15,8 +16,8 @@ use std::{
 };
 use types::{Feature, SVM};
 
-const DEFAULT_VOUCHERS_PATH: &str = "data/vouchers.csv";
-const DEFAULT_NVOUCHERS_PATH: &str = "data/nvouchers.csv";
+const DEFAULT_VOUCHERS_PATH: &str = "data/vouchers.txt";
+const DEFAULT_NVOUCHERS_PATH: &str = "data/nvouchers.txt";
 
 // higher sample size did not improve performance, every 250 additional samples
 // double the time it takes to train the svm
@@ -32,13 +33,13 @@ fn main() {
         .arg(
             Arg::with_name("vouchers")
                 .long("vouchers")
-                .help("CSV with features which are all vouchers")
+                .help("Text file with one voucher per line")
                 .takes_value(true),
         )
         .arg(
             Arg::with_name("nvouchers")
                 .long("nvouchers")
-                .help("CSV with features where none is a voucher")
+                .help("Text file with one word that's not a voucher per line")
                 .takes_value(true),
         );
 
@@ -95,12 +96,15 @@ fn main() {
 
     // evaluate the results
     let gv = svm.predict(&DenseMatrix::from_2d_vec(&vv)).unwrap();
+    assert_eq!(gv.len(), vv.len());
     let ve = (vv.len() as f64 - gv.sum()) / vv.len() as f64;
+    println!("vouchers error     : {:.3}", ve);
+
     let gnv = svm.predict(&DenseMatrix::from_2d_vec(&nvv)).unwrap();
     let gve = gnv.sum() / nvv.len() as f64;
-    println!();
-    println!("vouchers error     : {:.3}", ve);
     println!("not-vouchers error : {:.3}", gve);
+
+    println!();
     println!("average error      : {:.3}", (ve + gve) / 2.0);
 
     println!();
@@ -122,26 +126,29 @@ fn main() {
 fn read_features_into_train_and_test_sets(
     path: impl AsRef<Path>,
 ) -> (Vec<Feature>, Vec<Feature>) {
-    let path = path.as_ref();
     let mut rng = thread_rng();
 
-    // reads the file prepared by features_cli
-    let mut set = {
-        let mut f = csv::Reader::from_path(&path)
-            .unwrap_or_else(|e| {
-                panic!("Cannot read file {:?} due to {}", path, e)
-            })
-            .deserialize()
-            .collect::<Result<Vec<_>, _>>()
-            .unwrap();
+    println!("Reading file {:?}", path.as_ref());
+    let input = fs::read_to_string(path).expect("Cannot read input file");
+    let lines = input.lines();
 
-        f.shuffle(&mut rng);
-        f
-    };
+    let (lower_bound, upper_bound) = lines.size_hint();
+    let mut features: Vec<Feature> =
+        Vec::with_capacity(upper_bound.unwrap_or(lower_bound));
+
+    for word in lines {
+        features.push(features::from_word(&word));
+    }
+
+    features.shuffle(&mut rng);
 
     // reads data set and splits it in two parts, train and test sets
-    assert!(TRAINING_SAMPLE_SIZE * 2 < set.len());
-    let train: Vec<_> = set.drain(0..500).collect();
-    let test = set;
+    assert!(
+        TRAINING_SAMPLE_SIZE * 2 < features.len(),
+        "TRAINING_SAMPLE_SIZE too
+        high or not enough data"
+    );
+    let train: Vec<_> = features.drain(0..500).collect();
+    let test = features;
     (train, test)
 }
