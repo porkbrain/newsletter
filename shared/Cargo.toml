@@ -13,6 +13,7 @@ rusoto_s3 = { version = "0.46", features = [ "rustls" ], default-features = fals
 rusoto_sqs = { version = "0.46", features = [ "rustls" ], default-features = false }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+google-vision1 = "2.0"
 
 [features]
 test_utils = []

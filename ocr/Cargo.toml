@@ -24,6 +24,7 @@ hyper-rustls = "0.22"
 
 # services
 google-vision1 = { version = "2.0" }
+# TODO: load from shared
 rusoto_core = { version = "0.46", features = [ "rustls" ], default-features = false }
 rusoto_s3 = { version = "0.46", features = [ "rustls" ], default-features = false }
 rusoto_sqs = { version = "0.46", features = [ "rustls" ], default-features = false }
