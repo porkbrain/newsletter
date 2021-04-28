@@ -5,7 +5,7 @@ authors = ["Michael <michael@porkbrain.com>"]
 edition = "2018"
 
 [dependencies]
-actix-web = { version = "3.3", features = ["rustls"] }
+actix-web = { version = "4.0.0-beta.6", features = ["rustls"] }
 clap = "2.33"
 csv = "1.1"
 dotenv = "0.15"

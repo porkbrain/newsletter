@@ -7,9 +7,9 @@ use conf::Conf;
 use dotenv::dotenv;
 use smartcore::linalg::naive::dense_matrix::DenseMatrix;
 use std::{process::Stdio, sync::Arc};
+use tokio::io::AsyncWriteExt;
 use tokio::process::Command;
 use types::SVM;
-use tokio::io::AsyncWriteExt;
 
 const SVM_JSON: &str = include_str!("../data/svm.json");
 
@@ -23,7 +23,7 @@ async fn main() {
 
     HttpServer::new(move || {
         App::new()
-            .app_data(State::new())
+            .app_data(web::Data::new(State::new()))
             .wrap(middleware::Logger::default())
             .service(web::resource("/words").to(classify_words))
     })
@@ -78,7 +78,11 @@ async fn classify_words(
         .expect("Cannot predict features with svm");
 
     // convert the output to vector of floats
-    let dnn_stdout = dnn.wait_with_output().await.expect("Failed to read stdout").stdout;
+    let dnn_stdout = dnn
+        .wait_with_output()
+        .await
+        .expect("Failed to read stdout")
+        .stdout;
     let dnn_inferences: Vec<_> = String::from_utf8(dnn_stdout)
         .expect("Cannot parse python output")
         .lines()
