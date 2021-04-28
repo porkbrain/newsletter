@@ -2,8 +2,11 @@ mod conf;
 mod features;
 mod types;
 
+use async_std::prelude::*;
+use async_std::process::{Command, Stdio};
 use conf::Conf;
 use dotenv::dotenv;
+use serde_json::json;
 use smartcore::linalg::naive::dense_matrix::DenseMatrix;
 use std::sync::Arc;
 use tide::{Request, Response};
@@ -33,32 +36,56 @@ async fn classify_words(mut req: Request<State>) -> tide::Result {
     let features: Vec<_> =
         words.iter().map(|w| features::from_word(&w)).collect();
 
-    let inference = req
+    if features.is_empty() {
+        return Ok(Response::builder(200).body(json!([])).build());
+    }
+
+    // spawn new process which boots the neural net
+    let mut dnn = Command::new("python3")
+        .arg("py-nn/src/predict.py")
+        .arg("data/dnn_model")
+        .stdin(Stdio::piped())
+        .stdout(Stdio::piped())
+        .spawn()
+        .expect("Failed to spawn child process");
+
+    // write the features to stdin so that the process can predict their classes
+    let mut csv = csv::Writer::from_writer(vec![]);
+    features.iter().for_each(|f| csv.serialize(f).unwrap());
+    let features_csv = String::from_utf8(csv.into_inner()?)?;
+    dnn.stdin
+        .as_mut()
+        .expect("Failed to open stdin")
+        .write_all(features_csv.as_bytes())
+        .await
+        .expect("Failed to write to stdin");
+
+    // while dnn process is working, calculate svm inferences
+    let svm_inference = req
         .state()
         .svm
-        .predict(&DenseMatrix::from_2d_vec(&features));
+        .predict(&DenseMatrix::from_2d_vec(&features))
+        .expect("Cannot predict features with svm");
 
-    match inference {
-        Ok(classes) => match serde_json::to_value(&classes) {
-            Ok(json) => Ok(Response::builder(200).body(json).build()),
-            Err(e) => {
-                log::error!(
-                    "Cannot json stringify {} classes due to {}",
-                    classes.len(),
-                    e
-                );
-                Ok(Response::builder(500).build())
-            }
-        },
-        Err(e) => {
-            log::error!(
-                "Cannot classify {} features due to {}",
-                features.len(),
-                e
-            );
-            Ok(Response::builder(500).build())
-        }
-    }
+    // convert the output to vector of floats
+    let dnn_stdout = dnn.output().await.expect("Failed to read stdout").stdout;
+    let dnn_inferences: Vec<_> = String::from_utf8(dnn_stdout)
+        .expect("Cannot parse python output")
+        .lines()
+        .filter_map(|n| n.parse::<f64>().ok())
+        .collect();
+
+    assert_eq!(dnn_inferences.len(), svm_inference.len());
+
+    let inferences: Vec<_> = dnn_inferences
+        .into_iter()
+        .zip(svm_inference.into_iter())
+        .map(|(a, b)| (a + b) / 2.0)
+        .collect();
+
+    let json =
+        serde_json::to_value(&inferences).expect("Cannot stringify inferences");
+    Ok(Response::builder(200).body(json).build())
 }
 
 #[derive(Clone)]

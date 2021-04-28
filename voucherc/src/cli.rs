@@ -5,7 +5,7 @@ use clap::{App, Arg};
 use rand::{seq::SliceRandom, thread_rng};
 use smartcore::linalg::naive::dense_matrix::{BaseVector, DenseMatrix};
 use smartcore::svm::{
-    svc::{SVCParameters, SVC},
+    svr::{SVRParameters, SVR},
     Kernels,
 };
 use std::{
@@ -19,13 +19,10 @@ use types::{Feature, SVM};
 const DEFAULT_VOUCHERS_PATH: &str = "data/vouchers.txt";
 const DEFAULT_NVOUCHERS_PATH: &str = "data/nvouchers.txt";
 
-// higher sample size did not improve performance, every 250 additional samples
-// double the time it takes to train the svm
-const TRAINING_SAMPLE_SIZE: usize = 500;
-
-// these two parameters had no real effect on the performance
-const SVM_C: f64 = 10.0;
-const RBF_GAMMA: f64 = 0.1;
+const TRAINING_SAMPLE_SIZE: usize = 8000;
+const SVM_C: f64 = 2.0;
+const SVM_E: f64 = 0.0005;
+const RBF_GAMMA: f64 = 0.001;
 
 fn main() {
     let mut app = App::new("voucherc_train_cli")
@@ -41,6 +38,12 @@ fn main() {
                 .long("nvouchers")
                 .help("Text file with one word that's not a voucher per line")
                 .takes_value(true),
+        )
+        .arg(
+            Arg::with_name("csv")
+                .long("csv")
+                .help("Use this flag to store CSV with features")
+                .takes_value(false),
         );
 
     app.print_help().expect("Cannot print help");
@@ -48,6 +51,8 @@ fn main() {
     println!();
 
     let matches = app.get_matches();
+
+    let store_csv = matches.is_present("csv");
 
     let vouchers_path = matches
         .value_of("vouchers")
@@ -62,9 +67,11 @@ fn main() {
     println!("Not vouchers file at {:?}", nvouchers_path);
 
     // read vouchers
-    let (vt, vv) = read_features_into_train_and_test_sets(vouchers_path);
+    let (vt, vv) =
+        read_features_into_train_and_test_sets(vouchers_path, store_csv);
     // read "not vouchers"
-    let (nvt, nvv) = read_features_into_train_and_test_sets(nvouchers_path);
+    let (nvt, nvv) =
+        read_features_into_train_and_test_sets(nvouchers_path, store_csv);
 
     // put together train data from vouchers and "not vouchers"
     let training_data = {
@@ -81,11 +88,12 @@ fn main() {
     let since_classification_started = Instant::now();
     println!();
     println!("Running classification");
-    let svm: SVM = SVC::fit(
+    let svm: SVM = SVR::fit(
         &training_data,
         &training_labels,
-        SVCParameters::default()
+        SVRParameters::default()
             .with_c(SVM_C)
+            .with_eps(SVM_E)
             .with_kernel(Kernels::rbf(RBF_GAMMA)),
     )
     .unwrap();
@@ -95,12 +103,22 @@ fn main() {
     );
 
     // evaluate the results
-    let gv = svm.predict(&DenseMatrix::from_2d_vec(&vv)).unwrap();
+    let gv: Vec<_> = svm
+        .predict(&DenseMatrix::from_2d_vec(&vv))
+        .unwrap()
+        .into_iter()
+        .map(|f| f.clamp(0.0, 1.0))
+        .collect();
     assert_eq!(gv.len(), vv.len());
     let ve = (vv.len() as f64 - gv.sum()) / vv.len() as f64;
     println!("vouchers error     : {:.3}", ve);
 
-    let gnv = svm.predict(&DenseMatrix::from_2d_vec(&nvv)).unwrap();
+    let gnv: Vec<_> = svm
+        .predict(&DenseMatrix::from_2d_vec(&nvv))
+        .unwrap()
+        .into_iter()
+        .map(|f| f.clamp(0.0, 1.0))
+        .collect();
     let gve = gnv.sum() / nvv.len() as f64;
     println!("not-vouchers error : {:.3}", gve);
 
@@ -125,11 +143,13 @@ fn main() {
 
 fn read_features_into_train_and_test_sets(
     path: impl AsRef<Path>,
+    store_csv: bool,
 ) -> (Vec<Feature>, Vec<Feature>) {
     let mut rng = thread_rng();
+    let path = path.as_ref();
 
-    println!("Reading file {:?}", path.as_ref());
-    let input = fs::read_to_string(path).expect("Cannot read input file");
+    println!("Reading file {:?}", path);
+    let input = fs::read_to_string(&path).expect("Cannot read input file");
     let lines = input.lines();
 
     let (lower_bound, upper_bound) = lines.size_hint();
@@ -142,13 +162,20 @@ fn read_features_into_train_and_test_sets(
 
     features.shuffle(&mut rng);
 
+    if store_csv {
+        let csv_path = path.with_extension("csv");
+        let mut csv =
+            csv::Writer::from_path(csv_path).expect("Cannot write CSV");
+        features.iter().for_each(|f| csv.serialize(f).unwrap());
+        csv.flush().expect("Cannot flush CSV");
+    }
+
     // reads data set and splits it in two parts, train and test sets
     assert!(
-        TRAINING_SAMPLE_SIZE * 2 < features.len(),
-        "TRAINING_SAMPLE_SIZE too
-        high or not enough data"
+        TRAINING_SAMPLE_SIZE < features.len(),
+        "Training sample size too high"
     );
-    let train: Vec<_> = features.drain(0..500).collect();
+    let train: Vec<_> = features.drain(0..TRAINING_SAMPLE_SIZE).collect();
     let test = features;
     (train, test)
 }
