@@ -12,37 +12,58 @@
         background-repeat: no-repeat;
       }
 
+      #control {
+        position: fixed;
+        left: 10px;
+        top: 10px;
+      }
+
       .word {
         position: absolute;
-        border: 3px solid rgba(255, 0, 127, 0.75);
+        padding: 3px;
+        margin: -5px;
+        border: 1px solid rgba(255, 0, 127, 0.5);
       }
 
       .is-in-phrase {
-        background-color: rgba(64, 32, 255, 0.25);
+        background-color: rgba(64, 32, 255, 0.25) !important;
       }
 
       .is-voucher {
-        background-color: rgba(64, 255, 127, 0.4);
+        background-color: rgba(64, 255, 127, 0.4) !important;
       }
     </style>
   </head>
   <body>
+    <div id="control">
+      <form
+        method="post"
+        action="http://127.0.0.1:8080/image/{{id}}/classification"
+      >
+        <input type="hidden" name="json" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
     {{#each words}}
     <div
       class="word"
-      id="{{hash this}}"
+      id="{{hash word}}"
       style="
-            top: {{tl.y}}px;
-            left: {{tl.x}}px;
-            width: {{minus br.x tl.x}}px;
-            height: {{minus br.y tl.y}}px;
+            top: {{word.tl.y}}px;
+            left: {{word.tl.x}}px;
+            width: {{minus word.br.x word.tl.x}}px;
+            height: {{minus word.br.y word.tl.y}}px;
+            background-color: {{certainty-colour estimate}};
         "
-      data-text="{{w}}"
+      data-text="{{word.w}}"
     ></div>
     {{/each}}
 
     <script>
       const words = Array.from(document.querySelectorAll(".word"));
+      const vouchers = [];
+      const phrases = [];
 
       let downX = null;
       let downY = null;
@@ -63,8 +84,7 @@
           target.classList.add("is-voucher");
 
           if (!target.getAttribute("data-sent")) {
-            console.log(`Identified voucher ${voucher}`);
-            // TODO: POST /image/{id}/voucher
+            vouchers.push(voucher);
             target.setAttribute("data-sent", true);
           }
         } else {
@@ -91,11 +111,16 @@
           if (selected.length) {
             selected.forEach((w) => w.classList.add("is-in-phrase"));
 
-            const phrase = selected.map((w) => w.getAttribute("data-text"));
-            console.log(`Phrase '${phrase.join(" ")}' identified`);
-            // TODO: POST /image/{id}/phrase
+            const phrase = selected
+              .map((w) => w.getAttribute("data-text"))
+              .join(" ");
+            phrases.push(phrase);
           }
         }
+
+        document.querySelector(
+          '#control form input[name="json"]'
+        ).value = JSON.stringify({ vouchers, phrases });
       }
 
       function reset() {

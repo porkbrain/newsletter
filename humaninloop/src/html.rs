@@ -1,4 +1,4 @@
-use crate::prelude::*;
+use crate::{models::WordWithEstimate, prelude::*};
 use handlebars::Handlebars;
 use serde_json::{json, Value};
 
@@ -20,16 +20,25 @@ impl Template {
 
         handlebars.register_helper("minus", Box::new(helpers::minus));
         handlebars.register_helper("hash", Box::new(helpers::hash));
+        handlebars.register_helper(
+            "certainty-colour",
+            Box::new(helpers::certainty_colour),
+        );
 
         Ok(Self(handlebars))
     }
 
     pub fn render_image_page(
         &self,
+        id: &str,
         url: &str,
-        words: &Value,
+        words: &[WordWithEstimate],
     ) -> Result<String> {
-        self.render(IMAGE_TEMPLATE_NAME, &json!({ "url": url, "words": words }))
+        log::trace!("Rendering image page");
+        self.render(
+            IMAGE_TEMPLATE_NAME,
+            &json!({ "id": id, "url": url, "words": words }),
+        )
     }
 
     fn render(&self, template: &str, json: &Value) -> Result<String> {
@@ -78,6 +87,21 @@ mod helpers {
         let hash = hasher.finish();
 
         out.write(&format!("{}", hash))?;
+        Ok(())
+    }
+
+    /// Converts [0; 1] certainty number to a colour which can be used for
+    /// background
+    pub fn certainty_colour(
+        h: &Helper,
+        _: &Handlebars,
+        _: &Context,
+        _: &mut RenderContext,
+        out: &mut dyn Output,
+    ) -> HelperResult {
+        let c = h.param(0).unwrap().value().as_f64().unwrap();
+        // light green
+        out.write(&format!("rgba(255, 255, 0, {:.2})", (c - 0.6).max(0.0)))?;
         Ok(())
     }
 }
