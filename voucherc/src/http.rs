@@ -2,42 +2,49 @@ mod conf;
 mod features;
 mod types;
 
-use async_std::prelude::*;
-use async_std::process::{Command, Stdio};
+use actix_web::{middleware, web, App, HttpResponse, HttpServer};
 use conf::Conf;
 use dotenv::dotenv;
-use serde_json::json;
 use smartcore::linalg::naive::dense_matrix::DenseMatrix;
-use std::sync::Arc;
-use tide::{Request, Response};
+use std::{process::Stdio, sync::Arc};
+use tokio::process::Command;
 use types::SVM;
+use tokio::io::AsyncWriteExt;
 
 const SVM_JSON: &str = include_str!("../data/svm.json");
 
-#[async_std::main]
-async fn main() -> tide::Result<()> {
+#[actix_web::main]
+async fn main() {
     dotenv().ok();
     env_logger::init();
     log::info!("Starting voucherc v{}", env!("CARGO_PKG_VERSION"));
 
     let conf = envy::from_env::<Conf>().expect("Cannot build config");
 
-    let mut app = tide::with_state(State::new());
-    app.at("/words").post(classify_words);
-    app.listen(conf.http_address).await?;
-
-    Ok(())
+    HttpServer::new(move || {
+        App::new()
+            .app_data(State::new())
+            .wrap(middleware::Logger::default())
+            .service(web::resource("/words").to(classify_words))
+    })
+    .bind(conf.http_address)
+    .expect("Cannot start web server")
+    .run()
+    .await
+    .expect("Web server died");
 }
 
-async fn classify_words(mut req: Request<State>) -> tide::Result {
-    let words: Vec<String> = req.body_json().await?;
+async fn classify_words(
+    state: web::Data<State>,
+    words: web::Json<Vec<String>>,
+) -> HttpResponse {
     log::debug!("Classifying {} words", words.len());
 
     let features: Vec<_> =
-        words.iter().map(|w| features::from_word(&w)).collect();
+        words.iter().map(|w| features::from_word(w)).collect();
 
     if features.is_empty() {
-        return Ok(Response::builder(200).body(json!([])).build());
+        return HttpResponse::Ok().finish();
     }
 
     // spawn new process which boots the neural net
@@ -52,7 +59,11 @@ async fn classify_words(mut req: Request<State>) -> tide::Result {
     // write the features to stdin so that the process can predict their classes
     let mut csv = csv::Writer::from_writer(vec![]);
     features.iter().for_each(|f| csv.serialize(f).unwrap());
-    let features_csv = String::from_utf8(csv.into_inner()?)?;
+    let features_csv = String::from_utf8(csv.into_inner().expect(
+        "Cannot write
+            csv data",
+    ))
+    .expect("Cannot create string from csv");
     dnn.stdin
         .as_mut()
         .expect("Failed to open stdin")
@@ -61,14 +72,13 @@ async fn classify_words(mut req: Request<State>) -> tide::Result {
         .expect("Failed to write to stdin");
 
     // while dnn process is working, calculate svm inferences
-    let svm_inference = req
-        .state()
+    let svm_inference = state
         .svm
         .predict(&DenseMatrix::from_2d_vec(&features))
         .expect("Cannot predict features with svm");
 
     // convert the output to vector of floats
-    let dnn_stdout = dnn.output().await.expect("Failed to read stdout").stdout;
+    let dnn_stdout = dnn.wait_with_output().await.expect("Failed to read stdout").stdout;
     let dnn_inferences: Vec<_> = String::from_utf8(dnn_stdout)
         .expect("Cannot parse python output")
         .lines()
@@ -83,9 +93,7 @@ async fn classify_words(mut req: Request<State>) -> tide::Result {
         .map(|(a, b)| (a + b) / 2.0)
         .collect();
 
-    let json =
-        serde_json::to_value(&inferences).expect("Cannot stringify inferences");
-    Ok(Response::builder(200).body(json).build())
+    HttpResponse::Ok().json(&inferences)
 }
 
 #[derive(Clone)]
