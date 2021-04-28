@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-image: url({{url}});
+        background-repeat: no-repeat;
+      }
+
+      .word {
+        position: absolute;
+        border: 3px solid rgba(255, 0, 127, 0.75);
+      }
+
+      .is-in-phrase {
+        background-color: rgba(64, 32, 255, 0.25);
+      }
+
+      .is-voucher {
+        background-color: rgba(64, 255, 127, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    {{#each words}}
+    <div
+      class="word"
+      id="{{hash this}}"
+      style="
+            top: {{tl.y}}px;
+            left: {{tl.x}}px;
+            width: {{minus br.x tl.x}}px;
+            height: {{minus br.y tl.y}}px;
+        "
+      data-text="{{w}}"
+    ></div>
+    {{/each}}
+
+    <script>
+      const words = Array.from(document.querySelectorAll(".word"));
+
+      let downX = null;
+      let downY = null;
+      let downTarget = null;
+
+      function startSelect(target, x, y) {
+        if (target.classList.contains("word")) {
+          downTarget = target.id;
+        }
+
+        downX = x;
+        downY = y;
+      }
+
+      function endSelect(target, upX, upY) {
+        if (target.classList.contains("word") && target.id === downTarget) {
+          const voucher = target.getAttribute("data-text");
+          target.classList.add("is-voucher");
+
+          if (!target.getAttribute("data-sent")) {
+            console.log(`Identified voucher ${voucher}`);
+            // TODO: POST /image/{id}/voucher
+            target.setAttribute("data-sent", true);
+          }
+        } else {
+          const minX = Math.min(downX, upX);
+          const maxX = Math.max(downX, upX);
+          const minY = Math.min(downY, upY);
+          const maxY = Math.max(downY, upY);
+
+          const selected = words.filter(
+            ({ offsetTop, offsetLeft, offsetWidth, offsetHeight }) => {
+              return (
+                (offsetLeft > minX &&
+                  offsetLeft < maxX &&
+                  offsetTop > minY &&
+                  offsetTop < maxY) ||
+                (offsetLeft + offsetWidth > minX &&
+                  offsetLeft + offsetWidth < maxX &&
+                  offsetTop + offsetHeight > minY &&
+                  offsetTop + offsetHeight < maxY)
+              );
+            }
+          );
+
+          if (selected.length) {
+            selected.forEach((w) => w.classList.add("is-in-phrase"));
+
+            const phrase = selected.map((w) => w.getAttribute("data-text"));
+            console.log(`Phrase '${phrase.join(" ")}' identified`);
+            // TODO: POST /image/{id}/phrase
+          }
+        }
+      }
+
+      function reset() {
+        downY = null;
+        downX = null;
+        downTarget = null;
+      }
+
+      document.addEventListener("mousedown", ({ target, pageX, pageY }) => {
+        reset();
+        startSelect(target, pageX, pageY);
+      });
+
+      document.addEventListener("mouseup", ({ target, pageX, pageY }) => {
+        if (downX && downY) {
+          endSelect(target, pageX, pageY);
+        }
+        reset();
+      });
+    </script>
+  </body>
+</html>
