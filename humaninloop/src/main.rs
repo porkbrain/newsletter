@@ -22,12 +22,14 @@ async fn main() {
     env_logger::init();
     log::info!("Starting humaninloop v{}", env!("CARGO_PKG_VERSION"));
 
+    let state = State::new().await.unwrap();
+
     HttpServer::new(move || {
         App::new()
-            .app_data(web::Data::new(State::new().unwrap()))
+            .app_data(web::Data::new(state.clone()))
             .wrap(middleware::Logger::default())
             .service(
-                web::resource("/image/{id}/classification")
+                web::resource("/images/{id}/classification")
                     .route(web::get().to(show_image))
                     .route(web::post().to(evaluate_image)),
             )
@@ -43,7 +45,9 @@ async fn main() {
 struct EvaluateImageForm {
     json: String,
 }
+
 async fn evaluate_image(
+    state: web::Data<State>,
     newsletter_id: web::Path<String>,
     body: web::Form<EvaluateImageForm>,
 ) -> HttpResponse {
@@ -53,8 +57,28 @@ async fn evaluate_image(
         .await
         .expect("Cannot write json file");
 
-    HttpResponse::TemporaryRedirect()
-        .append_header(("Location", "https://google.com"))
+    let redirect_url = state
+        .newsletter_ids
+        .lock()
+        .unwrap()
+        .pop()
+        .map(|id| format!("/images/{}/classification", id))
+        .unwrap_or_else(|| "https://porkbrain.com".to_string());
+
+    let updated_ids = state
+        .newsletter_ids
+        .lock()
+        .unwrap()
+        .iter()
+        .cloned()
+        .collect::<Vec<_>>()
+        .join("\n");
+    fs::write("humaninloop/.local/keys.txt", updated_ids)
+        .await
+        .unwrap();
+
+    HttpResponse::SeeOther()
+        .append_header(("Location", redirect_url.as_str()))
         .finish()
 }
 

@@ -36,32 +36,35 @@
   </head>
   <body>
     <div id="control">
-      <form
-        method="post"
-        action="http://127.0.0.1:8080/image/{{id}}/classification"
-      >
+      <form method="post" action="/images/{{id}}/classification">
         <input type="hidden" name="json" />
         <button type="submit">Submit</button>
       </form>
     </div>
 
-    {{#each words}}
+    {{#each words as |model index|}}
     <div
       class="word"
-      id="{{hash word}}"
+      id="{{hash model.word}}"
       style="
-            top: {{word.tl.y}}px;
-            left: {{word.tl.x}}px;
-            width: {{minus word.br.x word.tl.x}}px;
-            height: {{minus word.br.y word.tl.y}}px;
-            background-color: {{certainty-colour estimate}};
+            top: {{model.word.tl.y}}px;
+            left: {{model.word.tl.x}}px;
+            width: {{minus model.word.br.x model.word.tl.x}}px;
+            height: {{minus model.word.br.y model.word.tl.y}}px;
+            background-color: {{certainty-colour model.estimate}};
         "
-      data-text="{{word.w}}"
+      data-text="{{model.word.w}}"
+      data-order="{{index}}"
     ></div>
     {{/each}}
 
     <script>
       const words = Array.from(document.querySelectorAll(".word"));
+      words.sort(
+        (a, b) =>
+          parseInt(a.getAttribute("data-order")) -
+          parseInt(a.getAttribute("data-order"))
+      );
       const vouchers = [];
       const phrases = [];
 
