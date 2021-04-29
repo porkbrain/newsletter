@@ -33,8 +33,8 @@ We validate the model on vouchers and nvouchers
 We evaluate the model on the testing data and prompt user to save the model.
 """
 
-epochs = 30
-batch_size = 200
+epochs = 120
+batch_size = 300
 
 # 1.
 vouchers = np.loadtxt("../data/vouchers.csv", delimiter=",")
@@ -48,7 +48,7 @@ np.random.shuffle(nvouchers)
 assert vfeatures_count == nvfeatures_count
 features_count = vfeatures_count
 
-train_count = round(min(vouchers_count * 0.75, nvouchers_count * 0.75))
+train_count = round(min(vouchers_count * 0.9, nvouchers_count * 0.9))
 train_vouchers_count = train_count
 train_nvouchers_count = train_count
 
@@ -69,7 +69,8 @@ print("Training data shape", X.shape, y.shape)
 # 3.
 print()
 model = Sequential()
-model.add(Dense(24, input_dim=features_count, activation="relu"))
+model.add(Dense(48, input_dim=features_count, activation="relu"))
+model.add(Dense(24, activation="relu"))
 model.add(Dense(12, activation="relu"))
 model.add(Dense(1, activation="sigmoid"))
 

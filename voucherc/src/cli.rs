@@ -19,10 +19,10 @@ use types::{Feature, SVM};
 const DEFAULT_VOUCHERS_PATH: &str = "data/vouchers.txt";
 const DEFAULT_NVOUCHERS_PATH: &str = "data/nvouchers.txt";
 
-const TRAINING_SAMPLE_SIZE: usize = 8000;
-const SVM_C: f64 = 2.0;
-const SVM_E: f64 = 0.0005;
-const RBF_GAMMA: f64 = 0.001;
+const TRAINING_SAMPLE_SIZE: usize = 10000;
+const SVM_C: f64 = 5.0;
+const SVM_E: f64 = 0.05;
+const RBF_GAMMA: f64 = 0.05;
 
 fn main() {
     let mut app = App::new("voucherc_train_cli")
@@ -111,7 +111,7 @@ fn main() {
         .collect();
     assert_eq!(gv.len(), vv.len());
     let ve = (vv.len() as f64 - gv.sum()) / vv.len() as f64;
-    println!("vouchers error     : {:.3}", ve);
+    println!("vouchers accuracy : {:.3}%", (1.0 - ve) * 100.0);
 
     let gnv: Vec<_> = svm
         .predict(&DenseMatrix::from_2d_vec(&nvv))
@@ -120,10 +120,13 @@ fn main() {
         .map(|f| f.clamp(0.0, 1.0))
         .collect();
     let gve = gnv.sum() / nvv.len() as f64;
-    println!("not-vouchers error : {:.3}", gve);
+    println!("nvouchers accuracy: {:.3}%", (1.0 - gve) * 100.0);
 
     println!();
-    println!("average error      : {:.3}", (ve + gve) / 2.0);
+    println!(
+        "average accuracy   : {:.3}%",
+        (1.0 - (ve + gve) / 2.0) * 100.0
+    );
 
     println!();
     println!("Persist model to data/svm.json? [Yn]");

@@ -2,6 +2,8 @@ use crate::types::Feature;
 use static_init::dynamic;
 use std::collections::HashSet;
 
+const MAX_CHARS_AS_FEATURES: usize = 20;
+
 #[dynamic]
 static DICT: HashSet<String> = include_str!("../data/dictionary.en.txt")
     .lines()
@@ -11,7 +13,7 @@ static DICT: HashSet<String> = include_str!("../data/dictionary.en.txt")
 pub fn from_word(w: &str) -> Feature {
     let b2f = |b| if b { 1.0 } else { 0.0 };
 
-    vec![
+    let features = vec![
         w.len() as f64,
         // related to letters of the word
         b2f(is_lowercase(&w)),
@@ -27,7 +29,27 @@ pub fn from_word(w: &str) -> Feature {
         b2f(ends_with_digits(&w)),
         b2f(has_letters_which_end_with_two_digits(&w)),
         b2f(has_letters_which_end_with_two_digit_number_divisible_by_five(&w)),
-    ]
+    ];
+
+    let chars_as_features = w
+        .chars()
+        .into_iter()
+        .map(map_char_to_feature)
+        .chain(std::iter::repeat(0f64))
+        .take(MAX_CHARS_AS_FEATURES);
+
+    features.into_iter().chain(chars_as_features).collect()
+}
+
+fn map_char_to_feature(c: char) -> f64 {
+    match c {
+        'a'..='z' => 1.0,
+        'A'..='Z' => 2.0,
+        '1'..='9' => 3.0,
+        '_' => 4.0,
+        '-' => 5.0,
+        _ => 6.0,
+    }
 }
 
 fn is_lowercase(w: &str) -> bool {
