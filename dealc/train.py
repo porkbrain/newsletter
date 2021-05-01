@@ -10,7 +10,7 @@ import datetime
 import numpy as np
 import pickle
 import re
-import zipfile
+from zipfile import ZipFile, ZIP_DEFLATED
 
 """
 # random forest train script
@@ -90,8 +90,7 @@ if store_yn[0].lower() == "y":
     with open("model.data/tfidf", "wb") as f:
         pickle.dump(tfidf, f)
 
-    compression = zipfile.ZIP_DEFLATED
-    with zipfile.ZipFile("model.data.zip", mode="w", compression) as zipf:
+    with ZipFile("model.data.zip", mode="w", compression=ZIP_DEFLATED) as zipf:
         zipf.write("model.data/model")
         zipf.write("model.data/vectorizer")
         zipf.write("model.data/tfidf")
