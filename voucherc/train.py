@@ -110,7 +110,7 @@ print("Accuracy on nvouchers: %.2f" % (nvaccuracy * 100))
 print()
 store_yn = input("Store model? ")
 if store_yn[0].lower() == "y":
-    save_model(model, "data/dnn_model")
+    save_model(model, "model.data")
     print("Done")
 else:
     print("Nothing to do")

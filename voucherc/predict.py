@@ -25,7 +25,7 @@ from features import feature_from_str
 # loads model which should be packed together with this script
 # the model is produced by the train.py script in the same dir
 print("Loading model")
-model = load_model("data/dnn_model")
+model = load_model("model.data")
 
 
 class Predictor(BaseHTTPRequestHandler):
