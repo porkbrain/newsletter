@@ -1,6 +1,6 @@
 //! Name of each env var is the same as the property but in ALL_CAPS.
 
-use {rusoto_core::Region, serde::Deserialize};
+use {serde::Deserialize, shared::rusoto_core::Region};
 
 #[derive(Default, Deserialize, Debug)]
 pub struct Conf {

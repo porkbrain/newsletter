@@ -38,8 +38,8 @@ mod vision;
 
 use dotenv::dotenv;
 use prelude::*;
-use rusoto_s3::S3Client;
-use rusoto_sqs::{Message, SqsClient};
+use shared::rusoto_s3::S3Client;
+use shared::rusoto_sqs::{Message, SqsClient};
 use state::State;
 use std::str::FromStr;
 

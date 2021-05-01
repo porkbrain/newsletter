@@ -1,5 +1,5 @@
 use {
-    rusoto_core::RusotoError,
+    shared::rusoto_core::RusotoError,
     std::{
         error::Error as StdError,
         fmt::{self, Debug, Display},
