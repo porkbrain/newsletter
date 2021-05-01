@@ -91,9 +91,7 @@ if store_yn[0].lower() == "y":
         pickle.dump(tfidf, f)
 
     compression = zipfile.ZIP_DEFLATED
-    with zipfile.ZipFile(
-        "model.data.zip", mode="w", compression
-    ) as zipf:
+    with zipfile.ZipFile("model.data.zip", mode="w", compression) as zipf:
         zipf.write("model.data/model")
         zipf.write("model.data/vectorizer")
         zipf.write("model.data/tfidf")
