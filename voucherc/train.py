@@ -6,6 +6,7 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 import numpy as np
 from keras.models import Sequential, save_model
 from keras.layers import Dense
+from features import feature_from_str
 
 """
 # neural network train script
@@ -14,9 +15,8 @@ whether a word is likely to be voucher or not.
 
 ## 1.
 This script takes as an input two files:
-    a. CSV of numbers that represent voucher features
-    b. CSV of numbers that represent features of words which aren't vouchers, so
-    called nvouchers
+    a. one word which is a voucher per line
+    b. one word which isn't a vouchers per line
 
 We then split the dataset in two: training and validation sets.
 
@@ -36,11 +36,24 @@ We evaluate the model on the testing data and prompt user to save the model.
 epochs = 120
 batch_size = 300
 
+
+def load_txt_and_convert_to_features(path):
+    fts = []
+
+    data = open(path, "r")
+    for line in data.readlines():
+        word = line.strip()
+        fts.append(np.array(feature_from_str(word)))
+    data.close()
+
+    fts = np.stack(fts)
+    np.random.shuffle(fts)
+    return fts
+
+
 # 1.
-vouchers = np.loadtxt("../data/vouchers.csv", delimiter=",")
-np.random.shuffle(vouchers)
-nvouchers = np.loadtxt("../data/nvouchers.csv", delimiter=",")
-np.random.shuffle(nvouchers)
+vouchers = load_txt_and_convert_to_features("data/vouchers.txt")
+nvouchers = load_txt_and_convert_to_features("data/nvouchers.txt")
 
 (vouchers_count, vfeatures_count) = vouchers.shape
 (nvouchers_count, nvfeatures_count) = nvouchers.shape
@@ -97,7 +110,7 @@ print("Accuracy on nvouchers: %.2f" % (nvaccuracy * 100))
 print()
 store_yn = input("Store model? ")
 if store_yn[0].lower() == "y":
-    save_model(model, "../data/dnn_model")
+    save_model(model, "data/dnn_model")
     print("Done")
 else:
     print("Nothing to do")

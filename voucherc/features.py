@@ -1,7 +1,12 @@
 import re
 
+# to make each vector the same length, we must
+# (a) trim characters if input is longer than this
+# (b) append zeros if input is shorter than this
+char_features_len = 20
 
-def from_str(w):
+
+def feature_from_str(w):
     """
     Given a string it converts it to a list of floats.
     """
@@ -22,8 +27,14 @@ def from_str(w):
         float(is_in_english_dictionary(w)),
     ]
 
-    for i in range(0, len(w)):
+    # (a)
+    for i in range(0, min(len(w), char_features_len)):
         features.append(map_char_to_feature(w[i]))
+
+    # (b)
+    if len(w) < char_features_len:
+        for _ in range(0, char_features_len - len(w)):
+            features.append(0.0)
 
     return features
 
@@ -60,7 +71,7 @@ def load_dict_en():
     """
     Loads dictionary from file. This should happen once on program boot.
     """
-    print("Loading dict")
+    print("Loading en dictionary")
     dict_en = open("data/dictionary.en.txt", "r")
 
     words = set()
@@ -68,6 +79,7 @@ def load_dict_en():
     for word in dict_en.readlines():
         words.add(word.strip().lower())
 
+    dict_en.close()
     return words
 
 
@@ -146,7 +158,7 @@ def test_module():
     assert map_char_to_feature("$") == 5.0
     assert map_char_to_feature("%") == 5.0
 
-    assert from_str("OK20") == [
+    assert feature_from_str("OK20") == [
         4.0,
         0.0,
         1.0,
@@ -162,6 +174,56 @@ def test_module():
         2.0,
         3.0,
         3.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+    ]
+
+    assert feature_from_str("a" * (2 * char_features_len)) == [
+        40.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
     ]
 
 
