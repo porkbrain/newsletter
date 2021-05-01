@@ -7,7 +7,6 @@ use crate::models::WordWithEstimate;
 use actix_web::{middleware, web, App, HttpResponse, HttpServer};
 use dotenv::dotenv;
 use futures::{StreamExt, TryStreamExt};
-use prelude::*;
 use serde::Deserialize;
 use shared::{
     rusoto_s3::{GetObjectRequest, S3},
