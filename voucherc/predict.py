@@ -12,6 +12,7 @@ POST /
 """
 
 import os
+from os import getenv
 
 # don't print warnings about CPU
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
@@ -58,4 +59,4 @@ def run(host, port):
     print("Stopping http server")
 
 
-run(os.getenv("HTTP_HOST", "0.0.0.0"), int(os.getenv("HTTP_PORT", "8080")))
+run(getenv("HTTP_HOST", "0.0.0.0"), int(getenv("HTTP_PORT", "8080")))
