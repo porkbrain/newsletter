@@ -39,6 +39,10 @@
         border: 1px solid rgba(255, 0, 127, 0.5);
       }
 
+      .should-be-in-phrase {
+        background-color: rgba(255, 165, 0, 0.25) !important;
+      }
+
       .is-in-phrase {
         background-color: rgba(64, 32, 255, 0.25) !important;
       }
@@ -60,7 +64,7 @@
 
     {{#each words as |model index|}}
     <div
-      class="word"
+      class="word {{#if is_in_phrase}}should-be-in-phrase{{/if}}"
       id="{{hash model.word}}"
       style="
             top: {{model.word.tl.y}}px;

@@ -11,6 +11,7 @@ use serde::Deserialize;
 use shared::{
     rusoto_s3::{GetObjectRequest, S3},
     vision::Annotation,
+    S3Ext,
 };
 use state::State;
 use tokio::fs;
@@ -33,7 +34,7 @@ async fn main() {
                     .route(web::post().to(evaluate_image)),
             )
     })
-    .bind("127.0.0.1:8080")
+    .bind("127.0.0.1:8888")
     .expect("Cannot start web server")
     .run()
     .await
@@ -85,37 +86,19 @@ async fn show_image(
     state: web::Data<State>,
     newsletter_id: web::Path<String>,
 ) -> HttpResponse {
-    // TODO: use shared
-    let annotation: Vec<_> = state
+    let annotation: Annotation = state
         .s3
-        .get_object(GetObjectRequest {
-            bucket: "newsletter-ocr-na5d".to_string(),
-            key: newsletter_id.to_string(),
-            ..Default::default()
-        })
+        .get("newsletter-ocr-na5d".to_string(), newsletter_id.to_string())
         .await
-        .expect("Cannot read OCR from S3")
-        .body
-        .unwrap()
-        .into_stream()
-        .collect::<Vec<_>>()
-        .await
-        .into_iter()
-        .map(|r| r.unwrap())
+        .expect("Cannot read OCR object")
+        .map(|bytes| serde_json::from_slice(&bytes).ok())
         .flatten()
-        .collect();
+        .expect("OCR object has empty body");
 
-    let pwords = serde_json::from_slice::<Annotation>(&annotation)
-        .unwrap()
-        .words;
-    let url = format!(
-        "https://newsletter-screenshot-4fj0.s3-eu-west-1.amazonaws.com/{}",
-        newsletter_id
-    );
-
+    let pwords = annotation.words;
     log::trace!("Annotating {} words in {}", pwords.len(), newsletter_id);
     let twords: Vec<_> = pwords.iter().map(|w| &w.word).collect();
-    let estimates: Vec<f64> = surf::post("http://127.0.0.1:8888/words")
+    let estimates: Vec<f64> = surf::post("http://127.0.0.1:8080")
         .body(serde_json::to_value(&twords).unwrap())
         .await
         .unwrap()
@@ -124,12 +107,42 @@ async fn show_image(
         .await
         .unwrap();
     assert_eq!(estimates.len(), pwords.len());
-
-    let words: Vec<_> = pwords
+    let mut words: Vec<_> = pwords
         .into_iter()
         .zip(estimates)
-        .map(|(word, estimate)| WordWithEstimate { word, estimate })
+        .map(|(word, estimate)| WordWithEstimate {
+            word,
+            estimate,
+            is_in_phrase: false,
+        })
         .collect();
+
+    let lines: Vec<_> = annotation.text.lines().collect();
+    log::trace!("Annotating {} phrases in {}", lines.len(), newsletter_id);
+    let estimates: Vec<f64> = surf::post("http://127.0.0.1:8081")
+        .body(serde_json::to_value(&lines).unwrap())
+        .await
+        .unwrap()
+        .take_body()
+        .into_json()
+        .await
+        .unwrap();
+    assert_eq!(estimates.len(), lines.len());
+    let mut line_index = 0;
+    for word in &mut words {
+        if !lines[line_index].contains(word.word.word.as_str()) {
+            line_index += 1;
+        }
+
+        if estimates[line_index] > 0.7 {
+            word.is_in_phrase = true;
+        }
+    }
+
+    let url = format!(
+        "https://newsletter-screenshot-4fj0.s3-eu-west-1.amazonaws.com/{}",
+        newsletter_id
+    );
 
     let html = state
         .template

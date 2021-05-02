@@ -37,7 +37,11 @@ impl Template {
         log::trace!("Rendering image page");
         self.render(
             IMAGE_TEMPLATE_NAME,
-            &json!({ "id": id, "url": url, "words": words }),
+            &json!({
+                "id": id,
+                "url": url,
+                "words": words,
+            }),
         )
     }
 
