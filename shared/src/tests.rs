@@ -1,11 +1,12 @@
 use super::{S3Ext, SqsExt};
 use async_trait::async_trait;
 use rusoto_core::RusotoError;
-use rusoto_s3::PutObjectError;
+use rusoto_s3::{GetObjectError, PutObjectError};
 use rusoto_sqs::{
     DeleteMessageError, GetQueueAttributesError, Message, ReceiveMessageError,
 };
-use std::collections::HashMap;
+use serde::de::DeserializeOwned;
+use std::{collections::HashMap, io};
 
 #[derive(Default)]
 pub struct S3Stub {
@@ -13,6 +14,7 @@ pub struct S3Stub {
     pub key: String,
     pub body: Vec<u8>,
     pub conf: crate::s3::PutConf,
+    pub object_json: serde_json::Value,
 }
 
 #[derive(Default)]
@@ -35,6 +37,22 @@ impl S3Ext for S3Stub {
         assert_eq!(body, self.body);
         assert_eq!(conf, self.conf);
         Ok(())
+    }
+
+    async fn get<T, E>(
+        &self,
+        bucket: String,
+        key: String,
+    ) -> Result<Option<T>, E>
+    where
+        T: DeserializeOwned,
+        E: From<RusotoError<GetObjectError>>
+            + From<serde_json::Error>
+            + From<io::Error>,
+    {
+        assert_eq!(bucket, self.bucket);
+        assert_eq!(key, self.key);
+        Ok(serde_json::from_value(self.object_json.clone()).unwrap())
     }
 }
 

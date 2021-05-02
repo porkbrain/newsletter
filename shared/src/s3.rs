@@ -1,10 +1,12 @@
-use {
-    async_trait::async_trait,
-    rusoto_core::RusotoError,
-    rusoto_s3::{PutObjectError, PutObjectRequest, S3Client, S3},
-    serde::Deserialize,
-    std::str::FromStr,
+use async_trait::async_trait;
+use futures::{StreamExt, TryStreamExt};
+use rusoto_core::RusotoError;
+use rusoto_s3::{
+    GetObjectError, GetObjectRequest, PutObjectError, PutObjectRequest,
+    S3Client, S3,
 };
+use serde::{de::DeserializeOwned, Deserialize};
+use std::{io, str::FromStr};
 
 /// Implements only methods which this project requires instead of all
 /// [`rusoto_s3::S3`] methods, which makes it more comfortable to write stubs
@@ -18,6 +20,17 @@ pub trait S3Ext {
         body: Vec<u8>,
         conf: PutConf,
     ) -> Result<(), RusotoError<PutObjectError>>;
+
+    async fn get<T, E>(
+        &self,
+        bucket: String,
+        key: String,
+    ) -> Result<Option<T>, E>
+    where
+        T: DeserializeOwned,
+        E: From<RusotoError<GetObjectError>>
+            + From<serde_json::Error>
+            + From<io::Error>;
 }
 
 #[derive(Default, PartialEq, Debug)]
@@ -48,6 +61,44 @@ impl S3Ext for S3Client {
         };
         self.put_object(req).await?;
         Ok(())
+    }
+
+    async fn get<T, E>(
+        &self,
+        bucket: String,
+        key: String,
+    ) -> Result<Option<T>, E>
+    where
+        T: DeserializeOwned,
+        E: From<RusotoError<GetObjectError>>
+            + From<serde_json::Error>
+            + From<io::Error>,
+    {
+        let body = self
+            .get_object(GetObjectRequest {
+                bucket,
+                key,
+                ..Default::default()
+            })
+            .await?
+            .body;
+
+        if let Some(body) = body {
+            let body: Vec<_> = body
+                .into_stream()
+                .collect::<Vec<_>>()
+                .await
+                .into_iter()
+                .collect::<Result<Vec<_>, _>>()?
+                .into_iter()
+                .flatten()
+                .collect();
+
+            let output = serde_json::from_slice::<T>(&body)?;
+            Ok(Some(output))
+        } else {
+            Ok(None)
+        }
     }
 }
 
