@@ -4,6 +4,7 @@ members = [
     "prtsc",
     "ocr",
     "shared",
+    "heuristic",
     "humaninloop",
 ]
 

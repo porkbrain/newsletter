@@ -85,6 +85,7 @@ async fn show_image(
     state: web::Data<State>,
     newsletter_id: web::Path<String>,
 ) -> HttpResponse {
+    // TODO: use shared
     let annotation: Vec<_> = state
         .s3
         .get_object(GetObjectRequest {

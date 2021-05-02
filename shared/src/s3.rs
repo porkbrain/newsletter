@@ -5,8 +5,8 @@ use rusoto_s3::{
     GetObjectError, GetObjectRequest, PutObjectError, PutObjectRequest,
     S3Client, S3,
 };
-use serde::{de::DeserializeOwned, Deserialize};
-use std::{io, str::FromStr};
+use serde::Deserialize;
+use std::str::FromStr;
 
 /// Implements only methods which this project requires instead of all
 /// [`rusoto_s3::S3`] methods, which makes it more comfortable to write stubs
@@ -21,16 +21,11 @@ pub trait S3Ext {
         conf: PutConf,
     ) -> Result<(), RusotoError<PutObjectError>>;
 
-    async fn get<T, E>(
+    async fn get(
         &self,
         bucket: String,
         key: String,
-    ) -> Result<Option<T>, E>
-    where
-        T: DeserializeOwned,
-        E: From<RusotoError<GetObjectError>>
-            + From<serde_json::Error>
-            + From<io::Error>;
+    ) -> Result<Option<Vec<u8>>, RusotoError<GetObjectError>>;
 }
 
 #[derive(Default, PartialEq, Debug)]
@@ -63,17 +58,11 @@ impl S3Ext for S3Client {
         Ok(())
     }
 
-    async fn get<T, E>(
+    async fn get(
         &self,
         bucket: String,
         key: String,
-    ) -> Result<Option<T>, E>
-    where
-        T: DeserializeOwned,
-        E: From<RusotoError<GetObjectError>>
-            + From<serde_json::Error>
-            + From<io::Error>,
-    {
+    ) -> Result<Option<Vec<u8>>, RusotoError<GetObjectError>> {
         let body = self
             .get_object(GetObjectRequest {
                 bucket,
@@ -94,8 +83,7 @@ impl S3Ext for S3Client {
                 .flatten()
                 .collect();
 
-            let output = serde_json::from_slice::<T>(&body)?;
-            Ok(Some(output))
+            Ok(Some(body))
         } else {
             Ok(None)
         }

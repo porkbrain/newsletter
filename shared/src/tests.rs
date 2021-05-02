@@ -1,12 +1,11 @@
-use super::{S3Ext, SqsExt};
+use super::{http, S3Ext, SqsExt};
 use async_trait::async_trait;
 use rusoto_core::RusotoError;
 use rusoto_s3::{GetObjectError, PutObjectError};
 use rusoto_sqs::{
     DeleteMessageError, GetQueueAttributesError, Message, ReceiveMessageError,
 };
-use serde::de::DeserializeOwned;
-use std::{collections::HashMap, io};
+use std::collections::HashMap;
 
 #[derive(Default)]
 pub struct S3Stub {
@@ -21,6 +20,13 @@ pub struct S3Stub {
 pub struct SqsStub {
     pub queue_url: String,
     pub receipt_handle: String,
+}
+
+#[derive(Default)]
+pub struct HttpClientStub {
+    pub url: String,
+    pub body: serde_json::Value,
+    pub respose: Vec<u8>,
 }
 
 #[async_trait]
@@ -39,17 +45,11 @@ impl S3Ext for S3Stub {
         Ok(())
     }
 
-    async fn get<T, E>(
+    async fn get(
         &self,
         bucket: String,
         key: String,
-    ) -> Result<Option<T>, E>
-    where
-        T: DeserializeOwned,
-        E: From<RusotoError<GetObjectError>>
-            + From<serde_json::Error>
-            + From<io::Error>,
-    {
+    ) -> Result<Option<Vec<u8>>, RusotoError<GetObjectError>> {
         assert_eq!(bucket, self.bucket);
         assert_eq!(key, self.key);
         Ok(serde_json::from_value(self.object_json.clone()).unwrap())
@@ -82,5 +82,19 @@ impl SqsExt for SqsStub {
     ) -> Result<HashMap<String, String>, RusotoError<GetQueueAttributesError>>
     {
         unimplemented!()
+    }
+}
+
+#[async_trait]
+impl http::Client for HttpClientStub {
+    async fn post_json(
+        &self,
+        url: &str,
+        body: &serde_json::Value,
+    ) -> Result<Vec<u8>, reqwest::Error> {
+        assert_eq!(url, self.url);
+        assert_eq!(body, &self.body);
+
+        Ok(self.respose.clone())
     }
 }
