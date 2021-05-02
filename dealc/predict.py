@@ -64,4 +64,4 @@ def run(host, port):
     print("Stopping http server")
 
 
-run(getenv("HTTP_HOST", "0.0.0.0"), int(getenv("HTTP_PORT", "8080")))
+run(getenv("HTTP_HOST", "0.0.0.0"), int(getenv("HTTP_PORT", "8081")))
