@@ -69,6 +69,7 @@ pub fn words_from_phrase(phrase: &str) -> Vec<String> {
         &['\t', '"', '\'', ',', '.', '?', '!', ')', '(', ':', '*'];
 
     phrase
+        .replace('\n', " ")
         .split(' ')
         .map(|s| s.trim().trim_matches(TRIM_CHARS_FROM_WORD))
         .filter(|s| !s.is_empty())
@@ -151,6 +152,17 @@ mod tests {
         assert_text_eq_list(
             "This is a test\nTRAILING\n",
             &["This is a test", "TRAILING"],
+        );
+    }
+
+    #[test]
+    fn it_works_with_openai_output() {
+        assert_eq!(
+            words_from_phrase(
+                "SUMMER20.\n\
+            The"
+            ),
+            vec!["SUMMER20", "The"]
         );
     }
 

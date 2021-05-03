@@ -82,10 +82,10 @@ pub async fn word_estimates(
                 .map(|(search, p)| {
                     p.words.iter().map(move |w| {
                         if search && &w.text == first_word {
-                            1.0
+                            0.8
                         } else {
                             // unlikely to be a voucher if the AI found another
-                            0.2
+                            0.4
                         }
                     })
                 })
