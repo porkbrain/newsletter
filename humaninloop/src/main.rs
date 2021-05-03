@@ -6,13 +6,8 @@ mod state;
 use crate::models::WordWithEstimate;
 use actix_web::{middleware, web, App, HttpResponse, HttpServer};
 use dotenv::dotenv;
-use futures::{StreamExt, TryStreamExt};
 use serde::Deserialize;
-use shared::{
-    rusoto_s3::{GetObjectRequest, S3},
-    vision::Annotation,
-    S3Ext,
-};
+use shared::{vision::Annotation, S3Ext};
 use state::State;
 use tokio::fs;
 
