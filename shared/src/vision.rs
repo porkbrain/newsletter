@@ -1,8 +1,7 @@
 use google_vision1::api::{TextAnnotation as GAnnotation, Word as GWord};
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
-#[cfg_attr(test, derive(Debug, PartialEq, Default, Clone))]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Default, Clone)]
 pub struct Annotation {
     pub text: String,
     pub words: Vec<Word>,
@@ -10,8 +9,7 @@ pub struct Annotation {
 
 /// Since there are many words in each text, during serialization we rename each
 /// attribute so that when we inpect the generated JSON, it's less cluttered.
-#[derive(Serialize, Deserialize, Hash)]
-#[cfg_attr(test, derive(Debug, PartialEq, Default, Clone))]
+#[derive(Serialize, Deserialize, Hash, Debug, PartialEq, Default, Clone)]
 pub struct Word {
     #[serde(rename = "w")]
     pub word: String,
@@ -21,8 +19,7 @@ pub struct Word {
     pub bottom_right: Point,
 }
 
-#[derive(Serialize, Deserialize, Hash)]
-#[cfg_attr(test, derive(Debug, PartialEq, Default, Clone))]
+#[derive(Serialize, Deserialize, Hash, Debug, PartialEq, Default, Clone)]
 pub struct Point {
     x: i32,
     y: i32,

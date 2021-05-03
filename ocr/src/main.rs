@@ -154,10 +154,11 @@ mod tests {
     use super::*;
     use crate::{
         state::State,
-        vision::{Annotation, Ocr},
+        vision::{Ocr},
     };
+    use shared::vision::Annotation;
     use async_trait::async_trait;
-    use rusoto_core::Region;
+    use shared::rusoto_core::Region;
     use shared::tests::*;
 
     #[tokio::test]
@@ -204,6 +205,7 @@ mod tests {
                 content_type: Some("application/json".to_string()),
                 ..Default::default()
             },
+            ..Default::default()
         };
 
         let sqs_stub = SqsStub {
