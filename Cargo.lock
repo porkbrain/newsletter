@@ -1260,22 +1260,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "heuristic"
-version = "0.1.0"
-dependencies = [
- "async-trait",
- "dotenv",
- "env_logger",
- "envy",
- "futures",
- "log 0.4.14",
- "serde",
- "serde_json",
- "shared",
- "tokio",
-]
-
-[[package]]
 name = "hex"
 version = "0.4.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2077,6 +2061,22 @@ name = "ppv-lite86"
 version = "0.2.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ac74c624d6b2d21f425f752262f42188365d7b8ff1aff74c82e45136510a4857"
+
+[[package]]
+name = "predictor"
+version = "0.1.0"
+dependencies = [
+ "async-trait",
+ "dotenv",
+ "env_logger",
+ "envy",
+ "futures",
+ "log 0.4.14",
+ "serde",
+ "serde_json",
+ "shared",
+ "tokio",
+]
 
 [[package]]
 name = "proc-macro-hack"

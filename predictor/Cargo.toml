@@ -1,5 +1,5 @@
 [package]
-name = "heuristic"
+name = "predictor"
 version = "0.1.0"
 authors = ["Michael <michael@porkbrain.com>"]
 edition = "2018"
