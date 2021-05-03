@@ -24,4 +24,24 @@ describe("parse.ts", () => {
     expect(subject).to.eq("RE: Your Winter Wardrobe");
     expect(receivedAt.toDateString()).to.eq("Sun Dec 13 2020");
   });
+
+  it("should parse forwardees", async () => {
+    const sampleEml = readFileSync("test/parse_forwardees.in").toString();
+    const sampleHtml = readFileSync("test/parse_forwardees.out").toString();
+
+    const id = "test-id";
+    const {
+      recipientAddress,
+      senderAddress,
+      senderName,
+      subject,
+      html
+    } = await parseEmailFromEmlHtml(id, sampleEml);
+
+    expect(recipientAddress).to.eq("gsg@mailmevouchers.com");
+    expect(senderAddress).to.eq("promos@mail.iherb.com");
+    expect(senderName).to.eq("iHerb");
+    expect(subject).to.eq("🎉 20% OFF SITEWIDE SALE 🎉");
+    expect(html).to.eq(sampleHtml);
+  });
 });

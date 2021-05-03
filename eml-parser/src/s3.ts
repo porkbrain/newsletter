@@ -53,7 +53,8 @@ export async function uploadHtmlToS3(
     ACL: "public-read", // users can access email html previews
     Bucket: bucketName,
     CacheControl: "public, immutable",
-    ContentType: "text/html",
+    // https://stackoverflow.com/a/2505733/5093093
+    ContentType: "text/html; charset=UTF-8",
     StorageClass: "REDUCED_REDUNDANCY",
     Key: s3Key,
   };
