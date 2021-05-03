@@ -19,6 +19,10 @@ pub struct Conf {
     pub dealc_url: String,
     /// On what URL can we reach voucherc to categorize vouchers.
     pub voucherc_url: String,
+    /// API key for OpenAI account.
+    pub openai_key: String,
+    /// Where can we reach OpenAI servers.
+    pub openai_completion_url: String,
 }
 
 #[cfg(test)]
@@ -32,6 +36,8 @@ mod tests {
         env::set_var("DEALC_URL", "dealcurl");
         env::set_var("VOUCHERC_URL", "vouchercurl");
         env::set_var("AWS_DEFAULT_REGION", "eu-west-1");
+        env::set_var("OPENAI_KEY", "abckey");
+        env::set_var("OPENAI_COMPLETION_URL", "url");
 
         let conf = envy::from_env::<Conf>().unwrap();
 
@@ -39,5 +45,7 @@ mod tests {
         assert_eq!(conf.region, Region::EuWest1);
         assert_eq!(conf.dealc_url, "dealcurl");
         assert_eq!(conf.voucherc_url, "vouchercurl");
+        assert_eq!(conf.openai_key, "abckey");
+        assert_eq!(conf.openai_completion_url, "url");
     }
 }

@@ -1,23 +1,45 @@
 mod common_phrases;
+mod openai;
 
-use crate::models::{Phrase, Phrases, Source};
-use crate::parse;
+use crate::models::{Phrases, Source};
 use crate::prelude::*;
 use shared::http;
 
 pub async fn get_phrases_with_estimates(
-    http_client: &dyn http::Client,
     conf: &Conf,
+    http_client: &dyn http::Client,
     text: &str,
 ) -> Result<Phrases, Error> {
-    let mut document = Phrases::new(
-        parse::lines_from_email(text)
-            .into_iter()
-            .map(Phrase::new)
-            .collect(),
-    );
+    let mut document = Phrases::from_text(text);
 
+    apply_dealc_and_voucherc_estimates(conf, http_client, &mut document)
+        .await?;
+
+    // if there are some some common newsletter phrases (USE CODE ABC20), then
+    // apply estimates from those
+    let common_phrases_estimates =
+        common_phrases::word_estimates(&document.words_str());
+    if let Some(estimates) = common_phrases_estimates {
+        document.apply_words_estimates(Source::CommonPhrases, estimates)?;
+    }
+
+    // send some promising phrases to openai to check them out
+    let openai_estimates =
+        openai::word_estimates(conf, http_client, document.inner()).await?;
+    if let Some(estimates) = openai_estimates {
+        document.apply_words_estimates(Source::OpenAi, estimates)?;
+    }
+
+    Ok(document)
+}
+
+async fn apply_dealc_and_voucherc_estimates(
+    conf: &Conf,
+    http_client: &dyn http::Client,
+    document: &mut Phrases,
+) -> Result<(), Error> {
     // fetch estimates for how likely each phrase is a deal
+    // TODO: can be made concurrent with next step
     let dealc_estimates: Vec<f64> = {
         let phrases_json = serde_json::to_value(&document.phrases_str())?;
         let dealc_res_body = http_client
@@ -39,17 +61,7 @@ pub async fn get_phrases_with_estimates(
     };
     document.apply_words_estimates(Source::Voucherc, voucherc_estimates)?;
 
-    // if there are some some common newsletter phrases (USE CODE ABC20), then
-    // apply estimates from those
-    let common_phrases_estimates =
-        common_phrases::word_estimates(&document.words_str());
-    if let Some(estimates) = common_phrases_estimates {
-        document.apply_words_estimates(Source::CommonPhrases, estimates)?;
-    }
-
-    // TODO: openai
-
-    Ok(document)
+    Ok(())
 }
 
 #[cfg(test)]
@@ -59,12 +71,13 @@ mod tests {
 
     #[ignore]
     #[tokio::test]
-    async fn it_returns_estimates() {
+    async fn it_applies_dealc_and_voucherc_estimates() {
         let conf = Conf {
             dealc_url: "http://localhost:8081".to_string(),
             voucherc_url: "http://localhost:8080".to_string(),
             ..Default::default()
         };
+        let http_client = reqwest::Client::new();
 
         let text = "🛒 26% Off HUGE Savings!\nShop ‘Til You Drop |\n\
                     View online\nBLACK FRIDAY OFFERS\nSHORT BREAKS\nGOURMET\n\
@@ -105,9 +118,9 @@ mod tests {
                     Buyagift, 4 Imperial Place, Maxwell Road, Borehamwood, \
                     Hertfordshire, WD6 1JN\n- - - - - - - - - - - - - -";
 
-        let client = reqwest::Client::new();
+        let mut phrases = Phrases::from_text(text);
 
-        let phrases = get_phrases_with_estimates(&client, &conf, text)
+        apply_dealc_and_voucherc_estimates(&conf, &http_client, &mut phrases)
             .await
             .expect("Cannot get phrases with estimates");
 

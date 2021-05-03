@@ -9,13 +9,15 @@ mod state;
 use dotenv::dotenv;
 use prelude::*;
 use shared::{
-    reqwest,
+    reqwest::{self, header},
     rusoto_s3::S3Client,
     rusoto_sqs::{Message, SqsClient},
     vision::Annotation,
 };
 use state::State;
 use std::str::FromStr;
+
+use crate::sources::get_phrases_with_estimates;
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
@@ -26,7 +28,20 @@ async fn main() -> Result<(), Error> {
     let conf = envy::from_env::<Conf>()?;
     let sqs = Box::new(SqsClient::new(conf.region.clone()));
     let s3 = Box::new(S3Client::new(conf.region.clone()));
-    let http_client = Box::new(reqwest::Client::new());
+    let http_client = Box::new({
+        let mut headers = header::HeaderMap::new();
+        let mut auth_value = header::HeaderValue::from_str(&format!(
+            "Bearer {}",
+            conf.openai_key
+        ))
+        .expect("Invalid openai key characters");
+        auth_value.set_sensitive(true);
+        headers.insert(header::AUTHORIZATION, auth_value);
+
+        reqwest::Client::builder()
+            .default_headers(headers)
+            .build()?
+    });
     let queue_url = conf.input_queue_url.clone();
 
     let mut state = State {
@@ -56,6 +71,11 @@ async fn main() -> Result<(), Error> {
     }
 }
 
+/// 1. Load OCR output from S3 bucket.
+///
+/// 2. Use various methods to predict what are vouchers and what are deals.
+///
+///
 async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
     let Message {
         body,
@@ -83,6 +103,12 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
     let annotation: Annotation = serde_json::from_slice(&body)?;
 
     // 2.
+    let document = get_phrases_with_estimates(
+        &state.conf,
+        state.http_client.as_ref(),
+        &annotation.text,
+    )
+    .await?;
 
     log::trace!(
         "Deleting message {:?} (handle {:?})",

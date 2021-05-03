@@ -38,14 +38,16 @@ enum WordKind {
 }
 
 #[derive(Debug)]
-struct CommonPhrase {
+struct CommonPhraseTracker {
     grammar: Vec<Token>,
     constituents: Vec<(usize, WordKind)>,
     is_done: bool,
 }
 
 pub fn word_estimates(words: &[&str]) -> Option<Vec<f64>> {
-    let mut matches: Vec<CommonPhrase> = vec![];
+    let words: Vec<_> = words.iter().map(|w| w.to_lowercase()).collect();
+
+    let mut matches: Vec<CommonPhraseTracker> = vec![];
 
     for (wi, word) in words.iter().enumerate() {
         matches = matches
@@ -125,7 +127,7 @@ pub fn word_estimates(words: &[&str]) -> Option<Vec<f64>> {
             };
 
             if start_new {
-                matches.push(CommonPhrase {
+                matches.push(CommonPhraseTracker {
                     grammar: grammar.iter().skip(1).cloned().collect(),
                     constituents: vec![(wi, WordKind::Phrasal)],
                     is_done: false,
@@ -283,6 +285,14 @@ mod tests {
         assert_eq!(
             word_estimates(&["use", "this", "code", "ALPHA"]).unwrap(),
             &[0.0, 0.85, 0.0, 1.0]
+        );
+    }
+
+    #[test]
+    fn it_is_case_insensitive() {
+        assert_eq!(
+            word_estimates(&["redeEM", "coupon", "ALPHA"]).unwrap(),
+            &[0.0, 0.0, 1.0]
         );
     }
 }

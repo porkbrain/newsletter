@@ -27,8 +27,13 @@ pub enum Source {
 }
 
 impl Phrases {
-    pub fn new(phrases: Vec<Phrase>) -> Self {
-        Self(phrases)
+    pub fn from_text(text: &str) -> Self {
+        Self(
+            parse::lines_from_email(text)
+                .into_iter()
+                .map(Phrase::new)
+                .collect(),
+        )
     }
 
     pub fn inner(&self) -> &[Phrase] {
@@ -67,7 +72,7 @@ impl Phrases {
 
         for (phrase, estimate) in phrases.into_iter().zip(estimates.into_iter())
         {
-            phrase.estimates.insert(Source::Dealc, estimate);
+            phrase.estimates.insert(source, estimate);
         }
 
         Ok(())
@@ -112,6 +117,18 @@ impl Phrase {
             estimates: HashMap::default(),
         }
     }
+
+    pub fn avg_estimate(&self) -> f64 {
+        let total: f64 = self.estimates.values().copied().sum();
+        total / self.estimates.len() as f64
+    }
+
+    pub fn top_word_estimate(&self) -> f64 {
+        self.words
+            .iter()
+            .map(Word::avg_estimate)
+            .fold(0.0, |top, c| if top > c { top } else { c })
+    }
 }
 
 impl Word {
@@ -120,5 +137,10 @@ impl Word {
             text,
             estimates: HashMap::default(),
         }
+    }
+
+    pub fn avg_estimate(&self) -> f64 {
+        let total: f64 = self.estimates.values().copied().sum();
+        total / self.estimates.len() as f64
     }
 }

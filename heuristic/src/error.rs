@@ -7,7 +7,7 @@ use {
     },
 };
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub struct Error {
     message: String,
     is_recoverable: bool,
