@@ -2,8 +2,8 @@ mod conf;
 mod error;
 mod models;
 mod parse;
+mod predict;
 mod prelude;
-mod sources;
 mod state;
 
 use dotenv::dotenv;
@@ -12,12 +12,11 @@ use shared::{
     reqwest::{self, header},
     rusoto_s3::S3Client,
     rusoto_sqs::{Message, SqsClient},
+    s3::PutConf,
     vision::Annotation,
 };
 use state::State;
 use std::str::FromStr;
-
-use crate::sources::get_phrases_with_estimates;
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
@@ -75,7 +74,9 @@ async fn main() -> Result<(), Error> {
 ///
 /// 2. Use various methods to predict what are vouchers and what are deals.
 ///
+/// 3. Store the result into an S3 bucket.
 ///
+/// 4. Delete the message which triggered this pipeline.
 async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
     let Message {
         body,
@@ -97,19 +98,35 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
     let record = shared::s3::NewS3Object::from_str(&body)?;
     let body = state
         .s3
-        .get(record.bucket, record.key)
+        .get(record.bucket, record.key.clone())
         .await?
         .ok_or_else(|| Error::new("OCR objects cannot have empty body"))?;
     let annotation: Annotation = serde_json::from_slice(&body)?;
 
     // 2.
-    let document = get_phrases_with_estimates(
+    let document = predict::deals_and_vouchers(
         &state.conf,
         state.http_client.as_ref(),
         &annotation.text,
     )
     .await?;
+    let document = serde_json::to_string(&document)?;
 
+    // 3.
+    state
+        .s3
+        .put(
+            state.conf.prediction_bucket.clone(),
+            record.key,
+            document.into_bytes(),
+            PutConf {
+                content_type: Some("application/json".to_string()),
+                ..Default::default()
+            },
+        )
+        .await?;
+
+    // 4.
     log::trace!(
         "Deleting message {:?} (handle {:?})",
         message_id,

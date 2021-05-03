@@ -23,6 +23,8 @@ pub struct Conf {
     pub openai_key: String,
     /// Where can we reach OpenAI servers.
     pub openai_completion_url: String,
+    /// Where the output predictions are stored in json.
+    pub prediction_bucket: String,
 }
 
 #[cfg(test)]
@@ -38,6 +40,7 @@ mod tests {
         env::set_var("AWS_DEFAULT_REGION", "eu-west-1");
         env::set_var("OPENAI_KEY", "abckey");
         env::set_var("OPENAI_COMPLETION_URL", "url");
+        env::set_var("PREDICTION_BUCKET", "bucket");
 
         let conf = envy::from_env::<Conf>().unwrap();
 
@@ -47,5 +50,6 @@ mod tests {
         assert_eq!(conf.voucherc_url, "vouchercurl");
         assert_eq!(conf.openai_key, "abckey");
         assert_eq!(conf.openai_completion_url, "url");
+        assert_eq!(conf.prediction_bucket, "bucket");
     }
 }

@@ -5,7 +5,7 @@ use crate::models::{Phrases, Source};
 use crate::prelude::*;
 use shared::http;
 
-pub async fn get_phrases_with_estimates(
+pub async fn deals_and_vouchers(
     conf: &Conf,
     http_client: &dyn http::Client,
     text: &str,
