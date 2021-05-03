@@ -1,0 +1,53 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: voucherc
+  namespace: newsletter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: voucherc
+  template:
+    metadata:
+      labels:
+        app: voucherc
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      nodeSelector:
+        beta.kubernetes.io/arch: amd64
+        # We need newer CPU instruction set
+        # https://stackoverflow.com/a/49169125/5093093
+        kubernetes.io/hostname: panda
+      containers:
+        - name: voucherc
+          image: 'porkbrain/newsletter:voucherc-0.1.0'
+          imagePullPolicy: IfNotPresent # it's too big
+          resources:
+            requests: # min
+              memory: 64Mi
+              cpu: 100m
+            limits: # max
+              memory: 256Mi
+              cpu: 400m
+          env:
+            - name: HTTP_PORT
+              value: '80'
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: voucherc
+  namespace: newsletter
+spec:
+  selector:
+    app: voucherc
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 80
+
