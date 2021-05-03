@@ -22,7 +22,7 @@ use std::str::FromStr;
 async fn main() -> Result<(), Error> {
     dotenv().ok();
     env_logger::init();
-    log::info!("Starting ocr v{}", env!("CARGO_PKG_VERSION"));
+    log::info!("Starting predictor v{}", env!("CARGO_PKG_VERSION"));
 
     let conf = envy::from_env::<Conf>()?;
     let sqs = Box::new(SqsClient::new(conf.region.clone()));
@@ -116,7 +116,7 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
     state
         .s3
         .put(
-            state.conf.prediction_bucket.clone(),
+            state.conf.prediction_bucket_name.clone(),
             record.key,
             document.into_bytes(),
             PutConf {

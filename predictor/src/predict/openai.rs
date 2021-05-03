@@ -22,7 +22,11 @@ pub async fn word_estimates(
     let phrases = phrases
         .iter()
         .map(|p| {
-            let search = p.avg_estimate() > 0.7 || p.top_word_estimate() > 0.5;
+            let avg_est = p.avg_estimate();
+            let top_word_est = p.top_word_estimate();
+            let search = avg_est > 0.7 // phrase looks important
+                || (avg_est > 0.5 && top_word_est > 0.5) // unsure about content
+                || (avg_est > 0.3 && top_word_est > 0.7); // likely voucher
             (search, p)
         })
         .collect::<Vec<_>>();
@@ -71,6 +75,7 @@ pub async fn word_estimates(
     if let Some(ref first_word) =
         parse::words_from_phrase(&text).into_iter().next()
     {
+        log::info!("OpenAi first word: {}", first_word);
         Ok(Some(
             phrases
                 .into_iter()

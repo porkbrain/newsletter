@@ -1,0 +1,70 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: predictor
+  namespace: newsletter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: predictor
+  template:
+    metadata:
+      labels:
+        app: predictor
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      nodeSelector:
+        beta.kubernetes.io/arch: amd64
+      containers:
+        - name: predictor
+          image: 'porkbrain/newsletter:predictor-0.2.0'
+          imagePullPolicy: Always
+          resources:
+            requests: # min
+              memory: 64Mi
+              cpu: 200m
+            limits: # max
+              memory: 256Mi
+              cpu: 400m
+          env:
+            - name: RUST_LOG
+              value: 'error,predictor=info'
+            - name: OPENAI_COMPLETION_URL
+              value: 'https://api.openai.com/v1/engines/curie/completions'
+            - name: DEALC_URL
+              value: 'http://dealc.newsletter:8081'
+            - name: VOUCHERC_URL
+              value: 'http://voucherc.newsletter:8080'
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws
+                  key: key
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws
+                  key: secret
+            - name: AWS_DEFAULT_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: aws
+                  key: region
+            - name: PREDICTION_BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: predictor
+                  key: prediction_bucket_name
+            - name: INPUT_QUEUE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: predictor
+                  key: input_queue_url
+            - name: OPENAI_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: predictor
+                  key: openai_key

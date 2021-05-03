@@ -16,7 +16,6 @@ pub fn lines_from_email(text: &str) -> Vec<String> {
         })
         .chain(padding)
         .collect();
-    debug_assert_eq!(0, lines.len() % 3);
 
     let mut out_lines = vec![];
 
