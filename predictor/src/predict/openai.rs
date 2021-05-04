@@ -72,7 +72,7 @@ pub async fn word_estimates(
 
     // usually GPT-3 returns the voucher as the first word and then just a pile
     // or rubbish
-    if let Some(ref first_word) =
+    if let Some((ref first_word, _)) =
         parse::words_from_phrase(&text).into_iter().next()
     {
         log::info!("OpenAi first word: {}", first_word);

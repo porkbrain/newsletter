@@ -1,8 +1,13 @@
+use crate::models::Word;
+
 const VOUCHER_KEYWORDS: &[&str] = &["voucher", "code", "discount", "coupon"];
 
 const COMMON_PHRASES: &[&[Token]] = &[
     &[
-        Token::Term(&["use", "using", "redeem", "apply", "enter", "insert"]),
+        Token::Term(&[
+            "use", "used", "using", "redeem*", "apply*", "enter*", "offer*",
+            "insert*",
+        ]),
         Token::Any(4),
         Token::Voucher,
         Token::Any(7),
@@ -14,7 +19,7 @@ const COMMON_PHRASES: &[&[Token]] = &[
         Token::Any(3),
     ],
     &[
-        Token::Term(&["get", "shop"]),
+        Token::Term(&["get*", "shop*"]),
         Token::Any(2),
         Token::Term(&["with"]),
         Token::Any(3),
@@ -44,9 +49,64 @@ struct CommonPhraseTracker {
     is_done: bool,
 }
 
-pub fn word_estimates(words: &[&str]) -> Option<Vec<f64>> {
-    let words: Vec<_> = words.iter().map(|w| w.to_lowercase()).collect();
+const ESTIMATE_FOR_NOT_MATCHED_WORDS: f64 = 0.25;
 
+pub fn word_estimates(words: &[&Word]) -> Option<Vec<f64>> {
+    let a = over_special_chars(words);
+    let b = over_long_phrases(words.iter().map(|w| w.text.as_str()));
+
+    match (a, b) {
+        (None, o) => o,
+        (o, None) => o,
+        (Some(esa), Some(esb)) => {
+            Some(
+                esa.into_iter()
+                    .zip(esb.into_iter())
+                    .map(|(ea, eb)| {
+                        // if it's been given estimate of zero, then we know it's a phrasal
+                        // word
+                        let keep_zero = ea == 0.0 || eb == 0.0;
+                        if keep_zero {
+                            0.0
+                        } else {
+                            ea.max(eb)
+                        }
+                    })
+                    .collect(),
+            )
+        }
+    }
+}
+
+fn over_special_chars(words: &[&Word]) -> Option<Vec<f64>> {
+    let mut estimates: Vec<_> = (0..words.len())
+        .map(|_| ESTIMATE_FOR_NOT_MATCHED_WORDS)
+        .collect();
+
+    let mut any_matched = false;
+    for (wi, w) in words.iter().enumerate() {
+        if is_voucher_keyword(&w.text.to_lowercase()) {
+            if w.raw.ends_with(':') {
+                if let Some(w) = estimates.get_mut(wi + 1) {
+                    *w = 1.0;
+                    any_matched = true;
+                    *estimates.get_mut(wi).unwrap() = 0.0;
+                }
+            }
+        }
+    }
+
+    if any_matched {
+        Some(estimates)
+    } else {
+        None
+    }
+}
+
+fn over_long_phrases<'a>(
+    words: impl IntoIterator<Item = &'a str>,
+) -> Option<Vec<f64>> {
+    let words: Vec<_> = words.into_iter().map(|w| w.to_lowercase()).collect();
     let mut matches: Vec<CommonPhraseTracker> = vec![];
 
     for (wi, word) in words.iter().enumerate() {
@@ -119,20 +179,26 @@ pub fn word_estimates(words: &[&str]) -> Option<Vec<f64>> {
         // start new matches based on the current word
         for grammar in COMMON_PHRASES {
             debug_assert!(grammar.len() > 0);
-            let start_new = match grammar[0] {
-                Token::Any(_) | Token::Voucher => {
-                    panic!("Grammar must start with Token::Term")
+            match grammar[0] {
+                Token::Any(_) => {
+                    panic!("Grammar mustn't start with Token::Any")
                 }
-                Token::Term(t) => in_term(word, t),
+                Token::Voucher if is_voucher_keyword(word) => {
+                    matches.push(CommonPhraseTracker {
+                        grammar: grammar.iter().skip(1).cloned().collect(),
+                        constituents: vec![(wi, WordKind::Voucher)],
+                        is_done: false,
+                    })
+                }
+                Token::Term(t) if in_term(word, t) => {
+                    matches.push(CommonPhraseTracker {
+                        grammar: grammar.iter().skip(1).cloned().collect(),
+                        constituents: vec![(wi, WordKind::Phrasal)],
+                        is_done: false,
+                    })
+                }
+                _ => (),
             };
-
-            if start_new {
-                matches.push(CommonPhraseTracker {
-                    grammar: grammar.iter().skip(1).cloned().collect(),
-                    constituents: vec![(wi, WordKind::Phrasal)],
-                    is_done: false,
-                })
-            }
         }
     }
 
@@ -215,7 +281,13 @@ fn is_voucher_keyword(w: &str) -> bool {
 }
 
 fn in_term(w: &str, term: &[&str]) -> bool {
-    term.iter().any(|t| w.contains(t))
+    term.iter().any(|t| {
+        if t.ends_with('*') {
+            w.contains(&t[..t.len() - 2])
+        } else {
+            t == &w
+        }
+    })
 }
 
 #[cfg(test)]
@@ -223,9 +295,9 @@ mod tests {
     use super::*;
 
     #[test]
-    fn it_word_estimates() {
+    fn it_gives_over_long_phrases() {
         assert_eq!(
-            word_estimates(&[
+            over_long_phrases(vec![
                 "To", "use", "simply", "enter", "the", "code", "CYBER26", "in",
                 "the", "basket", "and", "click", "go",
             ])
@@ -248,7 +320,7 @@ mod tests {
         );
 
         assert_eq!(
-            word_estimates(&[
+            over_long_phrases(vec![
                 "Discount", "code", "is", "valid", "until", "midnight",
                 "Monday", "30th", "November", "2020",
             ]),
@@ -256,7 +328,7 @@ mod tests {
         );
 
         assert_eq!(
-            word_estimates(&[
+            over_long_phrases(vec![
                 "Discount",
                 "codes",
                 "availability",
@@ -278,12 +350,12 @@ mod tests {
     #[test]
     fn it_can_find_voucher_close_to_phrase() {
         assert_eq!(
-            word_estimates(&["use", "code", "ALPHA"]).unwrap(),
+            over_long_phrases(vec!["use", "code", "ALPHA"]).unwrap(),
             &[0.0, 0.0, 1.0]
         );
 
         assert_eq!(
-            word_estimates(&["use", "this", "code", "ALPHA"]).unwrap(),
+            over_long_phrases(vec!["use", "this", "code", "ALPHA"]).unwrap(),
             &[0.0, 0.85, 0.0, 1.0]
         );
     }
@@ -291,8 +363,78 @@ mod tests {
     #[test]
     fn it_is_case_insensitive() {
         assert_eq!(
-            word_estimates(&["redeEM", "coupon", "ALPHA"]).unwrap(),
+            over_long_phrases(vec!["redeEM", "coupon", "ALPHA"]).unwrap(),
             &[0.0, 0.0, 1.0]
         );
+    }
+
+    #[test]
+    fn it_works_with_star_matching() {
+        assert_eq!(
+            over_long_phrases(vec!["redeeming", "coupon", "ALPHA"]).unwrap(),
+            &[0.0, 0.0, 1.0]
+        );
+        assert_eq!(
+            over_long_phrases(vec!["username", "ukdiscount", "ALPHA"]),
+            None
+        );
+    }
+
+    #[test]
+    fn it_gives_estimates_over_short_range_and_long_range() {
+        let word_estimates_from_list = |list: Vec<_>| {
+            word_estimates(list.iter().collect::<Vec<_>>().as_slice())
+        };
+
+        let words = vec!["use".into(), "code".into(), "ALPHA".into()];
+        assert_eq!(word_estimates_from_list(words), Some(vec![0.0, 0.0, 1.0]));
+
+        let words = vec![
+            "blabla".into(),
+            Word::new_with_raw("Code".to_string(), "Code:".to_string()),
+            "ALPHA".into(),
+        ];
+        assert_eq!(word_estimates_from_list(words), Some(vec![0.25, 0.0, 1.0]));
+
+        let words = vec![
+            "this".into(),
+            "is".into(),
+            "long".into(),
+            "use".into(),
+            "code".into(),
+            "ALPHA".into(),
+            "haha".into(),
+            "its 3AM".into(),
+        ];
+        assert_eq!(
+            word_estimates_from_list(words),
+            Some(vec![
+                0.25,
+                0.25,
+                0.25,
+                0.0,
+                0.0,
+                1.0,
+                0.9061261981781177,
+                0.8596115466624322
+            ])
+        );
+
+        let words = vec![
+            "use".into(),
+            Word::new_with_raw("Code".to_string(), "Code:".to_string()),
+            "ALPHA".into(),
+        ];
+        assert_eq!(word_estimates_from_list(words), Some(vec![0.0, 0.0, 1.0]));
+    }
+
+    impl From<&'static str> for Word {
+        fn from(s: &'static str) -> Self {
+            Self {
+                raw: s.to_string(),
+                text: s.to_string(),
+                estimates: Default::default(),
+            }
+        }
     }
 }

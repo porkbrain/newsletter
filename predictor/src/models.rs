@@ -16,6 +16,8 @@ pub struct Phrase {
 #[derive(Debug, Serialize)]
 pub struct Word {
     pub text: String,
+    #[serde(skip)]
+    pub raw: String,
     pub estimates: HashMap<Source, f64>,
 }
 
@@ -56,6 +58,10 @@ impl Phrases {
             .map(|p| p.words.iter().map(|w| w.text.as_str()))
             .flatten()
             .collect()
+    }
+
+    pub fn words(&mut self) -> Vec<&Word> {
+        self.0.iter().map(|p| &p.words).flatten().collect()
     }
 
     pub fn apply_phrases_estimates(
@@ -110,7 +116,7 @@ impl Phrase {
     pub fn new(text: String) -> Self {
         let words = parse::words_from_phrase(&text)
             .into_iter()
-            .map(Word::new)
+            .map(|(s, r)| Word::new_with_raw(s, r))
             .collect();
 
         Self {
@@ -134,8 +140,9 @@ impl Phrase {
 }
 
 impl Word {
-    pub fn new(text: String) -> Self {
+    pub fn new_with_raw(text: String, raw: String) -> Self {
         Self {
+            raw,
             text,
             estimates: HashMap::default(),
         }

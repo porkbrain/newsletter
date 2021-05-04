@@ -18,7 +18,7 @@ pub async fn deals_and_vouchers(
     // if there are some some common newsletter phrases (USE CODE ABC20), then
     // apply estimates from those
     let common_phrases_estimates =
-        common_phrases::word_estimates(&document.words_str());
+        common_phrases::word_estimates(document.words().as_slice());
     if let Some(estimates) = common_phrases_estimates {
         document.apply_words_estimates(Source::CommonPhrases, estimates)?;
     }
