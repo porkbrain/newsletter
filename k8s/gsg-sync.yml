@@ -1,0 +1,55 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: gsg-sync
+  namespace: newsletter
+  labels:
+    app: gsg-sync
+spec:
+  schedule: "0,10,20,30,40,50 * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      backoffLimit: 3
+      activeDeadlineSeconds: 100
+      template:
+        metadata:
+          labels:
+            app: gsg-sync
+        spec:
+          imagePullSecrets:
+            - name: regcred
+          nodeSelector:
+            beta.kubernetes.io/arch: amd64
+          restartPolicy: OnFailure
+          containers:
+            - name: gsg-sync
+              image: porkbrain/newsletter:gsg-sync-0.1.0
+              imagePullPolicy: Always
+              env:
+                - name: DATABASE_PATH
+                  value: "/data/database.db"
+                - name: SHEET_ID
+                  value: "1D0RrVgq63S5XbUYKKm84Rv24jMXMTP7Eywt4lG7nxB4"
+                - name: RECEIVER_EMAIL
+                  value: "gsg@mailmevouchers.com"
+                - name: HTML_URL
+                  value: "https://newsletter-html-yd7a.s3-eu-west-1.amazonaws.com"
+                - name: GOOGLE_SERVICE_ACCOUNT_EMAIL
+                  value: "mailmevouchers-gsg-gs-sync@rock-flag-299222.iam.gserviceaccount.com"
+                - name: GOOGLE_PRIVATE_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: gsg-sync-google-private-key
+                      key: key
+              volumeMounts:
+                - mountPath: /data
+                  name: newsletter-data
+          volumes:
+            - name: newsletter-data
+              persistentVolumeClaim:
+                claimName: newsletter-pvc
+          nodeSelector:
+            beta.kubernetes.io/arch: amd64
+

@@ -9,25 +9,35 @@ const {
  * Env setup.
  */
 
-const dbPath = process.env.DATABASE_PATH;
-const sheetId =
-  process.env.SHEET_ID || "1mLepumBHcEXDiwz3asAQigPTyaxtoZXWf4NVznm4lIo";
-const receiver = process.env.RECEIVER_EMAIL || "gsg@mailmevouchers.com";
-const htmlUrl =
-  process.env.HTML_URL ||
-  "https://newsletter-html-yd7a.s3-eu-west-1.amazonaws.com";
-const googleClientEmail =
-  process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL ||
-  "mailmevouchers-gsg-gs-sync@rock-flag-299222.iam.gserviceaccount.com";
-const googlePrivateKey = process.env.GOOGLE_PRIVATE_KEY;
+const receiver = process.env.RECEIVER_EMAIL;
+if (!receiver) {
+  throw new Error("Missing receiver email");
+}
 
+const htmlUrl = process.env.HTML_URL;
+if (!htmlUrl) {
+  throw new Error("Missing html url");
+}
+
+const googleClientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
+if (!googleClientEmail) {
+  throw new Error("Missing google client email.");
+}
+
+const googlePrivateKey = process.env.GOOGLE_PRIVATE_KEY;
 if (!googlePrivateKey) {
   // https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication?id=service-account
   throw new Error("Missing google private key.");
 }
 
+const dbPath = process.env.DATABASE_PATH;
 if (!dbPath) {
   throw new Error("Missing sqlite3 db path");
+}
+
+const sheetId = process.env.SHEET_ID;
+if (!sheetId) {
+  throw new Error("Missing sheet id");
 }
 
 /**
@@ -144,6 +154,7 @@ async function insertOffersIntoGoogleSheet(sheet, emails) {
     }
   }
 
+  console.log(`Inserting ${newRows.length} new rows to Google Sheet`);
   await sheet.addRows(newRows);
 }
 
@@ -162,6 +173,7 @@ async function main() {
   const sheet = doc.sheetsByIndex[0];
 
   const emails = await selectNewGsgEmails(conn);
+  console.log(`Found ${emails.length} new GSG emails`);
   const emailsWithOffers = (
     await Promise.all(
       emails.map(async (email) => {
@@ -175,9 +187,14 @@ async function main() {
     )
   ).filter(Boolean);
 
+  console.log("Inserting into Google Sheets");
   await insertOffersIntoGoogleSheet(sheet, emailsWithOffers);
 
-  await markOffersAsSynced(conn, emails.map(e => e.id));
+  console.log("Marking as synced");
+  await markOffersAsSynced(
+    conn,
+    emails.map((e) => e.id)
+  );
 }
 
 main()
