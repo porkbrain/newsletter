@@ -22,7 +22,7 @@ pub struct Voucher {
 
 pub fn deals_and_vouchers(phrases: &[Phrase]) -> (Vec<Deal>, Vec<Voucher>) {
     let mut deals = deals(phrases);
-    let vouchers = vouchers(phrases);
+    let mut vouchers = vouchers(phrases);
 
     // remove deals which are already exported with vouchers
     deals.retain(|d| {
@@ -34,6 +34,16 @@ pub fn deals_and_vouchers(phrases: &[Phrase]) -> (Vec<Deal>, Vec<Voucher>) {
 
         true
     });
+
+    deals.sort_by(|a, b| a.text.cmp(&b.text));
+    deals.dedup_by(|a, b| a.text == b.text);
+
+    vouchers.sort_by(|a, b| match a.text.cmp(&b.text) {
+        // retain the longer phrase
+        Ordering::Equal => b.phrase.len().cmp(&a.phrase.len()),
+        ord => ord,
+    });
+    vouchers.dedup_by(|a, b| a.text == b.text);
 
     (deals, vouchers)
 }
@@ -155,6 +165,67 @@ mod tests {
     use super::*;
     use serde_json::json;
     use shared::Phrases;
+
+    #[test]
+    fn it_should_skip_duplicate_vouchers_and_keep_the_longer_phrased_one() {
+        let phrases: Phrases = serde_json::from_value(json!([
+            {
+                "text": "ALPHA short",
+                "estimates": {
+                    "dealc": 1
+                },
+                "words": [
+                    {
+                        "text": "ALPHA",
+                        "estimates": {
+                            "voucherc": 1,
+                        }
+                    },
+                    {
+                        "text": "short",
+                        "estimates": {
+                            "voucherc": 0.0
+                        }
+                    },
+                ]
+            },
+            {
+                "text": "ALPHA slightly longer",
+                "estimates": {
+                    "dealc": 1
+                },
+                "words": [
+                    {
+                        "text": "ALPHA",
+                        "estimates": {
+                            "voucherc": 1,
+                        }
+                    },
+                    {
+                        "text": "short",
+                        "estimates": {
+                            "voucherc": 0.0
+                        }
+                    },
+                ]
+            },
+
+        ]))
+        .unwrap();
+
+        let (deals, vouchers) = deals_and_vouchers(phrases.inner());
+
+        assert_eq!(
+            vouchers,
+            vec![Voucher::new(
+                "ALPHA slightly longer".to_string(),
+                "ALPHA".to_string(),
+                1.0
+            ),]
+        );
+
+        assert_eq!(deals, vec![]);
+    }
 
     #[test]
     fn it_should_skip_duplicate_deals() {

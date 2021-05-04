@@ -79,7 +79,8 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
     let document: Phrases = serde_json::from_slice(&body)?;
 
     // 2.
-    let (mut deals, mut vouchers) = select::deals_and_vouchers(document.inner());
+    let (mut deals, mut vouchers) =
+        select::deals_and_vouchers(document.inner());
 
     if deals.is_empty() && vouchers.is_empty() {
         log::debug!("There are no vouchers nor deals for {}", record.key);
