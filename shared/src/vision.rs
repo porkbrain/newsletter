@@ -21,8 +21,8 @@ pub struct Word {
 
 #[derive(Serialize, Deserialize, Hash, Debug, PartialEq, Default, Clone)]
 pub struct Point {
-    x: i32,
-    y: i32,
+    pub x: i32,
+    pub y: i32,
 }
 
 impl Annotation {

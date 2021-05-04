@@ -1,19 +1,19 @@
 pub mod parse;
 
-use serde::Serialize;
-use std::collections::HashMap;
+use serde::{Deserialize, Serialize};
+use std::{cmp::Ordering, collections::HashMap};
 
-#[derive(Serialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Phrases(Vec<Phrase>);
 
-#[derive(Serialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Phrase {
     pub text: String,
     pub estimates: HashMap<Source, f64>,
     pub words: Vec<Word>,
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Deserialize, Serialize)]
 pub struct Word {
     pub text: String,
     #[serde(skip)]
@@ -21,7 +21,7 @@ pub struct Word {
     pub estimates: HashMap<Source, f64>,
 }
 
-#[derive(Debug, PartialEq, Eq, Hash, Clone, Copy, Serialize)]
+#[derive(Debug, PartialEq, Eq, Hash, Clone, Copy, Deserialize, Serialize)]
 #[serde(rename_all = "snake_case")]
 pub enum Source {
     Dealc,
@@ -86,6 +86,14 @@ impl Phrase {
     pub fn avg_estimate(&self) -> f64 {
         let total: f64 = self.estimates.values().copied().sum();
         total / self.estimates.len() as f64
+    }
+
+    pub fn top_word(&self) -> Option<&Word> {
+        self.words.iter().max_by(|a, b| {
+            a.avg_estimate()
+                .partial_cmp(&b.avg_estimate())
+                .unwrap_or(Ordering::Equal)
+        })
     }
 
     pub fn top_word_estimate(&self) -> f64 {

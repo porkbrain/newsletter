@@ -9,14 +9,20 @@ test ${PWD##*/} = newsletter
 # process writes into the database while migrations are running.
 
 readonly node="gloss"
-readonly host="192.168.0.125"
+readonly host="doma"
+readonly port="${1}"
 readonly pv_path="/var/local/newsletter"
 
+if [ -z ${port} ]; then
+    echo "gloss@doma ssh port must be provided"
+    exit 1
+fi
+
 echo "Syncing migrations dir"
-rsync -av migrations "${node}@${host}":"${pv_path}"
+rsync -av -e "ssh -p ${port}" migrations "${node}@${host}":"${pv_path}"
 
 for m in migrations/*.sql; do
     echo "Migrating ${m}"
-    ssh "${node}@${host}" "sqlite3 ${pv_path}/database.db < ${pv_path}/${m}"
+    ssh -p "${port}" "${node}@${host}" "sqlite3 ${pv_path}/database.db < ${pv_path}/${m}"
 done
 

@@ -1,0 +1,74 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: sieve
+  namespace: newsletter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sieve
+  template:
+    metadata:
+      labels:
+        app: sieve
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      volumes:
+        - name: newsletter-data
+          persistentVolumeClaim:
+            claimName: newsletter-pvc
+      nodeSelector:
+        beta.kubernetes.io/arch: amd64
+      containers:
+        - name: sieve
+          image: 'porkbrain/newsletter:sieve-0.1.0'
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /data
+              name: newsletter-data
+          resources:
+            requests: # min
+              memory: 64Mi
+              cpu: 200m
+            limits: # max
+              memory: 256Mi
+              cpu: 500m
+          env:
+            - name: DATABASE_PATH
+              value: '/data/database.db'
+            - name: RUST_LOG
+              value: 'error,sieve=info'
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws
+                  key: key
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws
+                  key: secret
+            - name: AWS_DEFAULT_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: aws
+                  key: region
+            - name: OCR_BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: sieve
+                  key: ocr_bucket_name
+            - name: ANCHOR_BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: sieve
+                  key: anchor_bucket_name
+            - name: INPUT_QUEUE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: sieve
+                  key: input_queue_url
+

@@ -3,8 +3,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Deserialize, Serialize, Debug, Default, Clone)]
 pub struct Anchor {
     pub href: String,
-    pub top: isize,
-    pub left: isize,
-    pub width: isize,
-    pub height: isize,
+    pub top: i32,
+    pub left: i32,
+    pub width: i32,
+    pub height: i32,
 }
