@@ -1,0 +1,21 @@
+{
+  "name": "gs-sync",
+  "version": "0.1.0",
+  "description": "Syncs new offers to Google Sheet.",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fmt": "prettier --write src"
+  },
+  "author": "Michael Bausano",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "google-spreadsheet": "^3.1.15",
+    "sqlite": "^4.0.21",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/google-spreadsheet": "^3.1.1",
+    "prettier": "2.0.5"
+  }
+}
