@@ -1,6 +1,7 @@
 //! Name of each env var is the same as the property but in ALL_CAPS.
 
-use {rusoto_core::Region, serde::Deserialize};
+use serde::Deserialize;
+use shared::rusoto_core::Region;
 
 #[derive(Default, Deserialize, Debug)]
 pub struct Conf {
@@ -23,6 +24,10 @@ pub struct Conf {
     /// Png which has more bytes that this many is ignored.
     #[serde(default = "default_max_screenshot_size")]
     pub max_screenshot_size: usize,
+    /// We read all links and their bounding boxes, so that we can cross
+    /// reference them later with found deals and vouchers. This is the name of
+    /// the bucket where we store those links.
+    pub anchor_bucket_name: String,
 }
 
 fn default_max_screenshot_size() -> usize {
@@ -40,11 +45,13 @@ mod tests {
         env::set_var("SCREENSHOT_BUCKET_NAME", "buckettest");
         env::set_var("GECKO_URL", "geckotest");
         env::set_var("AWS_DEFAULT_REGION", "eu-west-1");
+        env::set_var("ANCHOR_BUCKET_NAME", "anchortest");
 
         let conf = envy::from_env::<Conf>().unwrap();
 
         assert_eq!(conf.input_queue_url, "queuetest");
         assert_eq!(conf.screenshot_bucket_name, "buckettest");
+        assert_eq!(conf.anchor_bucket_name, "anchortest");
         assert_eq!(conf.gecko_url, "geckotest");
         assert_eq!(conf.region, Region::EuWest1);
     }

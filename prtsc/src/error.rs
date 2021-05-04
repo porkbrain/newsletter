@@ -7,15 +7,12 @@
 //!    as it exists. We rely on supervision, such as k8s controller, that
 //!    restarts failed jobs.
 
+use fantoccini::error::CmdError;
 use image::ImageError;
-
-use {
-    fantoccini::error::CmdError,
-    rusoto_core::RusotoError,
-    std::{
-        error::Error as StdError,
-        fmt::{self, Debug, Display},
-    },
+use shared::rusoto_core::RusotoError;
+use std::{
+    error::Error as StdError,
+    fmt::{self, Debug, Display},
 };
 
 #[derive(Debug)]

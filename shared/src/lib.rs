@@ -1,3 +1,4 @@
+pub mod anchor;
 pub mod http;
 pub mod s3;
 pub mod sqs;

@@ -152,14 +152,11 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::{
-        state::State,
-        vision::{Ocr},
-    };
-    use shared::vision::Annotation;
+    use crate::{state::State, vision::Ocr};
     use async_trait::async_trait;
     use shared::rusoto_core::Region;
     use shared::tests::*;
+    use shared::vision::Annotation;
 
     #[tokio::test]
     async fn it_ocrs_and_uploads_to_s3_and_deletes_message() {

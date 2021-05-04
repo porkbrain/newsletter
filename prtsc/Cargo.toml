@@ -1,6 +1,6 @@
 [package]
 name = "prtsc"
-version = "0.3.0"
+version = "0.4.0"
 authors = ["Michael <michael@porkbrain.com>"]
 edition = "2018"
 
@@ -19,9 +19,6 @@ image = { version = "0.23", default-features = false, features = ["png", "jpeg"]
 
 # services
 fantoccini = { git = "https://github.com/bausano/fantoccini", features = ["rustls-tls"] }
-rusoto_core = { version = "0.46", features = [ "rustls" ], default-features = false }
-rusoto_s3 = { version = "0.46", features = [ "rustls" ], default-features = false }
-rusoto_sqs = { version = "0.46", features = [ "rustls" ], default-features = false }
 
 # local
 shared = { path = "../shared" }

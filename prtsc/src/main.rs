@@ -7,6 +7,11 @@
 //! insertion of a screenshot in the _OUT_ S3 publishes a new SQS message, which
 //! is handled the next service in this pipeline.
 //!
+//! Another important job it has is to find all anchors (<a href>) on the page,
+//! capture their bounding boxes and the links they point to and store this info
+//! in an S3 bucket.  Later, we refer to the bounding boxes when we know likely
+//! vouchers and deals, and export data about what link a deal is available at.
+//!
 //! # Concurrency
 //! `prtsc` handles at most one message. We poll the SQS with parameter which
 //! amounts to `LIMIT 1`. Each message also contains a record about exactly one
@@ -39,8 +44,8 @@ mod state;
 
 use dotenv::dotenv;
 use prelude::*;
-use rusoto_s3::S3Client;
-use rusoto_sqs::{Message, SqsClient};
+use shared::rusoto_s3::S3Client;
+use shared::rusoto_sqs::{Message, SqsClient};
 use state::State;
 use std::str::FromStr;
 
@@ -89,9 +94,12 @@ async fn main() -> Result<(), Error> {
 /// 1. Extracts the name of the object from the message and constructs the url
 ///    at which this object is reachable.
 ///
-/// 2. Takes a screenshot of the object (expecting a html page).
+/// 2. Takes a screenshot of the object (expecting a html page) and finds links
+///     in the page and their positions.
 ///
-/// 3. Stores the screenshot to an S3.
+/// 3. Stores the screenshot in an S3.
+///
+/// 4. Stores the anchors (<a href>) in an S3.
 ///
 /// 4. Deletes the message from SQS.
 async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
@@ -120,7 +128,10 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
 
     // 2.
     log::trace!("Capturing a screenshot of html file at {}", url);
-    let screenshot = state.browser.capture_jpeg_screenshot(&url).await?;
+    let (screenshot, anchors) = state
+        .browser
+        .capture_jpeg_screenshot_and_extract_anchors(&url)
+        .await?;
     if screenshot.len() > state.conf.max_screenshot_size {
         log::warn!(
             "Screenshot of {} is {} bytes, that's {} bytes too many",
@@ -139,7 +150,7 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
         .s3
         .put(
             state.conf.screenshot_bucket_name.clone(),
-            record.key,
+            record.key.clone(),
             screenshot,
             shared::s3::PutConf {
                 acl: Some("public-read".to_string()),
@@ -150,6 +161,23 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
         .await?;
 
     // 4.
+    if !anchors.is_empty() {
+        log::trace!("Storing {} anchors to S3", anchors.len());
+        state
+            .s3
+            .put(
+                state.conf.anchor_bucket_name.clone(),
+                record.key,
+                serde_json::to_string(&anchors)?.into(),
+                shared::s3::PutConf {
+                    content_type: Some("application/json".to_string()),
+                    ..Default::default()
+                },
+            )
+            .await?;
+    }
+
+    // 5.
     log::trace!(
         "Deleting message {:?} (handle {:?})",
         message_id,
@@ -168,8 +196,8 @@ mod tests {
     use super::*;
     use crate::browser::Headless;
     use async_trait::async_trait;
-    use rusoto_core::Region;
-    use shared::tests::*;
+    use shared::rusoto_core::Region;
+    use shared::{anchor::Anchor, tests::*};
 
     #[tokio::test]
     async fn it_captures_screenshot_and_uploads_to_s3_and_deletes_message() {
@@ -214,6 +242,7 @@ mod tests {
                 cache_control: Some("public, immutable".to_string()),
                 content_type: Some("image/jpeg".to_string()),
             },
+            ..Default::default()
         };
 
         let sqs_stub = SqsStub {
@@ -256,12 +285,13 @@ mod tests {
 
     #[async_trait]
     impl Headless for BrowserStub {
-        async fn capture_jpeg_screenshot(
+        async fn capture_jpeg_screenshot_and_extract_anchors(
             &mut self,
             url: &str,
-        ) -> Result<Vec<u8>, Error> {
+        ) -> Result<(Vec<u8>, Vec<Anchor>), Error> {
             assert_eq!(url, &self.url);
-            Ok(self.screenshot.clone())
+            // TODO: test anchors
+            Ok((self.screenshot.clone(), vec![]))
         }
     }
 }
