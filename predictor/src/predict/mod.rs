@@ -1,9 +1,9 @@
 mod common_phrases;
-mod openai;
+//mod openai;
 
-use crate::models::{Phrases, Source};
 use crate::prelude::*;
 use shared::http;
+use shared::phrases::{Phrases, Source};
 
 pub async fn deals_and_vouchers(
     conf: &Conf,
@@ -20,7 +20,7 @@ pub async fn deals_and_vouchers(
     let common_phrases_estimates =
         common_phrases::word_estimates(document.words().as_slice());
     if let Some(estimates) = common_phrases_estimates {
-        document.apply_words_estimates(Source::CommonPhrases, estimates)?;
+        apply_words_estimates(&mut document, Source::CommonPhrases, estimates)?;
     }
 
     // send some promising phrases to openai to check them out
@@ -50,7 +50,7 @@ async fn apply_dealc_and_voucherc_estimates(
 
         serde_json::from_slice(&dealc_res_body)?
     };
-    document.apply_phrases_estimates(Source::Dealc, dealc_estimates)?;
+    apply_phrases_estimates(document, Source::Dealc, dealc_estimates)?;
 
     // fetch estimates for how likely each word is a voucher
     let voucherc_estimates: Vec<f64> = {
@@ -61,7 +61,49 @@ async fn apply_dealc_and_voucherc_estimates(
 
         serde_json::from_slice(&voucherc_res_body)?
     };
-    document.apply_words_estimates(Source::Voucherc, voucherc_estimates)?;
+    apply_words_estimates(document, Source::Voucherc, voucherc_estimates)?;
+
+    Ok(())
+}
+
+pub fn apply_phrases_estimates(
+    document: &mut Phrases,
+    source: Source,
+    estimates: Vec<f64>,
+) -> Result<(), Error> {
+    let phrases = document.inner_mut();
+    if phrases.len() != estimates.len() {
+        return Err(Error::new(format!(
+            "Got {} phrases, but {} estimates",
+            phrases.len(),
+            estimates.len()
+        )));
+    }
+
+    for (phrase, estimate) in phrases.into_iter().zip(estimates.into_iter()) {
+        phrase.estimates.insert(source, estimate);
+    }
+
+    Ok(())
+}
+
+pub fn apply_words_estimates(
+    document: &mut Phrases,
+    source: Source,
+    estimates: Vec<f64>,
+) -> Result<(), Error> {
+    let words = document.words_mut();
+    if words.len() != estimates.len() {
+        return Err(Error::new(format!(
+            "Got {} words, but {} estimates",
+            words.len(),
+            estimates.len()
+        )));
+    }
+
+    for (w, estimate) in words.into_iter().zip(estimates.into_iter()) {
+        w.estimates.insert(source, estimate);
+    }
 
     Ok(())
 }
@@ -69,6 +111,7 @@ async fn apply_dealc_and_voucherc_estimates(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use serde_json::json;
     use shared::reqwest;
 
     #[ignore]
@@ -127,5 +170,66 @@ mod tests {
             .expect("Cannot get phrases with estimates");
 
         panic!("{:#?}", phrases);
+    }
+
+    #[test]
+    fn it_serializes() {
+        let mut phrases =
+            Phrases::from_text("first phrase and then\nthere is second phrase");
+
+        apply_phrases_estimates(&mut phrases, Source::Dealc, vec![0.8, 0.7])
+            .unwrap();
+        apply_words_estimates(
+            &mut phrases,
+            Source::OpenAi,
+            (0..7).map(|_| 0.5).collect(),
+        )
+        .unwrap();
+
+        assert_eq!(
+            json!([
+                    {
+                        "text": "first phrase and then",
+                        "estimates": { "dealc": 0.8 },
+                        "words": [
+                            {
+                                "text": "first",
+                                "estimates": { "open_ai": 0.5 },
+                            },
+                            {
+                                "text": "phrase",
+                                "estimates": { "open_ai": 0.5 },
+                            },
+                            {
+                                "text": "and",
+                                "estimates": { "open_ai": 0.5 },
+                            },
+                            {
+                                "text": "then",
+                                "estimates": { "open_ai": 0.5 },
+                            },
+                        ]
+                    },
+                    {
+                        "text": "there is second phrase",
+                        "estimates": { "dealc": 0.7 },
+                        "words": [
+                            {
+                                "text": "there",
+                                "estimates": { "open_ai": 0.5 },
+                            },
+                            {
+                                "text": "second",
+                                "estimates": { "open_ai": 0.5 },
+                            },
+                            {
+                                "text": "phrase",
+                                "estimates": { "open_ai": 0.5 },
+                            },
+                        ]
+                    }
+            ]),
+            serde_json::to_value(&phrases).unwrap()
+        );
     }
 }

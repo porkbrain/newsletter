@@ -1,5 +1,6 @@
 pub mod anchor;
 pub mod http;
+pub mod phrases;
 pub mod s3;
 pub mod sqs;
 pub mod vision;
@@ -10,7 +11,7 @@ pub use rusoto_sqs;
 
 pub use reqwest;
 
-pub use {http::Client, s3::S3Ext, sqs::SqsExt};
+pub use {http::Client, phrases::Phrases, s3::S3Ext, sqs::SqsExt};
 
 #[cfg(feature = "test_utils")]
 pub mod tests;

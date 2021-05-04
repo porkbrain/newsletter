@@ -4,7 +4,7 @@ use {serde::Deserialize, shared::rusoto_core::Region};
 
 #[derive(Default, Deserialize, Debug)]
 pub struct Conf {
-    /// Where do we receive notifications about newly inserted html files?
+    /// Where do we receive notifications about newly inserted files?
     pub input_queue_url: String,
     /// All services _must_ run in the same region.
     ///

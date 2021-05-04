@@ -1,4 +1,4 @@
-use crate::models::Word;
+use shared::phrases::Word;
 
 const VOUCHER_KEYWORDS: &[&str] = &["voucher", "code", "discount", "coupon"];
 
@@ -386,25 +386,26 @@ mod tests {
             word_estimates(list.iter().collect::<Vec<_>>().as_slice())
         };
 
-        let words = vec!["use".into(), "code".into(), "ALPHA".into()];
+        let words =
+            vec![word_from("use"), word_from("code"), word_from("ALPHA")];
         assert_eq!(word_estimates_from_list(words), Some(vec![0.0, 0.0, 1.0]));
 
         let words = vec![
-            "blabla".into(),
+            word_from("blabla"),
             Word::new_with_raw("Code".to_string(), "Code:".to_string()),
-            "ALPHA".into(),
+            word_from("ALPHA"),
         ];
         assert_eq!(word_estimates_from_list(words), Some(vec![0.25, 0.0, 1.0]));
 
         let words = vec![
-            "this".into(),
-            "is".into(),
-            "long".into(),
-            "use".into(),
-            "code".into(),
-            "ALPHA".into(),
-            "haha".into(),
-            "its 3AM".into(),
+            word_from("this"),
+            word_from("is"),
+            word_from("long"),
+            word_from("use"),
+            word_from("code"),
+            word_from("ALPHA"),
+            word_from("haha"),
+            word_from("its 3AM"),
         ];
         assert_eq!(
             word_estimates_from_list(words),
@@ -421,20 +422,18 @@ mod tests {
         );
 
         let words = vec![
-            "use".into(),
+            word_from("use"),
             Word::new_with_raw("Code".to_string(), "Code:".to_string()),
-            "ALPHA".into(),
+            word_from("ALPHA"),
         ];
         assert_eq!(word_estimates_from_list(words), Some(vec![0.0, 0.0, 1.0]));
     }
 
-    impl From<&'static str> for Word {
-        fn from(s: &'static str) -> Self {
-            Self {
-                raw: s.to_string(),
-                text: s.to_string(),
-                estimates: Default::default(),
-            }
+    fn word_from(s: &str) -> Word {
+        Word {
+            raw: s.to_string(),
+            text: s.to_string(),
+            estimates: Default::default(),
         }
     }
 }
