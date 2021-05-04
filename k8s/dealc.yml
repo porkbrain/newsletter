@@ -23,7 +23,7 @@ spec:
         kubernetes.io/hostname: panda
       containers:
         - name: dealc
-          image: 'porkbrain/newsletter:dealc-0.1.0'
+          image: 'porkbrain/newsletter:dealc-0.2.0'
           imagePullPolicy: IfNotPresent # it's too big
           resources:
             requests: # min
