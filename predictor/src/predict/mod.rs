@@ -24,11 +24,13 @@ pub async fn deals_and_vouchers(
     }
 
     // send some promising phrases to openai to check them out
+    /*
     let openai_estimates =
         openai::word_estimates(conf, http_client, document.inner()).await?;
     if let Some(estimates) = openai_estimates {
         document.apply_words_estimates(Source::OpenAi, estimates)?;
     }
+    */
 
     Ok(document)
 }
