@@ -125,32 +125,20 @@ async function insertOffersIntoGoogleSheet(sheet, emails) {
   const newRows = [];
 
   for (const { email, offers } of emails) {
-    let isFirst = true;
     for (const offer of offers) {
       const offerRow = [];
 
-      // Date | Subject | Sender
-      if (isFirst) {
-        offerRow.push(
-          new Date().toJSON(),
-          email.subject || "",
-          email.senderName || ""
-        );
-      } else {
-        offerRow.push("", "", "");
-      }
-
+      offerRow.push(new Date().toJSON()); // Date
+      offerRow.push(email.subject || ""); // Subject
+      offerRow.push(email.senderName || ""); // Sender
       offerRow.push(offer.deal || ""); // Short Text
       offerRow.push(offer.voucher ? "Code" : "Deal"); // Code or Deal
       offerRow.push(offer.voucher || ""); // Code Value
       offerRow.push(""); // TODO: Unique code estimation
       offerRow.push(offer.link || ""); // Deeplink / links
-
-      isFirst && offerRow.push(`${htmlUrl}/${email.id}`); // Email with links
+      offerRow.push(`${htmlUrl}/${email.id}`); // Email with links
 
       newRows.push(offerRow);
-
-      isFirst = false;
     }
   }
 
