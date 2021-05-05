@@ -55,16 +55,18 @@ mod tests {
     #[test]
     fn it_inserts() {
         let deals = vec![
-            Deal::new("deal1".to_string(), 0.9677482825634689),
-            Deal::new("deal2".to_string(), 0.964979770972405),
+            Deal::new(0, "deal1".to_string(), 0.9677482825634689),
+            Deal::new(0, "deal2".to_string(), 0.964979770972405),
         ];
         let mut vouchers = vec![
             Voucher::new(
+                0,
                 "voucher1".to_string(),
                 "voucher1code".to_string(),
                 0.9585623288901614,
             ),
             Voucher::new(
+                0,
                 "voucher2".to_string(),
                 "voucher2code".to_string(),
                 0.8922419680443364,

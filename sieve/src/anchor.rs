@@ -153,9 +153,9 @@ mod tests {
         annotation.words[12].bottom_right = Point { x: 67, y: 80 };
 
         let mut deals = vec![
-            Deal::new("This is a deal".to_string(), 0.0),
-            Deal::new("This is a weird deal".to_string(), 0.0),
-            Deal::new("weird, but it's".to_string(), 0.0),
+            Deal::new(0, "This is a deal".to_string(), 0.0),
+            Deal::new(0, "This is a weird deal".to_string(), 0.0),
+            Deal::new(0, "weird, but it's".to_string(), 0.0),
         ];
 
         find_hrefs_for_resources(anchors, annotation, &mut deals, &mut vec![]);
@@ -202,9 +202,24 @@ mod tests {
         annotation.words[8].bottom_right = Point { x: 67, y: 80 };
 
         let mut vouchers = vec![
-            Voucher::new("code: ALPHA".to_string(), "ALPHA".to_string(), 0.0),
-            Voucher::new("This is a deal".to_string(), "deal".to_string(), 0.0),
-            Voucher::new("trust me. This".to_string(), "me".to_string(), 0.0),
+            Voucher::new(
+                0,
+                "code: ALPHA".to_string(),
+                "ALPHA".to_string(),
+                0.0,
+            ),
+            Voucher::new(
+                0,
+                "This is a deal".to_string(),
+                "deal".to_string(),
+                0.0,
+            ),
+            Voucher::new(
+                0,
+                "trust me. This".to_string(),
+                "me".to_string(),
+                0.0,
+            ),
         ];
 
         find_hrefs_for_resources(
