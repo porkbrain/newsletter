@@ -9,19 +9,30 @@ const SELECT_ANCHORS_SCRIPT_JS: &str = r#"
 
     return anchors
         .map((a) => {
-          const href = a.getAttribute("href");
-          return {
-            href,
-            top: Math.round(a.offsetTop),
-            left: Math.round(a.offsetLeft),
-            width: Math.round(a.offsetWidth),
-            height: Math.round(a.offsetHeight),
-          };
+            const href = a.getAttribute("href");
+
+            const skipAnchor = !href || !href.startsWith("http") ||
+                href.includes("unsubscribe") ||
+                a.innerText.includes("unsubscribe");
+            if (skipAnchor) {
+                return null;
+            }
+
+            const rect = a.getBoundingClientRect();
+
+            if (!rect.width || !rect.height) {
+                return null;
+            }
+
+            return {
+                href,
+                top: Math.round(rect.top),
+                left: Math.round(rect.left),
+                width: Math.round(rect.width),
+                height: Math.round(rect.height),
+            };
         })
-        .filter(
-          ({ href }) =>
-            href && href.startsWith("http") && !href.includes("unsubscribe")
-        );
+        .filter(Boolean);
 "#;
 
 pub async fn connect(gecko_url: &str) -> Result<fantoccini::Client, Error> {

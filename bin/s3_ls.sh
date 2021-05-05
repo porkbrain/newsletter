@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Example usage:
+#
+# ./s3_ls.sh "mailmevouchers" "2021-05-03 10:00:00" "2021-05-03 17:00:00"
+#
+
 
 readonly bucket_name="${1}"
 
