@@ -202,7 +202,7 @@ pub mod tests {
         )
     }
 
-    pub fn assert_deals_approx_eq(expected: Vec<Deal>, actual: Vec<Deal>) {
+    pub fn assert_deals_approx_eq(actual: Vec<Deal>, expected: Vec<Deal>) {
         if expected.len() != actual.len() {
             println!("Expected: {:#?}", expected);
             println!("Actual: {:#?}", actual);

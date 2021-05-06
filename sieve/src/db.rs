@@ -8,6 +8,18 @@ pub fn insert(
     deals: Vec<Deal>,
     vouchers: Vec<Voucher>,
 ) -> Result<(), Error> {
+    if deals.is_empty() && vouchers.is_empty() {
+        log::info!("Nothing to do for {}", newsletter_id);
+        return Ok(());
+    }
+
+    log::info!(
+        "Inserting {} deals and {} vouchers for {}",
+        deals.len(),
+        vouchers.len(),
+        newsletter_id
+    );
+
     let sql = format!(
         "INSERT INTO offers (s3_key, deal, voucher, link) VALUES {}",
         (0..(deals.len() + vouchers.len()))

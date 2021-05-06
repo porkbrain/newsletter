@@ -83,7 +83,7 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
         select::deals_and_vouchers(document.inner());
 
     if deals.is_empty() && vouchers.is_empty() {
-        log::debug!("There are no vouchers nor deals for {}", record.key);
+        log::info!("There are no vouchers nor deals for {}", record.key);
     } else {
         let anchor_res = state
             .s3
@@ -108,6 +108,8 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
                 &mut deals,
                 &mut vouchers,
             );
+        } else {
+            log::warn!("Anchors for {} not found", record.key);
         }
 
         db::insert(&state.db, &record.key, deals, vouchers)?;

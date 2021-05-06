@@ -43,12 +43,18 @@ pub fn deals_and_vouchers(phrases: &[Phrase]) -> (Vec<Deal>, Vec<Voucher>) {
             //
             // if it's just one phrase the range will be of size 0 (that's the
             // unwrap there)
-            let range_over_phrases = d.first_phrase_index
-                ..=d.last_phrase_index.unwrap_or(d.first_phrase_index);
+            let from_index = d.first_phrase_index;
+            let to_index = d.last_phrase_index.unwrap_or(d.first_phrase_index);
+            let deal_span_over_phrases = from_index..=to_index;
 
-            if range_over_phrases.contains(&v.phrase_index) {
+            if deal_span_over_phrases.contains(&v.phrase_index) {
                 // steal the deal text and discard the deal
                 v.phrase = d.text.clone();
+                v.estimate = v.estimate.max(d.estimate);
+                false
+            } else if (to_index + 1) == v.phrase_index {
+                // and we take + 1 because it can be adjacent, not only contained
+                v.phrase = format!("{} {}", d.text, v.phrase);
                 v.estimate = v.estimate.max(d.estimate);
                 false
             } else {
@@ -62,7 +68,7 @@ pub fn deals_and_vouchers(phrases: &[Phrase]) -> (Vec<Deal>, Vec<Voucher>) {
     let deals = deals
         .into_iter()
         .enumerate()
-        .filter(|(di, d)| should_retain_offer(*di, d.estimate))
+        .take_while(|(di, d)| should_retain_offer(*di, d.estimate))
         .map(|(_, d)| d)
         .collect();
 
@@ -70,7 +76,7 @@ pub fn deals_and_vouchers(phrases: &[Phrase]) -> (Vec<Deal>, Vec<Voucher>) {
     let vouchers = vouchers
         .into_iter()
         .enumerate()
-        .filter(|(vi, v)| should_retain_offer(*vi, v.estimate))
+        .take_while(|(vi, v)| should_retain_offer(*vi, v.estimate))
         .map(|(_, v)| v)
         .collect();
 
@@ -219,6 +225,59 @@ mod tests {
         assert_eq!(deals, vec![]);
     }
 
+    #[test]
+    fn bug_skips_offers1() {
+        let phrases = testing_document("bug_skips_offers1");
+
+        let (deals, vouchers) = deals_and_vouchers(phrases.inner());
+
+        assert_vouchers_approx_eq(
+            vouchers,
+            vec![Voucher::new(
+                0,
+                "20% OFF the entire Beauty selection using promo \
+                code MOTHERS21. Enter code in cart or simply \
+                click on the link below.",
+                "MOTHERS21",
+                0.975,
+            )],
+        );
+        assert_deals_approx_eq(
+            deals,
+            vec![
+                Deal::new(
+                    0,
+                    "products from iHerb\'s entire Beauty selection \
+                    and show her just",
+                    0.981,
+                ),
+                Deal::new(0, "Use Promo Code:", 0.975),
+            ],
+        );
+    }
+
+    #[test]
+    fn bug_skips_offers2() {
+        let phrases = testing_document("bug_skips_offers2");
+
+        let (_, vouchers) = deals_and_vouchers(phrases.inner());
+
+        assert_vouchers_approx_eq(
+            vouchers,
+            vec![
+                Voucher::new(0, "Code: 300FF No MOV", "300FF", 1.0),
+                Voucher::new(
+                    0,
+                    "Only valid on the selected range. The 15% discount will \
+                    be applied at checkout after entering the code. Period of \
+                    validity: until 09.05.2021 Code: SUMMER2K21AFF MOV: GBP 50",
+                    "SUMMER2K21AFF",
+                    1.0,
+                ),
+            ],
+        );
+    }
+
     pub fn testing_document(name: &str) -> Phrases {
         let contents = match name {
             "default" => include_str!("../test/assets/default.json"),
@@ -235,6 +294,12 @@ mod tests {
                 include_str!(
                     "../test/assets/join_adjacent_deals_and_vouchers.json"
                 )
+            }
+            "bug_skips_offers1" => {
+                include_str!("../test/assets/bug_skips_offers1.json")
+            }
+            "bug_skips_offers2" => {
+                include_str!("../test/assets/bug_skips_offers2.json")
             }
             _ => panic!("No such testing file"),
         };

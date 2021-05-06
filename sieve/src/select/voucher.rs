@@ -108,8 +108,8 @@ pub mod tests {
     }
 
     pub fn assert_vouchers_approx_eq(
-        expected: Vec<Voucher>,
         actual: Vec<Voucher>,
+        expected: Vec<Voucher>,
     ) {
         if expected.len() != actual.len() {
             println!("Expected: {:#?}", expected);
