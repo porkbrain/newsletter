@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const sqlite3 = require("sqlite3");
 const { open, Database } = require("sqlite");
 const {
@@ -47,11 +49,12 @@ if (!sheetId) {
  * @return {Promise<Array<{
  *  id: string,
  *  subject?: string,
- *  senderName?: string
+ *  senderName?: string,
+ *  receivedAt: Date
  * }>>}
  */
 async function selectNewGsgEmails(conn) {
-  const sql = `SELECT s3_key, subject, sender_name FROM inbound_emails WHERE recipient_address = '${receiver}' AND state != 'synced'`;
+  const sql = `SELECT s3_key, subject, sender_name, received_at FROM inbound_emails WHERE recipient_address = '${receiver}' AND state != 'synced'`;
   const ids = [];
   await conn.each(sql, (err, row) => {
     if (err) {
@@ -63,6 +66,7 @@ async function selectNewGsgEmails(conn) {
       id: row.s3_key,
       subject: row.subject,
       senderName: row.sender_name,
+      receivedAt: new Date(parseInt(row.received_at) * 1000)
     });
   });
 
@@ -114,10 +118,13 @@ async function markOffersAsSynced(conn, ids) {
  * @param sheet {GoogleSpreadsheetWorksheet}
  * @param emails {{
  *  id: string,
+ *  receivedAt: Date,
+ *  subject: string,
+ *  senderName: string,
  *  offers: Array<{
- *  deal: string,
- *  voucher?: string,
- *  link?: string
+ *    deal: string,
+ *    voucher?: string,
+ *    link?: string
  *  }
  * }}
  */
@@ -128,7 +135,7 @@ async function insertOffersIntoGoogleSheet(sheet, emails) {
     for (const offer of offers) {
       const offerRow = [];
 
-      offerRow.push(new Date().toJSON()); // Date
+      offerRow.push(email.receivedAt.toJSON()); // Date
       offerRow.push(email.subject || ""); // Subject
       offerRow.push(email.senderName || ""); // Sender
       offerRow.push(offer.deal || ""); // Short Text
@@ -167,6 +174,12 @@ async function main() {
       emails.map(async (email) => {
         try {
           const offers = await selectOffersForEmail(conn, email.id);
+
+          if (!offers.length) {
+            console.log(`Email ${email.id} doesn't have any offers`)
+            return null;
+          }
+
           return { email, offers };
         } catch (err) {
           console.error(`Error selecting offers for email ${id} due to`, err);
@@ -174,6 +187,7 @@ async function main() {
       })
     )
   ).filter(Boolean);
+  console.log(`There are ${emailsWithOffers.length} emails with some offers`);
 
   console.log("Inserting into Google Sheets");
   await insertOffersIntoGoogleSheet(sheet, emailsWithOffers);
