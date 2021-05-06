@@ -1,0 +1,3033 @@
+[
+    {
+        "text": "EARLY ACCESS TO BANK HOLIDAY OFFERS",
+        "estimates": { "dealc": 0.19107307234955348 },
+        "words": [
+            {
+                "text": "EARLY",
+                "estimates": {
+                    "voucherc": 0.5279778242111206,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "ACCESS",
+                "estimates": {
+                    "voucherc": 0.5026792883872986,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "BANK",
+                "estimates": {
+                    "voucherc": 0.3672136068344116,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "HOLIDAY",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.4705752432346344
+                }
+            },
+            {
+                "text": "OFFERS",
+                "estimates": {
+                    "voucherc": 0.5026792883872986,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Save up to 25% on Selected Products!",
+        "estimates": { "dealc": 1.0 },
+        "words": [
+            {
+                "text": "Save",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "25%",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0003882348537445069
+                }
+            },
+            {
+                "text": "Selected",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007294446229934692
+                }
+            },
+            {
+                "text": "Products",
+                "estimates": {
+                    "voucherc": 0.007294446229934692,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Use Code: HAUL",
+        "estimates": { "dealc": 1.0 },
+        "words": [
+            {
+                "text": "Use",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.0
+                }
+            },
+            {
+                "text": "Code",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.0
+                }
+            },
+            {
+                "text": "HAUL",
+                "estimates": {
+                    "common_phrases": 1.0,
+                    "voucherc": 0.3672136068344116
+                }
+            }
+        ]
+    },
+    {
+        "text": "*Exclusions Apply - Live - 4pm 28th April - 5th May Shop now!",
+        "estimates": { "dealc": 0.00201980198019802 },
+        "words": [
+            {
+                "text": "Exclusions",
+                "estimates": {
+                    "common_phrases": 0.9061261981781177,
+                    "voucherc": 0.004759609699249268
+                }
+            },
+            {
+                "text": "Apply",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.8596115466624322
+                }
+            },
+            {
+                "text": "Live",
+                "estimates": {
+                    "common_phrases": 0.8298769776932235,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "4pm",
+                "estimates": {
+                    "voucherc": 0.06512197852134705,
+                    "common_phrases": 0.8085169313600048
+                }
+            },
+            {
+                "text": "28th",
+                "estimates": {
+                    "voucherc": 0.025361239910125732,
+                    "common_phrases": 0.7920953405339328
+                }
+            },
+            {
+                "text": "April",
+                "estimates": {
+                    "common_phrases": 0.778894912651623,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "5th",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.06512197852134705
+                }
+            },
+            {
+                "text": "May",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Shop",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "now",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            }
+        ]
+    },
+    {
+        "text": "**Please do not communicate these offers before the date they go live, as this is seen as a breach of",
+        "estimates": { "dealc": 0.047 },
+        "words": [
+            {
+                "text": "Please",
+                "estimates": {
+                    "voucherc": 0.014664024114608765,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "not",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "communicate",
+                "estimates": {
+                    "voucherc": 0.003333181142807007,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "these",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "offers",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "before",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "date",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "they",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "live",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "this",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "seen",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "breach",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "confidentiality. The Hut Group takes a break in confidentiality extremely seriously, and a breach of",
+        "estimates": { "dealc": 0.021 },
+        "words": [
+            {
+                "text": "confidentiality",
+                "estimates": {
+                    "voucherc": 0.0023856163024902344,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "The",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Hut",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Group",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "takes",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "break",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "confidentiality",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0023856163024902344
+                }
+            },
+            {
+                "text": "extremely",
+                "estimates": {
+                    "voucherc": 0.005423516035079956,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "seriously",
+                "estimates": {
+                    "voucherc": 0.005423516035079956,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "breach",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            }
+        ]
+    },
+    {
+        "text": "trust can result in publishers being removed from programmes across the entire business. Please do",
+        "estimates": { "dealc": 0.586 },
+        "words": [
+            {
+                "text": "trust",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "can",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "result",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "publishers",
+                "estimates": {
+                    "voucherc": 0.004476308822631836,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "being",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "removed",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "from",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "programmes",
+                "estimates": {
+                    "voucherc": 0.004476308822631836,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "across",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "entire",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "business",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007867097854614258
+                }
+            },
+            {
+                "text": "Please",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014664024114608765
+                }
+            }
+        ]
+    },
+    {
+        "text": "not share the below information with anyone outside of your organisation.**",
+        "estimates": { "dealc": 0.324 },
+        "words": [
+            {
+                "text": "not",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "share",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "below",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "information",
+                "estimates": {
+                    "voucherc": 0.0033332109451293945,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "with",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "anyone",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "outside",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "your",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "organisation",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.00379025936126709
+                }
+            }
+        ]
+    },
+    {
+        "text": "TRENDING OFFERS OLAPLEX OLAPLEX. OLAPLEX. OLAPLEX N4 le-",
+        "estimates": { "dealc": 0.06459151921660054 },
+        "words": [
+            {
+                "text": "TRENDING",
+                "estimates": {
+                    "voucherc": 0.5511666536331177,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "OFFERS",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.5026792883872986
+                }
+            },
+            {
+                "text": "OLAPLEX",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.9672971963882446
+                }
+            },
+            {
+                "text": "OLAPLEX",
+                "estimates": {
+                    "voucherc": 0.9672971963882446,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "OLAPLEX",
+                "estimates": {
+                    "voucherc": 0.9672971963882446,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "OLAPLEX",
+                "estimates": {
+                    "voucherc": 0.9672971963882446,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "le-",
+                "estimates": {
+                    "voucherc": 0.01254907250404358,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Christophe Robin",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "Christophe",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.004759609699249268
+                }
+            },
+            {
+                "text": "Robin",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "pie lavane welumien",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "pie",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "lavane",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.4397121071815491
+                }
+            },
+            {
+                "text": "welumien",
+                "estimates": {
+                    "voucherc": 0.4800865352153778,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "BEAUTY WORKS, ISLE OF",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "BEAUTY",
+                "estimates": {
+                    "voucherc": 0.5026792883872986,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "WORKS",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.5279778242111206
+                }
+            },
+            {
+                "text": "ISLE",
+                "estimates": {
+                    "voucherc": 0.3672136068344116,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "PARADISE & MORE",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "PARADISE",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.5511666536331177
+                }
+            },
+            {
+                "text": "MORE",
+                "estimates": {
+                    "voucherc": 0.3672136068344116,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "OLAPLEX CHRISTOPHE ROBIN",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "OLAPLEX",
+                "estimates": {
+                    "voucherc": 0.9672971963882446,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "CHRISTOPHE",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.3493538796901703
+                }
+            },
+            {
+                "text": "ROBIN",
+                "estimates": {
+                    "voucherc": 0.5279778242111206,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Save 20% on Hair Repair Trial Kit!",
+        "estimates": { "dealc": 0.9918 },
+        "words": [
+            {
+                "text": "Save",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "20%",
+                "estimates": {
+                    "voucherc": 0.0003882348537445069,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Hair",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Repair",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014664024114608765
+                }
+            },
+            {
+                "text": "Trial",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Kit",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0006843805313110352
+                }
+            }
+        ]
+    },
+    {
+        "text": "Use Code: 20OLAPLEX",
+        "estimates": { "dealc": 1.0 },
+        "words": [
+            {
+                "text": "Use",
+                "estimates": {
+                    "common_phrases": 0.0,
+                    "voucherc": 0.0006843805313110352
+                }
+            },
+            {
+                "text": "Code",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.0
+                }
+            },
+            {
+                "text": "20OLAPLEX",
+                "estimates": {
+                    "voucherc": 0.9986069798469543,
+                    "common_phrases": 1.0
+                }
+            }
+        ]
+    },
+    {
+        "text": "Save up to 25%!",
+        "estimates": { "dealc": 0.7219333333333333 },
+        "words": [
+            {
+                "text": "Save",
+                "estimates": {
+                    "common_phrases": 0.9061261981781177,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "25%",
+                "estimates": {
+                    "common_phrases": 0.8596115466624322,
+                    "voucherc": 0.0003882348537445069
+                }
+            }
+        ]
+    },
+    {
+        "text": "*Exclusions Apply - Expires 5th May",
+        "estimates": { "dealc": 0.027455612623910428 },
+        "words": [
+            {
+                "text": "Exclusions",
+                "estimates": {
+                    "voucherc": 0.004759609699249268,
+                    "common_phrases": 0.8298769776932235
+                }
+            },
+            {
+                "text": "Apply",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.8085169313600048
+                }
+            },
+            {
+                "text": "Expires",
+                "estimates": {
+                    "common_phrases": 0.7920953405339328,
+                    "voucherc": 0.010602414608001707
+                }
+            },
+            {
+                "text": "5th",
+                "estimates": {
+                    "voucherc": 0.06512197852134705,
+                    "common_phrases": 0.778894912651623
+                }
+            },
+            {
+                "text": "May",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Get an EXTRA 10% off selected brands at HQHair!",
+        "estimates": { "dealc": 1 },
+        "words": [
+            {
+                "text": "Get",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "EXTRA",
+                "estimates": {
+                    "voucherc": 0.5279778242111206,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "10%",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0003882348537445069
+                }
+            },
+            {
+                "text": "off",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "selected",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007867097854614258
+                }
+            },
+            {
+                "text": "brands",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "HQHair",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.4733140468597412
+                }
+            }
+        ]
+    },
+    {
+        "text": "Use Code: EXTRAX10",
+        "estimates": { "dealc": 1.0 },
+        "words": [
+            {
+                "text": "Use",
+                "estimates": {
+                    "common_phrases": 0.0,
+                    "voucherc": 0.0006843507289886475
+                }
+            },
+            {
+                "text": "Code",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.0
+                }
+            },
+            {
+                "text": "EXTRAX10",
+                "estimates": {
+                    "common_phrases": 1.0,
+                    "voucherc": 0.9998391270637512
+                }
+            }
+        ]
+    },
+    {
+        "text": "*Exclusions Apply - Live 4pm 28th April - 5th May",
+        "estimates": { "dealc": 0.027455612623910428 },
+        "words": [
+            {
+                "text": "Exclusions",
+                "estimates": {
+                    "common_phrases": 0.9061261981781177,
+                    "voucherc": 0.004759609699249268
+                }
+            },
+            {
+                "text": "Apply",
+                "estimates": {
+                    "common_phrases": 0.8596115466624322,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "Live",
+                "estimates": {
+                    "common_phrases": 0.8298769776932235,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "4pm",
+                "estimates": {
+                    "common_phrases": 0.8085169313600048,
+                    "voucherc": 0.06512197852134705
+                }
+            },
+            {
+                "text": "28th",
+                "estimates": {
+                    "common_phrases": 0.7920953405339328,
+                    "voucherc": 0.025361239910125732
+                }
+            },
+            {
+                "text": "April",
+                "estimates": {
+                    "common_phrases": 0.778894912651623,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "5th",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.06512197852134705
+                }
+            },
+            {
+                "text": "May",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "*Exclusions Apply - While Stocks Last",
+        "estimates": { "dealc": 0.027455612623910428 },
+        "words": [
+            {
+                "text": "Exclusions",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.004759609699249268
+                }
+            },
+            {
+                "text": "Apply",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "While",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Stocks",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014663994312286375
+                }
+            },
+            {
+                "text": "Last",
+                "estimates": {
+                    "voucherc": 0.010201573371887209,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Expires 19th May",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "Expires",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.010602414608001707
+                }
+            },
+            {
+                "text": "19th",
+                "estimates": {
+                    "voucherc": 0.025361239910125732,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "May",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Shop now! Shop now! Shop now!",
+        "estimates": { "dealc": 0.010185739810316008 },
+        "words": [
+            {
+                "text": "Shop",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "now",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Shop",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "now",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "Shop",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "now",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Tihey re Rea AMGHET",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "Tihey",
+                "estimates": {
+                    "voucherc": 0.04214584827423096,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Rea",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "AMGHET",
+                "estimates": {
+                    "voucherc": 0.94307142496109,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "benfit Real MAGNET BENEFIT GROW GORGEOUS PAUL MITCHELL",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "benfit",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.4397121071815491
+                }
+            },
+            {
+                "text": "Real",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "MAGNET",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.5026792883872986
+                }
+            },
+            {
+                "text": "BENEFIT",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.4705752432346344
+                }
+            },
+            {
+                "text": "GROW",
+                "estimates": {
+                    "voucherc": 0.3672136068344116,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "GORGEOUS",
+                "estimates": {
+                    "voucherc": 0.5511666536331177,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "PAUL",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.3672136068344116
+                }
+            },
+            {
+                "text": "MITCHELL",
+                "estimates": {
+                    "voucherc": 0.5511666536331177,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Save up to 20%!",
+        "estimates": { "dealc": 0.27813555952729463 },
+        "words": [
+            {
+                "text": "Save",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "20%",
+                "estimates": {
+                    "voucherc": 0.0003882348537445069,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Save up to 25% at HQHair!",
+        "estimates": { "dealc": 0.997 },
+        "words": [
+            {
+                "text": "Save",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "25%",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0003882348537445069
+                }
+            },
+            {
+                "text": "HQHair",
+                "estimates": {
+                    "voucherc": 0.4733140468597412,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "*Exclusions Apply - Expires 5th May",
+        "estimates": { "dealc": 0.027455612623910428 },
+        "words": [
+            {
+                "text": "Exclusions",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.004759609699249268
+                }
+            },
+            {
+                "text": "Apply",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Expires",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "5th",
+                "estimates": {
+                    "voucherc": 0.06512197852134705,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "May",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Shop 15% off!",
+        "estimates": { "dealc": 0.258 },
+        "words": [
+            {
+                "text": "Shop",
+                "estimates": {
+                    "voucherc": 0.010201573371887209,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "15%",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0003882944583892822
+                }
+            },
+            {
+                "text": "off",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            }
+        ]
+    },
+    {
+        "text": "Use Code: PAUL15",
+        "estimates": { "dealc": 1.0 },
+        "words": [
+            {
+                "text": "Use",
+                "estimates": {
+                    "common_phrases": 0.0,
+                    "voucherc": 0.0006843507289886475
+                }
+            },
+            {
+                "text": "Code",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.0
+                }
+            },
+            {
+                "text": "PAUL15",
+                "estimates": {
+                    "common_phrases": 1.0,
+                    "voucherc": 0.999283254146576
+                }
+            }
+        ]
+    },
+    {
+        "text": "*Exclusions Apply - Expires 30th April",
+        "estimates": { "dealc": 0.027455612623910428 },
+        "words": [
+            {
+                "text": "Exclusions",
+                "estimates": {
+                    "voucherc": 0.004759609699249268,
+                    "common_phrases": 0.9061261981781177
+                }
+            },
+            {
+                "text": "Apply",
+                "estimates": {
+                    "common_phrases": 0.8596115466624322,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "Expires",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.8298769776932235
+                }
+            },
+            {
+                "text": "30th",
+                "estimates": {
+                    "voucherc": 0.025361239910125732,
+                    "common_phrases": 0.8085169313600048
+                }
+            },
+            {
+                "text": "April",
+                "estimates": {
+                    "common_phrases": 0.7920953405339328,
+                    "voucherc": 0.017828315496444702
+                }
+            }
+        ]
+    },
+    {
+        "text": "*Exclusions Apply - Live - 4 pm 28th April - 5th",
+        "estimates": { "dealc": 0.027455612623910428 },
+        "words": [
+            {
+                "text": "Exclusions",
+                "estimates": {
+                    "common_phrases": 0.778894912651623,
+                    "voucherc": 0.004759609699249268
+                }
+            },
+            {
+                "text": "Apply",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Live",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "28th",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.025361239910125732
+                }
+            },
+            {
+                "text": "April",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "5th",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.06512197852134705
+                }
+            }
+        ]
+    },
+    {
+        "text": "Мay Shop now! Shop now! Shop now! KERASTASE",
+        "estimates": { "dealc": 0.010185739810316008 },
+        "words": [
+            {
+                "text": "Мay",
+                "estimates": {
+                    "voucherc": 5.229300768405665e-6,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Shop",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "now",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Shop",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "now",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Shop",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "now",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "KERASTASE",
+                "estimates": {
+                    "voucherc": 0.9542852640151978,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "KERASTASE S4CHAJLA.",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "KERASTASE",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.9542852640151978
+                }
+            },
+            {
+                "text": "S4CHAJLA",
+                "estimates": {
+                    "voucherc": 0.9980387687683104,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "NYX, MAYBELLINE & MORE",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "NYX",
+                "estimates": {
+                    "voucherc": 0.30195102095603943,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "MAYBELLINE",
+                "estimates": {
+                    "voucherc": 0.965328812599182,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "MORE",
+                "estimates": {
+                    "voucherc": 0.3672136068344116,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "KERASTASE SACHAJUAN",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "KERASTASE",
+                "estimates": {
+                    "voucherc": 0.9542852640151978,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "SACHAJUAN",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.9542852640151978
+                }
+            }
+        ]
+    },
+    {
+        "text": "Shop 3 for 2!",
+        "estimates": { "dealc": 0.5589623720681196 },
+        "words": [
+            {
+                "text": "Shop",
+                "estimates": {
+                    "voucherc": 0.010201573371887209,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "for",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.002030491828918457
+                }
+            }
+        ]
+    },
+    {
+        "text": "*Exclusions Apply - Live 4pm 27th April - 5th May",
+        "estimates": { "dealc": 0.027455612623910428 },
+        "words": [
+            {
+                "text": "Exclusions",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.004759609699249268
+                }
+            },
+            {
+                "text": "Apply",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Live",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "4pm",
+                "estimates": {
+                    "voucherc": 0.06512197852134705,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "27th",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.025361239910125732
+                }
+            },
+            {
+                "text": "April",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "5th",
+                "estimates": {
+                    "voucherc": 0.06512197852134705,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "May",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Save up to 30% off on selected!",
+        "estimates": { "dealc": 0.98 },
+        "words": [
+            {
+                "text": "Save",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "30%",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0003882348537445069
+                }
+            },
+            {
+                "text": "off",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "selected",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007867097854614258
+                }
+            }
+        ]
+    },
+    {
+        "text": "20% off when you spend £50!",
+        "estimates": { "dealc": 0.995 },
+        "words": [
+            {
+                "text": "20%",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0003882348537445069
+                }
+            },
+            {
+                "text": "off",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "when",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "you",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "spend",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "£50",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.00011351741704856976
+                }
+            }
+        ]
+    },
+    {
+        "text": "Use Code: 20SÁCHA",
+        "estimates": { "dealc": 1.0 },
+        "words": [
+            {
+                "text": "Use",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.0
+                }
+            },
+            {
+                "text": "Code",
+                "estimates": {
+                    "common_phrases": 0.0,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "20SÁCHA",
+                "estimates": {
+                    "voucherc": 0.2065853476524353,
+                    "common_phrases": 1.0
+                }
+            }
+        ]
+    },
+    {
+        "text": "*Exclusions Apply - Live 30th April - 3rd May",
+        "estimates": { "dealc": 0.027455612623910428 },
+        "words": [
+            {
+                "text": "Exclusions",
+                "estimates": {
+                    "common_phrases": 0.9061261981781177,
+                    "voucherc": 0.004759609699249268
+                }
+            },
+            {
+                "text": "Apply",
+                "estimates": {
+                    "common_phrases": 0.8596115466624322,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "Live",
+                "estimates": {
+                    "common_phrases": 0.8298769776932235,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "30th",
+                "estimates": {
+                    "common_phrases": 0.8085169313600048,
+                    "voucherc": 0.025361239910125732
+                }
+            },
+            {
+                "text": "April",
+                "estimates": {
+                    "common_phrases": 0.7920953405339328,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "3rd",
+                "estimates": {
+                    "common_phrases": 0.778894912651623,
+                    "voucherc": 0.06512197852134705
+                }
+            },
+            {
+                "text": "May",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0006843507289886475
+                }
+            }
+        ]
+    },
+    {
+        "text": "*Exclusions Apply - Expires 19th May",
+        "estimates": { "dealc": 0.027455612623910428 },
+        "words": [
+            {
+                "text": "Exclusions",
+                "estimates": {
+                    "voucherc": 0.004759609699249268,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Apply",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Expires",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "19th",
+                "estimates": {
+                    "voucherc": 0.02536126971244812,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "May",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Shop now! Shop now! Shop now! POM SERIEEXPER",
+        "estimates": { "dealc": 0.010185739810316008 },
+        "words": [
+            {
+                "text": "Shop",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "now",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Shop",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "now",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Shop",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "now",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "POM",
+                "estimates": {
+                    "voucherc": 0.30195102095603943,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "SERIEEXPER",
+                "estimates": {
+                    "voucherc": 0.965328812599182,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "w INO CCLOR",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "INO",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.30195102095603943
+                }
+            },
+            {
+                "text": "CCLOR",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.9084224700927734
+                }
+            }
+        ]
+    },
+    {
+        "text": "SERIEEXPERT HYDRATIO L'OREAL LORFAL MOROCCANOIL L'OREAL PROFESSIONAL NEOM ORGANIC",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "SERIEEXPERT",
+                "estimates": {
+                    "voucherc": 0.987557291984558,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "HYDRATIO",
+                "estimates": {
+                    "voucherc": 0.975794792175293,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "L'OREAL",
+                "estimates": {
+                    "voucherc": 0.07098543643951416,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "LORFAL",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.94307142496109
+                }
+            },
+            {
+                "text": "MOROCCANOIL",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.987557291984558
+                }
+            },
+            {
+                "text": "L'OREAL",
+                "estimates": {
+                    "voucherc": 0.07098543643951416,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "PROFESSIONAL",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.20277255773544312
+                }
+            },
+            {
+                "text": "NEOM",
+                "estimates": {
+                    "voucherc": 0.3672136068344116,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "ORGANIC",
+                "estimates": {
+                    "voucherc": 0.4705752432346344,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Find your favourite Treatment at HQ Hair!",
+        "estimates": { "dealc": 0.8510166666666666 },
+        "words": [
+            {
+                "text": "Find",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "your",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "favourite",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            },
+            {
+                "text": "Treatment",
+                "estimates": {
+                    "voucherc": 0.005517333745956421,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Hair",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Developed to intensely hydrate and",
+        "estimates": { "dealc": 0.2382386002886004 },
+        "words": [
+            {
+                "text": "Developed",
+                "estimates": {
+                    "voucherc": 0.005517333745956421,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "intensely",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            },
+            {
+                "text": "hydrate",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            }
+        ]
+    },
+    {
+        "text": "nourish hair without adding weight.",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "nourish",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "hair",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "without",
+                "estimates": {
+                    "voucherc": 0.011344432830810549,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "adding",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "weight",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Available in both Treatment Original",
+        "estimates": { "dealc": 0.01 },
+        "words": [
+            {
+                "text": "Available",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005517333745956421
+                }
+            },
+            {
+                "text": "both",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "Treatment",
+                "estimates": {
+                    "voucherc": 0.005517333745956421,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Original",
+                "estimates": {
+                    "voucherc": 0.007294446229934692,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "and Light, to create a bespoke hair oil",
+        "estimates": { "dealc": 0.2382386002886004 },
+        "words": [
+            {
+                "text": "and",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "Light",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "create",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "bespoke",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "hair",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "oil",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            }
+        ]
+    },
+    {
+        "text": "experience for you!",
+        "estimates": { "dealc": 0.1028047011940591 },
+        "words": [
+            {
+                "text": "experience",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.004476308822631836
+                }
+            },
+            {
+                "text": "for",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "you",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Shop up to 30% off!",
+        "estimates": { "dealc": 0.10791666666666667 },
+        "words": [
+            {
+                "text": "Shop",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "30%",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0003882348537445069
+                }
+            },
+            {
+                "text": "off",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            }
+        ]
+    },
+    {
+        "text": "Discover the brand dedicated to",
+        "estimates": { "dealc": 0.13907222450751874 },
+        "words": [
+            {
+                "text": "Discover",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007294446229934692
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "brand",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "dedicated",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            }
+        ]
+    },
+    {
+        "text": "*Exclusions Apply - Live - 9am 30th April - 3rd May",
+        "estimates": { "dealc": 0.027455612623910428 },
+        "words": [
+            {
+                "text": "Exclusions",
+                "estimates": {
+                    "voucherc": 0.004759609699249268,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Apply",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Live",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "9am",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.06512197852134705
+                }
+            },
+            {
+                "text": "30th",
+                "estimates": {
+                    "voucherc": 0.025361239910125732,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "April",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "3rd",
+                "estimates": {
+                    "voucherc": 0.06512197852134705,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "May",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "wellbeing, and indulge in the calming",
+        "estimates": { "dealc": 0.0001 },
+        "words": [
+            {
+                "text": "wellbeing",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.002030491828918457
+                }
+            },
+            {
+                "text": "indulge",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "calming",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            }
+        ]
+    },
+    {
+        "text": "and balancing formulas.",
+        "estimates": { "dealc": 0.05413428928707189 },
+        "words": [
+            {
+                "text": "and",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "balancing",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            },
+            {
+                "text": "formulas",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Shop the range here at HQHair!",
+        "estimates": { "dealc": 0.4865 },
+        "words": [
+            {
+                "text": "Shop",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "range",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "here",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "HQHair",
+                "estimates": {
+                    "voucherc": 0.4733140468597412,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Shop now! Shop now! Shop now!",
+        "estimates": { "dealc": 0.010185739810316008 },
+        "words": [
+            {
+                "text": "Shop",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "now",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "Shop",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "now",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Shop",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "now",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "If you have any questions or opportunities, please contact your account manager:",
+        "estimates": { "dealc": 0.02 },
+        "words": [
+            {
+                "text": "you",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "have",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "any",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "questions",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            },
+            {
+                "text": "opportunities",
+                "estimates": {
+                    "voucherc": 0.00301322340965271,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "please",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "contact",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "your",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "account",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "manager",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            }
+        ]
+    },
+    {
+        "text": "amy.denton@awin.com Love.",
+        "estimates": { "dealc": 0.009576619741010107 },
+        "words": [
+            {
+                "text": "amy.denton@awin.com",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0026720762252807617
+                }
+            },
+            {
+                "text": "Love",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "THG Beauty Affeliate Team",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "THG",
+                "estimates": {
+                    "voucherc": 0.4349916875362396,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Beauty",
+                "estimates": {
+                    "voucherc": 0.014663994312286375,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Affeliate",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.07168671488761902
+                }
+            },
+            {
+                "text": "Team",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Copyright © The Hut Group 2017, All rights reserved. AWIN AG",
+        "estimates": { "dealc": 0.01526318207935854 },
+        "words": [
+            {
+                "text": "Copyright",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005517333745956421
+                }
+            },
+            {
+                "text": "The",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0006843507289886475
+                }
+            },
+            {
+                "text": "Hut",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0006843507289886475
+                }
+            },
+            {
+                "text": "Group",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "2017",
+                "estimates": {
+                    "voucherc": 0.1932232677936554,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "All",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "rights",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "reserved",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "AWIN",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.3672136068344116
+                }
+            }
+        ]
+    },
+    {
+        "text": "Want to change how you receive these emails?",
+        "estimates": { "dealc": 0.005 },
+        "words": [
+            {
+                "text": "Want",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "change",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "how",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "you",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "receive",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "these",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "emails",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            }
+        ]
+    },
+    {
+        "text": "You can update your preferences or unsubscribe from this list ==== ====",
+        "estimates": { "dealc": 0.15885714285714286 },
+        "words": [
+            {
+                "text": "You",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "can",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "update",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "your",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "preferences",
+                "estimates": {
+                    "voucherc": 0.003333181142807007,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "unsubscribe",
+                "estimates": {
+                    "voucherc": 0.003333181142807007,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "from",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "this",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "list",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "====",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.00017064809799194336
+                }
+            },
+            {
+                "text": "====",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.00017064809799194336
+                }
+            }
+        ]
+    },
+    {
+        "text": "You have received this email because you are a member of",
+        "estimates": { "dealc": 0.001 },
+        "words": [
+            {
+                "text": "You",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "have",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "received",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007867097854614258
+                }
+            },
+            {
+                "text": "this",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "email",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "because",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "you",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "are",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "member",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            }
+        ]
+    },
+    {
+        "text": "HQhair UK affiliate program",
+        "estimates": { "dealc": 0.003034068136272545 },
+        "words": [
+            {
+                "text": "HQhair",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.4687846899032593
+                }
+            },
+            {
+                "text": "affiliate",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            },
+            {
+                "text": "program",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "To unsubscribe simply visit the link below. Click on link or paste into your browser",
+        "estimates": { "dealc": 0.108 },
+        "words": [
+            {
+                "text": "unsubscribe",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.003333181142807007
+                }
+            },
+            {
+                "text": "simply",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "visit",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "link",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "below",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Click",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "link",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "paste",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "into",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "your",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "browser",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.011344432830810549
+                }
+            }
+        ]
+    },
+    {
+        "text": "ui2.awin.com/unsubm.php?email=Aq9HfQtlwqzz35i%2F75%2B4pjfbn6WG2Dqqbu9zLK7CEcw%3D&id=282949&merchant id=3337",
+        "estimates": { "dealc": 0.014342673454856117 },
+        "words": [
+            {
+                "text": "id=3337",
+                "estimates": {
+                    "voucherc": 0.21369892358779907,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    }
+]

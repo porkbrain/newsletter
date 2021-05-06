@@ -1,0 +1,3343 @@
+[
+    {
+        "text": "НАМРТON & ASTLEY ENGLAND",
+        "estimates": { "dealc": 0.036405536595762664 },
+        "words": [
+            {
+                "text": "НАМРТON",
+                "estimates": {
+                    "voucherc": 0.000781625509262085,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "ASTLEY",
+                "estimates": {
+                    "voucherc": 0.94307142496109,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "ENGLAND",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.4705752432346344
+                }
+            }
+        ]
+    },
+    {
+        "text": "Вank Holiday Sale",
+        "estimates": { "dealc": 0.631 },
+        "words": [
+            {
+                "text": "Вank",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.00016760826110839844
+                }
+            },
+            {
+                "text": "Holiday",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Sale",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "50% off everything",
+        "estimates": { "dealc": 0.948470238095238 },
+        "words": [
+            {
+                "text": "50%",
+                "estimates": {
+                    "voucherc": 0.0003882348537445069,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "off",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "everything",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.004476308822631836
+                }
+            }
+        ]
+    },
+    {
+        "text": "with code MAYDAY",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "with",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "code",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "MAYDAY",
+                "estimates": {
+                    "voucherc": 0.5026792883872986,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Don't miss out, our Bank Holiday Sale is still on for a final 24",
+        "estimates": { "dealc": 0.432 },
+        "words": [
+            {
+                "text": "Don't",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.008493542671203613
+                }
+            },
+            {
+                "text": "miss",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "out",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "our",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "Bank",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Holiday",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Sale",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "still",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "for",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "final",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "\"Feels like you're jumping into a cloud\"",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "Feels",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.8298769776932235
+                }
+            },
+            {
+                "text": "like",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.8085169313600048
+                }
+            },
+            {
+                "text": "you're",
+                "estimates": {
+                    "voucherc": 0.003920882940292358,
+                    "common_phrases": 0.7920953405339328
+                }
+            },
+            {
+                "text": "jumping",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.778894912651623
+                }
+            },
+            {
+                "text": "into",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "cloud",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Your Home HAMPTON & ASTLEY HAMPTON & ASTLEy",
+        "estimates": { "dealc": 0.00020729221553680263 },
+        "words": [
+            {
+                "text": "Your",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "Home",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "HAMPTON",
+                "estimates": {
+                    "voucherc": 0.4705752432346344,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "ASTLEY",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.94307142496109
+                }
+            },
+            {
+                "text": "HAMPTON",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.4705752432346344
+                }
+            },
+            {
+                "text": "ASTLEy",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.6532056331634521
+                }
+            }
+        ]
+    },
+    {
+        "text": "Luxurious scented candle 30de10.59z",
+        "estimates": { "dealc": 0.036405536595762664 },
+        "words": [
+            {
+                "text": "Luxurious",
+                "estimates": {
+                    "voucherc": 0.005517333745956421,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "scented",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "candle",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "30de10.59z",
+                "estimates": {
+                    "voucherc": 0.7132253646850586,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "\"One of the best non-toxic candles that",
+        "estimates": { "dealc": 0.002 },
+        "words": [
+            {
+                "text": "One",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "best",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "non-toxic",
+                "estimates": {
+                    "voucherc": 0.02203342318534851,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "candles",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "that",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "doesn't sacrifice scent for eco credentials\" The Independent",
+        "estimates": { "dealc": 0.04341904761904762 },
+        "words": [
+            {
+                "text": "doesn't",
+                "estimates": {
+                    "voucherc": 0.002961963415145874,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "sacrifice",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            },
+            {
+                "text": "scent",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "for",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "eco",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "credentials",
+                "estimates": {
+                    "voucherc": 0.003333181142807007,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "The",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Independent",
+                "estimates": {
+                    "voucherc": 0.00402987003326416,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Luxury scented candles",
+        "estimates": { "dealc": 0.036405536595762664 },
+        "words": [
+            {
+                "text": "Luxury",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014664024114608765
+                }
+            },
+            {
+                "text": "scented",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "candles",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "\"There are towels - and then there",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "There",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "are",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "towels",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "then",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "there",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            }
+        ]
+    },
+    {
+        "text": "are indulgently thick towels\" House Beautiful",
+        "estimates": { "dealc": 0.010972412432945037 },
+        "words": [
+            {
+                "text": "are",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "indulgently",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.003333181142807007
+                }
+            },
+            {
+                "text": "thick",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "towels",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "House",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Beautiful",
+                "estimates": {
+                    "voucherc": 0.005517333745956421,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Indulgently thick towels Blissful bundles",
+        "estimates": { "dealc": 0.036405536595762664 },
+        "words": [
+            {
+                "text": "Indulgently",
+                "estimates": {
+                    "voucherc": 0.00402987003326416,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "thick",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "towels",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Blissful",
+                "estimates": {
+                    "voucherc": 0.007294446229934692,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "bundles",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "\"Makes your bedroom feel like a hotel\"",
+        "estimates": { "dealc": 0.1645419876373035 },
+        "words": [
+            {
+                "text": "Makes",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "your",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "bedroom",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "feel",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "like",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "hotel",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Good Housekeeping ***** 4.6/5 162 reviews Powered by Trustpilot",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "Good",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Housekeeping",
+                "estimates": {
+                    "voucherc": 0.006379276514053345,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "4.6/5",
+                "estimates": {
+                    "voucherc": 0.004553794860839844,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "162",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.028750747442245483
+                }
+            },
+            {
+                "text": "reviews",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Powered",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.010602414608001707
+                }
+            },
+            {
+                "text": "Trustpilot",
+                "estimates": {
+                    "voucherc": 0.07235494256019592,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "***** by Kim",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "Kim",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "03 May 2021",
+        "estimates": { "dealc": 0.14387369731071384 },
+        "words": [
+            {
+                "text": "May",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "2021",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.1932232677936554
+                }
+            }
+        ]
+    },
+    {
+        "text": "King size white bed set",
+        "estimates": { "dealc": 0.036405536595762664 },
+        "words": [
+            {
+                "text": "King",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "size",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "white",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "bed",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "set",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            }
+        ]
+    },
+    {
+        "text": "I would just like to tell everyone how much I love my new bedding that I",
+        "estimates": { "dealc": 0.213 },
+        "words": [
+            {
+                "text": "would",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "just",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "like",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "tell",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "everyone",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "how",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "much",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "love",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "new",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "bedding",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "that",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            }
+        ]
+    },
+    {
+        "text": "comfortable. I did have a small issue with it, in so much that the duvet",
+        "estimates": { "dealc": 0.192 },
+        "words": [
+            {
+                "text": "comfortable",
+                "estimates": {
+                    "voucherc": 0.003333181142807007,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "did",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "have",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "small",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "issue",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "with",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "much",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "that",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "duvet",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            }
+        ]
+    },
+    {
+        "text": "cover and one of the pillowcases was a slightly different shade to the",
+        "estimates": { "dealc": 0.006647222222222222 },
+        "words": [
+            {
+                "text": "cover",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "one",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "pillowcases",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.003333181142807007
+                }
+            },
+            {
+                "text": "was",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "slightly",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "different",
+                "estimates": {
+                    "voucherc": 0.005423516035079956,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "shade",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "fitted sheet and the other pillowcases. I contacted Mary Ann and my",
+        "estimates": { "dealc": 0.03335248004670135 },
+        "words": [
+            {
+                "text": "fitted",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "sheet",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.002030491828918457
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "other",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "pillowcases",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.003333181142807007
+                }
+            },
+            {
+                "text": "contacted",
+                "estimates": {
+                    "voucherc": 0.005423516035079956,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Mary",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Ann",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            }
+        ]
+    },
+    {
+        "text": "issue was dealt with quickly and very efficiently. Thank you again Mary",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "issue",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "was",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "dealt",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "with",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "quickly",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "very",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "efficiently",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.003333181142807007
+                }
+            },
+            {
+                "text": "Thank",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "you",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "again",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Mary",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            }
+        ]
+    },
+    {
+        "text": "Ann for your help. I would not hesitate to ordered again from Hampton",
+        "estimates": { "dealc": 0.096 },
+        "words": [
+            {
+                "text": "Ann",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0006843507289886475
+                }
+            },
+            {
+                "text": "for",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "your",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "help",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "would",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "not",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "hesitate",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007867097854614258
+                }
+            },
+            {
+                "text": "ordered",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "again",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "from",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Hampton",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "and Astley and using the discount code that they offer, makes my",
+        "estimates": { "dealc": 0.585 },
+        "words": [
+            {
+                "text": "and",
+                "estimates": {
+                    "voucherc": 0.002030491828918457,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Astley",
+                "estimates": {
+                    "voucherc": 0.05420166254043579,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "using",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.0
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "common_phrases": 0.85,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "discount",
+                "estimates": {
+                    "common_phrases": 0.0,
+                    "voucherc": 0.007867097854614258
+                }
+            },
+            {
+                "text": "code",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 1.0
+                }
+            },
+            {
+                "text": "that",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.9061261981781177
+                }
+            },
+            {
+                "text": "they",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.8596115466624322
+                }
+            },
+            {
+                "text": "offer",
+                "estimates": {
+                    "common_phrases": 0.8298769776932235,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "makes",
+                "estimates": {
+                    "common_phrases": 0.8085169313600048,
+                    "voucherc": 0.019675999879837036
+                }
+            }
+        ]
+    },
+    {
+        "text": "***** by Barbara Pearson",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "Barbara",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.010602414608001707
+                }
+            },
+            {
+                "text": "Pearson",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.010602414608001707
+                }
+            }
+        ]
+    },
+    {
+        "text": "02 May 2021",
+        "estimates": { "dealc": 0.14387369731071384 },
+        "words": [
+            {
+                "text": "May",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "2021",
+                "estimates": {
+                    "voucherc": 0.1932232677936554,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Love the bedding but so wish there was...",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "Love",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "bedding",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "but",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "wish",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "there",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "was",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Love the bedding but so wish there was a flat sheet option too.",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "Love",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "bedding",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "but",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "wish",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "there",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "was",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "flat",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "sheet",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "option",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "too",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            }
+        ]
+    },
+    {
+        "text": "***** by Lucinda nimmo",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "Lucinda",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.010602414608001707
+                }
+            },
+            {
+                "text": "nimmo",
+                "estimates": {
+                    "voucherc": 0.24654999375343323,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "30 Apr 2021 Excellent service",
+        "estimates": { "dealc": 0.8584469231059249 },
+        "words": [
+            {
+                "text": "Apr",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0006843507289886475
+                }
+            },
+            {
+                "text": "2021",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.1932232677936554
+                }
+            },
+            {
+                "text": "Excellent",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005517333745956421
+                }
+            },
+            {
+                "text": "service",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            }
+        ]
+    },
+    {
+        "text": "Excellent service, with great products",
+        "estimates": { "dealc": 0.003885404141624704 },
+        "words": [
+            {
+                "text": "Excellent",
+                "estimates": {
+                    "voucherc": 0.005517333745956421,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "service",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "with",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "great",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "products",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "HASSLE FREE RETURNS TRUSTED REVIEWS SATISFACTION FREE GUARANTEE",
+        "estimates": { "dealc": 0.1465028692653011 },
+        "words": [
+            {
+                "text": "HASSLE",
+                "estimates": {
+                    "voucherc": 0.5026792883872986,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "FREE",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.3672136068344116
+                }
+            },
+            {
+                "text": "RETURNS",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.4705752432346344
+                }
+            },
+            {
+                "text": "TRUSTED",
+                "estimates": {
+                    "voucherc": 0.4705752432346344,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "REVIEWS",
+                "estimates": {
+                    "voucherc": 0.4705752432346344,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "SATISFACTION",
+                "estimates": {
+                    "voucherc": 0.20277255773544312,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "FREE",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.3672136068344116
+                }
+            },
+            {
+                "text": "GUARANTEE",
+                "estimates": {
+                    "voucherc": 0.5027812123298645,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "WITH MINIMUM SPENO",
+        "estimates": { "dealc": 0.057409783067984034 },
+        "words": [
+            {
+                "text": "WITH",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.3672136068344116
+                }
+            },
+            {
+                "text": "MINIMUM",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.4705752432346344
+                }
+            },
+            {
+                "text": "SPENO",
+                "estimates": {
+                    "voucherc": 0.9084224700927734,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Luxury products at a great price - guaranteed.",
+        "estimates": { "dealc": 0.29 },
+        "words": [
+            {
+                "text": "Luxury",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014664024114608765
+                }
+            },
+            {
+                "text": "products",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007867097854614258
+                }
+            },
+            {
+                "text": "great",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "price",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "guaranteed",
+                "estimates": {
+                    "voucherc": 0.004476308822631836,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "We want you to be delighted with your purchase. Therefore if you are not",
+        "estimates": { "dealc": 0.105 },
+        "words": [
+            {
+                "text": "want",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "you",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.002030491828918457
+                }
+            },
+            {
+                "text": "delighted",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            },
+            {
+                "text": "with",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "your",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "purchase",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Therefore",
+                "estimates": {
+                    "voucherc": 0.005517333745956421,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "you",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "are",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "not",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            }
+        ]
+    },
+    {
+        "text": "completely satisfied then please get in touch and we will do what it takes to",
+        "estimates": { "dealc": 0.261 },
+        "words": [
+            {
+                "text": "completely",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.004476308822631836
+                }
+            },
+            {
+                "text": "satisfied",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            },
+            {
+                "text": "then",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "please",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "get",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "touch",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "will",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "what",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "takes",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            }
+        ]
+    },
+    {
+        "text": "make it right. All of our products can be returned or exchanged within 30 days",
+        "estimates": { "dealc": 0.001 },
+        "words": [
+            {
+                "text": "make",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "right",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "All",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "our",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "products",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "can",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "returned",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "exchanged",
+                "estimates": {
+                    "voucherc": 0.005423516035079956,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "within",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "days",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            }
+        ]
+    },
+    {
+        "text": "and include an additional 1-year warranty. Plus we'll pay for the return",
+        "estimates": { "dealc": 0.098 },
+        "words": [
+            {
+                "text": "and",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "include",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "additional",
+                "estimates": {
+                    "voucherc": 0.004476308822631836,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "1-year",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.030101239681243896
+                }
+            },
+            {
+                "text": "warranty",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Plus",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "we'll",
+                "estimates": {
+                    "voucherc": 0.0013325810432434082,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "pay",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "for",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "return",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "shipping if you're in the UK. Returns will be refunded in the original payment",
+        "estimates": { "dealc": 0.048 },
+        "words": [
+            {
+                "text": "shipping",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007867097854614258
+                }
+            },
+            {
+                "text": "you're",
+                "estimates": {
+                    "voucherc": 0.003920882940292358,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "Returns",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "will",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "refunded",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007867097854614258
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "original",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007867097854614258
+                }
+            },
+            {
+                "text": "payment",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            }
+        ]
+    },
+    {
+        "text": "method or store credit.",
+        "estimates": { "dealc": 0.08105531107459893 },
+        "words": [
+            {
+                "text": "method",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "store",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "credit",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Enjoy 50% off everything",
+        "estimates": { "dealc": 1.0 },
+        "words": [
+            {
+                "text": "Enjoy",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "50%",
+                "estimates": {
+                    "voucherc": 0.0003882348537445069,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "off",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "everything",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.004476308822631836
+                }
+            }
+        ]
+    },
+    {
+        "text": "Don't forget, use code MAYDAY on the payment page at",
+        "estimates": { "dealc": 0.411 },
+        "words": [
+            {
+                "text": "Don't",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.008493542671203613
+                }
+            },
+            {
+                "text": "forget",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "use",
+                "estimates": {
+                    "common_phrases": 0.0,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "code",
+                "estimates": {
+                    "common_phrases": 0.0,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "MAYDAY",
+                "estimates": {
+                    "voucherc": 0.5026792883872986,
+                    "common_phrases": 1.0
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.9061261981781177
+                }
+            },
+            {
+                "text": "payment",
+                "estimates": {
+                    "common_phrases": 0.8596115466624322,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "page",
+                "estimates": {
+                    "common_phrases": 0.8298769776932235,
+                    "voucherc": 0.02872207760810852
+                }
+            }
+        ]
+    },
+    {
+        "text": "Our customers have some lovely thoughts to share about our",
+        "estimates": { "dealc": 0.001 },
+        "words": [
+            {
+                "text": "Our",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "customers",
+                "estimates": {
+                    "voucherc": 0.005423516035079956,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "have",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "some",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "lovely",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "thoughts",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007867097854614258
+                }
+            },
+            {
+                "text": "share",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "about",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "our",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            }
+        ]
+    },
+    {
+        "text": "collections. See what all the fuss is about below.",
+        "estimates": { "dealc": 0.183 },
+        "words": [
+            {
+                "text": "collections",
+                "estimates": {
+                    "voucherc": 0.003333181142807007,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "See",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "what",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "all",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "fuss",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "about",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "below",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "***** *****",
+        "estimates": { "dealc": 0.036405536595762664 },
+        "words": []
+    },
+    {
+        "text": "\"Lovely and soft, easy to wash",
+        "estimates": { "dealc": 0.16413902703576613 },
+        "words": [
+            {
+                "text": "Lovely",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014664024114608765
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "soft",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "easy",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "wash",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "and iron and most importantly",
+        "estimates": { "dealc": 0.05809680709330377 },
+        "words": [
+            {
+                "text": "and",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "iron",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.002030491828918457
+                }
+            },
+            {
+                "text": "most",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "importantly",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.003333181142807007
+                }
+            }
+        ]
+    },
+    {
+        "text": "amazing to sleep in!\"",
+        "estimates": { "dealc": 0.002 },
+        "words": [
+            {
+                "text": "amazing",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "sleep",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            }
+        ]
+    },
+    {
+        "text": "\"The quality is exceptional - it's",
+        "estimates": { "dealc": 0.001 },
+        "words": [
+            {
+                "text": "The",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0006843507289886475
+                }
+            },
+            {
+                "text": "quality",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "exceptional",
+                "estimates": {
+                    "voucherc": 0.003333181142807007,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "it's",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.002764105796813965
+                }
+            }
+        ]
+    },
+    {
+        "text": "like being in a hotel bed every",
+        "estimates": { "dealc": 0.1524992971852751 },
+        "words": [
+            {
+                "text": "like",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "being",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "hotel",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "bed",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "every",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "night\" Helen S Glenda M ***** *****",
+        "estimates": { "dealc": 0.036405536595762664 },
+        "words": [
+            {
+                "text": "night",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "Helen",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Glenda",
+                "estimates": {
+                    "voucherc": 0.014664024114608765,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "\"So soft and silky - can't",
+        "estimates": { "dealc": 0.012305401143784716 },
+        "words": [
+            {
+                "text": "soft",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "silky",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "can't",
+                "estimates": {
+                    "voucherc": 0.004802733659744263,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "recommend it enough\"",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "recommend",
+                "estimates": {
+                    "voucherc": 0.005423516035079956,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "enough",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "\"Beautifully soft and silky\"",
+        "estimates": { "dealc": 0.05809680709330377 },
+        "words": [
+            {
+                "text": "Beautifully",
+                "estimates": {
+                    "voucherc": 0.00402987003326416,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "soft",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "silky",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            }
+        ]
+    },
+    {
+        "text": "Elizabeth R Richard S ***** ***** \"Washes brilliantly\"",
+        "estimates": { "dealc": 0.036405536595762664 },
+        "words": [
+            {
+                "text": "Elizabeth",
+                "estimates": {
+                    "voucherc": 0.005517333745956421,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Richard",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.010602414608001707
+                }
+            },
+            {
+                "text": "Washes",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014664024114608765
+                }
+            },
+            {
+                "text": "brilliantly",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.003333181142807007
+                }
+            }
+        ]
+    },
+    {
+        "text": "\"They look effortlessly classy\"",
+        "estimates": { "dealc": 0.036405536595762664 },
+        "words": [
+            {
+                "text": "They",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "look",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "effortlessly",
+                "estimates": {
+                    "voucherc": 0.00379025936126709,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "classy",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Deborah D Lucy H",
+        "estimates": { "dealc": 0.036405536595762664 },
+        "words": [
+            {
+                "text": "Deborah",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Lucy",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            }
+        ]
+    },
+    {
+        "text": "Beautiful bedroom by @_homebylaura featuring Hampton and Astley long-staple Egyptian cotton",
+        "estimates": { "dealc": 0.001 },
+        "words": [
+            {
+                "text": "Beautiful",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005517333745956421
+                }
+            },
+            {
+                "text": "bedroom",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "@_homebylaura",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0004279613494873047
+                }
+            },
+            {
+                "text": "featuring",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            },
+            {
+                "text": "Hampton",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.010602414608001707
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Astley",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.05420166254043579
+                }
+            },
+            {
+                "text": "long-staple",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.006766527891159058
+                }
+            },
+            {
+                "text": "Egyptian",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007294446229934692
+                }
+            },
+            {
+                "text": "cotton",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            }
+        ]
+    },
+    {
+        "text": "bedding in pure white.",
+        "estimates": { "dealc": 0.03994225013497055 },
+        "words": [
+            {
+                "text": "bedding",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "pure",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "white",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Terms and conditions",
+        "estimates": { "dealc": 0.05809680709330377 },
+        "words": [
+            {
+                "text": "Terms",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "conditions",
+                "estimates": {
+                    "voucherc": 0.004476308822631836,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "50% off all collections offer cannot be used in conjunction with any other discount or offer. 50% off",
+        "estimates": { "dealc": 1.0 },
+        "words": [
+            {
+                "text": "50%",
+                "estimates": {
+                    "voucherc": 0.0003882348537445069,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "off",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "all",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "collections",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.003333181142807007
+                }
+            },
+            {
+                "text": "offer",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "cannot",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "used",
+                "estimates": {
+                    "common_phrases": 0.0,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "conjunction",
+                "estimates": {
+                    "common_phrases": 0.6798769776932235,
+                    "voucherc": 0.003333181142807007
+                }
+            },
+            {
+                "text": "with",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.7096115466624322
+                }
+            },
+            {
+                "text": "any",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.7561261981781177
+                }
+            },
+            {
+                "text": "other",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.85
+                }
+            },
+            {
+                "text": "discount",
+                "estimates": {
+                    "common_phrases": 0.0,
+                    "voucherc": 0.007867097854614258
+                }
+            },
+            {
+                "text": "offer",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 1.0
+                }
+            },
+            {
+                "text": "50%",
+                "estimates": {
+                    "voucherc": 0.0003882348537445069,
+                    "common_phrases": 0.9061261981781177
+                }
+            },
+            {
+                "text": "off",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.8596115466624322
+                }
+            }
+        ]
+    },
+    {
+        "text": "excludes delivery if applicable. We reserve the right to cease the 50% promotion at any time",
+        "estimates": { "dealc": 1.0 },
+        "words": [
+            {
+                "text": "excludes",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.8298769776932235
+                }
+            },
+            {
+                "text": "delivery",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.8085169313600048
+                }
+            },
+            {
+                "text": "applicable",
+                "estimates": {
+                    "voucherc": 0.004476308822631836,
+                    "common_phrases": 0.7920953405339328
+                }
+            },
+            {
+                "text": "reserve",
+                "estimates": {
+                    "common_phrases": 0.778894912651623,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "right",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "cease",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "50%",
+                "estimates": {
+                    "voucherc": 0.0003882348537445069,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "promotion",
+                "estimates": {
+                    "voucherc": 0.005423516035079956,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "any",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "time",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            }
+        ]
+    },
+    {
+        "text": "although we are unlikely to do so. Offer codes are valid for 24 hours from time and date of email send.",
+        "estimates": { "dealc": 0.12503206751054852 },
+        "words": [
+            {
+                "text": "although",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "are",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "unlikely",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Offer",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "codes",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "are",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "valid",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "for",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "hours",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "from",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "time",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "date",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "email",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "send",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "No longer want to receive these emails? Unsubscribe.",
+        "estimates": { "dealc": 0.011138641129863064 },
+        "words": [
+            {
+                "text": "longer",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "want",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "receive",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.011344432830810549
+                }
+            },
+            {
+                "text": "these",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "emails",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Unsubscribe",
+                "estimates": {
+                    "voucherc": 0.00402987003326416,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Hampton and Astley Limited. The Pump House, Galton Croft, Staffordshire, England, ST11 9TX.",
+        "estimates": { "dealc": 0.04365 },
+        "words": [
+            {
+                "text": "Hampton",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "Astley",
+                "estimates": {
+                    "voucherc": 0.05420166254043579,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Limited",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "The",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Pump",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "House",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Galton",
+                "estimates": {
+                    "voucherc": 0.014664024114608765,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Croft",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Staffordshire",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0037863552570343018
+                }
+            },
+            {
+                "text": "England",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.010602414608001707
+                }
+            },
+            {
+                "text": "ST11",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.9335912466049194
+                }
+            },
+            {
+                "text": "9TX",
+                "estimates": {
+                    "voucherc": 0.036160409450531006,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    }
+]

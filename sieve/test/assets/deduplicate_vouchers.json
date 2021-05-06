@@ -1,0 +1,42 @@
+[
+    {
+        "text": "ALPHA short",
+        "estimates": {
+            "dealc": 1
+        },
+        "words": [
+            {
+                "text": "ALPHA",
+                "estimates": {
+                    "voucherc": 1
+                }
+            },
+            {
+                "text": "short",
+                "estimates": {
+                    "voucherc": 0.0
+                }
+            }
+        ]
+    },
+    {
+        "text": "ALPHA slightly longer",
+        "estimates": {
+            "dealc": 1
+        },
+        "words": [
+            {
+                "text": "ALPHA",
+                "estimates": {
+                    "voucherc": 1
+                }
+            },
+            {
+                "text": "short",
+                "estimates": {
+                    "voucherc": 0.0
+                }
+            }
+        ]
+    }
+]
