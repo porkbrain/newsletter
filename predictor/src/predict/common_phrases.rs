@@ -13,7 +13,7 @@ const COMMON_PHRASES: &[&[Token]] = &[
         Token::Any(7),
     ],
     &[
-        Token::Term(&["your"]),
+        Token::Term(&["your", "with"]),
         Token::Any(1),
         Token::Voucher,
         Token::Any(3),
