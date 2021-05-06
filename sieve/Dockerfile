@@ -1,16 +1,16 @@
-FROM debian:buster-slim
+FROM ubuntu:20.04
 
 # Install dependencies.
-RUN apt-get -y update && \
-    apt-get clean && \
-    apt-get autoremove
+RUN apt -y update && \
+    apt clean && \
+    apt autoremove
 
 # Prepares CA certificates to avoid SSL error described at
 # https://www.reddit.com/r/rust/comments/an6z2t/cannot_verify_certificates_when_making_http.
 #
 # Solution found at
 # https://tech.fpcomplete.com/blog/2018/07/deploying-rust-with-docker-and-kubernetes
-RUN apt-get -y install ca-certificates && \
+RUN apt -y install ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
 # Since when we build the bin, it resides in parent dir's "target" dir, we first
