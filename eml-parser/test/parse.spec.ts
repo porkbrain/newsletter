@@ -35,7 +35,7 @@ describe("parse.ts", () => {
       senderAddress,
       senderName,
       subject,
-      html
+      html,
     } = await parseEmailFromEmlHtml(id, sampleEml);
 
     expect(recipientAddress).to.eq("gsg@mailmevouchers.com");
@@ -43,5 +43,20 @@ describe("parse.ts", () => {
     expect(senderName).to.eq("iHerb");
     expect(subject).to.eq("🎉 20% OFF SITEWIDE SALE 🎉");
     expect(html).to.eq(sampleHtml);
+  });
+
+  it("should parse cc'd recipient", async () => {
+    const sampleEml = readFileSync("test/parse_cc.in").toString();
+
+    const id = "test-id";
+    const {
+      recipientAddress,
+      senderAddress,
+      senderName,
+    } = await parseEmailFromEmlHtml(id, sampleEml);
+
+    expect(recipientAddress).to.eq("gsg@mailmevouchers.com");
+    expect(senderAddress).to.eq("notifications@app.impact.com");
+    expect(senderName).to.eq("Zulily Affiliate Team");
   });
 });

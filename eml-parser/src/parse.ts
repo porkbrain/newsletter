@@ -26,6 +26,7 @@ export async function parseEmailFromEmlHtml(
     subject,
     to: recipients,
     date,
+    headers,
   } = await simpleParser(body, emailParserOptions);
 
   if (!htmlContent && !textAsHtml) {
@@ -33,6 +34,18 @@ export async function parseEmailFromEmlHtml(
   }
 
   let html = htmlContent || (textAsHtml as string);
+
+  const forwardedTo = (headers.get("x-forwarded-to") || "").toString();
+  if (forwardedTo.endsWith("@mailmevouchers.com")) {
+    recipients = [
+      {
+        value: [{ address: forwardedTo, name: forwardedTo }],
+        // these are not used
+        html: "",
+        text: "",
+      },
+    ];
+  }
 
   const recipient = Array.isArray(recipients) ? recipients.shift() : recipients;
   if (

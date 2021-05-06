@@ -1,0 +1,254 @@
+Return-Path: <affiliate.uk+caf_=gsg=mailmevouchers.com@joingsg.com>
+Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
+ by inbound-smtp.eu-west-1.amazonaws.com with SMTP id ucl6qotaopeiv33mu7qra00a13kqo7cgh6fguc81
+ for gsg@mailmevouchers.com;
+ Wed, 05 May 2021 20:44:07 +0000 (UTC)
+Received-SPF: permerror (spfCheck: Error in processing SPF Record) client-ip=209.85.221.42; envelope-from=affiliate.uk+caf_=gsg=mailmevouchers.com@joingsg.com; helo=mail-wr1-f42.google.com;
+Authentication-Results: amazonses.com;
+ spf=permerror (spfCheck: Error in processing SPF Record) client-ip=209.85.221.42; envelope-from=affiliate.uk+caf_=gsg=mailmevouchers.com@joingsg.com; helo=mail-wr1-f42.google.com;
+ dkim=pass header.i=@app.impact.com;
+ dmarc=pass header.from=app.impact.com;
+X-SES-RECEIPT: AEFBQUFBQUFBQUFFM3B3QUthZnRlWXJEYUlHOFBoaHRvSUV5QTVJUEk5Y1FSMVR3SC8rNk43KzVQcEpoYnFIbWY1M2FMOVNDd2xncHBqY2VmL2V1d3VXNlhSVC9memVCM1haWExLUjUxNDk2Tng1SGF6b0ZQbkh3c0IvcGNuVjhVVEJ3bzA5SjRWWFliUUl0Q1l6MU12K28veld3SlE0WXozVGUrL1Q5dzZTY0llaVZCQ24rL1NFS0dSV3Y3ZGtrLzZQenc5UnJtOEF1VUVGdGpQU1IrUXZMMW1QQ21QeVpQYll2ejkvMzVCWnNEVStmR25SbUhxTG8yZ3dDcGZud1E5VXQyWEhrbXZDZmJoOWJPMTlZRk5BWGhLYmx0N3doMW4xZHExUFV3VjEycmNMV1NyQzl3K0IyV2hFWnRrVmZVWEg2a1BQT2ppOE5wMGVERzZSbytIbHJXUGNsa1lSZ0c=
+X-SES-DKIM-SIGNATURE: a=rsa-sha256; q=dns/txt; b=FIaPveqOaRtuGgqXos/r39+m1iAVHsNq5Riv4TKtgkyAUNNfVpNJocqnbNSDyjT79SJR5X9rUC7W+dBS1wnMGxuZ2Z+vJcfR1GP+kjMgOyegYhmvI5OhnQ36o035TD6Kiw0a62LXBmrdHQlrtrBPnc6q/Mic7BooFdWMewMrBnQ=; c=relaxed/simple; s=uku4taia5b5tsbglxyj6zym32efj7xqv; d=amazonses.com; t=1620247448; v=1; bh=RYWKsZTWi5WbvdlB2krNsdcAUulHw2RckhUX/0P5aWo=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;
+Received: by mail-wr1-f42.google.com with SMTP id t18so3264042wry.1
+        for <gsg@mailmevouchers.com>; Wed, 05 May 2021 13:44:07 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:delivered-to:dkim-signature:date:from:message-id
+         :subject:mime-version:reply-to:to;
+        bh=j/TDFBmOLoLmCxNd0jOhCadvUtsJzdXo9mEOX0Fc9SQ=;
+        b=QY152VcdRD3ZavzzLJcBc92nu1uVQwgRPdlbBookcQJmexwUZHEaFGKINUn/7nVzQ2
+         FrjaebM5eUg15PeRxHB8eGruH4xDn5hTrTMlhWZAObX8Sog7LM5dT6+cFiKE+R1OwQMV
+         nL6NpF7pkN11zp8y8n9rqLTQ0kq/NOreCxmRnbR5vaNwaYVzregtAzrIKNqsBJ5oxG3O
+         xNm0WsHgm6GiI9q84BoIi7lnJedRo94JTiXC5a9DTVZQT7+fcR/7+XYuqSwEm+5WZzt7
+         TPzSOKcPsHltb7woCYna5ylALeRyIVDsorknXNWZjswW4t+i+ILA1fFyrtKNff0eTR52
+         osbw==
+X-Gm-Message-State: AOAM5316CiztDrH6Kc8HNDTOq+D4UN8u/0kz2gl8QSXAFDl+PIOpcpfC
+	MetYKvTM9g/7PxLCx+k9O1txjcWFNFH5SSQVTJ/g1iiH406VZy1DBrM2nzY=
+X-Received: by 2002:adf:e608:: with SMTP id p8mr956096wrm.65.1620247447394;
+        Wed, 05 May 2021 13:44:07 -0700 (PDT)
+X-Forwarded-To: gsg@mailmevouchers.com
+X-Forwarded-For: affiliate.uk@joingsg.com gsg@mailmevouchers.com
+Delivered-To: affiliate.uk@joingsg.com
+Received: by 2002:adf:fb87:0:0:0:0:0 with SMTP id a7csp988185wrr;
+        Wed, 5 May 2021 13:44:06 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzkWmhfr2Bw692hQsMcZVAZlV5wtdtAXr2DOsl+Ctnr4wbzrhTfkl0TNe6rarLIilMf89Cy
+X-Received: by 2002:a17:907:2623:: with SMTP id aq3mr624849ejc.262.1620247446528;
+        Wed, 05 May 2021 13:44:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620247446; cv=none;
+        d=google.com; s=arc-20160816;
+        b=DBQ6gdSfp6hUpERjwZXc2j9Wl6nQYGZBSNMiU37a22bTPx+aQrJxNwIoStyL4+yQxB
+         yxjrVKILX/rzq4eQ1k9RSfJh9G/wc94ybzJNcOVm+QCEt6gRVcjom2LcwW+OzxBTy+7P
+         gr8FBidUWlDNOp2R/NnfNxJxg75QNakgcEUkvQEBSscHBnQMNoOwnuU/q4GSf2NIEKMS
+         4vL0BRw7cBXf7emyA/Jdv27PUGqufTmslIJ3DvC7ngJ5Vl7KHrqaFEIsj5/i7cfFdT6D
+         0XCu2aQMF5JPzuzw0aAN3M/vRnKOx9v+q48w9IIbdvBVm2N7dJDeKwf7CYRaR4xV0ENC
+         CubA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:reply-to:mime-version:subject:message-id:from:date
+         :dkim-signature;
+        bh=j/TDFBmOLoLmCxNd0jOhCadvUtsJzdXo9mEOX0Fc9SQ=;
+        b=ZFQ1pK2z0RESNux+Do1bZd8W9A+dNQ9MQHItHIXDXeRGhRWBiYga+h7Zo75bXz/nRD
+         A6pk5BRDVFVqdjuY2llU1uHdM3aqA3qOyEZo0ZbM9+5w/O4ozPq+3zgc+uct178N+j6/
+         8viPVHaRnvgK1wDA0S74ReUAOT14Lway7dj4Prom2fiun6ywlgN3S8f72KSNf4eSDrUf
+         C7XCBD0gSEHEPaS/vuPxrCUdalLKrwF8Tnu6al7GRP/Yqz8SYJ6i/d/0CvOZZIm27Vp6
+         YqRJzyevynSzkFKZd2Vfd9d5foJOom7y4ZEb6WgkpIZ8bLjPQJEBT7/kF+IziiO4UXj/
+         Wx/A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@app.impact.com header.s=m1 header.b=F6ZBgp2d;
+       spf=pass (google.com: domain of bounces+7415542-6949-affiliate.uk=joingsg.com@em.app.impact.com designates 198.37.151.191 as permitted sender) smtp.mailfrom="bounces+7415542-6949-affiliate.uk=joingsg.com@em.app.impact.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=impact.com
+Return-Path: <bounces+7415542-6949-affiliate.uk=joingsg.com@em.app.impact.com>
+Received: from o4.em.app.impact.com (o4.em.app.impact.com. [198.37.151.191])
+        by mx.google.com with ESMTPS id pg16si369848ejb.269.2021.05.05.13.44.05
+        for <affiliate.uk@joingsg.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 05 May 2021 13:44:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+7415542-6949-affiliate.uk=joingsg.com@em.app.impact.com designates 198.37.151.191 as permitted sender) client-ip=198.37.151.191;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@app.impact.com header.s=m1 header.b=F6ZBgp2d;
+       spf=pass (google.com: domain of bounces+7415542-6949-affiliate.uk=joingsg.com@em.app.impact.com designates 198.37.151.191 as permitted sender) smtp.mailfrom="bounces+7415542-6949-affiliate.uk=joingsg.com@em.app.impact.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=impact.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=app.impact.com;
+	h=from:subject:mime-version:reply-to:to:content-type;
+	s=m1; bh=j/TDFBmOLoLmCxNd0jOhCadvUtsJzdXo9mEOX0Fc9SQ=;
+	b=F6ZBgp2d4F34K7BaOc269U+pxw7PHfzxFkqOHy5oA1Sj7WD/XcWXtfDxocSkzxo4sDK0
+	vHhpVlQKL4mTkaur8blC2rvGCxMsyfGy0r3NPcIi2eCKPyQP5P3pdY21oFF0LKoXGbRFR5
+	PrX0XwP33SnA8fvrqSH3s6k6TdfvnbRTk=
+Received: by filterdrecv-67869fd98b-ntmxw with SMTP id filterdrecv-67869fd98b-ntmxw-1-60930395-28
+        2021-05-05 20:44:05.310411513 +0000 UTC m=+602863.797362741
+Received: from app13.phx.impactradius.net (unknown)
+	by geopod-ismtpd-canary-0 (SG) with ESMTP id owURNAuXQamqENbBM9UxZw
+	for <affiliate.uk@joingsg.com>; Wed, 05 May 2021 20:44:05.042 +0000 (UTC)
+Received: from app13.phx.impactradius.net (localhost [127.0.0.1])
+	by app13.phx.impactradius.net (Postfix) with ESMTP id 71A248DD244
+	for <affiliate.uk@joingsg.com>; Wed,  5 May 2021 20:44:04 +0000 (UTC)
+Date: Wed, 05 May 2021 20:44:05 +0000 (UTC)
+From: Zulily Affiliate Team <notifications@app.impact.com>
+Message-ID: <1830109731.47875.1620247444464.JavaMail.ir-account@app13.phx.impactradius.net>
+Subject: Zulily Contract Terms Retracted
+MIME-Version: 1.0
+Reply-To: affiliatemarketing@zulily.com
+X-SG-EID: 
+ =?us-ascii?Q?uK5lLXD2Jf8Z86pO16nKyRSnOmjXaVQ5j2ZvD7kcoVTMkqa691UjVxkIu0Xtch?=
+ =?us-ascii?Q?nHzt=2FmIVFs1KuCtS8qth14OKESFghLqWQ7mmJ+V?=
+ =?us-ascii?Q?yJH4RiXDkOwSNft4AYB+gd8ZtzYJ+4MfhRvtu1J?=
+ =?us-ascii?Q?9zdKMDFhe2v83f9Bnvm7cfF6PCLZPk3IopFHEf1?=
+ =?us-ascii?Q?bxyqTjZzvl4k0iFCN1N7eCFhiOn2DjZlwM62be2?=
+ =?us-ascii?Q?vnKvHcv11qSGr9ABuE22owNqvcDJAEVEHSYd32Y?=
+ =?us-ascii?Q?2KV5rapZawpLTpnoiryJA=3D=3D?=
+To: affiliate.uk@joingsg.com
+X-Entity-ID: jyIXLZFshZd6HzyUesmrPQ==
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_47872_19530961.1620247444462"
+
+------=_Part_47872_19530961.1620247444462
+Content-Type: multipart/related; 
+	boundary="----=_Part_47873_543794560.1620247444462"
+
+------=_Part_47873_543794560.1620247444462
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_47874_324465337.1620247444462"
+
+------=_Part_47874_324465337.1620247444462
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+You are receiving this Zulily Alert in reference to your account, Global Savings Group (Daily Mail) (391269).
+Zulily Contract Terms Retracted
+
+The advertiser, Zulily, has elected to retract the terms represented in the latest version of the contract you are negotiating with them.
+
+
+
+View Proposed Terms - http://em.impact.com/ls/click?upn=xdk1J7aNHmA5IQPjKkNg9WLhzC-2Bf0YnhzeSYqmeO9WTz-2BYzdSvsEACN4mdcL-2BIxQxtlKyd-2Fqv7TxFiLnOL8mjmnICvSBZqUmCeJYuEkz4Y-2B4teS8wXX3CUxEpYEHI1lWW9YBHXB-2Bkti0jnVchXkQJKKgo8GaRjsPs0UVxNFX5OkwFR46Zg4IdvlLUe3Y2YSm68f9og-2FNqekzkq9dKdfOTHYB0ESwGfnMBdkYuaNxlwWPBq5qCDmpVIdrCKiLNwYgvW94_lRHefJweRIVI-2BOdFFxFtNoDhtifxT208JQubvM1U-2BhJRtgfnJeTUgAC1mJY7h3D9uGDVeaW2WGtMvwu1bcxbqdYwLc9PzGV6pbdiMyQ8sRHaWz92Fvo1chPid-2Bj7vy3Y2exaYXNAXVuPqWpb8aGfbfyUzNRDpa36b-2F1RUNSRIkI-2B9LzQ-2BlEDhlgV8z1ddzuI5Rv9nUmTMnmoaPiGOx5dPkhHVEgicmZuqR2nJUDkTWE-3D
+
+______________________________________________________________________
+
+
+------=_Part_47874_324465337.1620247444462
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+        
+
+
+        <!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <meta charset="utf-8"/>
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+        <style type="text/css">
+            body, div, p, a, li, td {
+                -webkit-text-size-adjust:none;
+                font-family: 'Open Sans', Helvetica, Arial, sans-serif !important;
+            }
+            @media screen {
+                @font-face {
+                    font-family: 'Open Sans', Helvetica, Arial, sans-serif !important;
+                }
+            }
+        </style>
+    </head>
+    <body style="margin: 0; background: #; ">
+    <div style="max-width: 700px; margin: auto; padding: 30px 5% 10px 5%; background: #; ">
+        <div>
+            <table style="max-width: 700px; width: 100%; text-align: center; border-collapse: collapse; margin: auto; background: white; border-radius: 2px;">
+                <tr style="height: 60px;">
+                    <td style="text-align: left; padding: 13px 10px 7px 15px;">
+                        <div style="max-width: 160px; display: table;">
+                            <div style="display: table-cell; vertical-align: middle; text-align: left;">
+                                <a href="http://em.impact.com/ls/click?upn=Ksm9jIqyVXKkcLtblhfpxx-2FvJfuBqXDVu-2FBIypXMVE4-3DUhqk_lRHefJweRIVI-2BOdFFxFtNoDhtifxT208JQubvM1U-2BhJRtgfnJeTUgAC1mJY7h3D9uGDVeaW2WGtMvwu1bcxbqZ0SNEZIKmHqHKBLf8iA-2FXfKe8yj2X4wsROkGBkTLSyJ2cfdz4r3cEoA6AK0dti8qRLcWq23Qv0BVtTvOokM15PpTITGDIGZEyn24fDk6ViWYR7bwrO4e-2B28JnbT9JNMdGnKHEVCoSnWs54-2FiMhVFJ0-3D">
+                                    <img src="http://app.impact.com/display-account-image/91494.gif" height="40" alt="Zulily" style="border:0; height: 40px;"/>
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="text-align: right; width: 65%; padding: 10px 15px 10px 10px;">
+                        <div style="font-size: 10px; width: 100%; color: #2B87CC;">
+                            <div style="display: block; color: #747475;">
+                                                                    Zulily (1395248)
+                                                            </div>
+                            <div style="display block; color: #2B87CC !important;">
+                                                                    Zulily (9643)
+                                                            </div>
+                                                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding: 0 15px;">
+                        <div>
+                            <div style="border-bottom: 1px solid #eee;"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 100%;">
+                    <td colspan="2" style="height: 100%; padding: 15px;">
+                        <div style="height: 100%; min-height: 40px;">
+                            <div style="height: 100%; display: table; width: 100%;">
+                                <div class="header" style="color: black; font-size: 18px; text-align: left; display: table-cell; vertical-align: middle; width: 70%; line-height: 40px;">
+                                    Zulily IO Terms Retracted
+                                </div>
+                                                                    <div style="display: table-cell; vertical-align: middle; text-align: right; height: 40px; width: 30%;">
+                                        <img height="40" src="http://app.impact.com/images/email/listformd@2x.png" alt="Header">
+                                    </div>
+                                                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding: 0 15px;">
+                        <div>
+                            <div style="border-bottom: 1px solid #eee;"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding: 15px 16px 20px 16px;">
+                        <div style="min-height: 100px;">
+                            <div style="display: table-cell;">
+                                                                                                            <div style="font-size: 14px; text-align: left; padding-bottom: 10px; color: #3A3A3C;">
+                                            Hi Marc,
+                                        </div>
+                                                                                                    <div style="text-align: left;">
+                                    <div style="font-size: 12px; color: #3A3A3C !important;">
+                                        <div class="body">
+                                            <p>Zulily has retracted the terms in the latest version of the contract on the Zulily campaign, that you are negotiating with them. <b>You may view the latest terms by clicking the button below</b>.</p>
+<br>
+
+                                        </div>
+                                        <div>
+                                                    <div style="padding-top: 20px;"><a  href="http://em.impact.com/ls/click?upn=xdk1J7aNHmA5IQPjKkNg9WLhzC-2Bf0YnhzeSYqmeO9WTz-2BYzdSvsEACN4mdcL-2BIxQxtlKyd-2Fqv7TxFiLnOL8mjmnICvSBZqUmCeJYuEkz4Y-2B4teS8wXX3CUxEpYEHI1lWW9YBHXB-2Bkti0jnVchXkQJKKgo8GaRjsPs0UVxNFX5OkwFR46Zg4IdvlLUe3Y2YSm68f9og-2FNqekzkq9dKdfOTHYB0ESwGfnMBdkYuaNxlwUp1-2FRV05REIx7Wyh-2B-2Bq2t8R4pC_lRHefJweRIVI-2BOdFFxFtNoDhtifxT208JQubvM1U-2BhJRtgfnJeTUgAC1mJY7h3D9uGDVeaW2WGtMvwu1bcxbqXTCb12lDeIivBoi7yqX9Uz2C-2BBhRdJzJUPp33kQrcrVDdaQmHVW9VqtEo-2B1zjCT4F7YDIeMFlOloXvxu02xCZqY87nf-2B-2FYw9gycmnW6Hf37ArpQJAgQLRWQfA5vmrsnDX1cZiIYrY1iigfd7Zy9iMQ-3D" style="color:#178EC0;display:inline-block;padding:7px 15px;font-weight:600;background: #666;  color:#fff;text-decoration:none;border-radius: 2px;">View Proposed Terms</a></div>                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="left">
+                        <div style="padding: 0 15px 15px 15px;">
+                            <div style="background-color: #ededed; padding: 10px 10px; border-radius: 2px;">
+                                <div class="footer" style="display: inline-block; vertical-align: middle; width: 80%; padding-right: 5px;">
+                                    <div style="text-align: left; font-size: 9px; color: #6a6a6c;">
+                                        <div style="padding-bottom: 5px; color: #6a6a6c !important;">
+                                                                                                                                <a  href="http://em.impact.com/ls/click?upn=xdk1J7aNHmA5IQPjKkNg9WLhzC-2Bf0YnhzeSYqmeO9WSWE3tiEE3CVFGNUv-2BWgOao-2FItuSCVKZKdlPQ3ArmaOCaiqnpnItLl2nexbXo7RjKZ2zWHwvrRoPDFfA0ZWh5zWNuezv2v0ihx2hAVLiD9yJ-2BhsbzotBX27sUHvx2ft1Qu-2Fc4CX0vhen3-2BKidtU9RFx9Co3pykkia4ifDLGSL1XbibRY5FGzWPT-2FwVUvUNqaJurq8-2FZJP5m72LBHNAnwLs-2F8ZaXGXtm0OzqxqnV4dncsQ-3D-3D5p56_lRHefJweRIVI-2BOdFFxFtNoDhtifxT208JQubvM1U-2BhJRtgfnJeTUgAC1mJY7h3D9uGDVeaW2WGtMvwu1bcxbqQOEbk0LbTL7xqAUl1nhkMjlFZR-2BjLS2JDgNhuHu9o8vMDjEtoq9vnIYJIFRhP5uO61coHHBkVH9D6uBF5lyO8FuC1DRxqx3fWG5iXXOH8nagyA-2BcEmgY5gySBKheT7SRKq8zYIK9mK1yk4OyBB0dHQ-3D" style="color:#178EC0;">Click here</a> to manage your message settings.
+                                                    </div>
+                                        <div style="text-align: left; font-size: 9px; color: #6a6a6c;">
+                                                                                            <div style="margin-bottom:15px;"><div style="margin-bottom:5px;"><b>Zulily</b> 2601 Elliott Avenue Suite 200 Seattle, WA 98121 <div style="margin-bottom:30px;">Copyright &copy; Zulily, All rights reserved</div>                                                                                                                                </div>
+                                    </div>
+                                </div>                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+            </div>
+    <img src="http://em.impact.com/wf/open?upn=sxVcvUOyPZPFexBSUm7Pm6NEzh6BnHBv6Lkfl-2BrZe0mCft9Q9bQTHQKJstpYsi0pIQLL1VW1TSTXpekm8BAXGVbPaL5CsfiRnD72i7GXPFrCwKmO1Df416wzZJ36UDDooiIWnDi4yRaHGqiUKqQm8iHaATeO0ritEqKHcVUT29-2FjfD80Xpm3NrhDafZhtbjqkoGquO60AcnokUEyH4BT65H1tCCoq2sx07lKT0X-2FsRE-3D" alt="" width="1" height="1" border="0" style="height:1px !important;width:1px !important;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !important;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !important;"/></body>
+    </html>
+
+------=_Part_47874_324465337.1620247444462--
+
+------=_Part_47873_543794560.1620247444462--
+
+------=_Part_47872_19530961.1620247444462--

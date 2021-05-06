@@ -24,7 +24,7 @@ spec:
         beta.kubernetes.io/arch: amd64
       containers:
         - name: eml-parser
-          image: 'porkbrain/newsletter:eml-parser-5.1.0'
+          image: 'porkbrain/newsletter:eml-parser-5.2.0'
           imagePullPolicy: Always
           volumeMounts:
             - mountPath: /data
