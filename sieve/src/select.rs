@@ -99,9 +99,12 @@ fn should_retain_offer(ordinal: usize, estimate: f64) -> bool {
 
 #[cfg(test)]
 mod tests {
+    use std::path::PathBuf;
+
     use super::*;
     use deal::tests::assert_deals_approx_eq;
     use shared::Phrases;
+    use std::fs;
     use voucher::tests::assert_vouchers_approx_eq;
 
     #[test]
@@ -278,32 +281,33 @@ mod tests {
         );
     }
 
-    pub fn testing_document(name: &str) -> Phrases {
-        let contents = match name {
-            "default" => include_str!("../test/assets/default.json"),
-            "deduplicate_deals_ignore_case" => include_str!(
-                "../test/assets/deduplicate_deals_ignore_case.json"
-            ),
-            "deduplicate_vouchers" => {
-                include_str!("../test/assets/deduplicate_vouchers.json")
-            }
-            "join_adjacent_deals" => {
-                include_str!("../test/assets/join_adjacent_deals.json")
-            }
-            "join_adjacent_deals_and_vouchers" => {
-                include_str!(
-                    "../test/assets/join_adjacent_deals_and_vouchers.json"
-                )
-            }
-            "bug_skips_offers1" => {
-                include_str!("../test/assets/bug_skips_offers1.json")
-            }
-            "bug_skips_offers2" => {
-                include_str!("../test/assets/bug_skips_offers2.json")
-            }
-            _ => panic!("No such testing file"),
-        };
+    #[test]
+    fn bug_deduplicate_deals1() {
+        let phrases = testing_document("bug_deduplicate_deals1");
 
-        serde_json::from_str(contents).unwrap()
+        let (deals, _) = deals_and_vouchers(phrases.inner());
+
+        assert_deals_approx_eq(
+            deals,
+            vec![Deal::new(0, "Publisher: Discount Code - DailyMail", 0.939)],
+        );
+    }
+
+    pub fn testing_document(name: &str) -> Phrases {
+        let curr_path = fs::canonicalize(".").unwrap();
+
+        let test_path = if curr_path.ends_with("sieve") {
+            PathBuf::from("test/assets")
+        } else if curr_path.ends_with("newsletter") {
+            PathBuf::from("sieve/test/assets")
+        } else {
+            panic!("Test must be called from /newsletter or /newsletter/sieve")
+        }
+        .join(format!("{}.json", name));
+
+        let contents =
+            fs::read_to_string(&test_path).expect("Cannot read test file");
+
+        serde_json::from_str(&contents).unwrap()
     }
 }
