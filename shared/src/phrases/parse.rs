@@ -1,8 +1,5 @@
 use crate::vision::{self, Annotation, Word};
-use std::{
-    fmt::{self, Display},
-    iter,
-};
+use std::fmt::{self, Display};
 
 const PUNCTUATION: &[char] = &['?', '!', '.'];
 
@@ -30,16 +27,99 @@ struct BoundingBox {
     right: i32,
 }
 
-pub fn lines_from_email(annotation: &Annotation) -> Vec<String> {
+pub fn lines_from_ocr(annotation: &Annotation) -> Vec<String> {
+    let all_words: Vec<_> = annotation.words.iter().collect();
+    let sentences = sentences_from_words(&annotation.text, &all_words);
+
+    // splits the sentences by <br>, basically version of
+    // `sentences.split_mut(Sentence::BreakSentences)`
+    let mut blocks = {
+        let mut blocks: Vec<Block> = vec![];
+        let mut block_index = 0;
+        for sentence in &sentences {
+            match sentence {
+                Sentence::Full { .. } => {
+                    if let Some(b) = blocks.get_mut(block_index) {
+                        b.push(sentence);
+                    } else {
+                        blocks.push(sentence.into());
+                    }
+                }
+                Sentence::BreakSentences => {
+                    block_index += 1;
+                }
+            }
+        }
+
+        blocks
+    };
+
+    // Looks for blocks in the document which align with each other. Alignement
+    // is defined as being very close vertically and one of the blocks must
+    // contain the other one (within some small threshold).
+    let mut merged_blocks = vec![];
+    while !blocks.is_empty() {
+        let mut cb = blocks.remove(0);
+        blocks.retain(|b| {
+            if cb.is_aligned_with(b) {
+                cb.append(b);
+                false
+            } else {
+                true
+            }
+        });
+        merged_blocks.push(cb);
+    }
+
+    // and finally rerun the algorithm for picking sentences, because now we
+    // know which sentences are aligned across larger distances
+    let mut output = vec![];
+    for block in merged_blocks {
+        let sentences_text = block
+            .sentences
+            .iter()
+            .map(|s| s.to_string())
+            .collect::<Vec<_>>()
+            .join("\n");
+        let words: Vec<_> = block
+            .sentences
+            .iter()
+            .map(|s| s.words().iter().map(|w| *w))
+            .flatten()
+            .collect();
+
+        for s in sentences_from_words(&sentences_text, &words) {
+            match s {
+                // since we've already checked that they are aligned as blocks,
+                // we can put them together as sentences
+                Sentence::BreakSentences => (),
+                Sentence::Full { .. } => output.push(s.to_string()),
+            }
+        }
+
+        output.push(Sentence::BreakSentences.to_string());
+    }
+
+    output
+}
+
+fn sentences_from_words<'a>(
+    text: &str,
+    words: &'a [&Word],
+) -> Vec<Sentence<'a>> {
+    if words.is_empty() {
+        return Vec::new();
+    }
+
     let mut sentences = vec![];
     let mut csentence: Option<Sentence> = None;
-    let mut text_chars = annotation.text.chars();
+    let mut text_chars = text.chars();
 
-    // TODO: Last word is missing, perhaps add a padding word?
-    for words in annotation.words.windows(2) {
+    // last word of the slice is handled after the for loop
+    for words in words.windows(2) {
         debug_assert_eq!(words.len(), 2);
-        let c = &words[0];
-        let n = &words[1];
+        let c = words[0];
+        let n = words[1];
 
         if let Some(cs) = &mut csentence {
             cs.push(&c);
@@ -134,60 +214,19 @@ pub fn lines_from_email(annotation: &Annotation) -> Vec<String> {
         }
     }
 
-    let mut blocks = {
-        let mut blocks: Vec<Block> = vec![];
-        let mut block_index = 0;
-        for sentence in &sentences {
-            match sentence {
-                Sentence::Full { .. } => {
-                    if let Some(b) = blocks.get_mut(block_index) {
-                        b.push(sentence);
-                    } else {
-                        blocks.push(sentence.into());
-                    }
-                }
-                Sentence::BreakSentences => {
-                    block_index += 1;
-                }
-            }
-        }
-
-        blocks
-    };
-
-    let mut merged_blocks = vec![];
-    while !blocks.is_empty() {
-        let mut cb = blocks.remove(0);
-        blocks.retain(|b| {
-            if cb.is_aligned_with(b) {
-                cb.append(b);
-                false
-            } else {
-                true
-            }
-        });
-        merged_blocks.push(cb);
+    // Since we're using windows(2), the last word is never pushed into any
+    // sentence during the loop. However, the loop left us a signal whether we
+    // should push the last word into the last sentence, or the last word should
+    // be excluded in a new sentence.
+    let last_word = words[words.len() - 1];
+    if let Some(mut last_sentence) = csentence.take() {
+        last_sentence.push(last_word);
+        sentences.push(last_sentence);
+    } else {
+        sentences.push(last_word.into());
     }
 
-    merged_blocks
-        .into_iter()
-        .map(|b| {
-            b.sentences
-                .into_iter()
-                .map(|s| s.to_string())
-                .chain(iter::once("<br>".to_string()))
-        })
-        .flatten()
-        .collect()
-}
-
-impl<'a> From<&'a Sentence<'a>> for Block<'a> {
-    fn from(s: &'a Sentence<'a>) -> Self {
-        Self {
-            bbox: s.bounding_box(),
-            sentences: vec![s],
-        }
-    }
+    sentences
 }
 
 impl<'a> Block<'a> {
@@ -202,8 +241,15 @@ impl<'a> Block<'a> {
         let horizontally_aligned = || {
             let horizontal_threshold = last_sentence.avg_word_spacing() * 4;
 
-            (self.bbox.left - horizontal_threshold) < other.bbox.left
-                && (self.bbox.right + horizontal_threshold) > other.bbox.right
+            let a_contains_b = |a: BoundingBox, b: BoundingBox| {
+                (a.left - horizontal_threshold) < b.left
+                    && (a.right + horizontal_threshold) > b.right
+            };
+
+            let self_contains_other = || a_contains_b(self.bbox, other.bbox);
+            let other_contains_self = || a_contains_b(other.bbox, self.bbox);
+
+            self_contains_other() || other_contains_self()
         };
 
         let vertically_aligned = || {
@@ -298,6 +344,15 @@ impl BoundingBox {
     }
 }
 
+impl<'a> From<&'a Sentence<'a>> for Block<'a> {
+    fn from(s: &'a Sentence<'a>) -> Self {
+        Self {
+            bbox: s.bounding_box(),
+            sentences: vec![s],
+        }
+    }
+}
+
 impl<'a> From<&'a Word> for Sentence<'a> {
     fn from(w: &'a Word) -> Self {
         Self::Full { words: vec![w] }
@@ -329,24 +384,6 @@ impl<'a> Display for Sentence<'a> {
             }
         }
     }
-}
-
-/// Returns list of sanitized words in first term, and their raw form in second.
-pub fn words_from_phrase(phrase: &str) -> Vec<(String, String)> {
-    const VOUCHER_MAX_LEN: usize = 32;
-    const VOUCHER_MIN_LEN: usize = 3;
-
-    const TRIM_CHARS_FROM_WORD: &[char] =
-        &['\t', '"', '\'', ',', '.', '?', '!', ')', '(', ':', '*'];
-
-    phrase
-        .replace('\n', " ")
-        .split(' ')
-        .map(|s| (s.trim().trim_matches(TRIM_CHARS_FROM_WORD), s))
-        .filter(|(s, _)| !s.is_empty())
-        .filter(|(s, _)| (VOUCHER_MIN_LEN..=VOUCHER_MAX_LEN).contains(&s.len()))
-        .map(|(sanitized, raw)| (sanitized.to_string(), raw.to_string()))
-        .collect()
 }
 
 #[cfg(test)]
@@ -442,91 +479,7 @@ mod tests {
     fn it_works() {
         let document = testing_document("parse_text1");
 
-        panic!("{:#?}", lines_from_email(&document));
-    }
-
-    #[test]
-    fn it_works_with_openai_output() {
-        assert_correct_words_output(
-            words_from_phrase(
-                "SUMMER20.\n\
-            The",
-            ),
-            vec!["SUMMER20", "The"],
-            vec!["SUMMER20.", "The"],
-        );
-    }
-
-    #[test]
-    fn it_sanitizes_words() {
-        assert_correct_words_output(
-            words_from_phrase("Hello. "),
-            vec!["Hello"],
-            vec!["Hello."],
-        );
-        assert_correct_words_output(
-            words_from_phrase("there!"),
-            vec!["there"],
-            vec!["there!"],
-        );
-        assert_correct_words_output(
-            words_from_phrase("Code:"),
-            vec!["Code"],
-            vec!["Code:"],
-        );
-        assert_correct_words_output(
-            words_from_phrase("~~nicky.~.~?"),
-            vec!["~~nicky.~.~"],
-            vec!["~~nicky.~.~?"],
-        );
-        assert_correct_words_output(
-            words_from_phrase("I've"),
-            vec!["I've"],
-            vec!["I've"],
-        );
-        assert_correct_words_output(
-            words_from_phrase("(been)"),
-            vec!["been"],
-            vec!["(been)"],
-        );
-        assert_correct_words_output(
-            words_from_phrase("looking"),
-            vec!["looking"],
-            vec!["looking"],
-        );
-        assert_correct_words_output(
-            words_from_phrase("'you"),
-            vec!["you"],
-            vec!["'you"],
-        );
-        assert_correct_words_output(words_from_phrase("'n''"), vec![], vec![]);
-        assert_correct_words_output(
-            words_from_phrase(
-                "thisisextremelylongwordwhichwillneverbeavoucherinmillionyears",
-            ),
-            vec![],
-            vec![],
-        );
-        assert_correct_words_output(
-            words_from_phrase("star*"),
-            vec!["star"],
-            vec!["star*"],
-        );
-    }
-
-    fn assert_correct_words_output(
-        output: Vec<(String, String)>,
-        expected_sanitized: Vec<&str>,
-        expected_raw: Vec<&str>,
-    ) {
-        assert_eq!(
-            output.iter().map(|(s, _)| s.as_str()).collect::<Vec<_>>(),
-            expected_sanitized
-        );
-        assert_eq!(
-            output.iter().map(|(_, r)| r.as_str()).collect::<Vec<_>>(),
-            expected_raw
-        );
+        panic!("{:#?}", lines_from_ocr(&document));
     }
 
     pub fn testing_document(name: &str) -> Annotation {

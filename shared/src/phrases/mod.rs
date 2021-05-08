@@ -1,4 +1,5 @@
 pub mod parse;
+pub mod words;
 
 use serde::{Deserialize, Serialize};
 use std::fmt::Display;
@@ -68,7 +69,7 @@ impl Phrases {
 impl Phrase {
     pub fn new(text: impl Display) -> Self {
         let text = text.to_string();
-        let words = parse::words_from_phrase(&text)
+        let words = words::from_phrase(&text)
             .into_iter()
             .map(|(s, r)| Word::new_with_raw(s, r))
             .collect();
