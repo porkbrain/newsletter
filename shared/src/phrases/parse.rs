@@ -1,9 +1,12 @@
-use std::fmt::{self, Display};
-
-use crate::vision::{Annotation, Word};
+use crate::vision::{self, Annotation, Word};
+use std::{
+    fmt::{self, Display},
+    iter,
+};
 
 const PUNCTUATION: &[char] = &['?', '!', '.'];
 
+#[derive(Debug)]
 enum Sentence<'a> {
     Full {
         words: Vec<&'a Word>,
@@ -13,16 +16,29 @@ enum Sentence<'a> {
     BreakSentences,
 }
 
+#[derive(Debug)]
+struct Block<'a> {
+    sentences: Vec<&'a Sentence<'a>>,
+    bbox: BoundingBox,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+struct BoundingBox {
+    top: i32,
+    left: i32,
+    bottom: i32,
+    right: i32,
+}
+
 pub fn lines_from_email(annotation: &Annotation) -> Vec<String> {
     let mut sentences = vec![];
     let mut csentence: Option<Sentence> = None;
     let mut text_chars = annotation.text.chars();
 
-    // TODO: last word is missing, padding to a word that's super far away?
+    // TODO: Last word is missing, perhaps add a padding word?
     for words in annotation.words.windows(2) {
         debug_assert_eq!(words.len(), 2);
         let c = &words[0];
-        println!("{}", c.word);
         let n = &words[1];
 
         if let Some(cs) = &mut csentence {
@@ -118,7 +134,95 @@ pub fn lines_from_email(annotation: &Annotation) -> Vec<String> {
         }
     }
 
-    sentences.into_iter().map(|s| s.to_string()).collect()
+    let mut blocks = {
+        let mut blocks: Vec<Block> = vec![];
+        let mut block_index = 0;
+        for sentence in &sentences {
+            match sentence {
+                Sentence::Full { .. } => {
+                    if let Some(b) = blocks.get_mut(block_index) {
+                        b.push(sentence);
+                    } else {
+                        blocks.push(sentence.into());
+                    }
+                }
+                Sentence::BreakSentences => {
+                    block_index += 1;
+                }
+            }
+        }
+
+        blocks
+    };
+
+    let mut merged_blocks = vec![];
+    while !blocks.is_empty() {
+        let mut cb = blocks.remove(0);
+        blocks.retain(|b| {
+            if cb.is_aligned_with(b) {
+                cb.append(b);
+                false
+            } else {
+                true
+            }
+        });
+        merged_blocks.push(cb);
+    }
+
+    merged_blocks
+        .into_iter()
+        .map(|b| {
+            b.sentences
+                .into_iter()
+                .map(|s| s.to_string())
+                .chain(iter::once("<br>".to_string()))
+        })
+        .flatten()
+        .collect()
+}
+
+impl<'a> From<&'a Sentence<'a>> for Block<'a> {
+    fn from(s: &'a Sentence<'a>) -> Self {
+        Self {
+            bbox: s.bounding_box(),
+            sentences: vec![s],
+        }
+    }
+}
+
+impl<'a> Block<'a> {
+    fn push(&mut self, s: &'a Sentence<'a>) {
+        self.bbox = self.bbox.merge(&s.bounding_box());
+        self.sentences.push(s);
+    }
+
+    fn is_aligned_with(&self, other: &Self) -> bool {
+        let last_sentence = self.sentences.iter().last().unwrap();
+
+        let horizontally_aligned = || {
+            let horizontal_threshold = last_sentence.avg_word_spacing() * 4;
+
+            (self.bbox.left - horizontal_threshold) < other.bbox.left
+                && (self.bbox.right + horizontal_threshold) > other.bbox.right
+        };
+
+        let vertically_aligned = || {
+            let vertical_threshold = last_sentence.line_height();
+
+            (self.bbox.bottom - other.bbox.top).abs() * 2
+                < vertical_threshold * 3
+        };
+
+        horizontally_aligned() && vertically_aligned()
+    }
+
+    fn append(&mut self, other: &Self) {
+        self.sentences.extend(other.sentences.iter());
+        self.bbox = other
+            .sentences
+            .iter()
+            .fold(self.bbox, |bbox, s| bbox.merge(&s.bounding_box()));
+    }
 }
 
 impl<'a> Sentence<'a> {
@@ -168,11 +272,46 @@ impl<'a> Sentence<'a> {
             Self::BreakSentences => panic!("Sentence::Br cannot hold words"),
         }
     }
+
+    fn bounding_box(&self) -> BoundingBox {
+        self.words()
+            .iter()
+            .fold(self.words()[0].top_left.into(), |cbox, word| {
+                cbox.add(word.top_left).add(word.bottom_right)
+            })
+    }
+}
+
+impl BoundingBox {
+    fn merge(mut self, other: &Self) -> Self {
+        self.top = self.top.min(other.top);
+        self.left = self.left.min(other.left);
+
+        self.right = self.right.max(other.right);
+        self.bottom = self.bottom.max(other.bottom);
+
+        self
+    }
+
+    fn add(self, point: vision::Point) -> Self {
+        self.merge(&point.into())
+    }
 }
 
 impl<'a> From<&'a Word> for Sentence<'a> {
     fn from(w: &'a Word) -> Self {
         Self::Full { words: vec![w] }
+    }
+}
+
+impl From<vision::Point> for BoundingBox {
+    fn from(p: vision::Point) -> Self {
+        Self {
+            top: p.y,
+            bottom: p.y,
+            left: p.x,
+            right: p.x,
+        }
     }
 }
 
@@ -214,6 +353,59 @@ pub fn words_from_phrase(phrase: &str) -> Vec<(String, String)> {
 mod tests {
     use super::*;
     use std::{fs, path::PathBuf};
+
+    #[test]
+    fn it_calculates_sentence_bounding_box_and_merges_bounding_boxes() {
+        let expected_bounding_box = BoundingBox {
+            top: 0,
+            left: 0,
+            right: 280,
+            bottom: 105,
+        };
+
+        let word1 = Word {
+            word: String::new(),
+            top_left: (0, 0).into(),
+            bottom_right: (100, 100).into(),
+        };
+
+        let word2 = Word {
+            word: String::new(),
+            top_left: (110, 15).into(),
+            bottom_right: (210, 100).into(),
+        };
+
+        let word3 = Word {
+            word: String::new(),
+            top_left: (250, 13).into(),
+            bottom_right: (280, 105).into(),
+        };
+
+        let sentence = Sentence::Full {
+            words: vec![&word1, &word2, &word3],
+        };
+
+        assert_eq!(sentence.bounding_box(), expected_bounding_box);
+        assert_eq!(
+            sentence.bounding_box().merge(&expected_bounding_box),
+            expected_bounding_box
+        );
+
+        assert_eq!(
+            sentence.bounding_box().merge(&BoundingBox {
+                top: 1,
+                left: 20,
+                right: 300,
+                bottom: 115,
+            }),
+            BoundingBox {
+                top: 0,
+                left: 0,
+                right: 300,
+                bottom: 115,
+            }
+        );
+    }
 
     #[test]
     fn it_calculates_avg_word_spacing() {
