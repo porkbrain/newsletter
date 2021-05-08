@@ -19,7 +19,9 @@ pub struct Word {
     pub bottom_right: Point,
 }
 
-#[derive(Serialize, Deserialize, Hash, Debug, PartialEq, Default, Clone)]
+#[derive(
+    Serialize, Deserialize, Hash, Debug, PartialEq, Default, Clone, Copy,
+)]
 pub struct Point {
     pub x: i32,
     pub y: i32,
@@ -65,6 +67,13 @@ impl Word {
                 x: right,
             },
         })
+    }
+}
+
+impl From<(i32, i32)> for Point {
+    fn from(x_y: (i32, i32)) -> Self {
+        let (x, y) = x_y;
+        Self { x, y }
     }
 }
 

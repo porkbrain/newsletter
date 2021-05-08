@@ -33,12 +33,7 @@ pub enum Source {
 
 impl Phrases {
     pub fn from_text(text: &str) -> Self {
-        Self(
-            parse::lines_from_email(text)
-                .into_iter()
-                .map(Phrase::new)
-                .collect(),
-        )
+        Self(vec![String::new()].into_iter().map(Phrase::new).collect())
     }
 
     pub fn inner(&self) -> &[Phrase] {

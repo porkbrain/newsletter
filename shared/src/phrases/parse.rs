@@ -1,64 +1,195 @@
-pub fn lines_from_email(text: &str) -> Vec<String> {
-    let look_ahead = 3;
+use std::fmt::{self, Display};
 
-    let lines: Vec<_> = text
-        .lines()
-        .map(str::trim)
-        .filter(|l| !l.is_empty())
-        .collect();
+use crate::vision::{Annotation, Word};
 
-    let padding = (0..(3 + lines.len() % look_ahead)).map(|_| (false, ""));
-    let lines: Vec<_> = lines
-        .into_iter()
-        .map(|l| {
-            let is_independent = count_spaces(l) > 1;
-            (is_independent, l)
-        })
-        .chain(padding)
-        .collect();
+const PUNCTUATION: &[char] = &['?', '!', '.'];
 
-    let mut out_lines = vec![];
+enum Sentence<'a> {
+    Full {
+        words: Vec<&'a Word>,
+    },
+    /// Marks a large gap between sentences which will prevent them from being
+    /// merged into one output offer when running sieve algorithm.
+    BreakSentences,
+}
 
-    let mut line_buffer = String::new();
-    for window in lines.windows(look_ahead) {
-        assert_eq!(look_ahead, 3);
-        let (curr_indep, curr) = window[0];
-        let (next1_indep, next1) = window[1];
-        let (next2_indep, _) = window[2];
+pub fn lines_from_email(annotation: &Annotation) -> Vec<String> {
+    let mut sentences = vec![];
+    let mut csentence: Option<Sentence> = None;
+    let mut text_chars = annotation.text.chars();
 
-        if curr_indep && !next1_indep && next2_indep {
-            out_lines.push(format!("{} {}", curr, next1));
-        } else if curr_indep {
-            // either next is independent, or both 2 dependent
-            out_lines.push(curr.to_string());
+    // TODO: last word is missing, padding to a word that's super far away?
+    for words in annotation.words.windows(2) {
+        debug_assert_eq!(words.len(), 2);
+        let c = &words[0];
+        println!("{}", c.word);
+        let n = &words[1];
+
+        if let Some(cs) = &mut csentence {
+            cs.push(&c);
+        } else {
+            csentence = Some(c.into());
         }
-        // curr_indep is false
-        else if next1_indep || count_spaces(&line_buffer) > 5 {
-            if !line_buffer.is_empty() {
-                line_buffer.push(' ');
-                line_buffer.push_str(curr);
-                out_lines.push(line_buffer.clone());
-                line_buffer.clear();
-            } else {
-                // already appended to previous phrase
-            }
-        }
-        // curr_indep and next1_indep are false
-        else {
-            if !curr.is_empty() {
-                if !line_buffer.is_empty() {
-                    line_buffer.push(' ')
-                }
-                line_buffer.push_str(curr);
-            }
+        let cs = csentence.as_mut().unwrap();
+
+        let are_separated_by_nl = text_chars
+            .find(|c| *c == ' ' || *c == '\n')
+            .filter(|c| *c == '\n')
+            .is_some();
+
+        let cpline_height = cs.line_height();
+        let avg_word_spacing = cs.avg_word_spacing();
+        let dist_y = n.top_left.y - c.bottom_right.y;
+
+        // If distance y is negative, it means that the word is below the
+        // next one. Reasons this can happen:
+        // 1. in the same line, it's always going to be negative by ~line
+        //      height;
+        // 2. the ocr might have weird bouding box, one word is a dot or
+        //      something small;
+        // 2. the OCR puts words in order based on paragraphs, so a new
+        //      paragraph that's on the left of the previous one has
+        //      started, and it backtracks a bit up.
+        let is_vertically_distant =
+            || dist_y > cpline_height * 2 || dist_y < cpline_height * -3;
+
+        let is_horizontally_distant = || {
+            let dist_x = n.top_left.x - c.bottom_right.x;
+
+            // if there's a large space between the two consecutive words, they
+            // belong to a new box
+            let distant_to_the_left =
+                || dist_x > avg_word_spacing * 3 && are_separated_by_nl;
+
+            // if the first word of the sentence is much further to the right
+            // than the next word, don't connect the sentences
+            //
+            // ```
+            //                        1st w         curr w
+            // next w                    |            |
+            //  |                        |            |
+            //  |                     Some sentence that
+            // First column           continues in columns
+            // ```
+            let distant_to_the_right = || {
+                // We must find the beginning of the block, that is the first
+                // sentence after the last "<br>". That is because we cannot
+                // know whether the last sentence has ended with e.g. an
+                // exclamation mark in half of the text. For example, in the
+                // following text the current sentence starts with "And", but
+                // the x coord of this word is way beyond the x coord of the
+                // next word "again.".
+                //
+                // ```
+                //                       curr w
+                //                        |
+                // This is a text which   |
+                // goes on several lines  |
+                // but ends. And now starts
+                // again.
+                //  |
+                //  |
+                // next w
+                // ```
+                let block_beginning = sentences
+                    .iter()
+                    .rev()
+                    .take_while(|s| !matches!(s, Sentence::BreakSentences))
+                    .last()
+                    .map(|s| s.words()[0].top_left)
+                    .unwrap_or_else(|| cs.words()[0].top_left);
+                block_beginning.x - n.top_left.x > avg_word_spacing * 4
+            };
+
+            distant_to_the_left() || distant_to_the_right()
+        };
+
+        let has_punctuation = || c.word.ends_with(PUNCTUATION);
+        let new_paragraph =
+            || !c.word.ends_with(':') && dist_y * 2 > cpline_height * 3;
+
+        if is_vertically_distant() || is_horizontally_distant() {
+            csentence.take().map(|p| sentences.push(p));
+            sentences.push(Sentence::BreakSentences);
+        } else if has_punctuation() || new_paragraph() {
+            csentence.take().map(|p| sentences.push(p));
+        } else {
+            // ... continue the sentence with next iteration
         }
     }
 
-    if !line_buffer.is_empty() {
-        out_lines.push(line_buffer);
+    sentences.into_iter().map(|s| s.to_string()).collect()
+}
+
+impl<'a> Sentence<'a> {
+    fn push(&mut self, w: &'a Word) {
+        let words = self.words_mut();
+        words.push(w);
     }
 
-    out_lines
+    fn line_height(&self) -> i32 {
+        let words = self.words();
+        let total = words
+            .iter()
+            .fold(0, |sum, w| sum + w.bottom_right.y - w.top_left.y);
+        total / words.len() as i32
+    }
+
+    fn avg_word_spacing(&self) -> i32 {
+        let words = self.words();
+        if words.len() == 1 {
+            let spacing_is_about_n_chars = 2;
+            let w = words[0];
+            let char_width =
+                (w.bottom_right.x - w.top_left.x) / w.word.len() as i32;
+
+            char_width * spacing_is_about_n_chars
+        } else {
+            let total = words.windows(2).fold(0, |sum, words| {
+                let a = words[0];
+                let b = words[1];
+                sum + (b.top_left.x - a.bottom_right.x).max(0)
+            });
+
+            total / (words.len() as i32 - 1)
+        }
+    }
+
+    fn words_mut(&mut self) -> &mut Vec<&'a Word> {
+        match self {
+            Self::Full { ref mut words } => words,
+            Self::BreakSentences => panic!("Sentence::Br cannot hold words"),
+        }
+    }
+
+    fn words(&self) -> &[&Word] {
+        match self {
+            Self::Full { words } => &words,
+            Self::BreakSentences => panic!("Sentence::Br cannot hold words"),
+        }
+    }
+}
+
+impl<'a> From<&'a Word> for Sentence<'a> {
+    fn from(w: &'a Word) -> Self {
+        Self::Full { words: vec![w] }
+    }
+}
+
+impl<'a> Display for Sentence<'a> {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::BreakSentences => write!(f, "<br>"),
+            Self::Full { words } => {
+                let sentence = words
+                    .iter()
+                    .map(|w| w.word.to_string())
+                    .collect::<Vec<_>>()
+                    .join(" ");
+                write!(f, "{}", sentence)
+            }
+        }
+    }
 }
 
 /// Returns list of sanitized words in first term, and their raw form in second.
@@ -79,81 +210,47 @@ pub fn words_from_phrase(phrase: &str) -> Vec<(String, String)> {
         .collect()
 }
 
-fn count_spaces(s: &str) -> usize {
-    s.chars().filter(|c| *c == ' ').count()
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::{fs, path::PathBuf};
 
     #[test]
-    fn it_converts_email_to_list_of_phrases() {
-        assert_text_eq_list(
-            "View this email in your browser\n\
-                WAREHOUSE\nNEW IN\nDRESSES\nTOPS\nACCESSORIES\n\
-                TAKE 20% OFF EVERYTHING\nSHOP NOW\nWH ICONS\nVOL. 4\n\
-                FEATURING\nCAROLINA\nElevate wardrobe foundations with\n\
-                pinstripes, soft tailoring, denim\n\
-                necessities and fresh florals.\nSHOP NEW IN\nDOUBLE\nTAKE\n\
-                shop tailoring\nFLORAL\nARRANGEMENTS\nshop dresses\n\
-                REFRESHED\nSTAPLES\nshop denim\nSHOP NOW\nGET\n\
-                40% OFF THE SPRING REFRESH\nSHOP NOW\nDOWNLOAD THE APP:\n\
-                Download on the\nGET IT ON\nApp Store\nGoogle Play\n\
-                40% off the Outdoor Edit for a limited time only.\n\
-                *20% off everything already applied.\nf\nPrivacy policy\n\
-                Unsubscribe\nWarehouse Fashions Online Limited (No. 12579412),\
-                a Company registered in England and Wales\n\
-                based at 49-51 Dale Street, Manchester M1 2HF.\n",
-            &[
-                "View this email in your browser",
-                "WAREHOUSE NEW IN DRESSES TOPS ACCESSORIES",
-                "TAKE 20% OFF EVERYTHING",
-                "SHOP NOW WH ICONS VOL. 4 FEATURING CAROLINA",
-                "Elevate wardrobe foundations with",
-                "pinstripes, soft tailoring, denim",
-                "necessities and fresh florals.",
-                "SHOP NEW IN",
-                "DOUBLE TAKE shop tailoring FLORAL ARRANGEMENTS shop dresses REFRESHED",
-                "STAPLES shop denim SHOP NOW GET",
-                "40% OFF THE SPRING REFRESH SHOP NOW",
-                "DOWNLOAD THE APP:",
-                "Download on the",
-                "GET IT ON",
-                "App Store Google Play",
-                "40% off the Outdoor Edit for a limited time only.",
-                "*20% off everything already applied.",
-                "f Privacy policy Unsubscribe",
-                "Warehouse Fashions Online Limited (No. 12579412),a Company registered in England and Wales",
-                "based at 49-51 Dale Street, Manchester M1 2HF."
-            ],
-        );
+    fn it_calculates_avg_word_spacing() {
+        let word1 = Word {
+            word: "abcd".to_string(),
+            top_left: (0, 0).into(),
+            bottom_right: (100, 100).into(),
+        };
+
+        let word2 = Word {
+            word: String::new(),
+            top_left: (110, 0).into(),
+            bottom_right: (210, 100).into(),
+        };
+
+        let word3 = Word {
+            word: String::new(),
+            top_left: (250, 0).into(),
+            bottom_right: (280, 100).into(),
+        };
+
+        let sentence = Sentence::Full {
+            words: vec![&word1, &word2, &word3],
+        };
+        assert_eq!(25, sentence.avg_word_spacing());
+
+        let sentence = Sentence::Full {
+            words: vec![&word1],
+        };
+        assert_eq!(50, sentence.avg_word_spacing());
     }
 
     #[test]
-    fn it_handles_empty_last_line() {
-        assert_text_eq_list(
-            "This is a test\nFor last line\n  ",
-            &["This is a test", "For last line"],
-        );
+    fn it_works() {
+        let document = testing_document("parse_text1");
 
-        assert_text_eq_list(
-            "This is a test\nDEP\nOK\n  ",
-            &["This is a test", "DEP OK"],
-        );
-
-        assert_text_eq_list(
-            "This is a test\nWith a line",
-            &["This is a test", "With a line"],
-        );
-    }
-
-    #[test]
-    fn it_pushes_rest_of_line_buffer() {
-        assert_text_eq_list(
-            "This is a test\nTRAILING\n",
-            &["This is a test", "TRAILING"],
-        );
+        panic!("{:#?}", lines_from_email(&document));
     }
 
     #[test]
@@ -240,10 +337,26 @@ mod tests {
         );
     }
 
-    fn assert_text_eq_list(text: &str, phrases: &[&str]) {
-        assert_eq!(
-            lines_from_email(text),
-            phrases.iter().map(ToString::to_string).collect::<Vec<_>>()
-        );
+    pub fn testing_document(name: &str) -> Annotation {
+        let curr_path = fs::canonicalize(".").unwrap();
+        println!("{:?}", curr_path);
+
+        let test_path = if curr_path.ends_with("shared") {
+            PathBuf::from("test/assets")
+        } else if curr_path.ends_with("newsletter") {
+            PathBuf::from("shared/test/assets")
+        } else {
+            panic!("Test must be called from /newsletter or /newsletter/shared")
+        }
+        .join(format!("{}.json", name));
+
+        let contents = fs::read_to_string(&test_path).unwrap_or_else(|e| {
+            panic!(
+                "Cannot read test file {} at {:?} due to {}",
+                name, test_path, e
+            )
+        });
+
+        serde_json::from_str(&contents).unwrap()
     }
 }
