@@ -1,7 +1,7 @@
 mod deal;
 mod voucher;
 
-use shared::phrases::Phrase;
+use shared::document::Phrase;
 use std::cmp::Ordering;
 
 pub use deal::Deal;
@@ -103,7 +103,7 @@ mod tests {
 
     use super::*;
     use deal::tests::assert_deals_approx_eq;
-    use shared::Phrases;
+    use shared::Document;
     use std::fs;
     use voucher::tests::assert_vouchers_approx_eq;
 
@@ -129,9 +129,9 @@ mod tests {
 
     #[test]
     fn it_should_join_adjacent_deals_and_vouchers() {
-        let phrases = testing_document("join_adjacent_deals_and_vouchers");
+        let document = testing_document("join_adjacent_deals_and_vouchers");
 
-        let (_, vouchers) = deals_and_vouchers(phrases.inner());
+        let (_, vouchers) = deals_and_vouchers(document.phrases());
 
         assert_vouchers_approx_eq(
             vouchers,
@@ -156,9 +156,9 @@ mod tests {
 
     #[test]
     fn it_should_skip_duplicate_deals_ignore_case() {
-        let phrases = testing_document("deduplicate_deals_ignore_case");
+        let document = testing_document("deduplicate_deals_ignore_case");
 
-        let (deals, _) = deals_and_vouchers(phrases.inner());
+        let (deals, _) = deals_and_vouchers(document.phrases());
 
         assert_deals_approx_eq(
             deals,
@@ -194,9 +194,9 @@ mod tests {
 
     #[test]
     fn it_should_skip_duplicate_vouchers_and_keep_the_longer_phrased_one() {
-        let phrases: Phrases = testing_document("deduplicate_vouchers");
+        let document = testing_document("deduplicate_vouchers");
 
-        let (deals, vouchers) = deals_and_vouchers(phrases.inner());
+        let (deals, vouchers) = deals_and_vouchers(document.phrases());
 
         assert_vouchers_approx_eq(
             vouchers,
@@ -208,9 +208,9 @@ mod tests {
 
     #[test]
     fn it_should_skip_duplicate_deals() {
-        let phrases = testing_document("default");
+        let document = testing_document("default");
 
-        let (deals, vouchers) = deals_and_vouchers(phrases.inner());
+        let (deals, vouchers) = deals_and_vouchers(document.phrases());
 
         assert_vouchers_approx_eq(
             vouchers,
@@ -230,9 +230,9 @@ mod tests {
 
     #[test]
     fn bug_skips_offers1() {
-        let phrases = testing_document("bug_skips_offers1");
+        let document = testing_document("bug_skips_offers1");
 
-        let (deals, vouchers) = deals_and_vouchers(phrases.inner());
+        let (deals, vouchers) = deals_and_vouchers(document.phrases());
 
         assert_vouchers_approx_eq(
             vouchers,
@@ -261,9 +261,9 @@ mod tests {
 
     #[test]
     fn bug_skips_offers2() {
-        let phrases = testing_document("bug_skips_offers2");
+        let document = testing_document("bug_skips_offers2");
 
-        let (_, vouchers) = deals_and_vouchers(phrases.inner());
+        let (_, vouchers) = deals_and_vouchers(document.phrases());
 
         assert_vouchers_approx_eq(
             vouchers,
@@ -283,9 +283,9 @@ mod tests {
 
     #[test]
     fn bug_deduplicate_deals1() {
-        let phrases = testing_document("bug_deduplicate_deals1");
+        let document = testing_document("bug_deduplicate_deals1");
 
-        let (deals, _) = deals_and_vouchers(phrases.inner());
+        let (deals, _) = deals_and_vouchers(document.phrases());
 
         assert_deals_approx_eq(
             deals,
@@ -293,7 +293,7 @@ mod tests {
         );
     }
 
-    pub fn testing_document(name: &str) -> Phrases {
+    pub fn testing_document(name: &str) -> Document {
         let curr_path = fs::canonicalize(".").unwrap();
 
         let test_path = if curr_path.ends_with("sieve") {

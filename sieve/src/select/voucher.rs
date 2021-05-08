@@ -1,4 +1,4 @@
-use shared::phrases::{Phrase, Source};
+use shared::document::{Phrase, Source};
 use std::{cmp::Ordering, fmt::Display};
 
 /// Skip any voucher which has estimate lower than this.
@@ -91,10 +91,10 @@ pub mod tests {
 
     #[test]
     fn it_should_select_vouchers() {
-        let phrases = testing_document("default");
+        let document = testing_document("default");
 
         assert_vouchers_approx_eq(
-            find_in(phrases.inner()),
+            find_in(document.phrases()),
             vec![
                 Voucher::new(
                     0,

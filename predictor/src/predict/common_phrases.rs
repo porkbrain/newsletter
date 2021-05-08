@@ -1,4 +1,4 @@
-use shared::phrases::Word;
+use shared::document::Word;
 
 const VOUCHER_KEYWORDS: &[&str] = &["voucher", "code", "discount", "coupon"];
 

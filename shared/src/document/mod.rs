@@ -1,12 +1,13 @@
-pub mod parse;
+pub mod phrases;
 pub mod words;
 
+use crate::vision::Annotation;
 use serde::{Deserialize, Serialize};
 use std::fmt::Display;
 use std::{cmp::Ordering, collections::HashMap};
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct Phrases(Vec<Phrase>);
+pub struct Document(Vec<Phrase>);
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Phrase {
@@ -32,16 +33,21 @@ pub enum Source {
     CommonPhrases,
 }
 
-impl Phrases {
-    pub fn from_text(text: &str) -> Self {
-        Self(vec![String::new()].into_iter().map(Phrase::new).collect())
+impl Document {
+    pub fn from_ocr(annotation: &Annotation) -> Self {
+        Self(
+            phrases::from_ocr(annotation)
+                .into_iter()
+                .map(Phrase::new)
+                .collect(),
+        )
     }
 
-    pub fn inner(&self) -> &[Phrase] {
+    pub fn phrases(&self) -> &[Phrase] {
         self.0.as_slice()
     }
 
-    pub fn inner_mut(&mut self) -> &mut [Phrase] {
+    pub fn phrases_mut(&mut self) -> &mut [Phrase] {
         self.0.as_mut_slice()
     }
 

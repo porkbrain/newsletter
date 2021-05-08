@@ -105,7 +105,7 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
     let document = predict::deals_and_vouchers(
         &state.conf,
         state.http_client.as_ref(),
-        &annotation.text,
+        &annotation,
     )
     .await?;
     let document = serde_json::to_string(&document)?;

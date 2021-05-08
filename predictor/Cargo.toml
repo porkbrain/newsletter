@@ -15,6 +15,7 @@ log = "0.4"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tokio = { version = "1.5", features = [ "macros", "sync" ] }
+pretty_assertions = "0.7"
 
 # local
 shared = { path = "../shared" }

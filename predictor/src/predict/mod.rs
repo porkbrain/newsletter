@@ -3,14 +3,17 @@ mod common_phrases;
 
 use crate::prelude::*;
 use shared::http;
-use shared::phrases::{Phrases, Source};
+use shared::{
+    document::{Document, Source},
+    vision::Annotation,
+};
 
 pub async fn deals_and_vouchers(
     conf: &Conf,
     http_client: &dyn http::Client,
-    text: &str,
-) -> Result<Phrases, Error> {
-    let mut document = Phrases::from_text(text);
+    annotation: &Annotation,
+) -> Result<Document, Error> {
+    let mut document = Document::from_ocr(annotation);
 
     apply_dealc_and_voucherc_estimates(conf, http_client, &mut document)
         .await?;
@@ -38,7 +41,7 @@ pub async fn deals_and_vouchers(
 async fn apply_dealc_and_voucherc_estimates(
     conf: &Conf,
     http_client: &dyn http::Client,
-    document: &mut Phrases,
+    document: &mut Document,
 ) -> Result<(), Error> {
     // fetch estimates for how likely each phrase is a deal
     // TODO: can be made concurrent with next step
@@ -67,11 +70,11 @@ async fn apply_dealc_and_voucherc_estimates(
 }
 
 pub fn apply_phrases_estimates(
-    document: &mut Phrases,
+    document: &mut Document,
     source: Source,
     estimates: Vec<f64>,
 ) -> Result<(), Error> {
-    let phrases = document.inner_mut();
+    let phrases = document.phrases_mut();
     if phrases.len() != estimates.len() {
         return Err(Error::new(format!(
             "Got {} phrases, but {} estimates",
@@ -88,7 +91,7 @@ pub fn apply_phrases_estimates(
 }
 
 pub fn apply_words_estimates(
-    document: &mut Phrases,
+    document: &mut Document,
     source: Source,
     estimates: Vec<f64>,
 ) -> Result<(), Error> {
@@ -110,60 +113,27 @@ pub fn apply_words_estimates(
 
 #[cfg(test)]
 mod tests {
+    use std::fs;
+
     use super::*;
+    use pretty_assertions::assert_eq;
     use serde_json::json;
     use shared::reqwest;
 
     #[ignore]
     #[tokio::test]
     async fn it_applies_dealc_and_voucherc_estimates() {
+        let ocr_path = "";
+
         let conf = Conf {
             dealc_url: "http://localhost:8081".to_string(),
             voucherc_url: "http://localhost:8080".to_string(),
             ..Default::default()
         };
         let http_client = reqwest::Client::new();
-
-        let text = "🛒 26% Off HUGE Savings!\nShop ‘Til You Drop |\n\
-                    View online\nBLACK FRIDAY OFFERS\nSHORT BREAKS\nGOURMET\n\
-                    DRIVING\nSPA DAYS\nDAYS OUT\nCHRISTMAS\n\
-                    SHOP ’TIL YOU DROP\nUse code\nBLACK26\nat the checkout\n\
-                    SHOP NOW\nSHOP BLACK FRIDAY DEALS\nDeals Under £50\n\
-                    Up To £100 Off Best Sellers\nUp To 50% Off Christmas\n\
-                    Christmas Gifts For Couples\nChristmas Gifts For Him\n\
-                    Christmas Gifts For Her\nChristmas Gifts For Children\n\
-                    Our COVID Guarantee\nBuy with added peace of mind. \
-                    If you are unable to book and take your experience due \
-                    to COVID we will extend or exchange your voucher \
-                    free of charge depending on your preference – we are all \
-                    in this together.\nLET'S BE FRIENDS\nWe are proud to be \
-                    only carbon neutral gift experience company in the UK. \
-                    Click\nhere\nto learn more!\nUpdate Preferences\n\
-                    Unsubscribe\nRefer A Friend\nContact Us\n\
-                    This email was sent to you\nnewsletter@porkbrain.com\n\
-                    by Buyagift because\nyou gave us your email address along \
-                    with permission to contact you.\n*Discount code is valid \
-                    until midnight, Sunday 29th November 2020. To use simply \
-                    enter the code\nBLACK26\nin the basket and click 'go'. \
-                    Discount codes are issued subject to availability and can \
-                    be withdrawn without notice at any time. Only one discount \
-                    may be used per order and these cannot be used against \
-                    exchanges, extensions, delivery, gift packs or any other \
-                    facility provided by Buyagift. Discounts can only be \
-                    applied to internet orders on\nwww.buyagift.co.uk\n\
-                    Discount codes cannot be used when exchanging experience \
-                    vouchers or when redeeming credit\nvouchers and money \
-                    vouchers on\nwww.buyagift.com/myvoucher\n\
-                    Buyagift reserves the right to stop discount codes being \
-                    used against specific products. For full terms and \
-                    conditions, please visit\nterms\n*You may find that some \
-                    of our amazing special offers are valid for a little less \
-                    time – please see individual products for more details\n\
-                    To view our Privacy Policy, click\nhere\n\
-                    Buyagift, 4 Imperial Place, Maxwell Road, Borehamwood, \
-                    Hertfordshire, WD6 1JN\n- - - - - - - - - - - - - -";
-
-        let mut phrases = Phrases::from_text(text);
+        let contents = fs::read_to_string(ocr_path).unwrap();
+        let annotation = serde_json::from_str(&contents).unwrap();
+        let mut phrases = Document::from_ocr(&annotation);
 
         apply_dealc_and_voucherc_estimates(&conf, &http_client, &mut phrases)
             .await
@@ -174,15 +144,59 @@ mod tests {
 
     #[test]
     fn it_serializes() {
-        let mut phrases =
-            Phrases::from_text("first phrase and then\nthere is second phrase");
+        let json = json!({
+            "text": "first phrase and then\nthere second phrase",
+            "words": [
+                {
+                    "tl": {"x": 0, "y": 0},
+                    "br": {"x": 0, "y": 0},
+                    "w": "first",
+                },
+                {
+                    "tl": {"x": 0, "y": 0},
+                    "br": {"x": 0, "y": 0},
+                    "w": "phrase",
+                },
+                {
+                    "tl": {"x": 0, "y": 0},
+                    "br": {"x": 0, "y": 0},
+                    "w": "and",
+                },
+                {
+                    "tl": {"x": 0, "y": 0},
+                    "br": {"x": 0, "y": 0},
+                    "w": "then",
+                },
+                {
+                    "tl": {"x": 100, "y": 0},
+                    "br": {"x": 100, "y": 0},
+                    "w": "there",
+                },
+                {
+                    "tl": {"x": 100, "y": 0},
+                    "br": {"x": 100, "y": 0},
+                    "w": "second",
+                },
+                {
+                    "tl": {"x": 100, "y": 0},
+                    "br": {"x": 100, "y": 0},
+                    "w": "phrase",
+                },
+            ]
+        });
+        let mut document =
+            Document::from_ocr(&serde_json::from_value(json).unwrap());
 
-        apply_phrases_estimates(&mut phrases, Source::Dealc, vec![0.8, 0.7])
-            .unwrap();
+        apply_phrases_estimates(
+            &mut document,
+            Source::Dealc,
+            vec![0.8, 0.0, 0.7, 0.0],
+        )
+        .unwrap();
         apply_words_estimates(
-            &mut phrases,
+            &mut document,
             Source::OpenAi,
-            (0..7).map(|_| 0.5).collect(),
+            (0..9).map(|_| 0.5).collect(),
         )
         .unwrap();
 
@@ -211,7 +225,17 @@ mod tests {
                         ]
                     },
                     {
-                        "text": "there is second phrase",
+                        "text": "<br>",
+                        "estimates": { "dealc": 0.0 },
+                        "words": [
+                            {
+                                "text": "<br>",
+                                "estimates": { "open_ai": 0.5 },
+                            },
+                        ]
+                    },
+                    {
+                        "text": "there second phrase",
                         "estimates": { "dealc": 0.7 },
                         "words": [
                             {
@@ -227,9 +251,19 @@ mod tests {
                                 "estimates": { "open_ai": 0.5 },
                             },
                         ]
-                    }
+                    },
+                    {
+                        "text": "<br>",
+                        "estimates": { "dealc": 0.0 },
+                        "words": [
+                            {
+                                "text": "<br>",
+                                "estimates": { "open_ai": 0.5 },
+                            },
+                        ]
+                    },
             ]),
-            serde_json::to_value(&phrases).unwrap()
+            serde_json::to_value(&document).unwrap()
         );
     }
 }

@@ -13,7 +13,7 @@ use shared::{
     rusoto_sqs::{Message, SqsClient},
     vision::Annotation,
 };
-use shared::{rusoto_s3::S3Client, Phrases};
+use shared::{rusoto_s3::S3Client, Document};
 use sqlite::Connection;
 use state::State;
 use std::str::FromStr;
@@ -76,11 +76,11 @@ async fn handle(state: &mut State, message: Message) -> Result<(), Error> {
         .get(record.bucket.clone(), record.key.clone())
         .await?
         .ok_or_else(|| Error::new("OCR objects cannot have empty body"))?;
-    let document: Phrases = serde_json::from_slice(&body)?;
+    let document: Document = serde_json::from_slice(&body)?;
 
     // 2.
     let (mut deals, mut vouchers) =
-        select::deals_and_vouchers(document.inner());
+        select::deals_and_vouchers(document.phrases());
 
     if deals.is_empty() && vouchers.is_empty() {
         log::info!("There are no vouchers nor deals for {}", record.key);

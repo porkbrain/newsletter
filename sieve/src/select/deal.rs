@@ -1,4 +1,4 @@
-use shared::phrases::{Phrase, Source};
+use shared::document::{Phrase, Source};
 use std::{cmp::Ordering, fmt::Display};
 
 /// Skip any phrase which has estimate lower than this.
@@ -153,10 +153,10 @@ pub mod tests {
 
     #[test]
     fn it_should_join_adjacent_deals() {
-        let phrases = testing_document("join_adjacent_deals");
+        let document = testing_document("join_adjacent_deals");
 
         assert_deals_approx_eq(
-            find_in(phrases.inner()),
+            find_in(document.phrases()),
             vec![
                 Deal::new(0, "50% off everything", 0.94),
                 Deal::new(0, "30 Apr 2021 Excellent service", 0.85),
@@ -187,10 +187,10 @@ pub mod tests {
 
     #[test]
     fn it_should_select_deals() {
-        let phrases = testing_document("default");
+        let document = testing_document("default");
 
         assert_deals_approx_eq(
-            find_in(phrases.inner()),
+            find_in(document.phrases()),
             vec![
                 Deal::new(
                     0,
