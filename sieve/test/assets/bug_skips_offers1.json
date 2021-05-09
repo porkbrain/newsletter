@@ -1,1 +1,1927 @@
-[{"text":"iHerb Celebrate Mom","estimates":{"dealc":0.033474625042377644},"words":[{"text":"iHerb","estimates":{"voucherc":0.4332393705844879,"common_phrases":0.25}},{"text":"Celebrate","estimates":{"common_phrases":0.25,"voucherc":0.005517333745956421}},{"text":"Mom","estimates":{"common_phrases":0.25,"voucherc":0.0006843507289886475}}]},{"text":"20% Off Beauty","estimates":{"dealc":0.5657857142857143},"words":[{"text":"20%","estimates":{"common_phrases":0.25,"voucherc":0.0003882348537445069}},{"text":"Off","estimates":{"voucherc":0.0006843507289886475,"common_phrases":0.25}},{"text":"Beauty","estimates":{"voucherc":0.014664024114608765,"common_phrases":0.25}}]},{"text":"Use Promo Code:","estimates":{"dealc":1.0},"words":[{"text":"Use","estimates":{"voucherc":0.0006843507289886475,"common_phrases":0.0}},{"text":"Promo","estimates":{"voucherc":0.017828315496444702,"common_phrases":0.85}},{"text":"Code","estimates":{"common_phrases":0.0,"voucherc":0.01020154356956482}}]},{"text":"MOTHERS21 Shop Now","estimates":{"dealc":0.010185739810316008},"words":[{"text":"MOTHERS21","estimates":{"common_phrases":1.0,"voucherc":0.9994736313819884}},{"text":"Shop","estimates":{"voucherc":0.01020154356956482,"common_phrases":0.9061261981781177}},{"text":"Now","estimates":{"voucherc":0.0006843507289886475,"common_phrases":0.8596115466624322}}]},{"text":"Offer valid for select countries only. Exclusions apply.","estimates":{"dealc":0.578},"words":[{"text":"Offer","estimates":{"common_phrases":0.8298769776932235,"voucherc":0.017828315496444702}},{"text":"valid","estimates":{"common_phrases":0.8085169313600048,"voucherc":0.019675999879837036}},{"text":"for","estimates":{"common_phrases":0.7920953405339328,"voucherc":0.0020304322242736816}},{"text":"select","estimates":{"common_phrases":0.778894912651623,"voucherc":0.012203812599182127}},{"text":"countries","estimates":{"common_phrases":0.25,"voucherc":0.005423516035079956}},{"text":"only","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}},{"text":"Exclusions","estimates":{"voucherc":0.004759609699249268,"common_phrases":0.25}},{"text":"apply","estimates":{"voucherc":0.019675999879837036,"common_phrases":0.25}}]},{"text":"One-time use. Can't be combined with other offers.","estimates":{"dealc":0.5132725938052177},"words":[{"text":"One-time","estimates":{"voucherc":0.01697099208831787,"common_phrases":0.25}},{"text":"use","estimates":{"common_phrases":0.25,"voucherc":0.0020304322242736816}},{"text":"Can't","estimates":{"common_phrases":0.25,"voucherc":0.008493542671203613}},{"text":"combined","estimates":{"voucherc":0.007867097854614258,"common_phrases":0.25}},{"text":"with","estimates":{"voucherc":0.02872207760810852,"common_phrases":0.25}},{"text":"other","estimates":{"voucherc":0.019675999879837036,"common_phrases":0.25}},{"text":"offers","estimates":{"common_phrases":0.25,"voucherc":0.012203812599182127}}]},{"text":"Offer ends 5/10/2021 at 10:00 AM PT.","estimates":{"dealc":0.3092},"words":[{"text":"Offer","estimates":{"voucherc":0.017828315496444702,"common_phrases":0.25}},{"text":"ends","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}},{"text":"5/10/2021","estimates":{"voucherc":0.0015045106410980225,"common_phrases":0.25}},{"text":"10:00","estimates":{"voucherc":0.002298414707183838,"common_phrases":0.25}}]},{"text":"Dear iHerb Customer,","estimates":{"dealc":0.033474625042377644},"words":[{"text":"Dear","estimates":{"voucherc":0.010201573371887209,"common_phrases":0.25}},{"text":"iHerb","estimates":{"voucherc":0.4332393705844879,"common_phrases":0.25}},{"text":"Customer","estimates":{"common_phrases":0.25,"voucherc":0.007294446229934692}}]},{"text":"We love our mothers! Celebrate mom by showering her with great","estimates":{"dealc":0.052},"words":[{"text":"love","estimates":{"voucherc":0.02872207760810852,"common_phrases":0.25}},{"text":"our","estimates":{"common_phrases":0.25,"voucherc":0.0020304322242736816}},{"text":"mothers","estimates":{"common_phrases":0.25,"voucherc":0.01134440302848816}},{"text":"Celebrate","estimates":{"common_phrases":0.25,"voucherc":0.005517333745956421}},{"text":"mom","estimates":{"common_phrases":0.25,"voucherc":0.0020304322242736816}},{"text":"showering","estimates":{"voucherc":0.005423516035079956,"common_phrases":0.25}},{"text":"her","estimates":{"common_phrases":0.25,"voucherc":0.0020304322242736816}},{"text":"with","estimates":{"voucherc":0.02872207760810852,"common_phrases":0.25}},{"text":"great","estimates":{"voucherc":0.019675999879837036,"common_phrases":0.25}}]},{"text":"products from iHerb's entire Beauty selection and show her just","estimates":{"dealc":0.981},"words":[{"text":"products","estimates":{"voucherc":0.007867097854614258,"common_phrases":0.25}},{"text":"from","estimates":{"voucherc":0.02872207760810852,"common_phrases":0.25}},{"text":"iHerb's","estimates":{"voucherc":0.0144919753074646,"common_phrases":0.25}},{"text":"entire","estimates":{"common_phrases":0.25,"voucherc":0.012203812599182127}},{"text":"Beauty","estimates":{"voucherc":0.014664024114608765,"common_phrases":0.25}},{"text":"selection","estimates":{"common_phrases":0.25,"voucherc":0.005423516035079956}},{"text":"and","estimates":{"common_phrases":0.25,"voucherc":0.0020304322242736816}},{"text":"show","estimates":{"voucherc":0.02872207760810852,"common_phrases":0.25}},{"text":"her","estimates":{"common_phrases":0.25,"voucherc":0.0020304322242736816}},{"text":"just","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}}]},{"text":"how special and wonderful she is!","estimates":{"dealc":0.001},"words":[{"text":"how","estimates":{"common_phrases":0.25,"voucherc":0.0020304322242736816}},{"text":"special","estimates":{"common_phrases":0.25,"voucherc":0.01134440302848816}},{"text":"and","estimates":{"voucherc":0.0020304322242736816,"common_phrases":0.25}},{"text":"wonderful","estimates":{"voucherc":0.005423516035079956,"common_phrases":0.25}},{"text":"she","estimates":{"common_phrases":0.25,"voucherc":0.0020304322242736816}}]},{"text":"Through 5/10/2021 10 AM PT, buy from our site or App and enjoy","estimates":{"dealc":0.539},"words":[{"text":"Through","estimates":{"voucherc":0.010602414608001707,"common_phrases":0.25}},{"text":"5/10/2021","estimates":{"voucherc":0.0015045106410980225,"common_phrases":0.25}},{"text":"buy","estimates":{"voucherc":0.0020304322242736816,"common_phrases":0.25}},{"text":"from","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}},{"text":"our","estimates":{"voucherc":0.002030491828918457,"common_phrases":0.25}},{"text":"site","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}},{"text":"App","estimates":{"voucherc":0.0006843507289886475,"common_phrases":0.25}},{"text":"and","estimates":{"voucherc":0.0020304322242736816,"common_phrases":0.25}},{"text":"enjoy","estimates":{"common_phrases":0.25,"voucherc":0.019675999879837036}}]},{"text":"20% OFF the entire Beauty selection using promo code","estimates":{"dealc":1.0},"words":[{"text":"20%","estimates":{"common_phrases":0.25,"voucherc":0.0003882348537445069}},{"text":"OFF","estimates":{"voucherc":0.30195102095603943,"common_phrases":0.25}},{"text":"the","estimates":{"voucherc":0.0020304322242736816,"common_phrases":0.25}},{"text":"entire","estimates":{"voucherc":0.012203812599182127,"common_phrases":0.25}},{"text":"Beauty","estimates":{"voucherc":0.014664024114608765,"common_phrases":0.25}},{"text":"selection","estimates":{"voucherc":0.005423516035079956,"common_phrases":0.25}},{"text":"using","estimates":{"voucherc":0.019675999879837036,"common_phrases":0.0}},{"text":"promo","estimates":{"voucherc":0.019675999879837036,"common_phrases":0.85}},{"text":"code","estimates":{"common_phrases":0.0,"voucherc":0.02872207760810852}}]},{"text":"MOTHERS21. Enter code in cart or simply click on the link below.","estimates":{"dealc":0.189},"words":[{"text":"MOTHERS21","estimates":{"voucherc":0.9994736313819884,"common_phrases":1.0}},{"text":"Enter","estimates":{"voucherc":0.017828315496444702,"common_phrases":0.0}},{"text":"code","estimates":{"common_phrases":0.0,"voucherc":0.02872207760810852}},{"text":"cart","estimates":{"common_phrases":1.0,"voucherc":0.02872207760810852}},{"text":"simply","estimates":{"voucherc":0.012203812599182127,"common_phrases":0.9061261981781177}},{"text":"click","estimates":{"voucherc":0.019675999879837036,"common_phrases":0.8596115466624322}},{"text":"the","estimates":{"common_phrases":0.8298769776932235,"voucherc":0.0020304322242736816}},{"text":"link","estimates":{"voucherc":0.02872207760810852,"common_phrases":0.8085169313600048}},{"text":"below","estimates":{"voucherc":0.019675999879837036,"common_phrases":0.7920953405339328}}]},{"text":"https://www.iherb.com/c/Beauty?pcode=MOTHERS21& rcode=BUY123","estimates":{"dealc":0.0},"words":[{"text":"rcode=BUY123","estimates":{"common_phrases":0.778894912651623,"voucherc":0.9860721826553344}}]},{"text":"iHerb's Beauty selection has nearly 5,000 products. Indulge her","estimates":{"dealc":0.001},"words":[{"text":"iHerb's","estimates":{"voucherc":0.0144919753074646,"common_phrases":0.25}},{"text":"Beauty","estimates":{"common_phrases":0.25,"voucherc":0.014664024114608765}},{"text":"selection","estimates":{"common_phrases":0.25,"voucherc":0.005423516035079956}},{"text":"has","estimates":{"common_phrases":0.25,"voucherc":0.0020304322242736816}},{"text":"nearly","estimates":{"voucherc":0.012203812599182127,"common_phrases":0.25}},{"text":"5,000","estimates":{"voucherc":0.006337106227874756,"common_phrases":0.25}},{"text":"products","estimates":{"common_phrases":0.25,"voucherc":0.007867097854614258}},{"text":"Indulge","estimates":{"voucherc":0.010602414608001707,"common_phrases":0.25}},{"text":"her","estimates":{"voucherc":0.002030491828918457,"common_phrases":0.25}}]},{"text":"with her favorites! K-Beauty","estimates":{"dealc":0.029},"words":[{"text":"with","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}},{"text":"her","estimates":{"common_phrases":0.25,"voucherc":0.0020304322242736816}},{"text":"favorites","estimates":{"common_phrases":0.25,"voucherc":0.005423516035079956}},{"text":"K-Beauty","estimates":{"voucherc":0.020167052745819092,"common_phrases":0.25}}]},{"text":"Moisturizers & Creams","estimates":{"dealc":0.033474625042377644},"words":[{"text":"Moisturizers","estimates":{"common_phrases":0.25,"voucherc":0.006379276514053345}},{"text":"Creams","estimates":{"common_phrases":0.25,"voucherc":0.014664024114608765}}]},{"text":"• Cleansers & Toners","estimates":{"dealc":0.033474625042377644},"words":[{"text":"•","estimates":{"common_phrases":0.25,"voucherc":2.728978927279968e-7}},{"text":"Cleansers","estimates":{"common_phrases":0.25,"voucherc":0.005517333745956421}},{"text":"Toners","estimates":{"common_phrases":0.25,"voucherc":0.014664024114608765}}]},{"text":"Exfoliators & Scrubs","estimates":{"dealc":0.033474625042377644},"words":[{"text":"Exfoliators","estimates":{"voucherc":0.00402987003326416,"common_phrases":0.25}},{"text":"Scrubs","estimates":{"voucherc":0.014664024114608765,"common_phrases":0.25}}]},{"text":"Makeup and tools and a lot more! Sincerely,","estimates":{"dealc":0.07980537673278727},"words":[{"text":"Makeup","estimates":{"voucherc":0.014664024114608765,"common_phrases":0.25}},{"text":"and","estimates":{"voucherc":0.0020304322242736816,"common_phrases":0.25}},{"text":"tools","estimates":{"voucherc":0.019675999879837036,"common_phrases":0.25}},{"text":"and","estimates":{"common_phrases":0.25,"voucherc":0.0020304322242736816}},{"text":"lot","estimates":{"common_phrases":0.25,"voucherc":0.0020304322242736816}},{"text":"more","estimates":{"voucherc":0.02872207760810852,"common_phrases":0.25}},{"text":"Sincerely","estimates":{"common_phrases":0.25,"voucherc":0.005517333745956421}}]},{"text":"The iHerb Team","estimates":{"dealc":0.0},"words":[{"text":"The","estimates":{"voucherc":0.0006843507289886475,"common_phrases":0.25}},{"text":"iHerb","estimates":{"common_phrases":0.25,"voucherc":0.4332393705844879}},{"text":"Team","estimates":{"common_phrases":0.25,"voucherc":0.01020154356956482}}]},{"text":"Please note: Offer valid for select countries only. One-time use only.","estimates":{"dealc":0.4167751969150956},"words":[{"text":"Please","estimates":{"common_phrases":0.25,"voucherc":0.014664024114608765}},{"text":"note","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}},{"text":"Offer","estimates":{"common_phrases":0.25,"voucherc":0.017828315496444702}},{"text":"valid","estimates":{"voucherc":0.019675999879837036,"common_phrases":0.25}},{"text":"for","estimates":{"voucherc":0.0020304322242736816,"common_phrases":0.25}},{"text":"select","estimates":{"common_phrases":0.25,"voucherc":0.012203812599182127}},{"text":"countries","estimates":{"voucherc":0.005423516035079956,"common_phrases":0.25}},{"text":"only","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}},{"text":"One-time","estimates":{"voucherc":0.01697099208831787,"common_phrases":0.25}},{"text":"use","estimates":{"common_phrases":0.25,"voucherc":0.0020304322242736816}},{"text":"only","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}}]},{"text":"Exclusions apply. Can't be combined with other offers. Offer ends","estimates":{"dealc":0.4511015437597235},"words":[{"text":"Exclusions","estimates":{"voucherc":0.004759550094604492,"common_phrases":0.25}},{"text":"apply","estimates":{"common_phrases":0.25,"voucherc":0.019675999879837036}},{"text":"Can't","estimates":{"common_phrases":0.25,"voucherc":0.008493542671203613}},{"text":"combined","estimates":{"common_phrases":0.25,"voucherc":0.007867097854614258}},{"text":"with","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}},{"text":"other","estimates":{"voucherc":0.019675999879837036,"common_phrases":0.25}},{"text":"offers","estimates":{"common_phrases":0.25,"voucherc":0.012203812599182127}},{"text":"Offer","estimates":{"common_phrases":0.25,"voucherc":0.017828315496444702}},{"text":"ends","estimates":{"voucherc":0.02872207760810852,"common_phrases":0.25}}]},{"text":"5/10/2021 at 10:00 AM PT","estimates":{"dealc":0.239},"words":[{"text":"5/10/2021","estimates":{"voucherc":0.0015045106410980225,"common_phrases":0.25}},{"text":"10:00","estimates":{"voucherc":0.002298325300216675,"common_phrases":0.25}}]},{"text":"Brand exclusions: BioSil by Natural Factors, Bluebonnet Nutrition, Carlson Labs,","estimates":{"dealc":0.0},"words":[{"text":"Brand","estimates":{"voucherc":0.017828315496444702,"common_phrases":0.25}},{"text":"exclusions","estimates":{"common_phrases":0.25,"voucherc":0.004476308822631836}},{"text":"BioSil","estimates":{"voucherc":0.053477942943573,"common_phrases":0.25}},{"text":"Natural","estimates":{"common_phrases":0.25,"voucherc":0.010602414608001707}},{"text":"Factors","estimates":{"voucherc":0.010602414608001707,"common_phrases":0.25}},{"text":"Bluebonnet","estimates":{"common_phrases":0.25,"voucherc":0.004759609699249268}},{"text":"Nutrition","estimates":{"common_phrases":0.25,"voucherc":0.005517333745956421}},{"text":"Carlson","estimates":{"common_phrases":0.25,"voucherc":0.010602414608001707}},{"text":"Labs","estimates":{"voucherc":0.01020154356956482,"common_phrases":0.25}}]},{"text":"DaVinci Laboratories of Vermont, Dr. Mercola, Earth Mama, Fungi Perfecti, Goli","estimates":{"dealc":0.0},"words":[{"text":"DaVinci","estimates":{"common_phrases":0.25,"voucherc":0.06372228264808655}},{"text":"Laboratories","estimates":{"voucherc":0.006379276514053345,"common_phrases":0.25}},{"text":"Vermont","estimates":{"voucherc":0.010602414608001707,"common_phrases":0.25}},{"text":"Mercola","estimates":{"voucherc":0.010602414608001707,"common_phrases":0.25}},{"text":"Earth","estimates":{"voucherc":0.017828315496444702,"common_phrases":0.25}},{"text":"Mama","estimates":{"common_phrases":0.25,"voucherc":0.01020154356956482}},{"text":"Fungi","estimates":{"voucherc":0.017828315496444702,"common_phrases":0.25}},{"text":"Perfecti","estimates":{"voucherc":0.007294446229934692,"common_phrases":0.25}},{"text":"Goli","estimates":{"voucherc":0.01020154356956482,"common_phrases":0.25}}]},{"text":"Nutrition, Great Lakes Gelatin Co., Heather's Tummy Care, Little DaVinci,","estimates":{"dealc":0.033474625042377644},"words":[{"text":"Nutrition","estimates":{"voucherc":0.005517333745956421,"common_phrases":0.25}},{"text":"Great","estimates":{"common_phrases":0.25,"voucherc":0.017828315496444702}},{"text":"Lakes","estimates":{"voucherc":0.017828315496444702,"common_phrases":0.25}},{"text":"Gelatin","estimates":{"common_phrases":0.25,"voucherc":0.010602414608001707}},{"text":"Heather's","estimates":{"voucherc":0.00045946240425109863,"common_phrases":0.25}},{"text":"Tummy","estimates":{"common_phrases":0.25,"voucherc":0.017828315496444702}},{"text":"Care","estimates":{"voucherc":0.01020154356956482,"common_phrases":0.25}},{"text":"Little","estimates":{"voucherc":0.014664024114608765,"common_phrases":0.25}},{"text":"DaVinci","estimates":{"voucherc":0.06372228264808655,"common_phrases":0.25}}]},{"text":"Metabolic Maintenance, Motherlove, NeuroScience, Nordic Naturals, Pixi","estimates":{"dealc":0.033474625042377644},"words":[{"text":"Metabolic","estimates":{"voucherc":0.005517333745956421,"common_phrases":0.25}},{"text":"Maintenance","estimates":{"voucherc":0.00402987003326416,"common_phrases":0.25}},{"text":"Motherlove","estimates":{"voucherc":0.07235494256019592,"common_phrases":0.25}},{"text":"NeuroScience","estimates":{"common_phrases":0.25,"voucherc":0.008390635251998901}},{"text":"Nordic","estimates":{"common_phrases":0.25,"voucherc":0.014664024114608765}},{"text":"Naturals","estimates":{"voucherc":0.007294446229934692,"common_phrases":0.25}},{"text":"Pixi","estimates":{"common_phrases":0.25,"voucherc":0.04113548994064331}}]},{"text":"Beauty, Solgar, Terry Naturally, Thayers, Thorne Research, Zhou Nutrition","estimates":{"dealc":0.0},"words":[{"text":"Beauty","estimates":{"common_phrases":0.25,"voucherc":0.014664024114608765}},{"text":"Solgar","estimates":{"common_phrases":0.25,"voucherc":0.05420166254043579}},{"text":"Terry","estimates":{"voucherc":0.017828315496444702,"common_phrases":0.25}},{"text":"Naturally","estimates":{"common_phrases":0.25,"voucherc":0.005517333745956421}},{"text":"Thayers","estimates":{"voucherc":0.05732092261314392,"common_phrases":0.25}},{"text":"Thorne","estimates":{"voucherc":0.014664024114608765,"common_phrases":0.25}},{"text":"Research","estimates":{"voucherc":0.007294446229934692,"common_phrases":0.25}},{"text":"Zhou","estimates":{"voucherc":0.04113548994064331,"common_phrases":0.25}},{"text":"Nutrition","estimates":{"voucherc":0.005517333745956421,"common_phrases":0.25}}]},{"text":"To keep receiving emails from us, please add","estimates":{"dealc":0.568},"words":[{"text":"keep","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}},{"text":"receiving","estimates":{"common_phrases":0.25,"voucherc":0.005423516035079956}},{"text":"emails","estimates":{"common_phrases":0.25,"voucherc":0.012203812599182127}},{"text":"from","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}},{"text":"please","estimates":{"voucherc":0.012203812599182127,"common_phrases":0.25}},{"text":"add","estimates":{"voucherc":0.0020304322242736816,"common_phrases":0.25}}]},{"text":"promos@mail.iherb.com to your address book.","estimates":{"dealc":0.255},"words":[{"text":"promos@mail.iherb.com","estimates":{"voucherc":0.00022366642951965332,"common_phrases":0.25}},{"text":"your","estimates":{"voucherc":0.02872207760810852,"common_phrases":0.25}},{"text":"address","estimates":{"common_phrases":0.25,"voucherc":0.01134440302848816}},{"text":"book","estimates":{"voucherc":0.02872207760810852,"common_phrases":0.25}}]},{"text":"Download on the","estimates":{"dealc":0.0},"words":[{"text":"Download","estimates":{"voucherc":0.00729447603225708,"common_phrases":0.25}},{"text":"the","estimates":{"voucherc":0.0020304322242736816,"common_phrases":0.25}}]},{"text":"Download on App Store","estimates":{"dealc":0.628},"words":[{"text":"Download","estimates":{"voucherc":0.007294446229934692,"common_phrases":0.25}},{"text":"App","estimates":{"voucherc":0.0006843507289886475,"common_phrases":0.25}},{"text":"Store","estimates":{"voucherc":0.017828315496444702,"common_phrases":0.25}}]},{"text":"> Google play iHerb","estimates":{"dealc":0.033474625042377644},"words":[{"text":"Google","estimates":{"common_phrases":0.25,"voucherc":0.014664024114608765}},{"text":"play","estimates":{"voucherc":0.02872207760810852,"common_phrases":0.25}},{"text":"iHerb","estimates":{"common_phrases":0.25,"voucherc":0.4332393705844879}}]},{"text":"© iHerb Inc.","estimates":{"dealc":0.033474625042377644},"words":[{"text":"iHerb","estimates":{"voucherc":0.4332393705844879,"common_phrases":0.25}},{"text":"Inc","estimates":{"voucherc":0.0006843507289886475,"common_phrases":0.25}}]},{"text":"22780 Harley Knox Blvd, Perris, CA 92750 USA","estimates":{"dealc":0.033474625042377644},"words":[{"text":"22780","estimates":{"common_phrases":0.25,"voucherc":0.7193674445152283}},{"text":"Harley","estimates":{"common_phrases":0.25,"voucherc":0.014664024114608765}},{"text":"Knox","estimates":{"voucherc":0.01020154356956482,"common_phrases":0.25}},{"text":"Blvd","estimates":{"common_phrases":0.25,"voucherc":0.01020154356956482}},{"text":"Perris","estimates":{"common_phrases":0.25,"voucherc":0.014664024114608765}},{"text":"92750","estimates":{"common_phrases":0.25,"voucherc":0.7193674445152283}},{"text":"USA","estimates":{"common_phrases":0.25,"voucherc":0.30195102095603943}}]},{"text":"Unsubscribe | Blog | Contact | Privacy","estimates":{"dealc":0.033474625042377644},"words":[{"text":"Unsubscribe","estimates":{"common_phrases":0.25,"voucherc":0.00402987003326416}},{"text":"Blog","estimates":{"voucherc":0.01020154356956482,"common_phrases":0.25}},{"text":"Contact","estimates":{"voucherc":0.010602414608001707,"common_phrases":0.25}},{"text":"Privacy","estimates":{"voucherc":0.010602414608001707,"common_phrases":0.25}}]},{"text":"Disclaimer: Statements made, or products sold through iHerb.com, have","estimates":{"dealc":0.004244714825222768},"words":[{"text":"Disclaimer","estimates":{"common_phrases":0.25,"voucherc":0.004759609699249268}},{"text":"Statements","estimates":{"voucherc":0.004759609699249268,"common_phrases":0.25}},{"text":"made","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}},{"text":"products","estimates":{"voucherc":0.007867097854614258,"common_phrases":0.25}},{"text":"sold","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}},{"text":"through","estimates":{"voucherc":0.01134440302848816,"common_phrases":0.25}},{"text":"iHerb.com","estimates":{"common_phrases":0.25,"voucherc":0.007149726152420044}},{"text":"have","estimates":{"voucherc":0.02872207760810852,"common_phrases":0.25}}]},{"text":"not been evaluated by the Food and Drug Administration. They are not","estimates":{"dealc":0.001},"words":[{"text":"not","estimates":{"common_phrases":0.25,"voucherc":0.0020304322242736816}},{"text":"been","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}},{"text":"evaluated","estimates":{"voucherc":0.005423516035079956,"common_phrases":0.25}},{"text":"the","estimates":{"voucherc":0.002030491828918457,"common_phrases":0.25}},{"text":"Food","estimates":{"common_phrases":0.25,"voucherc":0.01020154356956482}},{"text":"and","estimates":{"voucherc":0.0020304322242736816,"common_phrases":0.25}},{"text":"Drug","estimates":{"voucherc":0.01020154356956482,"common_phrases":0.25}},{"text":"Administration","estimates":{"common_phrases":0.25,"voucherc":0.005194813013076782}},{"text":"They","estimates":{"voucherc":0.01020154356956482,"common_phrases":0.25}},{"text":"are","estimates":{"common_phrases":0.25,"voucherc":0.0020304322242736816}},{"text":"not","estimates":{"voucherc":0.0020304322242736816,"common_phrases":0.25}}]},{"text":"intended to diagnose, treat, cure, or prevent disease.","estimates":{"dealc":0.06025006322133879},"words":[{"text":"intended","estimates":{"common_phrases":0.25,"voucherc":0.007867097854614258}},{"text":"diagnose","estimates":{"common_phrases":0.25,"voucherc":0.007867097854614258}},{"text":"treat","estimates":{"voucherc":0.019675999879837036,"common_phrases":0.25}},{"text":"cure","estimates":{"common_phrases":0.25,"voucherc":0.02872207760810852}},{"text":"prevent","estimates":{"voucherc":0.01134440302848816,"common_phrases":0.25}},{"text":"disease","estimates":{"voucherc":0.011344432830810549,"common_phrases":0.25}}]},{"text":"Read More","estimates":{"dealc":0.0},"words":[{"text":"Read","estimates":{"voucherc":0.01020154356956482,"common_phrases":0.25}},{"text":"More","estimates":{"voucherc":0.01020154356956482,"common_phrases":0.25}}]}]
+[
+    {
+        "text": "iHerb Celebrate Mom",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "iHerb",
+                "estimates": {
+                    "voucherc": 0.4332393705844879,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Celebrate",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005517333745956421
+                }
+            },
+            {
+                "text": "Mom",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0006843507289886475
+                }
+            }
+        ]
+    },
+    {
+        "text": "20% Off Beauty",
+        "estimates": { "dealc": 0.5657857142857143 },
+        "words": [
+            {
+                "text": "20%",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0003882348537445069
+                }
+            },
+            {
+                "text": "Off",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Beauty",
+                "estimates": {
+                    "voucherc": 0.014664024114608765,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Use Promo Code:",
+        "estimates": { "dealc": 1.0 },
+        "words": [
+            {
+                "text": "Use",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.0
+                }
+            },
+            {
+                "text": "Promo",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.85
+                }
+            },
+            {
+                "text": "Code",
+                "estimates": {
+                    "common_phrases": 0.0,
+                    "voucherc": 0.01020154356956482
+                }
+            }
+        ]
+    },
+    {
+        "text": "MOTHERS21 Shop Now",
+        "estimates": { "dealc": 0.010185739810316008 },
+        "words": [
+            {
+                "text": "MOTHERS21",
+                "estimates": {
+                    "common_phrases": 1.0,
+                    "voucherc": 0.9994736313819884
+                }
+            },
+            {
+                "text": "Shop",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.9061261981781177
+                }
+            },
+            {
+                "text": "Now",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.8596115466624322
+                }
+            }
+        ]
+    },
+    {
+        "text": "Offer valid for select countries only. Exclusions apply.",
+        "estimates": { "dealc": 0.578 },
+        "words": [
+            {
+                "text": "Offer",
+                "estimates": {
+                    "common_phrases": 0.8298769776932235,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "valid",
+                "estimates": {
+                    "common_phrases": 0.8085169313600048,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "for",
+                "estimates": {
+                    "common_phrases": 0.7920953405339328,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "select",
+                "estimates": {
+                    "common_phrases": 0.778894912651623,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "countries",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            },
+            {
+                "text": "only",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "Exclusions",
+                "estimates": {
+                    "voucherc": 0.004759609699249268,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "apply",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "One-time use. Can't be combined with other offers.",
+        "estimates": { "dealc": 0.5132725938052177 },
+        "words": [
+            {
+                "text": "One-time",
+                "estimates": {
+                    "voucherc": 0.01697099208831787,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "use",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "Can't",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.008493542671203613
+                }
+            },
+            {
+                "text": "combined",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "with",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "other",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "offers",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            }
+        ]
+    },
+    {
+        "text": "Offer ends 5/10/2021 at 10:00 AM PT.",
+        "estimates": { "dealc": 0.3092 },
+        "words": [
+            {
+                "text": "Offer",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "ends",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "5/10/2021",
+                "estimates": {
+                    "voucherc": 0.0015045106410980225,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "10:00",
+                "estimates": {
+                    "voucherc": 0.002298414707183838,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Dear iHerb Customer,",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "Dear",
+                "estimates": {
+                    "voucherc": 0.010201573371887209,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "iHerb",
+                "estimates": {
+                    "voucherc": 0.4332393705844879,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Customer",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007294446229934692
+                }
+            }
+        ]
+    },
+    {
+        "text": "We love our mothers! Celebrate mom by showering her with great",
+        "estimates": { "dealc": 0.052 },
+        "words": [
+            {
+                "text": "love",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "our",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "mothers",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "Celebrate",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005517333745956421
+                }
+            },
+            {
+                "text": "mom",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "showering",
+                "estimates": {
+                    "voucherc": 0.005423516035079956,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "her",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "with",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "great",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "products from iHerb's entire Beauty selection and show her just",
+        "estimates": { "dealc": 0.981 },
+        "words": [
+            {
+                "text": "products",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "from",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "iHerb's",
+                "estimates": {
+                    "voucherc": 0.0144919753074646,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "entire",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "Beauty",
+                "estimates": {
+                    "voucherc": 0.014664024114608765,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "selection",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "show",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "her",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "just",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            }
+        ]
+    },
+    {
+        "text": "how special and wonderful she is!",
+        "estimates": { "dealc": 0.001 },
+        "words": [
+            {
+                "text": "how",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "special",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "wonderful",
+                "estimates": {
+                    "voucherc": 0.005423516035079956,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "she",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            }
+        ]
+    },
+    {
+        "text": "Through 5/10/2021 10 AM PT, buy from our site or App and enjoy",
+        "estimates": { "dealc": 0.539 },
+        "words": [
+            {
+                "text": "Through",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "5/10/2021",
+                "estimates": {
+                    "voucherc": 0.0015045106410980225,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "buy",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "from",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "our",
+                "estimates": {
+                    "voucherc": 0.002030491828918457,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "site",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "App",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "enjoy",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            }
+        ]
+    },
+    {
+        "text": "20% OFF the entire Beauty selection using promo code",
+        "estimates": { "dealc": 1.0 },
+        "words": [
+            {
+                "text": "20%",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0003882348537445069
+                }
+            },
+            {
+                "text": "OFF",
+                "estimates": {
+                    "voucherc": 0.30195102095603943,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "entire",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Beauty",
+                "estimates": {
+                    "voucherc": 0.014664024114608765,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "selection",
+                "estimates": {
+                    "voucherc": 0.005423516035079956,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "using",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.0
+                }
+            },
+            {
+                "text": "promo",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.85
+                }
+            },
+            {
+                "text": "code",
+                "estimates": {
+                    "common_phrases": 0.0,
+                    "voucherc": 0.02872207760810852
+                }
+            }
+        ]
+    },
+    {
+        "text": "MOTHERS21. Enter code in cart or simply click on the link below.",
+        "estimates": { "dealc": 0.189 },
+        "words": [
+            {
+                "text": "MOTHERS21",
+                "estimates": {
+                    "voucherc": 0.9994736313819884,
+                    "common_phrases": 1.0
+                }
+            },
+            {
+                "text": "Enter",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.0
+                }
+            },
+            {
+                "text": "code",
+                "estimates": {
+                    "common_phrases": 0.0,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "cart",
+                "estimates": {
+                    "common_phrases": 1.0,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "simply",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.9061261981781177
+                }
+            },
+            {
+                "text": "click",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.8596115466624322
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "common_phrases": 0.8298769776932235,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "link",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.8085169313600048
+                }
+            },
+            {
+                "text": "below",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.7920953405339328
+                }
+            }
+        ]
+    },
+    {
+        "text": "https://www.iherb.com/c/Beauty?pcode=MOTHERS21& rcode=BUY123",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "rcode=BUY123",
+                "estimates": {
+                    "common_phrases": 0.778894912651623,
+                    "voucherc": 0.9860721826553344
+                }
+            }
+        ]
+    },
+    {
+        "text": "iHerb's Beauty selection has nearly 5,000 products. Indulge her",
+        "estimates": { "dealc": 0.001 },
+        "words": [
+            {
+                "text": "iHerb's",
+                "estimates": {
+                    "voucherc": 0.0144919753074646,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Beauty",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014664024114608765
+                }
+            },
+            {
+                "text": "selection",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            },
+            {
+                "text": "has",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "nearly",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "5,000",
+                "estimates": {
+                    "voucherc": 0.006337106227874756,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "products",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007867097854614258
+                }
+            },
+            {
+                "text": "Indulge",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "her",
+                "estimates": {
+                    "voucherc": 0.002030491828918457,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "with her favorites! K-Beauty",
+        "estimates": { "dealc": 0.029 },
+        "words": [
+            {
+                "text": "with",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "her",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "favorites",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            },
+            {
+                "text": "K-Beauty",
+                "estimates": {
+                    "voucherc": 0.020167052745819092,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Moisturizers & Creams",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "Moisturizers",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.006379276514053345
+                }
+            },
+            {
+                "text": "Creams",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014664024114608765
+                }
+            }
+        ]
+    },
+    {
+        "text": "• Cleansers & Toners",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "•",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 2.728978927279968e-7
+                }
+            },
+            {
+                "text": "Cleansers",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005517333745956421
+                }
+            },
+            {
+                "text": "Toners",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014664024114608765
+                }
+            }
+        ]
+    },
+    {
+        "text": "Exfoliators & Scrubs",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "Exfoliators",
+                "estimates": {
+                    "voucherc": 0.00402987003326416,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Scrubs",
+                "estimates": {
+                    "voucherc": 0.014664024114608765,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Makeup and tools and a lot more! Sincerely,",
+        "estimates": { "dealc": 0.07980537673278727 },
+        "words": [
+            {
+                "text": "Makeup",
+                "estimates": {
+                    "voucherc": 0.014664024114608765,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "tools",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "lot",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "more",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Sincerely",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005517333745956421
+                }
+            }
+        ]
+    },
+    {
+        "text": "The iHerb Team",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "The",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "iHerb",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.4332393705844879
+                }
+            },
+            {
+                "text": "Team",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            }
+        ]
+    },
+    {
+        "text": "Please note: Offer valid for select countries only. One-time use only.",
+        "estimates": { "dealc": 0.4167751969150956 },
+        "words": [
+            {
+                "text": "Please",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014664024114608765
+                }
+            },
+            {
+                "text": "note",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "Offer",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "valid",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "for",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "select",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "countries",
+                "estimates": {
+                    "voucherc": 0.005423516035079956,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "only",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "One-time",
+                "estimates": {
+                    "voucherc": 0.01697099208831787,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "use",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "only",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            }
+        ]
+    },
+    {
+        "text": "Exclusions apply. Can't be combined with other offers. Offer ends",
+        "estimates": { "dealc": 0.4511015437597235 },
+        "words": [
+            {
+                "text": "Exclusions",
+                "estimates": {
+                    "voucherc": 0.004759550094604492,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "apply",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.019675999879837036
+                }
+            },
+            {
+                "text": "Can't",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.008493542671203613
+                }
+            },
+            {
+                "text": "combined",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007867097854614258
+                }
+            },
+            {
+                "text": "with",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "other",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "offers",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "Offer",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "ends",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "5/10/2021 at 10:00 AM PT",
+        "estimates": { "dealc": 0.239 },
+        "words": [
+            {
+                "text": "5/10/2021",
+                "estimates": {
+                    "voucherc": 0.0015045106410980225,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "10:00",
+                "estimates": {
+                    "voucherc": 0.002298325300216675,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Brand exclusions: BioSil by Natural Factors, Bluebonnet Nutrition, Carlson Labs,",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "Brand",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "exclusions",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.004476308822631836
+                }
+            },
+            {
+                "text": "BioSil",
+                "estimates": {
+                    "voucherc": 0.053477942943573,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Natural",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.010602414608001707
+                }
+            },
+            {
+                "text": "Factors",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Bluebonnet",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.004759609699249268
+                }
+            },
+            {
+                "text": "Nutrition",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005517333745956421
+                }
+            },
+            {
+                "text": "Carlson",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.010602414608001707
+                }
+            },
+            {
+                "text": "Labs",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "DaVinci Laboratories of Vermont, Dr. Mercola, Earth Mama, Fungi Perfecti, Goli",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "DaVinci",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.06372228264808655
+                }
+            },
+            {
+                "text": "Laboratories",
+                "estimates": {
+                    "voucherc": 0.006379276514053345,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Vermont",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Mercola",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Earth",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Mama",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "Fungi",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Perfecti",
+                "estimates": {
+                    "voucherc": 0.007294446229934692,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Goli",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Nutrition, Great Lakes Gelatin Co., Heather's Tummy Care, Little DaVinci,",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "Nutrition",
+                "estimates": {
+                    "voucherc": 0.005517333745956421,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Great",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "Lakes",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Gelatin",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.010602414608001707
+                }
+            },
+            {
+                "text": "Heather's",
+                "estimates": {
+                    "voucherc": 0.00045946240425109863,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Tummy",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.017828315496444702
+                }
+            },
+            {
+                "text": "Care",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Little",
+                "estimates": {
+                    "voucherc": 0.014664024114608765,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "DaVinci",
+                "estimates": {
+                    "voucherc": 0.06372228264808655,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Metabolic Maintenance, Motherlove, NeuroScience, Nordic Naturals, Pixi",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "Metabolic",
+                "estimates": {
+                    "voucherc": 0.005517333745956421,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Maintenance",
+                "estimates": {
+                    "voucherc": 0.00402987003326416,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Motherlove",
+                "estimates": {
+                    "voucherc": 0.07235494256019592,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "NeuroScience",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.008390635251998901
+                }
+            },
+            {
+                "text": "Nordic",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014664024114608765
+                }
+            },
+            {
+                "text": "Naturals",
+                "estimates": {
+                    "voucherc": 0.007294446229934692,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Pixi",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.04113548994064331
+                }
+            }
+        ]
+    },
+    {
+        "text": "Beauty, Solgar, Terry Naturally, Thayers, Thorne Research, Zhou Nutrition",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "Beauty",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014664024114608765
+                }
+            },
+            {
+                "text": "Solgar",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.05420166254043579
+                }
+            },
+            {
+                "text": "Terry",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Naturally",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005517333745956421
+                }
+            },
+            {
+                "text": "Thayers",
+                "estimates": {
+                    "voucherc": 0.05732092261314392,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Thorne",
+                "estimates": {
+                    "voucherc": 0.014664024114608765,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Research",
+                "estimates": {
+                    "voucherc": 0.007294446229934692,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Zhou",
+                "estimates": {
+                    "voucherc": 0.04113548994064331,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Nutrition",
+                "estimates": {
+                    "voucherc": 0.005517333745956421,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "To keep receiving emails from us, please add",
+        "estimates": { "dealc": 0.568 },
+        "words": [
+            {
+                "text": "keep",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "receiving",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005423516035079956
+                }
+            },
+            {
+                "text": "emails",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.012203812599182127
+                }
+            },
+            {
+                "text": "from",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "please",
+                "estimates": {
+                    "voucherc": 0.012203812599182127,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "add",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "promos@mail.iherb.com to your address book.",
+        "estimates": { "dealc": 0.255 },
+        "words": [
+            {
+                "text": "promos@mail.iherb.com",
+                "estimates": {
+                    "voucherc": 0.00022366642951965332,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "your",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "address",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01134440302848816
+                }
+            },
+            {
+                "text": "book",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Download on the",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "Download",
+                "estimates": {
+                    "voucherc": 0.00729447603225708,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Download on App Store",
+        "estimates": { "dealc": 0.628 },
+        "words": [
+            {
+                "text": "Download",
+                "estimates": {
+                    "voucherc": 0.007294446229934692,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "App",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Store",
+                "estimates": {
+                    "voucherc": 0.017828315496444702,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "> Google play iHerb",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "Google",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014664024114608765
+                }
+            },
+            {
+                "text": "play",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "iHerb",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.4332393705844879
+                }
+            }
+        ]
+    },
+    {
+        "text": "© iHerb Inc.",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "iHerb",
+                "estimates": {
+                    "voucherc": 0.4332393705844879,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Inc",
+                "estimates": {
+                    "voucherc": 0.0006843507289886475,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "22780 Harley Knox Blvd, Perris, CA 92750 USA",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "22780",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.7193674445152283
+                }
+            },
+            {
+                "text": "Harley",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014664024114608765
+                }
+            },
+            {
+                "text": "Knox",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Blvd",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "Perris",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.014664024114608765
+                }
+            },
+            {
+                "text": "92750",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.7193674445152283
+                }
+            },
+            {
+                "text": "USA",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.30195102095603943
+                }
+            }
+        ]
+    },
+    {
+        "text": "Unsubscribe | Blog | Contact | Privacy",
+        "estimates": { "dealc": 0.033474625042377644 },
+        "words": [
+            {
+                "text": "Unsubscribe",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.00402987003326416
+                }
+            },
+            {
+                "text": "Blog",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Contact",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Privacy",
+                "estimates": {
+                    "voucherc": 0.010602414608001707,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Disclaimer: Statements made, or products sold through iHerb.com, have",
+        "estimates": { "dealc": 0.004244714825222768 },
+        "words": [
+            {
+                "text": "Disclaimer",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.004759609699249268
+                }
+            },
+            {
+                "text": "Statements",
+                "estimates": {
+                    "voucherc": 0.004759609699249268,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "made",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "products",
+                "estimates": {
+                    "voucherc": 0.007867097854614258,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "sold",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "through",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "iHerb.com",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007149726152420044
+                }
+            },
+            {
+                "text": "have",
+                "estimates": {
+                    "voucherc": 0.02872207760810852,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "not been evaluated by the Food and Drug Administration. They are not",
+        "estimates": { "dealc": 0.001 },
+        "words": [
+            {
+                "text": "not",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "been",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "evaluated",
+                "estimates": {
+                    "voucherc": 0.005423516035079956,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "the",
+                "estimates": {
+                    "voucherc": 0.002030491828918457,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Food",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.01020154356956482
+                }
+            },
+            {
+                "text": "and",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Drug",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "Administration",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.005194813013076782
+                }
+            },
+            {
+                "text": "They",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "are",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.0020304322242736816
+                }
+            },
+            {
+                "text": "not",
+                "estimates": {
+                    "voucherc": 0.0020304322242736816,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "intended to diagnose, treat, cure, or prevent disease.",
+        "estimates": { "dealc": 0.06025006322133879 },
+        "words": [
+            {
+                "text": "intended",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007867097854614258
+                }
+            },
+            {
+                "text": "diagnose",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.007867097854614258
+                }
+            },
+            {
+                "text": "treat",
+                "estimates": {
+                    "voucherc": 0.019675999879837036,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "cure",
+                "estimates": {
+                    "common_phrases": 0.25,
+                    "voucherc": 0.02872207760810852
+                }
+            },
+            {
+                "text": "prevent",
+                "estimates": {
+                    "voucherc": 0.01134440302848816,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "disease",
+                "estimates": {
+                    "voucherc": 0.011344432830810549,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    },
+    {
+        "text": "Read More",
+        "estimates": { "dealc": 0.0 },
+        "words": [
+            {
+                "text": "Read",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            },
+            {
+                "text": "More",
+                "estimates": {
+                    "voucherc": 0.01020154356956482,
+                    "common_phrases": 0.25
+                }
+            }
+        ]
+    }
+]

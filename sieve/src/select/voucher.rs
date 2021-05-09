@@ -29,12 +29,16 @@ pub fn find_in(phrases: &[Phrase]) -> Vec<Voucher> {
                     let e_v = *w.estimates.get(&Source::Voucherc)?; // always there
                     let w_v = 0.8;
 
+                    let e_o = w.estimates.get(&Source::OpenAi).copied();
+                    let w_o = if e_o.is_some() { 0.6 } else { 0.0 };
+                    let e_o = e_o.unwrap_or(0.0);
+
                     let e_c = w.estimates.get(&Source::CommonPhrases).copied();
                     let w_c = if e_c.is_some() { 1.0 } else { 0.0 };
                     let e_c = e_c.unwrap_or(0.0);
 
-                    let e =
-                        (e_d * w_d + e_v * w_v + e_c * w_c) / (w_d + w_v + w_c);
+                    let e = (e_d * w_d + e_v * w_v + e_c * w_c + e_o * w_o)
+                        / (w_d + w_v + w_c + w_o);
 
                     if e > VOUCHER_SELECT_THRESHOLD {
                         Some(Voucher::new(

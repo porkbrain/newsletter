@@ -1,5 +1,5 @@
 mod common_phrases;
-//mod openai;
+mod openai;
 
 use crate::prelude::*;
 use shared::http;
@@ -23,17 +23,14 @@ pub async fn deals_and_vouchers(
     let common_phrases_estimates =
         common_phrases::word_estimates(document.words().as_slice());
     if let Some(estimates) = common_phrases_estimates {
+        let estimates = estimates.into_iter().map(Some).collect();
         apply_words_estimates(&mut document, Source::CommonPhrases, estimates)?;
     }
 
     // send some promising phrases to openai to check them out
-    /*
     let openai_estimates =
-        openai::word_estimates(conf, http_client, document.inner()).await?;
-    if let Some(estimates) = openai_estimates {
-        document.apply_words_estimates(Source::OpenAi, estimates)?;
-    }
-    */
+        openai::word_estimates(conf, http_client, document.phrases()).await;
+    apply_words_estimates(&mut document, Source::OpenAi, openai_estimates)?;
 
     Ok(document)
 }
@@ -45,24 +42,26 @@ async fn apply_dealc_and_voucherc_estimates(
 ) -> Result<(), Error> {
     // fetch estimates for how likely each phrase is a deal
     // TODO: can be made concurrent with next step
-    let dealc_estimates: Vec<f64> = {
+    let dealc_estimates: Vec<_> = {
         let phrases_json = serde_json::to_value(&document.phrases_str())?;
         let dealc_res_body = http_client
             .post_json(&conf.dealc_url, &phrases_json)
             .await?;
 
-        serde_json::from_slice(&dealc_res_body)?
+        let estimates: Vec<f64> = serde_json::from_slice(&dealc_res_body)?;
+        estimates.into_iter().map(Some).collect()
     };
     apply_phrases_estimates(document, Source::Dealc, dealc_estimates)?;
 
     // fetch estimates for how likely each word is a voucher
-    let voucherc_estimates: Vec<f64> = {
+    let voucherc_estimates: Vec<_> = {
         let words_json = serde_json::to_value(document.words_str())?;
         let voucherc_res_body = http_client
             .post_json(&conf.voucherc_url, &words_json)
             .await?;
 
-        serde_json::from_slice(&voucherc_res_body)?
+        let estimates: Vec<f64> = serde_json::from_slice(&voucherc_res_body)?;
+        estimates.into_iter().map(Some).collect()
     };
     apply_words_estimates(document, Source::Voucherc, voucherc_estimates)?;
 
@@ -72,7 +71,7 @@ async fn apply_dealc_and_voucherc_estimates(
 pub fn apply_phrases_estimates(
     document: &mut Document,
     source: Source,
-    estimates: Vec<f64>,
+    estimates: Vec<Option<f64>>,
 ) -> Result<(), Error> {
     let phrases = document.phrases_mut();
     if phrases.len() != estimates.len() {
@@ -84,7 +83,9 @@ pub fn apply_phrases_estimates(
     }
 
     for (phrase, estimate) in phrases.into_iter().zip(estimates.into_iter()) {
-        phrase.estimates.insert(source, estimate);
+        if let Some(estimate) = estimate {
+            phrase.estimates.insert(source, estimate);
+        }
     }
 
     Ok(())
@@ -93,7 +94,7 @@ pub fn apply_phrases_estimates(
 pub fn apply_words_estimates(
     document: &mut Document,
     source: Source,
-    estimates: Vec<f64>,
+    estimates: Vec<Option<f64>>,
 ) -> Result<(), Error> {
     let words = document.words_mut();
     if words.len() != estimates.len() {
@@ -105,7 +106,9 @@ pub fn apply_words_estimates(
     }
 
     for (w, estimate) in words.into_iter().zip(estimates.into_iter()) {
-        w.estimates.insert(source, estimate);
+    if let Some(estimate) = estimate {
+            w.estimates.insert(source, estimate);
+        }
     }
 
     Ok(())
@@ -190,13 +193,13 @@ mod tests {
         apply_phrases_estimates(
             &mut document,
             Source::Dealc,
-            vec![0.8, 0.0, 0.7, 0.0],
+            vec![Some(0.8), Some(0.0), Some(0.7), Some(0.0)],
         )
         .unwrap();
         apply_words_estimates(
             &mut document,
             Source::OpenAi,
-            (0..9).map(|_| 0.5).collect(),
+            vec![Some(0.5); 9]
         )
         .unwrap();
 
