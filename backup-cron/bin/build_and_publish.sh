@@ -10,4 +10,3 @@ readonly tag="porkbrain/s3-sqlite-backup"
 
 docker build -t "${tag}" .
 docker push "${tag}"
-

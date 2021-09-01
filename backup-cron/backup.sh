@@ -26,4 +26,3 @@ sqlite3 "${DATABASE_PATH}" ".backup ${backup_path}"
 
 echo "Copying backup to bucket ${BUCKET_NAME}..."
 aws s3 cp "${backup_path}" "s3://${BUCKET_NAME}/${object_path}"
-

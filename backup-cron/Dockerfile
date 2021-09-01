@@ -9,4 +9,3 @@ RUN mkdir /var/local/backups
 
 CMD /usr/local/bin/backup.sh
 ENTRYPOINT ["/usr/local/bin/backup.sh"]
-
