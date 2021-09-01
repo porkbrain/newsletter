@@ -65,7 +65,12 @@ impl Ocr for Vision {
         let annotation = data
             .responses
             .and_then(|mut r| r.pop()) // we only request one image
-            .and_then(|r| r.full_text_annotation)
+            .and_then(|r| {
+                if let Some(error) = r.error {
+                    log::error!("Got error from OCR APIs: {:#?}", error);
+                }
+                r.full_text_annotation
+            })
             .ok_or_else(|| {
                 Error::new("Empty response was returned from OCR")
             })?;
@@ -86,13 +91,13 @@ mod tests {
     /// ```
     #[ignore]
     #[tokio::test]
-    async fn it_uses_gpc_ocr() {
+    async fn it_uses_gcp_ocr() {
         let gcp_secret = env::var("TEST_GCP_SECRET").unwrap();
         let vision = new(&gcp_secret).await.unwrap();
         let image_url =
-        "https://upload.wikimedia.org/wikipedia/commons/d/d9/Plain_text.png".to_string();
+        "https://upload.wikimedia.org/wikipedia/commons/d/d9/Plain_text.png";
 
-        let annotation = vision.annotate(image_url).await.unwrap();
+        let annotation = vision.annotate(image_url.to_string()).await.unwrap();
         let _json = serde_json::to_string(&annotation).unwrap();
     }
 }
