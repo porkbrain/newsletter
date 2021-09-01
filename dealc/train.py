@@ -33,7 +33,7 @@ understand correctly, the MAE is a better metric since the output is in interval
 [0; 1]. However, when I tried to set this as a criterion for the regressor, it
 got stuck (perhaps a bug in the library?).
 
-Promt is displayed to the user to confirm saving of the model.
+Prompt is displayed to the user to confirm saving of the model to fs.
 """
 
 vectorizer = CountVectorizer(max_features=1500, min_df=0.005, max_df=0.8)
