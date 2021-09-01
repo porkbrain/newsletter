@@ -106,7 +106,7 @@ pub fn apply_words_estimates(
     }
 
     for (w, estimate) in words.into_iter().zip(estimates.into_iter()) {
-    if let Some(estimate) = estimate {
+        if let Some(estimate) = estimate {
             w.estimates.insert(source, estimate);
         }
     }
@@ -199,7 +199,7 @@ mod tests {
         apply_words_estimates(
             &mut document,
             Source::OpenAi,
-            vec![Some(0.5); 9]
+            vec![Some(0.5); 9],
         )
         .unwrap();
 
