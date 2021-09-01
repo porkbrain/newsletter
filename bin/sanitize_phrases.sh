@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#
+# Clears useless characters, sorts the phrases and deduplicates them.
+#
+
+
 set -e
 
 file="${1}"
@@ -18,7 +23,7 @@ fi
 if [ "${lang}" != "en" ]; then
     echo "Only English is supported"
     exit 1
-fi      
+fi
 
 # Strips non ascii or invisible characters
 # (https://stackoverflow.com/a/20890052/5093093)
@@ -29,10 +34,9 @@ LANG=C sed -i 's/[^\d32-\d126]/ /g' "${file}"
 sed -i -r 's/<link>/ /g' "${file}"
 sed -i -r 's/<\/link>/ /g' "${file}"
 
-# strip extra white spaces and quotes which start or end line
+# strip extra white spaces and quotes
 sed -i -r 's/\s+/ /g' "${file}"
-sed -i -r 's/"$//g' "${file}"
-sed -i -r 's/^"//g' "${file}"
+sed -i -r 's/"//g' "${file}"
 sed -i -r 's/^\s+//g' "${file}"
 sed -i -r 's/\s+$//g' "${file}"
 
