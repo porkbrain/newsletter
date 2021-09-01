@@ -5,7 +5,6 @@ members = [
     "ocr",
     "shared",
     "predictor",
-    "sieve",
-    "humaninloop",
+    "sieve"
 ]
 
