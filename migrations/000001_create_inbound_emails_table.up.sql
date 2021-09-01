@@ -10,4 +10,3 @@ CREATE TABLE IF NOT EXISTS inbound_emails (
     -- https://stackoverflow.com/a/26127039/5093093
     created_at INTEGER(4) NOT NULL DEFAULT (strftime('%s','now'))
 );
-

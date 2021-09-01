@@ -11,4 +11,3 @@ CREATE TABLE IF NOT EXISTS offers (
 
 -- TODO: not idempotent
 ALTER TABLE inbound_emails ADD COLUMN state TEXT DEFAULT 'new';
-
