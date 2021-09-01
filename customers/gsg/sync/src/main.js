@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config();
 
 const sqlite3 = require("sqlite3");
 const { open, Database } = require("sqlite");
@@ -54,7 +54,7 @@ if (!sheetId) {
  * }>>}
  */
 async function selectNewGsgEmails(conn) {
-  const sql = `SELECT s3_key, subject, sender_name, received_at FROM inbound_emails WHERE recipient_address = '${receiver}' AND state != 'synced'`;
+  const sql = `SELECT s3_key, subject, sender_name, received_at FROM inbound_emails WHERE recipient_address = '${receiver}' AND state = 'processed'`;
   const ids = [];
   await conn.each(sql, (err, row) => {
     if (err) {
@@ -66,7 +66,7 @@ async function selectNewGsgEmails(conn) {
       id: row.s3_key,
       subject: row.subject,
       senderName: row.sender_name,
-      receivedAt: new Date(parseInt(row.received_at) * 1000)
+      receivedAt: new Date(parseInt(row.received_at) * 1000),
     });
   });
 
@@ -176,7 +176,7 @@ async function main() {
           const offers = await selectOffersForEmail(conn, email.id);
 
           if (!offers.length) {
-            console.log(`Email ${email.id} doesn't have any offers`)
+            console.log(`Email ${email.id} doesn't have any offers`);
             return null;
           }
 
