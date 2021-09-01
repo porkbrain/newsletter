@@ -1,6 +1,6 @@
 [package]
 name = "sieve"
-version = "0.5.0"
+version = "0.5.3"
 authors = ["Michael <michael@porkbrain.com>"]
 edition = "2018"
 

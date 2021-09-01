@@ -51,11 +51,16 @@ pub fn insert(
         binding_index += 4;
     }
 
-    loop {
-        if matches!(statement.next()?, sqlite::State::Done) {
-            break;
-        }
+    while !matches!(statement.next()?, sqlite::State::Done) {
+        //
     }
+
+    // this is a signal to syncing logic that the deals and vouchers associated
+    // with this email can be send to customers APIs
+    conn.execute(format!(
+        "UPDATE inbound_emails SET state = 'processed' WHERE s3_key = '{}'",
+        newsletter_id
+    ))?;
 
     Ok(())
 }
@@ -66,6 +71,7 @@ mod tests {
 
     #[test]
     fn it_inserts() {
+        let newsletter_id = "test";
         let deals = vec![
             Deal::new(0, "deal1".to_string(), 0.9677482825634689),
             Deal::new(0, "deal2".to_string(), 0.964979770972405),
@@ -87,8 +93,10 @@ mod tests {
         vouchers[1].link = Some("hello".to_string());
 
         let conn = open_in_memory_conn();
+        conn.execute(format!("INSERT INTO inbound_emails(s3_key, recipient_address, sender_address, received_at) VALUES ('{}', 'none', 'none', 1)", newsletter_id)).unwrap();
 
-        insert(&conn, "test", deals, vouchers).expect("Cannot insert offers");
+        insert(&conn, newsletter_id, deals, vouchers)
+            .expect("Cannot insert offers");
 
         let mut rows = vec![];
         conn.iterate("SELECT * FROM offers", |columns| {
@@ -140,6 +148,13 @@ mod tests {
                 "voucher2".to_string()
             ]
         );
+
+        conn.iterate("SELECT * FROM inbound_emails", |columns| {
+            assert_eq!(columns[0], ("s3_key", Some("test")));
+            assert_eq!(columns[7], ("state", Some("processed")));
+            true
+        })
+        .unwrap();
     }
 
     const MIGRATION_01: &str = include_str!(
